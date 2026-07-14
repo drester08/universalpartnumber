@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UPN — Universal Part Number</title>
+  <meta name="description" content="A single, permanent identifier for an industrial part — independent of manufacturer, supplier, or catalogue.">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UPN — Universal Part Number">
+  <meta property="og:description" content="A single, permanent identifier for an industrial part — independent of manufacturer, supplier, or catalogue.">
+  <meta property="og:url" content="https://universalpartnumber.com/">
+  <meta property="og:image" content="https://universalpartnumber.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="UPN-K7M3-92QX-4">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://universalpartnumber.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#top" aria-label="UPN home">UPN</a>
+      <nav aria-label="Primary navigation">
+        <a href="#definition">Definition</a>
+        <a href="#issuance">Issuance</a>
+        <a href="#format">Format</a>
+        <a href="#registry">Registry</a>
+        <a href="#status">Status</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="masthead" id="top" aria-labelledby="site-title">
+      <div class="section-number" aria-hidden="true">UPN / 2026</div>
+      <div class="masthead-grid">
+        <div>
+          <p class="eyebrow">UPN</p>
+          <h1 id="site-title">Universal<br>Part Number</h1>
+        </div>
+        <div class="masthead-statement">
+          <p>A single, permanent identifier for an industrial part — independent of who manufactures it, who supplies it, or what they call it.</p>
+          <p class="status-label">Registry opens Q3 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="definition" aria-labelledby="definition-title">
+      <div class="section-heading">
+        <span>01</span>
+        <h2 id="definition-title">What a UPN is</h2>
+      </div>
+      <div class="content-grid">
+        <div class="prose lead">
+          <p>A UPN identifies an <strong>item of supply</strong>: a physical thing, defined by its specification.</p>
+          <p>It does not belong to a manufacturer. It does not encode a brand. It does not change when a catalogue is revised, a price moves, or a supplier is replaced.</p>
+          <p>One item. One number. Permanently.</p>
+        </div>
+        <figure class="specimen" aria-label="Example Universal Part Number record">
+          <div class="specimen-code">UPN-K7M3-92QX-4</div>
+          <figcaption>
+            <strong>Spiral wound gasket</strong>
+            <dl>
+              <dt>Nominal size</dt><dd>2 in (DN50)</dd>
+              <dt>Pressure class</dt><dd>Class 150</dd>
+              <dt>Material</dt><dd>S316L</dd>
+            </dl>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="problem" aria-labelledby="problem-title">
+      <div class="section-heading">
+        <span>02</span>
+        <h2 id="problem-title">The problem</h2>
+      </div>
+      <div class="prose measure">
+        <p>Two manufacturers make the same cable ladder.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Manufacturer</th><th scope="col">Their part number</th></tr></thead>
+          <tbody>
+            <tr><td>O-Line</td><td><code>PS75</code></td></tr>
+            <tr><td>HCL</td><td><code>HCLZ 1010 075 100 4</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose measure">
+        <p>Both codes are intelligent. Both are internally consistent. <strong>Neither can read the other.</strong></p>
+        <p>An engineer holding an O-Line specification cannot ask a second supplier for the equivalent without a person who happens to know both catalogues by memory.</p>
+        <p>This is not an edge case. It is the ordinary condition of industrial supply. Every manufacturer numbers its own products well, and no two systems interoperate. The cost is paid in wrong parts, duplicate stock, stalled maintenance, and machines standing idle waiting for something that was already on a shelf under a different name.</p>
+        <p>Books solved this. Retail solved this. Vehicles solved this. Defence solved this in 1949.</p>
+        <p class="conclusion"><strong>Industrial supply never did.</strong></p>
+      </div>
+    </section>
+
+    <section id="issuance" aria-labelledby="issuance-title">
+      <div class="section-heading">
+        <span>03</span>
+        <h2 id="issuance-title">How a UPN is issued</h2>
+      </div>
+      <div class="prose measure">
+        <p class="lead"><strong>Nobody types a UPN. The registry issues it.</strong></p>
+        <p>You describe the part — category, dimensions, material, rating. The registry normalises those attributes against a canonical vocabulary, fingerprints them, and:</p>
+        <ul>
+          <li>If the fingerprint is <strong>new</strong>, a UPN is minted.</li>
+          <li>If the fingerprint <strong>already exists</strong>, the existing UPN is returned.</li>
+        </ul>
+        <p>Two people, on two continents, describing the same part, receive <strong>the same number</strong> — automatically.</p>
+        <p>Duplicates are not cleaned up afterwards. <strong>They cannot be created.</strong></p>
+        <p><strong>The canonical vocabulary resolves the ways an industry says the same thing:</strong></p>
+      </div>
+      <div class="normalisation" aria-label="Canonical vocabulary examples">
+        <div><code>1/2&quot;&nbsp; · &nbsp;0.5&quot;&nbsp; · &nbsp;DN15&nbsp; · &nbsp;15NB</code><span aria-hidden="true">→</span><strong>one size</strong></div>
+        <div><code>S316L&nbsp; · &nbsp;316L&nbsp; · &nbsp;SS316L&nbsp; · &nbsp;1.4404</code><span aria-hidden="true">→</span><strong>one material</strong></div>
+        <div><code>Class 150&nbsp; · &nbsp;150#&nbsp; · &nbsp;PN20</code><span aria-hidden="true">→</span><strong>one pressure rating</strong></div>
+      </div>
+    </section>
+
+    <section id="format" aria-labelledby="format-title">
+      <div class="section-heading">
+        <span>04</span>
+        <h2 id="format-title">The format</h2>
+      </div>
+      <div class="format-diagram" role="img" aria-label="UPN-K7M3-92QX-4: K7M3-92QX is the identifier and 4 is the check digit">
+        <code>UPN-K7M3-92QX-4</code>
+        <div class="diagram-labels" aria-hidden="true"><span>identifier</span><span>check digit</span></div>
+      </div>
+      <div class="prose measure">
+        <p><strong>The identifier carries no meaning.</strong> This is deliberate, and it is the most important decision in the specification.</p>
+        <p>An identifier that encodes its own specification cannot survive the discovery of a new attribute. The moment an unforeseen dimension matters, the format breaks and every number must be re-issued — orphaning every purchase order, work order, and material certificate ever raised against it. History is destroyed.</p>
+        <p><strong>The number is permanent. The description beside it is versioned and correctable.</strong></p>
+        <p><strong>Field-readable by design:</strong></p>
+        <ul>
+          <li><strong>No ambiguous characters.</strong> <code>O</code>/<code>0</code>, <code>I</code>/<code>1</code>, <code>S</code>/<code>5</code> and <code>B</code>/<code>8</code> are excluded from the alphabet.</li>
+          <li><strong>Check digit.</strong> A single transcription error is rejected immediately — before it becomes the wrong gasket in a pressure line.</li>
+          <li><strong>Short enough to read aloud</strong> over a radio, in a pit, beside a running engine.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="not" aria-labelledby="not-title">
+      <div class="section-heading">
+        <span>05</span>
+        <h2 id="not-title">What a UPN is not</h2>
+      </div>
+      <div class="ruled-statements">
+        <p><strong>A UPN is not a manufacturer's part number.</strong> It sits above them. Every manufacturer's part number can be registered as an alias that resolves to a UPN.</p>
+        <p><strong>A UPN is not a claim of interchangeability.</strong> Two parts sharing a UPN are the same <em>item of supply</em>. Whether one may be substituted for another in a given application is an engineering decision, recorded against evidence, at a stated level of trust. The registry never makes that decision on anyone's behalf.</p>
+        <p><strong>A UPN is not a price.</strong> Price, lead time and availability belong to a supplier, not to a part.</p>
+      </div>
+    </section>
+
+    <section id="registry" aria-labelledby="registry-title">
+      <div class="section-heading">
+        <span>06</span>
+        <h2 id="registry-title">Registry lookup</h2>
+      </div>
+      <div class="lookup">
+        <h3>Look up a UPN</h3>
+        <p>The public registry lookup opens in Q3 2026. It will be free, permanent, and require no account.</p>
+        <form aria-label="UPN lookup unavailable until Q3 2026">
+          <label class="sr-only" for="upn">Universal Part Number</label>
+          <input id="upn" type="text" placeholder="UPN-K7M3-92QX-4" disabled>
+          <button type="submit" disabled>Look up</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="operators" aria-labelledby="operators-title">
+      <div class="section-heading">
+        <span>07</span>
+        <h2 id="operators-title">For operators</h2>
+      </div>
+      <p class="annotation">Mines, plants, fleets, workshops, kitchens — anyone who holds stock and buys parts.</p>
+      <div class="prose measure">
+        <p>A UPN gives you:</p>
+        <ul>
+          <li><strong>One item, one number</strong> — regardless of which supplier you bought it from, or what they called it on the invoice.</li>
+          <li><strong>A search that returns everything</strong> — every manufacturer who makes it, every supplier who sells it, every price, every lead time.</li>
+          <li><strong>No duplicate stock</strong> — because the same specification cannot produce two records.</li>
+          <li><strong>The right part, the first time</strong> — because the number is issued from the specification, not typed by a person under time pressure.</li>
+        </ul>
+        <p>You do not need a single manufacturer to participate for this to work. <strong>Load your own catalogue and it works on day one.</strong></p>
+      </div>
+    </section>
+
+    <section id="manufacturers" aria-labelledby="manufacturers-title">
+      <div class="section-heading">
+        <span>08</span>
+        <h2 id="manufacturers-title">For manufacturers</h2>
+      </div>
+      <div class="prose measure">
+        <p>Your parts will appear in the registry whether you participate or not. They will be described from published catalogue data, and mapped to the items of supply they represent.</p>
+        <p class="lead"><strong>We would rather you controlled that.</strong></p>
+        <p>Registering with the registry lets you:</p>
+        <ul>
+          <li><strong>Verify your own mappings</strong> — confirm which item of supply each of your part numbers represents, at the highest tier of trust.</li>
+          <li><strong>Correct the record</strong> — with provenance, permanently, against your own name.</li>
+          <li><strong>Be visible where the order is placed</strong> — operators search the item; your part, your price, your lead time appear against it.</li>
+          <li><strong>See demand</strong> — how many operators are searching for, and running low on, the items you make.</li>
+        </ul>
+        <p>There is no fee to verify your own catalogue.</p>
+      </div>
+    </section>
+
+    <section id="trust" aria-labelledby="trust-title">
+      <div class="section-heading">
+        <span>09</span>
+        <h2 id="trust-title">Trust tiers</h2>
+      </div>
+      <div class="prose measure"><p>Every equivalence between two parts carries a tier. Nothing is ever asserted anonymously.</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Tier</th><th scope="col">Basis</th><th scope="col">May a system act on it automatically?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Manufacturer-verified</strong></td><td>The manufacturer has confirmed the mapping</td><td>Yes</td></tr>
+            <tr><td><strong>Engineer-signed</strong></td><td>A named, qualified engineer has signed it, on record</td><td>Yes</td></tr>
+            <tr><td><strong>Registry-inferred</strong></td><td>The specifications match</td><td><strong>No.</strong> Presented as a possible alternative. Requires sign-off.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose measure">
+        <p class="conclusion"><strong>A part in a pressure line is not a guess.</strong></p>
+        <p>Every attribute in the registry carries its provenance: who recorded it, when, and from what source — <em>"O-Line catalogue, 2011, page 36."</em> Corrections are recorded as new versions. <strong>Nothing is ever silently overwritten.</strong></p>
+      </div>
+    </section>
+
+    <section id="precedent" aria-labelledby="precedent-title">
+      <div class="section-heading">
+        <span>10</span>
+        <h2 id="precedent-title">Precedent</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Standard</th><th scope="col">Domain</th><th scope="col">Since</th></tr></thead>
+          <tbody>
+            <tr><td>ISBN</td><td>Books</td><td>1970</td></tr>
+            <tr><td>VIN</td><td>Vehicles</td><td>1981</td></tr>
+            <tr><td>GTIN / barcode</td><td>Retail</td><td>1974</td></tr>
+            <tr><td>NSN</td><td>Defence supply</td><td>1949</td></tr>
+            <tr class="highlight"><td><strong>UPN</strong></td><td><strong>Industrial supply</strong></td><td><strong>2026</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose measure">
+        <p>The NATO Stock Number is the closest ancestor. It identifies an <em>item of supply</em>, not a manufacturer's product. Many part numbers map to one NSN. A quartermaster orders the NSN, and whichever approved supplier can furnish it, does.</p>
+        <p class="conclusion"><strong>Industrial supply is the last major domain without one.</strong></p>
+      </div>
+    </section>
+
+    <section id="status" aria-labelledby="status-title">
+      <div class="section-heading">
+        <span>11</span>
+        <h2 id="status-title">Status &amp; timeline</h2>
+      </div>
+      <div class="status-block">
+        <p class="lead"><strong>The UPN registry opens in Q3 2026.</strong></p>
+        <p>The specification is complete. The canonical vocabulary is under construction, beginning with piping, gaskets, structural steel, and plate.</p>
+        <p>We are working with operators and manufacturers to seed the first categories.</p>
+        <p class="no-issued"><strong>No UPNs have been issued yet.</strong></p>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <span>12</span>
+        <h2 id="contact-title">Contact</h2>
+      </div>
+      <address>
+        <p><strong>Operators</strong> — to register a catalogue: <a href="mailto:operators@universalpartnumber.com">operators@universalpartnumber.com</a></p>
+        <p><strong>Manufacturers</strong> — to verify your part numbers: <a href="mailto:manufacturers@universalpartnumber.com">manufacturers@universalpartnumber.com</a></p>
+        <p><strong>Technical / specification enquiries:</strong> <a href="mailto:registry@universalpartnumber.com">registry@universalpartnumber.com</a></p>
+      </address>
+    </section>
+  </main>
+
+  <footer>
+    <p>The UPN registry is operated by Filaway (WorkLinker Pty Ltd), South Africa.</p>
+    <p><span>Specification v0.1 — 2026</span> <span aria-hidden="true">·</span> <a href="/terms">Terms</a> <span aria-hidden="true">·</span> <a href="/privacy">Privacy</a></p>
+  </footer>
+</body>
+</html>
