@@ -18,3 +18,19 @@ PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-CERTIFICATIONS,conditional,set_equa
 PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-CIRCUIT-INTEGRITY,conditional,exact,17,Safety-critical declared suitability cannot be inferred.
 PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-SPLICES-INCLUDED,required,exact,18,Included hardware changes the supplied commercial item.
 PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-USABLE-CROSS-SECTION,descriptive,numeric_exact,19,Useful validation value but not a substitute for geometry.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-FASTENER-STANDARD,required,normalized_exact,1,Prevents products governed by materially different dimensional standards from being merged.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-THREAD-DIAMETER,required,normalized_exact,2,Determines mating-thread compatibility.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-THREAD-PITCH,required,normalized_exact,3,Diameter alone does not distinguish coarse fine or special metric threads.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-FASTENER-LENGTH,required,numeric_exact,4,Changes grip and engagement geometry.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-THREAD-EXTENT,required,normalized_exact,5,Distinguishes full-thread screws from partial-thread bolts.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-HEAD-FORM,required,normalized_exact,6,Determines installed envelope and bearing geometry.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-DRIVE-FORM,required,normalized_exact,7,Determines tool interface.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-WIDTH-ACROSS-FLATS,required,numeric_exact,8,Confirms the wrench interface for the exact standard variant.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-HEAD-HEIGHT,required,numeric_exact,9,Confirms head geometry.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-PROPERTY-CLASS,required,normalized_exact,10,Strength class is safety and performance critical.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-FASTENER-MATERIAL,required,normalized_exact,11,Material affects strength corrosion and installation constraints.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-FASTENER-SURFACE,required,normalized_exact,12,Surface treatment affects corrosion behavior and assembly.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-COATING-SPEC,required,normalized_exact,13,Generic zinc and an identified passivation do not prove equal corrosion performance.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-PRODUCT-CLASS,required,normalized_exact,14,Dimensional tolerance class is part of the exact product definition.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-CORROSION-PERFORMANCE,conditional,contextual,15,Compare duration and test method only when explicitly declared.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-PACK-QUANTITY,descriptive,numeric_exact,16,Commercial packs and their GTINs must not be confused with physical item identity.

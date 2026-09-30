@@ -50,6 +50,13 @@ def main() -> int:
             raise AssertionError("Generic versus specific hot-dip galvanizing was treated as a contradiction")
         if "PROP-SURFACE-PROTECTION" not in str(finish_specificity["missing_properties"]).split(";"):
             raise AssertionError("Finish specificity gap was not preserved as unresolved evidence")
+        fastener_pair = by_pair[("MP-BOSSARD-1049860", "MP-WUERTH-00578-30")]
+        if fastener_pair["result"] != "insufficient_evidence":
+            raise AssertionError("Unproven ISO 4017 fastener equivalence was not held for evidence")
+        fastener_missing = str(fastener_pair["missing_properties"]).split(";")
+        for property_id in ("PROP-THREAD-PITCH", "PROP-COATING-SPEC", "PROP-PRODUCT-CLASS"):
+            if property_id not in fastener_missing:
+                raise AssertionError(f"Fastener evidence gap was not retained: {property_id}")
 
         connection = sqlite3.connect(database)
         try:

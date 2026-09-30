@@ -12,6 +12,7 @@ This directory is the evidence and data foundation for the Universal Part Number
 - `docs/provenance-policy.md` — minimum evidence rules and trust tiers.
 - `docs/research-plan.md` — staged path from source discovery to reviewed records.
 - `docs/cable-ladder-straight-steel-profile.md` — first class-specific identity profile, evidence, hard stops, and unresolved fields.
+- `docs/iso4017-hex-fastener-profile.md` — second identity profile and a documented exact-article comparison that remains short of equivalence.
 - `scripts/validate_registry.py` — dependency-free validation for the seed data and SQLite schema.
 - `scripts/build_registry.py` — creates a fresh local SQLite database from the reviewed seed files.
 - `scripts/audit_completeness.py` — reports missing identity fields and prevents incomplete observations from being accepted.
@@ -36,9 +37,11 @@ The generated database is written to `registry/build/registry.sqlite` and is int
 
 Foundation and pilot data only. The schema, policies, ingestion checks, artifact verification, candidate screening, and fail-closed publication gates are operational. Source licensing must be resolved before bulk ingestion, and every manufacturer observation still requires independent review.
 
-The pilot contains 22 manufacturer parts: six Legrand Swifts and four each from Øglænd LOE55, Niedax KL, OBO Bettermann LCIS 60, and Atkore/Unistrut NEMA 3 20B. The Niedax profiles contain all 14 required fields, including an explicit statement that splice plates are ordered separately. The Legrand, Øglænd, and OBO profiles remain at 13 of 14 because splice inclusion is unstated. The Atkore profiles contain 10 of 14; rung profile, rung attachment, side perforation, and splice inclusion remain unknown. All records remain `unreviewed`, and no UPN has been issued.
+The pilot contains 24 manufacturer parts across two identity profiles and seven legal manufacturers. The cable-ladder profile contains 22 parts: six Legrand Swifts and four each from Øglænd LOE55, Niedax KL, OBO Bettermann LCIS 60, and Atkore/Unistrut NEMA 3 20B. The Niedax profiles contain all 14 required fields, including an explicit statement that splice plates are ordered separately. The Legrand, Øglænd, and OBO profiles remain at 13 of 14 because splice inclusion is unstated. The Atkore profiles contain 10 of 14; rung profile, rung attachment, side perforation, and splice inclusion remain unknown.
 
-Thirteen pairs pass coarse blocking. Each is reproducibly classified `hard_conflict`, including five new Atkore comparisons. Version 0.2 of the screen distinguishes an actual contradiction from compatible but unequal evidence specificity: generic `steel` versus `mild steel`, for example, is unresolved rather than falsely conflicting. Similarity scores are diagnostic only and never override an identity conflict. Missing evidence is represented as a gap, never guessed.
+The ISO 4017 profile adds exact sellable Bossard and Würth M8 × 30 articles. Würth has all 14 required fields; Bossard has 12 of 14, with thread pitch and dimensional product class unstated. Fourteen pairs now pass profile-specific coarse blocking: 13 cable-ladder pairs are `hard_conflict`, while the fastener pair is `insufficient_evidence` because coating specificity, thread pitch, and product class are not proven equal. All records remain `unreviewed`, and no UPN has been issued.
+
+The screening engine is profile-aware. Cable-ladder screen 0.2 and ISO 4017 screen 0.1 distinguish contradictions from compatible but unequal evidence specificity: generic `steel` versus `mild steel`, or generic blue zinc plating versus a specific A2K passivation, remains unresolved rather than falsely conflicting. Similarity scores are diagnostic only and never override an identity conflict. Missing evidence is represented as a gap, never guessed.
 
 ## Non-negotiable rule
 

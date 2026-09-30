@@ -13,15 +13,33 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ALGORITHM_VERSION = "cable-ladder-screen-0.2"
-BLOCKING_PROPERTIES = (
-    "PROP-FORM",
-    "PROP-NOMINAL-WIDTH",
-    "PROP-LENGTH",
-    "PROP-MATERIAL",
-    "PROP-SURFACE-PROTECTION",
-    "PROP-RUNG-SPACING",
-)
+PROFILE_RULES = {
+    "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1": {
+        "algorithm_version": "cable-ladder-screen-0.2",
+        "blocking_properties": (
+            "PROP-FORM",
+            "PROP-NOMINAL-WIDTH",
+            "PROP-LENGTH",
+            "PROP-MATERIAL",
+            "PROP-SURFACE-PROTECTION",
+            "PROP-RUNG-SPACING",
+        ),
+    },
+    "PROFILE-FASTENER-HEX-FULL-ISO4017-0.1": {
+        "algorithm_version": "iso4017-hex-screen-0.1",
+        "blocking_properties": (
+            "PROP-FASTENER-STANDARD",
+            "PROP-THREAD-DIAMETER",
+            "PROP-FASTENER-LENGTH",
+            "PROP-THREAD-EXTENT",
+            "PROP-HEAD-FORM",
+            "PROP-DRIVE-FORM",
+            "PROP-FASTENER-MATERIAL",
+            "PROP-PROPERTY-CLASS",
+            "PROP-FASTENER-SURFACE",
+        ),
+    },
+}
 FIELDS = (
     "screening_id",
     "left_part_id",
@@ -91,7 +109,9 @@ def required_properties(connection: sqlite3.Connection, profile_id: str) -> list
 
 
 def join(values: list[str]) -> str:
-    return ";".join(values)
+    # CSV ingestion intentionally converts empty fields to SQL NULL, while the
+    # screening audit columns are NOT NULL. Preserve an explicit machine value.
+    return ";".join(values) if values else "none"
 
 
 def blocking_values(property_id: str, values: set[str]) -> set[str]:
@@ -102,12 +122,23 @@ def blocking_values(property_id: str, values: set[str]) -> set[str]:
             "hot_dip_galvanized" if value.startswith("hot_dip_galvanized") else value
             for value in values
         }
+    if property_id == "PROP-COATING-SPEC":
+        return {
+            "blue_passivated"
+            if value.startswith("blue_passivated")
+            else value
+            for value in values
+        }
     return values
 
 
 def compatible_but_less_specific(property_id: str, left: set[str], right: set[str]) -> bool:
     """Return true when values share a coarse family but do not prove exact equality."""
-    return property_id in {"PROP-MATERIAL", "PROP-SURFACE-PROTECTION"} and (
+    return property_id in {
+        "PROP-MATERIAL",
+        "PROP-SURFACE-PROTECTION",
+        "PROP-COATING-SPEC",
+    } and (
         blocking_values(property_id, left) == blocking_values(property_id, right)
     )
 
@@ -123,6 +154,11 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
             continue
         if left["profile_id"] != right["profile_id"]:
             continue
+        profile_id = str(left["profile_id"])
+        rule = PROFILE_RULES.get(profile_id)
+        if rule is None:
+            continue
+        blocking_properties = tuple(rule["blocking_properties"])
         left_values = left["values"]
         right_values = right["values"]
         assert isinstance(left_values, defaultdict)
@@ -132,11 +168,11 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
             or not right_values[property_id]
             or blocking_values(property_id, left_values[property_id])
             != blocking_values(property_id, right_values[property_id])
-            for property_id in BLOCKING_PROPERTIES
+            for property_id in blocking_properties
         ):
             continue
 
-        required = required_properties(connection, str(left["profile_id"]))
+        required = required_properties(connection, profile_id)
         matched: list[str] = []
         conflicts: list[str] = []
         missing: list[str] = []
@@ -160,8 +196,8 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
                 "left_part_id": left_id,
                 "right_part_id": right_id,
                 "profile_id": left["profile_id"],
-                "algorithm_version": ALGORITHM_VERSION,
-                "blocking_keys": join(list(BLOCKING_PROPERTIES)),
+                "algorithm_version": rule["algorithm_version"],
+                "blocking_keys": join(list(blocking_properties)),
                 "compared_properties": join(matched + conflicts),
                 "matched_properties": join(matched),
                 "conflicting_properties": join(conflicts),
