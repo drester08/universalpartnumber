@@ -36,9 +36,9 @@ The generated database is written to `registry/build/registry.sqlite` and is int
 
 Foundation and pilot data only. The schema, policies, ingestion checks, artifact verification, candidate screening, and fail-closed publication gates are operational. Source licensing must be resolved before bulk ingestion, and every manufacturer observation still requires independent review.
 
-The pilot contains 14 manufacturer parts: six Legrand Swifts, four Øglænd LOE55, and four Niedax KL. The Niedax profiles contain all 14 required fields, including an explicit statement that splice plates are ordered separately; the Legrand and Øglænd profiles remain at 13 of 14 because their cited evidence does not establish package-included splice hardware. All records remain `unreviewed`, and no UPN has been issued.
+The pilot contains 18 manufacturer parts: six Legrand Swifts, four Øglænd LOE55, four Niedax KL, and four OBO Bettermann LCIS 60. The Niedax profiles contain all 14 required fields, including an explicit statement that splice plates are ordered separately; the Legrand, Øglænd, and OBO profiles remain at 13 of 14 because their cited evidence does not establish package-included splice hardware. All records remain `unreviewed`, and no UPN has been issued.
 
-Three pairs pass coarse blocking. Each is reproducibly classified `hard_conflict`: Legrand `ZL300G6M` versus Niedax `KL 100.303 F`, Legrand `ZL600G` versus Øglænd `1371515`, and Legrand `ZL600G6M` versus Niedax `KL 100.603 F`. Similarity scores are diagnostic only and never override an identity conflict. Missing evidence is represented as a gap, never guessed.
+Eight pairs pass coarse blocking. Each is reproducibly classified `hard_conflict`: the original three pairs, Legrand `ZL600G` versus OBO `6209729`, and four same-width OBO/Øglænd pairs. Similarity scores are diagnostic only and never override an identity conflict. Missing evidence is represented as a gap, never guessed.
 
 ## Non-negotiable rule
 
