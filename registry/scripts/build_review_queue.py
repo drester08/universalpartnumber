@@ -467,6 +467,24 @@ def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
             ),
         )
 
+    for row in connection.execute(
+        """SELECT f.*, a.source_id, count(r.csv_line) AS affected_rows
+             FROM dataset_findings f
+             JOIN source_artifacts a ON a.artifact_id = f.artifact_id
+             LEFT JOIN dataset_finding_rows r ON r.finding_id = f.finding_id
+            GROUP BY f.finding_id"""
+    ):
+        add_item(
+            items, work_item_id=f"RW-{row['finding_id']}", priority=row['priority'],
+            queue_type='dataset_finding_review', readiness='ready',
+            subject_type='dataset_finding', subject_id=row['finding_id'],
+            source_id=row['source_id'], summary=row['summary'],
+            next_action=(row['next_action'] + ' Evidence: ' + row['evidence_path'] +
+                         '; locators=' + row['evidence_locators'] +
+                         '. Row references are in dataset_finding_rows; this task cannot approve an article.'),
+            policy_version=row['policy_version'],
+        )
+
     items.sort(
         key=lambda item: (
             item["priority"],

@@ -266,12 +266,36 @@ def main() -> int:
                 for queue_type in {item["queue_type"] for item in review_items}
             }
             if (
-                len(review_items) != 166
+                len(review_items) != 232
+                or queue_counts.get("dataset_finding_review") != 66
                 or queue_counts.get("reference_dataset_validation") != 4
                 or queue_counts.get("terminology_mapping_review") != 15
                 or sum(item["readiness"] == "blocked" for item in review_items) != 11
             ):
                 raise AssertionError("Deterministic reviewer queue omitted or misclassified governed work")
+            finding_counts = screening_connection.execute(
+                "SELECT (SELECT count(*) FROM dataset_findings), count(*), count(DISTINCT csv_line) FROM dataset_finding_rows"
+            ).fetchone()
+            if tuple(finding_counts) != (66, 1003, 1003):
+                raise AssertionError("Dataset findings lost groups or exact source-row references")
+            finding_id = screening_connection.execute("SELECT finding_id FROM dataset_findings LIMIT 1").fetchone()[0]
+            expect_integrity_error(screening_connection,
+                "INSERT INTO dataset_finding_rows VALUES (?, ?)", (finding_id, 12164))
+            expect_integrity_error(screening_connection,
+                "INSERT INTO dataset_finding_rows VALUES (?, ?)", (finding_id, 3.5))
+            expect_integrity_error(screening_connection,
+                "UPDATE dataset_findings SET dataset_sha256 = ? WHERE finding_id = ?", ('0' * 64, finding_id))
+            expect_integrity_error(screening_connection,
+                "UPDATE dataset_findings SET priority = CASE WHEN issue_type = 'coverage_gap' THEN 'P0' ELSE 'P2' END WHERE finding_id = ?", (finding_id,))
+            expect_integrity_error(screening_connection,
+                "UPDATE source_datasets SET verification_state = 'validated', allowed_use = 'identity_evidence' WHERE dataset_id = ?",
+                ('DATASET-USER-KLINGER-GASKETS-20260713',))
+            expect_integrity_error(screening_connection,
+                "UPDATE source_datasets SET row_count = 1 WHERE dataset_id = ?",
+                ('DATASET-USER-KLINGER-GASKETS-20260713',))
+            expect_integrity_error(screening_connection,
+                "UPDATE source_datasets SET sha256 = ? WHERE dataset_id = ?",
+                ('0' * 64, 'DATASET-USER-KLINGER-GASKETS-20260713'))
             screening_connection.execute("SAVEPOINT mapping_precedence")
             screening_connection.execute(
                 """

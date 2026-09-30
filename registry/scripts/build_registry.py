@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 import validate_registry
+from build_dataset_findings import FINDING_FIELDS, ROW_FIELDS
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -96,6 +97,10 @@ def insert_rows(
 
 
 def build(output: Path) -> None:
+    finding_errors: list[str] = []
+    validate_registry.validate_dataset_findings(finding_errors)
+    if finding_errors:
+        raise ValueError('; '.join(finding_errors))
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix(".tmp")
     temporary.unlink(missing_ok=True)
@@ -106,6 +111,8 @@ def build(output: Path) -> None:
             insert_rows(connection, "sources", SOURCE_FIELDS, rows("source-register.csv"))
             insert_rows(connection, "source_datasets", SOURCE_DATASET_FIELDS, rows("source-datasets.csv"))
             insert_rows(connection, "source_artifacts", ARTIFACT_FIELDS, rows("source-artifacts.csv"))
+            insert_rows(connection, "dataset_findings", FINDING_FIELDS, rows("dataset-findings.csv"))
+            insert_rows(connection, "dataset_finding_rows", ROW_FIELDS, rows("dataset-finding-rows.csv"))
             insert_rows(connection, "organizations", ORGANIZATION_FIELDS, rows("organizations.csv"))
             insert_rows(connection, "domains", DOMAIN_FIELDS, rows("domain-seed.csv"))
             insert_rows(connection, "units", UNIT_FIELDS, rows("units.csv"))

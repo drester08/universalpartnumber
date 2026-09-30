@@ -7,6 +7,7 @@ This directory is the evidence and data foundation for the Universal Part Number
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.
 - `data/source-register.csv` — initial authoritative-source register with access and licensing constraints.
 - `data/source-datasets.csv` — checksummed custody and allowed-use register for supplied bulk files; raw sensitive files stay Git-ignored.
+- `data/dataset-findings.csv` and `data/dataset-finding-rows.csv` — 66 derived bulk-data findings linked to 1,003 source rows, with checksummed report evidence and no implied corrections or identity approvals.
 - `data/numeric-comparison-rules.csv` — versioned property-specific cross-unit representation tolerances for required numeric identity fields.
 - `data/controlled-values.csv` and `data/specification-value-mappings.csv` — property-scoped canonical terms and reviewable mappings from raw source statements.
 - `data/items-of-supply.csv`, `data/upn-allocations.csv`, `data/item-reviews.csv`, and `data/item-memberships.csv` — reproducible canonical-item ledger, permanent opaque-number allocation, independent approval, and reviewed part membership.
@@ -19,6 +20,7 @@ This directory is the evidence and data foundation for the Universal Part Number
 - `docs/provenance-policy.md` — minimum evidence rules and trust tiers.
 - `docs/normalization-policy.md` — controlled terminology, mapping provenance, and independent approval requirements.
 - `docs/reviewer-workflow.md` — deterministic triage, dependency, and independent-review workflow.
+- `docs/dataset-findings-workflow.md` — source-row triage and revision/promotion safeguards before exact-article ingestion.
 - `docs/user-reference-catalog-analysis.md` — structural and data-quality findings from the supplied plate, structural, gasket, and piping catalogues.
 - `docs/klinger-dimension-verification.md` and `reports/klinger-maxiflex-comparison.json` — all 643 supplied Maxiflex rows compared against the official historical catalogue, with unresolved discrepancies retained by source locator.
 - `docs/klinger-maxiprofile-verification.md` and `reports/klinger-maxiprofile-comparison.json` — all 239 MaxiProfile rows compared with pages 68–70; 238 agree and one differs, without assuming component meanings or exact article identity.
@@ -44,6 +46,7 @@ Run the full gate set from the repository root:
 
 ```powershell
 python registry/scripts/validate_registry.py
+python registry/scripts/build_dataset_findings.py --check
 python registry/scripts/build_registry.py
 python registry/scripts/audit_completeness.py
 python registry/scripts/audit_issuance.py
@@ -51,6 +54,7 @@ python registry/scripts/screen_candidates.py --check registry/data/pair-screenin
 python registry/scripts/verify_artifacts.py
 python registry/scripts/build_review_queue.py --check
 python registry/scripts/test_quality_gates.py
+python registry/scripts/test_dataset_findings.py
 ```
 
 The generated database is written to `registry/build/registry.sqlite` and is intentionally excluded from Git; the schema and CSV inputs are the reproducible source of truth.
@@ -65,8 +69,10 @@ The ISO 4017 profile contains exact Bossard, Würth, Fabory-branded, and Böllho
 
 The bearing profile compares SKF `6205-2Z` with NSK `6205ZZ`. Both exact manufacturer pages state single-row deep-groove construction, double metal shields, CN clearance, and 25 × 52 × 15 mm boundary dimensions. SKF publishes tolerance group `Class 6 (p6)` while NSK publishes `P0`; NSK's captured source also leaves bore type, bearing material, and supplied lubricant unproven. The screen keeps the pair apart with one tolerance-class conflict and four evidence gaps. Twenty-two pairs now pass profile-specific coarse blocking: 18 are `hard_conflict` and four are `insufficient_evidence`. All records remain `unreviewed`, and no UPN has been issued.
 
-The registry now builds 33 relational tables from 69 governed sources, four profiled reference datasets, and 61 observations. Seventeen cached manufacturer artifacts and four local reference datasets pass SHA-256 verification; fifteen evidence records remain remote-only or blocked. GS1-labelled EAN, UPC, and GTIN values are rejected during validation unless their length and Mod-10 check digit are valid. Eaton and Legrand UPCs are attached to supplier offers with unknown packaging scope, not directly to physical-part identity. Twenty-one governed numeric rules convert evidence to common SI bases and apply property-specific representation tolerances. Nominal market-class tolerance is separate from tighter overall-geometry rules, and missing numeric governance fails closed. Eleven bearing controlled values and fifteen source-term mappings make normalization decisions explicit; all mappings remain proposed and cannot support an accepted manufacturer-part review until independently approved. Version-one UPNs are permanent opaque sequences with Luhn check digits; allocations, item approvals, equivalence decisions, and memberships are now reproducible seed data rather than schema-only placeholders. The issuance gate permits a unique anchor part through its latest accepted part review and permits additional parts only through `same_item` decisions. It rejects missing allocations, invalid check digits, non-independent approval, profile mismatch, or incomplete membership chains. No UPN has been allocated or issued. Fabory's NSN `5305-12-337-0503` remains an unreviewed supplier assertion with secondary corroboration, not an authority-verified manufacturer identifier; exact NMCRL verification remains outstanding. Cable-ladder screen 0.3, ISO 4017 screen 0.2, wire-mesh screen 0.2, and bearing screen 0.1 distinguish contradictions from compatible but unequal evidence specificity. Similarity scores are diagnostic only and never override an identity conflict.
+The registry now builds 35 relational tables from 69 governed sources, four profiled reference datasets, and 61 observations. Seventeen cached manufacturer artifacts and four local reference datasets pass SHA-256 verification; fifteen evidence records remain remote-only or blocked. GS1-labelled EAN, UPC, and GTIN values are rejected during validation unless their length and Mod-10 check digit are valid. Eaton and Legrand UPCs are attached to supplier offers with unknown packaging scope, not directly to physical-part identity. Twenty-one governed numeric rules convert evidence to common SI bases and apply property-specific representation tolerances. Nominal market-class tolerance is separate from tighter overall-geometry rules, and missing numeric governance fails closed. Eleven bearing controlled values and fifteen source-term mappings make normalization decisions explicit; all mappings remain proposed and cannot support an accepted manufacturer-part review until independently approved. Version-one UPNs are permanent opaque sequences with Luhn check digits; allocations, item approvals, equivalence decisions, and memberships are now reproducible seed data rather than schema-only placeholders. The issuance gate permits a unique anchor part through its latest accepted part review and permits additional parts only through `same_item` decisions. It rejects missing allocations, invalid check digits, non-independent approval, profile mismatch, or incomplete membership chains. No UPN has been allocated or issued. Fabory's NSN `5305-12-337-0503` remains an unreviewed supplier assertion with secondary corroboration, not an authority-verified manufacturer identifier; exact NMCRL verification remains outstanding. Cable-ladder screen 0.3, ISO 4017 screen 0.2, wire-mesh screen 0.2, and bearing screen 0.1 distinguish contradictions from compatible but unequal evidence specificity. Similarity scores are diagnostic only and never override an identity conflict.
 
 ## Non-negotiable rule
+
+The source-dataset review layer contributes 66 derived findings to the 232-item reviewer queue. It preserves 1,003 exact CSV row references and rejects stale report/input digests or identity promotion while these findings remain unresolved. It does not correct catalogues or approve articles.
 
 A similar description is not identity. UPN equivalence requires compatible identity-defining properties, traceable evidence, and a recorded human decision. Application suitability and substitution are separate decisions.

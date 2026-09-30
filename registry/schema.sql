@@ -69,6 +69,61 @@ CREATE TABLE source_artifacts (
   UNIQUE (source_id, artifact_url)
 );
 
+CREATE TABLE dataset_findings (
+  finding_id TEXT PRIMARY KEY,
+  dataset_id TEXT NOT NULL REFERENCES source_datasets(dataset_id),
+  dataset_sha256 TEXT NOT NULL CHECK (length(dataset_sha256) = 64 AND dataset_sha256 NOT GLOB '*[^0-9A-Fa-f]*'),
+  artifact_id TEXT NOT NULL REFERENCES source_artifacts(artifact_id),
+  issue_type TEXT NOT NULL CHECK (issue_type IN ('dimension_conflict','unsupported_key','duplicate_key','coverage_gap')),
+  priority TEXT NOT NULL CHECK (priority = CASE WHEN issue_type = 'coverage_gap' THEN 'P2' ELSE 'P0' END),
+  subject_key TEXT NOT NULL,
+  summary TEXT NOT NULL CHECK (length(trim(summary)) > 0),
+  next_action TEXT NOT NULL CHECK (length(trim(next_action)) > 0),
+  evidence_path TEXT NOT NULL,
+  evidence_sha256 TEXT NOT NULL CHECK (length(evidence_sha256) = 64 AND evidence_sha256 NOT GLOB '*[^0-9A-Fa-f]*'),
+  evidence_locators TEXT NOT NULL,
+  policy_version TEXT NOT NULL
+);
+
+CREATE TABLE dataset_finding_rows (
+  finding_id TEXT NOT NULL REFERENCES dataset_findings(finding_id),
+  csv_line INTEGER NOT NULL CHECK (typeof(csv_line) = 'integer' AND csv_line >= 2),
+  PRIMARY KEY (finding_id, csv_line)
+);
+
+CREATE TRIGGER dataset_finding_hash_insert BEFORE INSERT ON dataset_findings
+WHEN lower(NEW.dataset_sha256) != (SELECT lower(sha256) FROM source_datasets WHERE dataset_id = NEW.dataset_id)
+BEGIN SELECT RAISE(ABORT, 'Dataset finding checksum differs from registered source'); END;
+
+CREATE TRIGGER dataset_finding_hash_update BEFORE UPDATE ON dataset_findings
+WHEN lower(NEW.dataset_sha256) != (SELECT lower(sha256) FROM source_datasets WHERE dataset_id = NEW.dataset_id)
+BEGIN SELECT RAISE(ABORT, 'Dataset finding checksum differs from registered source'); END;
+
+CREATE TRIGGER dataset_with_findings_promotion BEFORE UPDATE ON source_datasets
+WHEN EXISTS (SELECT 1 FROM dataset_findings WHERE dataset_id = OLD.dataset_id)
+ AND (NEW.verification_state = 'validated' OR NEW.allowed_use = 'identity_evidence')
+BEGIN SELECT RAISE(ABORT, 'Unresolved dataset findings prevent identity promotion'); END;
+
+CREATE TRIGGER dataset_with_findings_hash_update BEFORE UPDATE OF sha256 ON source_datasets
+WHEN EXISTS (SELECT 1 FROM dataset_findings WHERE dataset_id = OLD.dataset_id AND lower(dataset_sha256) != lower(NEW.sha256))
+BEGIN SELECT RAISE(ABORT, 'Dataset revision requires regenerated findings'); END;
+
+CREATE TRIGGER dataset_finding_validated_source_insert BEFORE INSERT ON dataset_findings
+WHEN EXISTS (SELECT 1 FROM source_datasets WHERE dataset_id = NEW.dataset_id AND (verification_state = 'validated' OR allowed_use = 'identity_evidence'))
+BEGIN SELECT RAISE(ABORT, 'Unresolved finding cannot be attached to identity-approved dataset'); END;
+
+CREATE TRIGGER dataset_with_findings_bounds_update BEFORE UPDATE OF row_count ON source_datasets
+WHEN EXISTS (SELECT 1 FROM dataset_findings f JOIN dataset_finding_rows r ON r.finding_id = f.finding_id WHERE f.dataset_id = OLD.dataset_id AND r.csv_line > NEW.row_count + 1)
+BEGIN SELECT RAISE(ABORT, 'Dataset row count would invalidate finding locators'); END;
+
+CREATE TRIGGER dataset_finding_row_bounds_insert BEFORE INSERT ON dataset_finding_rows
+WHEN NEW.csv_line > (SELECT d.row_count + 1 FROM dataset_findings f JOIN source_datasets d ON d.dataset_id = f.dataset_id WHERE f.finding_id = NEW.finding_id)
+BEGIN SELECT RAISE(ABORT, 'Dataset finding row outside source scope'); END;
+
+CREATE TRIGGER dataset_finding_row_bounds_update BEFORE UPDATE ON dataset_finding_rows
+WHEN NEW.csv_line > (SELECT d.row_count + 1 FROM dataset_findings f JOIN source_datasets d ON d.dataset_id = f.dataset_id WHERE f.finding_id = NEW.finding_id)
+BEGIN SELECT RAISE(ABORT, 'Dataset finding row outside source scope'); END;
+
 CREATE TABLE domains (
   domain_id TEXT PRIMARY KEY,
   label TEXT NOT NULL UNIQUE,

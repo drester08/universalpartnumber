@@ -12,6 +12,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import upn
+import build_dataset_findings
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -279,6 +280,27 @@ def validate_controlled_values(errors: list[str]) -> None:
         errors.append(f"specification-value-mappings.csv: duplicate specification/value mappings {duplicate_mapping_keys}")
 
 
+def validate_dataset_findings(errors: list[str]) -> None:
+    """Findings are reproducible research snapshots, never mutable approvals."""
+    try:
+        findings, refs = build_dataset_findings.derive(ROOT)
+        for name, fields, records in (
+            ('dataset-findings.csv', build_dataset_findings.FINDING_FIELDS, findings),
+            ('dataset-finding-rows.csv', build_dataset_findings.ROW_FIELDS, refs),
+        ):
+            expected = [{f: str(r[f]) for f in fields} for r in records]
+            if read_csv(name) != expected:
+                errors.append(f'{name}: stale or modified derived findings snapshot')
+        affected = {r['dataset_id'] for r in findings}
+        for dataset in read_csv('source-datasets.csv'):
+            if dataset['dataset_id'] in affected and (
+                dataset['verification_state'] == 'validated' or dataset['allowed_use'] == 'identity_evidence'
+            ):
+                errors.append(f"{dataset['dataset_id']}: unresolved findings prevent identity promotion")
+    except (OSError, ValueError, KeyError, TypeError, StopIteration) as exc:
+        errors.append(f'Dataset finding evidence invalid: {exc}')
+
+
 def validate_schema(errors: list[str]) -> int:
     schema = (ROOT / "schema.sql").read_text(encoding="utf-8")
     try:
@@ -302,6 +324,7 @@ def main() -> int:
     validate_numeric_rules(errors)
     validate_upn_seeds(errors)
     validate_controlled_values(errors)
+    validate_dataset_findings(errors)
     table_count = validate_schema(errors)
     if errors:
         print("Registry validation failed:")
