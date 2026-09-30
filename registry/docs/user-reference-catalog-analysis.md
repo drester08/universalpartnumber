@@ -69,7 +69,7 @@ The files confirm that a universal identity record cannot be a flattened copy of
 
 ## Next work
 
-- Confirm the intended meanings of the four Klinger dimension columns against the named catalogue.
+- Ninety-five Maxiflex tuples now match official historical catalogue page 52; see `klinger-dimension-verification.md`. Confirm the component meanings with a labelled drawing and verify the remaining rows.
 - Obtain exact source catalogues or standards for the plate, structural, and pipe values and record row-level locators.
 - Split each domain into narrow identity profiles before ingestion.
 - Add inventory/location entities only after the operational ownership and update semantics are defined; these records must remain outside UPN identity.
