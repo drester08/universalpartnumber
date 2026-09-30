@@ -167,6 +167,52 @@ def main() -> int:
                 "PROP-SPLICES-INCLUDED",
             ]:
                 raise AssertionError("Eaton wire-mesh identity gaps were not preserved explicitly")
+            eaton_context = screening_connection.execute(
+                """
+                SELECT sv.property_id, sv.normalized_number, sv.unit_id
+                  FROM observations AS o
+                  JOIN specification_values AS sv
+                    ON sv.observation_id = o.observation_id
+                 WHERE o.manufacturer_part_id = 'MP-EATON-FT6X18X10-BLE'
+                   AND sv.property_id IN (
+                       'PROP-MINIMUM-WIRE-DIAMETER',
+                       'PROP-REQUIRED-SPLICE-COUNT',
+                       'PROP-USABLE-CROSS-SECTION'
+                   )
+                 ORDER BY sv.property_id, sv.specification_id
+                """
+            ).fetchall()
+            if [tuple(row) for row in eaton_context] != [
+                ("PROP-MINIMUM-WIRE-DIAMETER", "5", "UNIT-MM"),
+                ("PROP-MINIMUM-WIRE-DIAMETER", "5", "UNIT-MM"),
+                ("PROP-REQUIRED-SPLICE-COUNT", "4", None),
+                ("PROP-USABLE-CROSS-SECTION", "107.3", "UNIT-IN2"),
+            ]:
+                raise AssertionError("Eaton contextual wire, splice, or area evidence was not preserved")
+            if screening_connection.execute(
+                """
+                SELECT COUNT(*)
+                  FROM observations AS o
+                  JOIN specification_values AS sv
+                    ON sv.observation_id = o.observation_id
+                 WHERE o.manufacturer_part_id = 'MP-EATON-FT6X18X10-BLE'
+                   AND sv.property_id = 'PROP-SPLICES-INCLUDED'
+                """
+            ).fetchone()[0]:
+                raise AssertionError("A required splice count was misrepresented as packaged splice inclusion")
+            area_units = screening_connection.execute(
+                """
+                SELECT unit_id, quantity_kind, conversion_factor
+                  FROM units
+                 WHERE unit_id IN ('UNIT-MM2', 'UNIT-IN2')
+                 ORDER BY unit_id
+                """
+            ).fetchall()
+            if [tuple(row) for row in area_units] != [
+                ("UNIT-IN2", "area", "0.00064516"),
+                ("UNIT-MM2", "area", "0.000001"),
+            ]:
+                raise AssertionError("Area units are malformed or not convertible to square metres")
             legrand_offer = screening_connection.execute(
                 """
                 SELECT so.order_quantity, so.order_unit, so.package_level,

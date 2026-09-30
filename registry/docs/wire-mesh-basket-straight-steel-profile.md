@@ -20,11 +20,13 @@ Numeric values retain the source unit. Completeness auditing converts values to 
 
 ## Eaton pilot record
 
-The official Eaton exact-SKU page identifies `FT6X18X10 BLE`, UPC `662516721871`, as a black-powder-coated steel B-Line Flextray 6-inch-deep straight section. Its name and catalogue number establish the nominal 6-by-18-inch class; it states 118.312-inch length/depth, 6.38-inch overall height, 18-inch overall width, 25.06-pound weight, CE, CSA, and UL Classified certifications, and controlled-interior guidance. The official Flextray family page states a T-weld safety edge.
+The official Eaton exact-SKU page identifies `FT6X18X10 BLE`, UPC `662516721871`, as a black-powder-coated steel B-Line Flextray 6-inch-deep straight section. Its name and catalogue number establish the nominal 6-by-18-inch class; it states 118.312-inch length/depth, 6.38-inch overall height, 18-inch overall width, 25.06-pound weight, CE, CSA, and UL Classified certifications, and controlled-interior guidance. The official Flextray family page states a T-weld safety edge. Additional official catalog, specification, performance-paper, load-fill, and drawing evidence is stored as separate observations.
 
-Those sources do not state the exact SKU's three wire diameters, longitudinal grid spacing, transverse grid spacing, load context, or splice inclusion. The record therefore has nine of fifteen required identity properties and remains `unreviewed`. Family claims are stored in their own observation and are not silently promoted to exact-SKU facts beyond the named family construction statement.
+The catalog and Section 16135 specification state a minimum wire diameter of 0.196 inches (5 mm). That lower bound does not establish the exact cross, top-longitudinal, or other-longitudinal wire diameter, so it is stored as a descriptive property and cannot satisfy any of those three required fields. The drawing states a standard 2-inch by 4-inch welded mesh, but the accessible evidence does not safely assign the two numbers to UPN's along-length and across-width fields. Both directional spacing fields therefore remain unknown.
 
-The exact page renders `107.3" actual area` without an unambiguous squared unit in the accessible text. The registry preserves no normalized usable-area value from that string.
+The exact page's accessible text renders `107.3" actual area` ambiguously. A separate official Eaton load-fill table resolves the same FT6X18 value as 107.3 square inches, so the normalized area is sourced to that table rather than inferred from the page. Official performance material also records six-inch load depth and span-specific ratings. It states that four splices are required for UL Classification, but that installation requirement is not evidence that four splices are included with the sold section. `Splice hardware included` remains unknown.
+
+The record therefore still has nine of fifteen required identity properties and remains `unreviewed`. The extra evidence improves engineering context without manufacturing false completeness. Family claims remain in their own observations and are not silently promoted to exact-SKU facts.
 
 The UPC is valid under GS1 Mod-10, but the official page does not establish whether it identifies one section or another packaging level. It is therefore attached to the supplier offer with `unknown` scope, never to the physical part record.
 
@@ -38,7 +40,7 @@ The two articles match on nominal width, nominal height, and black powder-coat f
 
 ## Hard stops before equivalence review
 
-- Resolve Eaton's six missing required properties and Legrand's missing splice-inclusion evidence.
+- Resolve Eaton's three exact wire diameters, two directional mesh spacings, and splice-inclusion evidence; also resolve Legrand's missing splice-inclusion evidence.
 - Resolve Legrand's conflicting official height statements or obtain an authoritative revision decision.
 - Define and test candidate-grade numeric precision and unit conversion before any positive match.
 - Obtain independent review of each observation before any equivalence decision.

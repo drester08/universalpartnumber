@@ -563,6 +563,13 @@ SPEC-EATON-FT6X18-CERT,OBS-EATON-FT6X18X10-BLE,PROP-CERTIFICATIONS,"CE, CSA, UL 
 SPEC-EATON-FT6X18-MASS,OBS-EATON-FT6X18X10-BLE,PROP-MASS,Weight 25.06 lb,,25.06,UNIT-LB,
 SPEC-EATON-FT6X18-APP,OBS-EATON-FT6X18X10-BLE,PROP-APPLICATION-ENVIRONMENT,Controlled interior recommended,controlled_interior_recommended,,,
 SPEC-EATON-FT6X18-JOINT,OBS-EATON-FLEXTRAY-FAMILY,PROP-WIRE-JOINT,T-weld safety edge,t_weld_safety_edge,,,Family-level construction statement applied only to the named Flextray family
+SPEC-EATON-FT6X18-MIN-WIRE-CATALOG,OBS-EATON-FT6X18-CATALOG,PROP-MINIMUM-WIRE-DIAMETER,Wire diameter minimum .196 in (5.0 mm),,5,UNIT-MM,"Minimum across the mesh, not an exact cross, top-longitudinal, or other-longitudinal wire diameter"
+SPEC-EATON-FT6X18-MIN-WIRE-SPEC,OBS-EATON-FT6X18-SPEC-16135,PROP-MINIMUM-WIRE-DIAMETER,Wire diameter minimum 0.196 in (5 mm) on all mesh sections,,5,UNIT-MM,"Family requirement; stainless exception does not apply to the black powder-coated steel item"
+SPEC-EATON-FT6X18-LOAD-DEPTH,OBS-EATON-FT6X18-WP302016EN,PROP-LOADING-DEPTH,Load depth 6.000 in,,6,UNIT-IN,
+SPEC-EATON-FT6X18-LOAD-WP,OBS-EATON-FT6X18-WP302016EN,PROP-LOAD-RATING,"89 lb/ft at 6 ft support span; 50 lb/ft at 8 ft support span; NEMA VE 1 and CSA C22.2 testing; 1.5 safety factor",nema_ve1_csa_c22.2|6ft:89lb/ft|8ft:50lb/ft|safety_factor:1.5,,,Published exact-size row
+SPEC-EATON-FT6X18-SPLICE-COUNT,OBS-EATON-FT6X18-WP302016EN,PROP-REQUIRED-SPLICE-COUNT,Four splices required for UL Classification,,4,,"Six-inch-high by eighteen-inch-wide tray; requirement does not prove included hardware"
+SPEC-EATON-FT6X18-AREA,OBS-EATON-FT6X18-LOAD-FILL,PROP-USABLE-CROSS-SECTION,Actual inside area 107.3 square inches,,107.3,UNIT-IN2,
+SPEC-EATON-FT6X18-LOAD-FILL,OBS-EATON-FT6X18-LOAD-FILL,PROP-LOAD-RATING,"128 lb/ft at 5 ft; 89 lb/ft at 6 ft; 65 lb/ft at 7 ft; 50 lb/ft at 8 ft",5ft:128lb/ft|6ft:89lb/ft|7ft:65lb/ft|8ft:50lb/ft,,,Load chart not tested with Flexmate splice
 SPEC-LEGRAND-CF150450BL-FORM,OBS-LEGRAND-US-CF150450BL-PAGE,PROP-FORM,Straight Sections,straight_wire_mesh_basket_section,,,
 SPEC-LEGRAND-CF150450BL-NOMWIDTH,OBS-LEGRAND-US-CF150450BL-PAGE,PROP-NOMINAL-WIDTH,Width selection 18.0 in and title 18W,,18,UNIT-IN,
 SPEC-LEGRAND-CF150450BL-WIDTH-PAGE,OBS-LEGRAND-US-CF150450BL-PAGE,PROP-OVERALL-WIDTH,Product Width US 17.71 in,,17.71,UNIT-IN,

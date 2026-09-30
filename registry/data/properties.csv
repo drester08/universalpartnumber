@@ -48,4 +48,6 @@ PROP-OTHER-LONGITUDINAL-WIRE-DIAMETER,,,Other longitudinal wire diameter,Declare
 PROP-MESH-LONGITUDINAL-SPACING,,,Longitudinal mesh spacing,Centre-to-centre grid spacing along the tray length.,number,defining
 PROP-MESH-TRANSVERSE-SPACING,,,Transverse mesh spacing,Centre-to-centre grid spacing across the tray width.,number,defining
 PROP-WIRE-JOINT,,,Wire joint construction,Declared welding or joining construction including any safety-edge form.,code,defining
+PROP-MINIMUM-WIRE-DIAMETER,,,Minimum wire diameter,Manufacturer-declared lower bound across a product family; not an exact diameter for any individual wire position.,number,descriptive
+PROP-REQUIRED-SPLICE-COUNT,,,Required splice count,Number of connector assemblies required under a stated installation or classification condition; not evidence of package inclusion.,number,descriptive
 PROP-APPLICATION-ENVIRONMENT,,,Application environment,Manufacturer guidance for the intended installation environment.,text,descriptive
