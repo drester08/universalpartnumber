@@ -14,6 +14,7 @@ from pathlib import Path
 from decimal import Decimal
 from check_structural_heavy import candidate_key, screen, FIELDS as HEAVY_FIELDS
 from check_structural_pfc import screen as screen_pfc
+from check_structural_pfc_corroboration import validate_report as validate_pfc_corroboration, SOURCES as PFC_SOURCES
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = 'DATASET-USER-KLINGER-GASKETS-20260713'
@@ -27,6 +28,7 @@ STRUCTURAL_ARTIFACT = 'ART-AMSA-E12-PARALLEL'
 HEAVY_ARTIFACT = 'ART-AMSA-H11-HEAVY'
 BRITISH_ARTIFACTS = {'UB':'ART-BS-UB-2024','UC':'ART-BS-UC-2023'}
 PFC_ARTIFACT='ART-BS-PFC-2023'
+PFC_CORROBORATION_ARTIFACTS = {'macsteel': 'ART-MACSTEEL-PFC', 'orangebook': 'ART-AM-ORANGEBOOK-PFC'}
 FINDING_FIELDS = ('finding_id', 'dataset_id', 'dataset_sha256', 'artifact_id',
                   'issue_type', 'priority', 'subject_key', 'summary', 'next_action',
                   'evidence_path', 'evidence_sha256', 'evidence_locators', 'policy_version')
@@ -68,6 +70,8 @@ def derive(root=ROOT):
     reports.extend(('structural-british-comparison.json','british_'+f,STRUCTURAL_DATASET,a)
                    for f,a in BRITISH_ARTIFACTS.items())
     reports.append(('structural-pfc-comparison.json','pfc',STRUCTURAL_DATASET,PFC_ARTIFACT))
+    reports.append(('structural-pfc-corroboration.json', 'pfc_corroboration', STRUCTURAL_DATASET,
+                    PFC_CORROBORATION_ARTIFACTS['orangebook']))
     for name, family, dataset_id, artifact_id in reports:
         dataset, artifact = datasets[dataset_id], artifacts[artifact_id]
         path = root / 'reports' / name
@@ -75,7 +79,8 @@ def derive(root=ROOT):
         report = json.loads(payload)
         if report['dataset_sha256'].lower() != dataset['sha256'].lower():
             raise ValueError(f'{name}: dataset checksum mismatch')
-        source_sha = (report['source_pdf_sha256'].get(artifact['source_id'],'') if family.startswith('british_')
+        source_sha = (report['source_sha256'].get('orangebook', '') if family == 'pfc_corroboration'
+                      else report['source_pdf_sha256'].get(artifact['source_id'],'') if family.startswith('british_')
                       else report['catalogue_sha256'])
         if source_sha.lower() != artifact['sha256'].lower():
             raise ValueError(f'{name}: catalogue checksum mismatch')
@@ -89,7 +94,29 @@ def derive(root=ROOT):
             entry['lines'].update(lines)
             entry['count'] += count
 
-        if family=='pfc':
+        if family == 'pfc_corroboration':
+            if set(report['source_sha256']) != set(PFC_CORROBORATION_ARTIFACTS) or any(
+                    artifacts[a]['source_id'] != PFC_SOURCES[s][0]
+                    or report['source_sha256'][s].lower() != artifacts[a]['sha256'].lower()
+                    for s, a in PFC_CORROBORATION_ARTIFACTS.items()):
+                raise ValueError('PFC corroboration catalogue checksum mismatch')
+            prior_bytes = (root / 'reports/structural-pfc-comparison.json').read_bytes()
+            if report['earlier_report_sha256'] != hashlib.sha256(prior_bytes).hexdigest():
+                raise ValueError('PFC corroboration earlier report checksum mismatch')
+            validate_pfc_corroboration(report, json.loads(prior_bytes))
+            for i, case in enumerate(report['records']):
+                result = case['source_screens']['orangebook']['outcome']
+                if result == 'nominal_field_conflict':
+                    add('dimension_conflict', ('Structural Steel', 'PFC', 'Orange Book nominal fields'),
+                        f'/records/{i}', [case['csv_line']])
+                elif result == 'no_serial_candidate':
+                    add('coverage_gap', ('Structural Steel', 'PFC', 'Orange Book serial key absent'),
+                        f'/records/{i}', [case['csv_line']])
+            source_only = report['source_only_observations']['orangebook']
+            if source_only:
+                add('coverage_gap', ('Structural Steel', 'PFC', 'Orange Book source-only serial keys'),
+                    '/source_only_observations/orangebook', count=len(source_only))
+        elif family=='pfc':
             records,outside=report['records'],report['outside_family_scope_csv_lines']
             all_lines=outside+[r['csv_line'] for r in records]
             if (report['dataset_rows']!=int(dataset['row_count']) or report['selected_rows']!=len(records)

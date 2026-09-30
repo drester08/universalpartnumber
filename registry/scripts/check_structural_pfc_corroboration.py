@@ -126,6 +126,64 @@ def parse_orangebook(text):
     return validate_observations(rows, 16)
 
 
+def source_only_observations(records, observations):
+    return {name: [o for o in rows if (Decimal(o['designation_height']), Decimal(o['designation_width'])) not in
+                  {(Decimal(r['source_screens'][name]['serial_size_candidate'][0]),
+                    Decimal(r['source_screens'][name]['serial_size_candidate'][1])) for r in records}]
+            for name, rows in observations.items()}
+
+
+def validate_report(report, earlier):
+    """Replay retained facts; this does not verify fidelity against source bytes."""
+    records, outside = report['records'], report['outside_family_scope_csv_lines']
+    lines = outside + [r['csv_line'] for r in records]
+    if (report['dataset_rows'] != 805 or report['selected_rows'] != 6 or len(records) != 6
+            or any(type(x) is not int for x in lines) or sorted(lines) != list(range(2, 807))
+            or outside != earlier['outside_family_scope_csv_lines']):
+        raise ValueError('PFC corroboration missing, duplicate or overlapping row locators')
+    observations = report['source_observations']
+    if set(observations) != set(SOURCES) or set(report['outcomes']) != set(SOURCES):
+        raise ValueError('PFC corroboration source scope mismatch')
+    common = {'designation', 'designation_height', 'designation_width', *FIELDS, 'source_id', 'source_grade_context'}
+    for name, count in [('macsteel', 6), ('orangebook', 16)]:
+        validate_observations(observations[name], count)
+        allowed = common | ({'pdf_page'} if name == 'macsteel' else {
+            'designation_mass_label', 'root_radius_mm', 'depth_between_fillets_mm',
+            'shear_centre_distance_cm', 'html_table', 'html_data_row'})
+        for index, o in enumerate(observations[name], 1):
+            if set(o) != allowed or o['source_id'] != SOURCES[name][0]:
+                raise ValueError('PFC corroboration source field meaning mismatch')
+            if name == 'macsteel':
+                if (type(o['pdf_page']) is not int or o['pdf_page'] != 1
+                        or o['source_grade_context'] != 'SANS 50025 / EN 10025 S355JR'
+                        or o['designation'] != f"{o['designation_height']} x {o['designation_width']}"):
+                    raise ValueError('PFC corroboration source locator/context mismatch')
+            else:
+                if (type(o['html_table']) is not int or o['html_table'] != 1
+                        or type(o['html_data_row']) is not int or o['html_data_row'] != index
+                        or o['source_grade_context'] != 'S355'
+                        or o['designation'] != f"{o['designation_height']}x{o['designation_width']}x{o['designation_mass_label']}"
+                        or any(not Decimal(o[k]).is_finite() or Decimal(o[k]) <= 0 for k in (
+                            'designation_mass_label', 'root_radius_mm', 'depth_between_fillets_mm', 'shear_centre_distance_cm'))):
+                    raise ValueError('PFC corroboration source locator/context mismatch')
+        if dict(Counter(r['source_screens'][name]['outcome'] for r in records)) != report['outcomes'][name]:
+            raise ValueError('PFC corroboration outcome counts mismatch')
+    earlier_by_line = {r['csv_line']: r for r in earlier['records']}
+    for r in records:
+        if r['exact_article_verified'] is not False:
+            raise ValueError('PFC corroboration cannot assert reviewed article identity')
+        if r['csv_line'] not in earlier_by_line or r['british_screen'] != earlier_by_line[r['csv_line']]:
+            raise ValueError('PFC corroboration earlier row evidence mismatch')
+        if set(r['source_screens']) != set(SOURCES):
+            raise ValueError('PFC corroboration source scope mismatch')
+        raw = {col: r['british_screen']['actual'][field] for field, col in FIELDS.items()}
+        for name in SOURCES:
+            if r['source_screens'][name] != screen(raw, observations[name]):
+                raise ValueError('PFC corroboration candidates/differences mismatch')
+    if report['source_only_observations'] != source_only_observations(records, observations):
+        raise ValueError('PFC corroboration source-only coverage mismatch')
+
+
 def compare():
     observations = {}
     for name, (_, relative, sha) in SOURCES.items():
@@ -154,10 +212,11 @@ def compare():
                         'british_screen': earlier[line], 'exact_article_verified': False})
     if len(records) != 6 or len(outside) != 799:
         raise ValueError('Unexpected supplied PFC family scope')
-    return {'dataset_sha256': DATASET_SHA, 'dataset_rows': 805, 'selected_rows': 6,
+    result = {'dataset_sha256': DATASET_SHA, 'dataset_rows': 805, 'selected_rows': 6,
             'source_sha256': {name: values[2] for name, values in SOURCES.items()},
             'earlier_report_sha256': hashlib.sha256(prior_path.read_bytes()).hexdigest(),
             'source_observations': observations, 'outside_family_scope_csv_lines': outside, 'records': records,
+            'source_only_observations': source_only_observations(records, observations),
             'outcomes': {name: dict(Counter(x['source_screens'][name]['outcome'] for x in records)) for name in SOURCES},
             'limitations': ['Source-specific nominal candidate screening, not same-item or substitution approval.',
                             'Macsteel PDF fully rendered/reviewed; extraction fidelity independently unreviewed.',
@@ -166,7 +225,9 @@ def compare():
                             'Distinct publishers do not prove independent upstream geometry lineage.',
                             'Earlier British conflicts and selected-table coverage gaps remain open.',
                             'No source-defined manufacturer article number or current availability verified.',
-                            'New corroboration report not yet integrated into generic findings.']}
+                            'Corroboration findings expose source-specific issues without closing earlier tasks.']}
+    validate_report(result, prior)
+    return result
 
 
 if __name__ == '__main__':

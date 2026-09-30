@@ -16,18 +16,18 @@ class FindingTests(unittest.TestCase):
     def test_deterministic_complete_row_accounting(self):
         first = findings.derive()
         self.assertEqual(first, findings.derive())
-        self.assertEqual(len(first[0]), 95)
-        self.assertEqual(len(first[1]), 3301)
-        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 58)
-        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 37)
+        self.assertEqual(len(first[0]), 98)
+        self.assertEqual(len(first[1]), 3305)
+        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 59)
+        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 39)
         by_kind = {}
         index = {f['finding_id']: f for f in first[0]}
         self.assertEqual(len({(index[r['finding_id']]['dataset_id'], r['csv_line']) for r in first[1]}), 2253)
         for ref in first[1]:
             kind = index[ref['finding_id']]['issue_type']
             by_kind[kind] = by_kind.get(kind, 0) + 1
-        self.assertEqual(by_kind, {'dimension_conflict': 155, 'unsupported_key': 949, 'duplicate_key': 2,
-                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 887,
+        self.assertEqual(by_kind, {'dimension_conflict': 158, 'unsupported_key': 949, 'duplicate_key': 2,
+                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 888,
                                    'material_interpretation': 51, 'mass_discrepancy': 3, 'article_evidence_gap': 1200})
 
     def test_snapshot_tampering_rejected(self):
@@ -70,6 +70,7 @@ class FindingTests(unittest.TestCase):
                 shutil.copy2(findings.ROOT / 'data' / seed_name, root / 'data' / seed_name)
             for report in findings.ROOT.glob('reports/*-comparison.json'):
                 shutil.copy2(report, root / 'reports' / report.name)
+            shutil.copy2(findings.ROOT / 'reports/structural-pfc-corroboration.json', root / 'reports/structural-pfc-corroboration.json')
             shutil.copy2(findings.ROOT / 'reports/plate-macsteel-screening.json', root / 'reports/plate-macsteel-screening.json')
             shutil.copy2(findings.ROOT / 'reports/arcelormittal-ipe-observations.json', root / 'reports/arcelormittal-ipe-observations.json')
             shutil.copy2(findings.ROOT / 'reports/arcelormittal-heavy-observations.json', root / 'reports/arcelormittal-heavy-observations.json')
@@ -204,6 +205,62 @@ class FindingTests(unittest.TestCase):
     def test_heavy_missing_source_only_row_rejected(self):
         with self.assertRaisesRegex(ValueError,'source-only coverage mismatch'):
             self.changed_report(lambda r:r.update(source_rows_without_supplied_key=[]),'structural-heavy-comparison.json')
+
+    def test_pfc_corroboration_source_specific_findings(self):
+        groups, refs = findings.derive()
+        selected = {r['finding_id']: r for r in groups
+                    if r['artifact_id'] == findings.PFC_CORROBORATION_ARTIFACTS['orangebook']}
+        self.assertEqual(len(selected), 3)
+        self.assertEqual(sum(r['priority'] == 'P0' for r in selected.values()), 1)
+        lines = [r['csv_line'] for r in refs if r['finding_id'] in selected]
+        self.assertEqual(len(lines), 4)
+        self.assertEqual(len(set(lines)), 4)
+        self.assertEqual(sum('11 source case(s), 0 affected' in r['summary'] for r in selected.values()), 1)
+        report = json.loads((findings.ROOT / 'reports/structural-pfc-corroboration.json').read_text(encoding='utf-8'))
+        agreeing_lines = {r['csv_line'] for r in report['records']
+                          if r['source_screens']['orangebook']['outcome'] == 'nominal_values_agree'}
+        self.assertTrue(agreeing_lines.isdisjoint(lines))
+        self.assertTrue(all(r['source_screens']['macsteel']['exact_article_verified'] is False for r in report['records']))
+        self.assertEqual(sum(r['artifact_id'] == findings.PFC_ARTIFACT for r in groups), 2)
+
+    def test_pfc_corroboration_mutated_evidence_rejected(self):
+        def false_approval(r):
+            r['records'][0]['exact_article_verified'] = True
+        def false_screen_approval(r):
+            r['records'][0]['source_screens']['macsteel']['exact_article_verified'] = True
+        def bad_difference(r):
+            x = next(x for x in r['records'] if x['source_screens']['orangebook']['nominal_differences'])
+            x['source_screens']['orangebook']['nominal_differences'] = []
+        def distance_conflation(r):
+            o = r['source_observations']['orangebook'][0]
+            o['centroid_distance_cm'] = o.pop('shear_centre_distance_cm')
+        def grade_conflation(r):
+            r['source_observations']['orangebook'][0]['source_grade_context'] = 'S355JR'
+        def bad_locator(r):
+            r['source_observations']['orangebook'][0]['html_data_row'] = True
+        def duplicate_key(r):
+            r['source_observations']['macsteel'][1] = copy.deepcopy(r['source_observations']['macsteel'][0])
+        def overlap(r):
+            r['outside_family_scope_csv_lines'][0] = r['records'][0]['csv_line']
+        def stale_british_row(r):
+            r['records'][0]['british_screen']['actual']['mass_kg_per_m'] = '100'
+        cases = [
+            (false_approval, 'cannot assert reviewed'), (false_screen_approval, 'candidates/differences'),
+            (bad_difference, 'candidates/differences'), (distance_conflation, 'field meaning'),
+            (grade_conflation, 'locator/context'), (bad_locator, 'locator/context'),
+            (duplicate_key, 'duplicate source'), (overlap, 'overlapping row locators'),
+            (stale_british_row, 'earlier row evidence'),
+            (lambda r: r.update(earlier_report_sha256='0'*64), 'earlier report checksum'),
+            (lambda r: r['source_sha256'].update(macsteel='0'*64), 'catalogue checksum'),
+            (lambda r: r['source_sha256'].update(orangebook='0'*64), 'catalogue checksum'),
+            (lambda r: r['outcomes'].update(orangebook={}), 'outcome counts'),
+            (lambda r: r['source_only_observations']['orangebook'].pop(), 'source-only coverage'),
+            (lambda r: r['source_observations']['macsteel'].pop(), 'source row count'),
+        ]
+        for action, message in cases:
+            with self.subTest(action=action.__name__, message=message):
+                with self.assertRaisesRegex(ValueError, message):
+                    self.changed_report(action, 'structural-pfc-corroboration.json')
 
     def test_pfc_findings_preserve_agreements_as_unapproved(self):
         groups, refs = findings.derive()
