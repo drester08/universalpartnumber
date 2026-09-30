@@ -10,6 +10,8 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from urllib.parse import urlparse
 
+import upn
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -153,6 +155,35 @@ def validate_numeric_rules(errors: list[str]) -> None:
         errors.append(f"numeric-comparison-rules.csv: rules may only govern required numeric_exact properties {extra}")
 
 
+def validate_upn_seeds(errors: list[str]) -> None:
+    items = read_csv("items-of-supply.csv")
+    allocations = read_csv("upn-allocations.csv")
+    require_unique(items, "item_id", errors)
+    require_unique(allocations, "allocation_id", errors)
+    seen_upns: set[str] = set()
+    seen_sequences: set[int] = set()
+    for line, row in enumerate(items, start=2):
+        identifier = row["upn"].strip()
+        if identifier and not upn.valid_upn(identifier):
+            errors.append(f"items-of-supply.csv:{line}: invalid UPN syntax or check digit")
+        if identifier and identifier in seen_upns:
+            errors.append(f"items-of-supply.csv:{line}: duplicate UPN")
+        if identifier:
+            seen_upns.add(identifier)
+    for line, row in enumerate(allocations, start=2):
+        try:
+            sequence = int(row["sequence_number"])
+            expected = upn.format_upn(sequence)
+        except ValueError:
+            errors.append(f"upn-allocations.csv:{line}: invalid sequence_number")
+            continue
+        if sequence in seen_sequences:
+            errors.append(f"upn-allocations.csv:{line}: duplicate sequence_number")
+        seen_sequences.add(sequence)
+        if row["upn"] != expected:
+            errors.append(f"upn-allocations.csv:{line}: UPN does not match its sequence/check digit")
+
+
 def validate_schema(errors: list[str]) -> int:
     schema = (ROOT / "schema.sql").read_text(encoding="utf-8")
     try:
@@ -173,6 +204,7 @@ def main() -> int:
     domain_count = validate_domains(errors)
     validate_trade_identifiers(errors)
     validate_numeric_rules(errors)
+    validate_upn_seeds(errors)
     table_count = validate_schema(errors)
     if errors:
         print("Registry validation failed:")

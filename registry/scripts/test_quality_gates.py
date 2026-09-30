@@ -13,6 +13,7 @@ from pathlib import Path
 import build_registry
 import numeric_rules
 import screen_candidates
+import upn
 import validate_registry
 
 
@@ -29,6 +30,17 @@ def expect_integrity_error(connection: sqlite3.Connection, sql: str, values: tup
 
 
 def main() -> int:
+    first_upn = upn.format_upn(1)
+    if first_upn != "UPN1-000000000001-6":
+        raise AssertionError("UPN version-1 format changed from its fixed test vector")
+    if not upn.valid_upn(first_upn) or upn.valid_upn(first_upn[:-1] + str((int(first_upn[-1]) + 1) % 10)):
+        raise AssertionError("UPN version-1 check digit validation failed")
+    try:
+        upn.format_upn(0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Reserved zero UPN sequence was accepted")
     valid_niedax_eans = (
         "4013339903658",
         "4013339903665",
@@ -469,6 +481,202 @@ def main() -> int:
         ):
             raise AssertionError("The conflicting official Eaton length values were not surfaced")
 
+        issuance_audit = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "audit_issuance.py"), "--database", str(database)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if issuance_audit.returncode != 0:
+            raise AssertionError(f"Empty issuance ledger did not pass cleanly:\n{issuance_audit.stdout}")
+
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute(
+                """
+                INSERT INTO items_of_supply
+                  (item_id, upn, profile_id, preferred_name, lifecycle_state, created_at, reviewed_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-ISSUED-ITEM",
+                    first_upn,
+                    "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1",
+                    "Deliberately unreviewed issued item",
+                    "issued",
+                    "2026-09-30",
+                    "2026-09-30",
+                ),
+            )
+            connection.execute(
+                """
+                INSERT INTO upn_allocations
+                  (allocation_id, sequence_number, upn, item_id, allocated_by, allocated_at, allocation_state)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                ("TEST-ALLOCATION", 1, first_upn, "TEST-ISSUED-ITEM", "quality-gate-test", "2026-09-30", "active"),
+            )
+            connection.commit()
+        finally:
+            connection.close()
+        invalid_issuance = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "audit_issuance.py"), "--database", str(database)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if invalid_issuance.returncode != 1 or "latest item review is not independently approved" not in invalid_issuance.stdout or (
+            "issued item has no active manufacturer-part membership" not in invalid_issuance.stdout
+        ):
+            raise AssertionError(
+                "Issued UPN without review and membership was not rejected:\n"
+                f"{invalid_issuance.stdout}\n{invalid_issuance.stderr}"
+            )
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute("DELETE FROM upn_allocations WHERE allocation_id = 'TEST-ALLOCATION'")
+            connection.execute("DELETE FROM items_of_supply WHERE item_id = 'TEST-ISSUED-ITEM'")
+            connection.commit()
+        finally:
+            connection.close()
+
+        second_upn = upn.format_upn(2)
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute(
+                """
+                INSERT INTO items_of_supply
+                  (item_id, profile_id, preferred_name, lifecycle_state, created_at)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-RESERVED-ITEM",
+                    "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1",
+                    "Deliberately inconsistent reservation",
+                    "candidate",
+                    "2026-09-30",
+                ),
+            )
+            connection.execute(
+                """
+                INSERT INTO upn_allocations
+                  (allocation_id, sequence_number, upn, item_id, allocated_by, allocated_at, allocation_state)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                ("TEST-RESERVATION", 2, second_upn, "TEST-RESERVED-ITEM", "quality-gate-test", "2026-09-30", "reserved"),
+            )
+            connection.commit()
+        finally:
+            connection.close()
+        inconsistent_reservation = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "audit_issuance.py"), "--database", str(database)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if inconsistent_reservation.returncode != 1 or "missing or invalid UPN syntax/check digit" not in (
+            inconsistent_reservation.stdout
+        ):
+            raise AssertionError(
+                "Allocation whose item omitted the reserved UPN escaped audit:\n"
+                f"{inconsistent_reservation.stdout}\n{inconsistent_reservation.stderr}"
+            )
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute("DELETE FROM upn_allocations WHERE allocation_id = 'TEST-RESERVATION'")
+            connection.execute("DELETE FROM items_of_supply WHERE item_id = 'TEST-RESERVED-ITEM'")
+            connection.commit()
+        finally:
+            connection.close()
+
+        third_upn = upn.format_upn(3)
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute(
+                """
+                INSERT INTO items_of_supply
+                  (item_id, upn, profile_id, preferred_name, lifecycle_state, created_at, reviewed_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-UNANCHORED-ITEM",
+                    third_upn,
+                    "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1",
+                    "Deliberately unanchored issued item",
+                    "issued",
+                    "2026-09-30",
+                    "2026-09-30T12:00:00Z",
+                ),
+            )
+            connection.execute(
+                """
+                INSERT INTO upn_allocations
+                  (allocation_id, sequence_number, upn, item_id, allocated_by, allocated_at, allocation_state)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                ("TEST-UNANCHORED-ALLOCATION", 3, third_upn, "TEST-UNANCHORED-ITEM", "quality-gate-test", "2026-09-30", "active"),
+            )
+            connection.execute(
+                """
+                INSERT INTO match_candidates
+                  (match_candidate_id, left_part_id, right_part_id, algorithm_version, score, blocking_keys, generated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                ("TEST-CANDIDATE", "MP-LEGRAND-ZL450G", "MP-LEGRAND-ZL600G", "quality-gate-test", "1", "test", "2026-09-30"),
+            )
+            connection.execute(
+                """
+                INSERT INTO equivalence_decisions
+                  (decision_id, match_candidate_id, decision, rationale, reviewer, decided_at, policy_version)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                ("TEST-EQUIVALENCE", "TEST-CANDIDATE", "same_item", "Deliberately invalid test decision", "quality-gate-test", "2026-09-30", "0.1"),
+            )
+            connection.execute(
+                """
+                INSERT INTO item_reviews
+                  (item_review_id, item_id, decision, rationale, reviewer, decided_at, policy_version, independence_attested)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                ("TEST-ITEM-REVIEW", "TEST-UNANCHORED-ITEM", "approved", "Deliberately invalid test approval", "quality-gate-test", "2026-09-30", "1.0", 1),
+            )
+            for part_id in ("MP-LEGRAND-ZL450G", "MP-LEGRAND-ZL600G"):
+                connection.execute(
+                    """
+                    INSERT INTO item_memberships
+                      (item_id, manufacturer_part_id, equivalence_decision_id, valid_from)
+                    VALUES (?, ?, ?, ?)
+                    """,
+                    ("TEST-UNANCHORED-ITEM", part_id, "TEST-EQUIVALENCE", "2026-09-30"),
+                )
+            connection.commit()
+        finally:
+            connection.close()
+        unanchored_issuance = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "audit_issuance.py"), "--database", str(database)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if unanchored_issuance.returncode != 1 or "issued item has no accepted anchor-part membership" not in (
+            unanchored_issuance.stdout
+        ):
+            raise AssertionError(
+                "Issued item without an accepted anchor part escaped audit:\n"
+                f"{unanchored_issuance.stdout}\n{unanchored_issuance.stderr}"
+            )
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute("DELETE FROM item_memberships WHERE item_id = 'TEST-UNANCHORED-ITEM'")
+            connection.execute("DELETE FROM item_reviews WHERE item_id = 'TEST-UNANCHORED-ITEM'")
+            connection.execute("DELETE FROM equivalence_decisions WHERE decision_id = 'TEST-EQUIVALENCE'")
+            connection.execute("DELETE FROM match_candidates WHERE match_candidate_id = 'TEST-CANDIDATE'")
+            connection.execute("DELETE FROM upn_allocations WHERE allocation_id = 'TEST-UNANCHORED-ALLOCATION'")
+            connection.execute("DELETE FROM items_of_supply WHERE item_id = 'TEST-UNANCHORED-ITEM'")
+            connection.commit()
+        finally:
+            connection.close()
+
         connection = sqlite3.connect(database)
         try:
             connection.execute(
@@ -573,6 +781,51 @@ def main() -> int:
                 """,
                 ("TEST-ITEM", "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1", "Invalid issued item", "issued"),
             )
+            connection.execute(
+                """
+                INSERT INTO items_of_supply
+                  (item_id, profile_id, preferred_name, lifecycle_state, created_at)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-CANDIDATE-ITEM",
+                    "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1",
+                    "Test candidate item",
+                    "candidate",
+                    "2026-09-30",
+                ),
+            )
+            connection.commit()
+            expect_integrity_error(
+                connection,
+                """
+                INSERT INTO item_reviews
+                  (item_review_id, item_id, decision, rationale, reviewer, decided_at,
+                   policy_version, independence_attested)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-NONINDEPENDENT-REVIEW",
+                    "TEST-CANDIDATE-ITEM",
+                    "approved",
+                    "Deliberately invalid approval",
+                    "quality-gate-test",
+                    "2026-09-30",
+                    "1.0",
+                    0,
+                ),
+            )
+            expect_integrity_error(
+                connection,
+                """
+                INSERT INTO item_memberships
+                  (item_id, manufacturer_part_id, valid_from)
+                VALUES (?, ?, ?)
+                """,
+                ("TEST-CANDIDATE-ITEM", "MP-NIEDAX-KL100203S", "2026-09-30"),
+            )
+            connection.execute("DELETE FROM items_of_supply WHERE item_id = 'TEST-CANDIDATE-ITEM'")
+            connection.commit()
             expect_integrity_error(
                 connection,
                 """
@@ -596,8 +849,8 @@ def main() -> int:
 
     print(
         "Quality-gate tests passed: specificity gaps and source conflicts stayed unresolved; "
-        "incomplete review, contradictory evidence, unverified artifact, and unnumbered issued "
-        "item were rejected."
+        "incomplete review, contradictory evidence, unverified artifacts, inconsistent reservations, "
+        "unanchored items, and unnumbered or unreviewed issued UPN items were rejected."
     )
     return 0
 

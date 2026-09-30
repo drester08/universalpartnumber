@@ -15,7 +15,7 @@ Two manufacturer part numbers may share one UPN only when the evidence supports 
 5. Compare physical identity independently from supplier packaging. A matching GTIN or seller SKU may identify a box or pack and cannot close a physical-part decision unless its package level and contained part are proven.
 6. Require primary-source evidence for both manufacturer parts. Secondary sources may identify a lead but cannot close the decision.
 7. Record one of `same_item`, `different_item`, or `insufficient_evidence`, with a reviewer, policy version, rationale, and source locators.
-8. Issue or attach a UPN only after the `same_item` decision passes review.
+8. A unique anchor part may create an item only through its latest accepted manufacturer-part review. Additional parts require a `same_item` decision. Issue the permanent UPN only after the item itself passes independent review and the issuance gate in `docs/upn-issuance-policy.md`.
 
 ## Numeric comparison
 

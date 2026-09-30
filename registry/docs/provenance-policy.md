@@ -9,6 +9,8 @@
 
 Identity decisions require Tier 1 or Tier 2 evidence for each manufacturer part. Lower-tier sources may populate a research queue but not a canonical specification.
 
+Final item approval is separate from evidence capture. An approving item reviewer must attest independence, and the automated issuance gate must verify the complete part-review or equivalence-decision chain before publication.
+
 ## Required evidence fields
 
 Every accepted observation must identify the publisher, source title, canonical URL, retrieval date, exact page/section/table locator, observed part number, and review state. Retained files additionally require a SHA-256 checksum.

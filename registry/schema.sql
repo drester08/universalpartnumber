@@ -124,7 +124,36 @@ CREATE TABLE items_of_supply (
   identity_fingerprint TEXT,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
   reviewed_at TEXT,
+  CHECK (upn IS NULL OR (
+    length(upn) = 19
+    AND substr(upn, 1, 5) = 'UPN1-'
+    AND substr(upn, 18, 1) = '-'
+    AND substr(upn, 6, 12) NOT GLOB '*[^0-9]*'
+    AND substr(upn, 19, 1) GLOB '[0-9]'
+  )),
   CHECK (lifecycle_state != 'issued' OR (upn IS NOT NULL AND reviewed_at IS NOT NULL))
+);
+
+CREATE TABLE upn_allocations (
+  allocation_id TEXT PRIMARY KEY,
+  sequence_number INTEGER NOT NULL UNIQUE CHECK (sequence_number BETWEEN 1 AND 999999999999),
+  upn TEXT NOT NULL UNIQUE,
+  item_id TEXT NOT NULL UNIQUE REFERENCES items_of_supply(item_id),
+  allocated_by TEXT NOT NULL,
+  allocated_at TEXT NOT NULL,
+  allocation_state TEXT NOT NULL CHECK (allocation_state IN ('reserved','active','retired'))
+);
+
+CREATE TABLE item_reviews (
+  item_review_id TEXT PRIMARY KEY,
+  item_id TEXT NOT NULL REFERENCES items_of_supply(item_id),
+  decision TEXT NOT NULL CHECK (decision IN ('approved','rejected','needs_evidence')),
+  rationale TEXT NOT NULL,
+  reviewer TEXT NOT NULL,
+  decided_at TEXT NOT NULL,
+  policy_version TEXT NOT NULL,
+  independence_attested INTEGER NOT NULL CHECK (independence_attested IN (0, 1)),
+  CHECK (decision != 'approved' OR independence_attested = 1)
 );
 
 CREATE TABLE manufacturer_parts (
@@ -301,11 +330,16 @@ CREATE TABLE equivalence_decisions (
 CREATE TABLE item_memberships (
   item_id TEXT NOT NULL REFERENCES items_of_supply(item_id),
   manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
-  decision_id TEXT NOT NULL REFERENCES equivalence_decisions(decision_id),
+  equivalence_decision_id TEXT REFERENCES equivalence_decisions(decision_id),
+  part_review_id TEXT REFERENCES manufacturer_part_reviews(review_id),
   valid_from TEXT NOT NULL,
   valid_to TEXT,
+  CHECK ((equivalence_decision_id IS NOT NULL) != (part_review_id IS NOT NULL)),
   PRIMARY KEY (item_id, manufacturer_part_id, valid_from)
 );
+
+CREATE UNIQUE INDEX idx_active_membership_part
+  ON item_memberships(manufacturer_part_id) WHERE valid_to IS NULL;
 
 CREATE TABLE application_interchangeability (
   interchangeability_id TEXT PRIMARY KEY,
