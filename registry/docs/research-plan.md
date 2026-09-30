@@ -29,7 +29,7 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
 3. Resolve missing identity fields and source conflicts across the 38 pilot parts, especially package-included splice hardware, Atkore rung construction, Eaton geometry and length, Legrand height, and the SKF/NSK bearing tolerance and evidence gaps.
-4. Extend artifact retrieval with per-publisher access rules; seventeen artifacts are verified locally while fifteen evidence records remain remote-only or blocked.
+4. Extend artifact retrieval with per-publisher access rules; nineteen artifacts are verified locally while fifteen evidence records remain remote-only or blocked.
 5. Add a fifth narrow part class and continue expanding manufacturers while measuring false-negative risk in the blocking keys.
 6. Work the deterministic reviewer queue, starting with P0 terminology mappings and source conflicts; keep every independent decision in the governed ledgers.
 7. Independently review the ten complete Niedax evidence profiles exposed by the queue; completeness alone must not change their status.
@@ -45,5 +45,5 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 - Property-scoped controlled terminology and independently reviewable source-term mappings; the initial bearing mappings remain proposed.
 - A deterministic reviewer queue covering terminology, evidence gaps, observations, conflicts, artifacts, source governance, external identifiers, and complete-part review dependencies.
 - Four checksummed user-supplied catalogues covering plate, structural steel, gaskets, and piping are registered as structure research only; their field conflicts and profile implications are documented without treating their rows as verified identity evidence.
-- Local verification of seventeen cached artifacts and four reference datasets without committing raw copyrighted or sensitive source files to Git.
+- Local verification of nineteen cached artifacts and four reference datasets without committing raw copyrighted or sensitive source files to Git.
 - Historical numerical comparison of every supplied gasket row: 11,161 agreements under supported keys, 52 differences and 949 unsupported keys across 12,162 records. Missing construction, drilling, material and thickness evidence still prevents exact-article ingestion and equivalence approval.

@@ -1,0 +1,1342 @@
+{
+  "source_page": 13,
+  "source_rows": 57,
+  "dataset_rows": 50,
+  "outcomes": {
+    "outside_source_key_scope": 12,
+    "printed_precision_compatible": 34,
+    "ambiguous_source_key": 4
+  },
+  "construction_conflicts": 50,
+  "source_ambiguous_keys": [
+    [
+      "65",
+      "160"
+    ],
+    [
+      "65",
+      "40"
+    ],
+    [
+      "65",
+      "80"
+    ],
+    [
+      "65",
+      "XXS"
+    ]
+  ],
+  "catalogue_sha256": "84478db6210b426504766c75fa935a4655f2b6a7f74d32f922c7d43120d6a824",
+  "dataset_sha256": "674cb646412b8f1ef538f3c6cf4e473f1f832f0b9c65b0b45aebed04e4d7e875",
+  "interpretation": "Nominal OD/wall printed-precision comparison only; no manufacturing tolerance, material, route, exact article, mass or interchangeability validation.",
+  "records": [
+    {
+      "csv_line": 2,
+      "key": [
+        "6",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "10.3",
+        "wall_mm": "1.727"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 3,
+      "key": [
+        "6",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "10.3",
+        "wall_mm": "2,413"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 4,
+      "key": [
+        "8",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "13.7",
+        "wall_mm": "2,235"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 5,
+      "key": [
+        "8",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "13.7",
+        "wall_mm": "3,023"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 6,
+      "key": [
+        "10",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "17,1",
+        "wall_mm": "2,311"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 7,
+      "key": [
+        "10",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "17,1",
+        "wall_mm": "3,200"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 8,
+      "key": [
+        "15",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "2,769"
+      },
+      "source_candidates": [
+        {
+          "nps": "1/2",
+          "dn_raw": "15",
+          "od_mm": "21,34",
+          "wall_mm": "2,77",
+          "weight_kg_per_m": "1,27",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 9,
+      "key": [
+        "15",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "3,734"
+      },
+      "source_candidates": [
+        {
+          "nps": "1/2",
+          "dn_raw": "15",
+          "od_mm": "21,34",
+          "wall_mm": "3,73",
+          "weight_kg_per_m": "1,62",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 10,
+      "key": [
+        "15",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "4,775"
+      },
+      "source_candidates": [
+        {
+          "nps": "1/2",
+          "dn_raw": "15",
+          "od_mm": "21,34",
+          "wall_mm": "4,78",
+          "weight_kg_per_m": "1,95",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 11,
+      "key": [
+        "15",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "7,468"
+      },
+      "source_candidates": [
+        {
+          "nps": "1/2",
+          "dn_raw": "15",
+          "od_mm": "21,34",
+          "wall_mm": "7,47",
+          "weight_kg_per_m": "2,56",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 12,
+      "key": [
+        "20",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "2,870"
+      },
+      "source_candidates": [
+        {
+          "nps": "3/4",
+          "dn_raw": "20",
+          "od_mm": "26,67",
+          "wall_mm": "2,87",
+          "weight_kg_per_m": "1,68",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 13,
+      "key": [
+        "20",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "3,912"
+      },
+      "source_candidates": [
+        {
+          "nps": "3/4",
+          "dn_raw": "20",
+          "od_mm": "26,67",
+          "wall_mm": "3,91",
+          "weight_kg_per_m": "2,19",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 14,
+      "key": [
+        "20",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "5,563"
+      },
+      "source_candidates": [
+        {
+          "nps": "3/4",
+          "dn_raw": "20",
+          "od_mm": "26,67",
+          "wall_mm": "5,56",
+          "weight_kg_per_m": "2,89",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 15,
+      "key": [
+        "20",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "7,823"
+      },
+      "source_candidates": [
+        {
+          "nps": "3/4",
+          "dn_raw": "20",
+          "od_mm": "26,67",
+          "wall_mm": "7,82",
+          "weight_kg_per_m": "3,64",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 16,
+      "key": [
+        "25",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "3,378"
+      },
+      "source_candidates": [
+        {
+          "nps": "1",
+          "dn_raw": "25",
+          "od_mm": "33,40",
+          "wall_mm": "3,38",
+          "weight_kg_per_m": "2,50",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 17,
+      "key": [
+        "25",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "4,547"
+      },
+      "source_candidates": [
+        {
+          "nps": "1",
+          "dn_raw": "25",
+          "od_mm": "33,40",
+          "wall_mm": "4,55",
+          "weight_kg_per_m": "3,24",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 18,
+      "key": [
+        "25",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "6,350"
+      },
+      "source_candidates": [
+        {
+          "nps": "1",
+          "dn_raw": "25",
+          "od_mm": "33,40",
+          "wall_mm": "6,35",
+          "weight_kg_per_m": "4,24",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 19,
+      "key": [
+        "25",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "9,093"
+      },
+      "source_candidates": [
+        {
+          "nps": "1",
+          "dn_raw": "25",
+          "od_mm": "33,40",
+          "wall_mm": "9,09",
+          "weight_kg_per_m": "5,45",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 20,
+      "key": [
+        "32",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "3,556"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/4",
+          "dn_raw": "32",
+          "od_mm": "42,16",
+          "wall_mm": "3,56",
+          "weight_kg_per_m": "3,39",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 21,
+      "key": [
+        "32",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "4,851"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/4",
+          "dn_raw": "32",
+          "od_mm": "42,16",
+          "wall_mm": "4,85",
+          "weight_kg_per_m": "4,46",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 22,
+      "key": [
+        "32",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "6,350"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/4",
+          "dn_raw": "32",
+          "od_mm": "42,16",
+          "wall_mm": "6,35",
+          "weight_kg_per_m": "5,61",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 23,
+      "key": [
+        "32",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "9,703"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/4",
+          "dn_raw": "32",
+          "od_mm": "42,16",
+          "wall_mm": "9,70",
+          "weight_kg_per_m": "7,76",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 24,
+      "key": [
+        "40",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "3,683"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/2",
+          "dn_raw": "40",
+          "od_mm": "48,26",
+          "wall_mm": "3,68",
+          "weight_kg_per_m": "4,05",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 25,
+      "key": [
+        "40",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "5,08"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/2",
+          "dn_raw": "40",
+          "od_mm": "48,26",
+          "wall_mm": "5,08",
+          "weight_kg_per_m": "5,41",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 26,
+      "key": [
+        "40",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "7,14"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/2",
+          "dn_raw": "40",
+          "od_mm": "48,26",
+          "wall_mm": "7,14",
+          "weight_kg_per_m": "7,24",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 27,
+      "key": [
+        "40",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "10,16"
+      },
+      "source_candidates": [
+        {
+          "nps": "1 1/2",
+          "dn_raw": "40",
+          "od_mm": "48,26",
+          "wall_mm": "10,16",
+          "weight_kg_per_m": "9,55",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 28,
+      "key": [
+        "50",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "3,91"
+      },
+      "source_candidates": [
+        {
+          "nps": "2",
+          "dn_raw": "50",
+          "od_mm": "60,32",
+          "wall_mm": "3,91",
+          "weight_kg_per_m": "5,44",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 29,
+      "key": [
+        "50",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "5,54"
+      },
+      "source_candidates": [
+        {
+          "nps": "2",
+          "dn_raw": "50",
+          "od_mm": "60,32",
+          "wall_mm": "5,54",
+          "weight_kg_per_m": "7,48",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 30,
+      "key": [
+        "50",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "8,74"
+      },
+      "source_candidates": [
+        {
+          "nps": "2",
+          "dn_raw": "50",
+          "od_mm": "60,32",
+          "wall_mm": "8,74",
+          "weight_kg_per_m": "11,12",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 31,
+      "key": [
+        "50",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "11,07"
+      },
+      "source_candidates": [
+        {
+          "nps": "2",
+          "dn_raw": "50",
+          "od_mm": "60,32",
+          "wall_mm": "11,07",
+          "weight_kg_per_m": "13,45",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 32,
+      "key": [
+        "65",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "5,16"
+      },
+      "source_candidates": [
+        {
+          "nps": "3",
+          "dn_raw": "65",
+          "od_mm": "88,90",
+          "wall_mm": "5,49",
+          "weight_kg_per_m": "11,29",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        },
+        {
+          "nps": "2 1/2",
+          "dn_raw": "65",
+          "od_mm": "73,02",
+          "wall_mm": "5,16",
+          "weight_kg_per_m": "8,64",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "ambiguous_source_key",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 33,
+      "key": [
+        "65",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "7,01"
+      },
+      "source_candidates": [
+        {
+          "nps": "3",
+          "dn_raw": "65",
+          "od_mm": "88,90",
+          "wall_mm": "7,62",
+          "weight_kg_per_m": "15,27",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        },
+        {
+          "nps": "2 1/2",
+          "dn_raw": "65",
+          "od_mm": "73,02",
+          "wall_mm": "7,01",
+          "weight_kg_per_m": "11,41",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "ambiguous_source_key",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 34,
+      "key": [
+        "65",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "9,52"
+      },
+      "source_candidates": [
+        {
+          "nps": "3",
+          "dn_raw": "65",
+          "od_mm": "88,90",
+          "wall_mm": "11,13",
+          "weight_kg_per_m": "21,35",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        },
+        {
+          "nps": "2 1/2",
+          "dn_raw": "65",
+          "od_mm": "73,02",
+          "wall_mm": "9,52",
+          "weight_kg_per_m": "14,91",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "ambiguous_source_key",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 35,
+      "key": [
+        "65",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "14,02"
+      },
+      "source_candidates": [
+        {
+          "nps": "3",
+          "dn_raw": "65",
+          "od_mm": "88,90",
+          "wall_mm": "15,24",
+          "weight_kg_per_m": "27,68",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        },
+        {
+          "nps": "2 1/2",
+          "dn_raw": "65",
+          "od_mm": "73,02",
+          "wall_mm": "14,02",
+          "weight_kg_per_m": "20,40",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "ambiguous_source_key",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 36,
+      "key": [
+        "80",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "5,49"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 37,
+      "key": [
+        "80",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "7,62"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 38,
+      "key": [
+        "80",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "11,13"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 39,
+      "key": [
+        "80",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "15,24"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 40,
+      "key": [
+        "90",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "101,6",
+        "wall_mm": "5,74"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 41,
+      "key": [
+        "90",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "101,6",
+        "wall_mm": "8,08"
+      },
+      "source_candidates": [],
+      "outcome": "outside_source_key_scope",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 42,
+      "key": [
+        "100",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "6,02"
+      },
+      "source_candidates": [
+        {
+          "nps": "4",
+          "dn_raw": "100",
+          "od_mm": "114,30",
+          "wall_mm": "6,02",
+          "weight_kg_per_m": "16,08",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 43,
+      "key": [
+        "100",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "8,56"
+      },
+      "source_candidates": [
+        {
+          "nps": "4",
+          "dn_raw": "100",
+          "od_mm": "114,30",
+          "wall_mm": "8,56",
+          "weight_kg_per_m": "22,32",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 44,
+      "key": [
+        "100",
+        "120"
+      ],
+      "raw_schedule": "120",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "11,13"
+      },
+      "source_candidates": [
+        {
+          "nps": "4",
+          "dn_raw": "100",
+          "od_mm": "114,30",
+          "wall_mm": "11,13",
+          "weight_kg_per_m": "28,32",
+          "wall_designation": "-",
+          "schedule": "120",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 45,
+      "key": [
+        "100",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "13,49"
+      },
+      "source_candidates": [
+        {
+          "nps": "4",
+          "dn_raw": "100",
+          "od_mm": "114,30",
+          "wall_mm": "13,49",
+          "weight_kg_per_m": "33,54",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 46,
+      "key": [
+        "100",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "17,12"
+      },
+      "source_candidates": [
+        {
+          "nps": "4",
+          "dn_raw": "100",
+          "od_mm": "114,30",
+          "wall_mm": "17,12",
+          "weight_kg_per_m": "41,03",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 47,
+      "key": [
+        "125",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "6,55"
+      },
+      "source_candidates": [
+        {
+          "nps": "5",
+          "dn_raw": "125",
+          "od_mm": "141,30",
+          "wall_mm": "6,55",
+          "weight_kg_per_m": "21,77",
+          "wall_designation": "STD",
+          "schedule": "40",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 48,
+      "key": [
+        "125",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "9,52"
+      },
+      "source_candidates": [
+        {
+          "nps": "5",
+          "dn_raw": "125",
+          "od_mm": "141,30",
+          "wall_mm": "9,52",
+          "weight_kg_per_m": "30,94",
+          "wall_designation": "XS",
+          "schedule": "80",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 49,
+      "key": [
+        "125",
+        "120"
+      ],
+      "raw_schedule": "120",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "12,70"
+      },
+      "source_candidates": [
+        {
+          "nps": "5",
+          "dn_raw": "125",
+          "od_mm": "141,30",
+          "wall_mm": "12,70",
+          "weight_kg_per_m": "40,28",
+          "wall_designation": "-",
+          "schedule": "120",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 50,
+      "key": [
+        "125",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "15,88"
+      },
+      "source_candidates": [
+        {
+          "nps": "5",
+          "dn_raw": "125",
+          "od_mm": "141,30",
+          "wall_mm": "15,88",
+          "weight_kg_per_m": "49,12",
+          "wall_designation": "-",
+          "schedule": "160",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_line": 51,
+      "key": [
+        "125",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "19,05"
+      },
+      "source_candidates": [
+        {
+          "nps": "5",
+          "dn_raw": "125",
+          "od_mm": "141,30",
+          "wall_mm": "19,05",
+          "weight_kg_per_m": "57,43",
+          "wall_designation": "XXS",
+          "schedule": "-",
+          "page": 13
+        }
+      ],
+      "outcome": "printed_precision_compatible",
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    }
+  ]
+}

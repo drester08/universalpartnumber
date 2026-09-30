@@ -266,7 +266,7 @@ def main() -> int:
                 for queue_type in {item["queue_type"] for item in review_items}
             }
             if (
-                len(review_items) != 232
+                len(review_items) != 233
                 or queue_counts.get("dataset_finding_review") != 66
                 or queue_counts.get("reference_dataset_validation") != 4
                 or queue_counts.get("terminology_mapping_review") != 15
