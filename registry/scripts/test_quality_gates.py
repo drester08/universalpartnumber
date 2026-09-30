@@ -33,6 +33,29 @@ def main() -> int:
         screening_connection = sqlite3.connect(database)
         screening_connection.row_factory = sqlite3.Row
         try:
+            fastener_part_eans = screening_connection.execute(
+                """
+                SELECT count(*)
+                  FROM manufacturer_part_identifiers
+                 WHERE manufacturer_part_id IN (
+                   'MP-BOSSARD-1049860', 'MP-WUERTH-00578-30', 'MP-FABORY-01210080030'
+                 ) AND scheme = 'ean'
+                """
+            ).fetchone()[0]
+            if fastener_part_eans:
+                raise AssertionError("Commercial EAN was attached directly to a physical fastener record")
+            fabory_offer = screening_connection.execute(
+                """
+                SELECT so.pack_quantity, so.package_level, soi.identifier_scope
+                  FROM supplier_offers AS so
+                  JOIN supplier_offer_identifiers AS soi
+                    ON soi.supplier_offer_id = so.supplier_offer_id
+                 WHERE so.supplier_offer_id = 'OFFER-FABORY-01210080030'
+                   AND soi.identifier_value = '8715492030054'
+                """
+            ).fetchone()
+            if not fabory_offer or tuple(fabory_offer) != (200, "box", "box"):
+                raise AssertionError("Fabory box quantity and EAN scope were not preserved as an offer")
             screenings = screen_candidates.screen(screening_connection, "2026-09-30")
         finally:
             screening_connection.close()
@@ -50,13 +73,30 @@ def main() -> int:
             raise AssertionError("Generic versus specific hot-dip galvanizing was treated as a contradiction")
         if "PROP-SURFACE-PROTECTION" not in str(finish_specificity["missing_properties"]).split(";"):
             raise AssertionError("Finish specificity gap was not preserved as unresolved evidence")
-        fastener_pair = by_pair[("MP-BOSSARD-1049860", "MP-WUERTH-00578-30")]
-        if fastener_pair["result"] != "insufficient_evidence":
-            raise AssertionError("Unproven ISO 4017 fastener equivalence was not held for evidence")
-        fastener_missing = str(fastener_pair["missing_properties"]).split(";")
-        for property_id in ("PROP-THREAD-PITCH", "PROP-COATING-SPEC", "PROP-PRODUCT-CLASS"):
-            if property_id not in fastener_missing:
+        fastener_pairs = (
+            ("MP-BOSSARD-1049860", "MP-FABORY-01210080030"),
+            ("MP-BOSSARD-1049860", "MP-WUERTH-00578-30"),
+            ("MP-FABORY-01210080030", "MP-WUERTH-00578-30"),
+        )
+        for pair in fastener_pairs:
+            if by_pair[pair]["result"] != "insufficient_evidence":
+                raise AssertionError(f"Unproven ISO 4017 equivalence was not held for evidence: {pair}")
+        bossard_wuerth_missing = str(
+            by_pair[("MP-BOSSARD-1049860", "MP-WUERTH-00578-30")]["missing_properties"]
+        ).split(";")
+        for property_id in (
+            "PROP-THREAD-PITCH",
+            "PROP-THREAD-DIRECTION",
+            "PROP-COATING-SPEC",
+            "PROP-PRODUCT-CLASS",
+        ):
+            if property_id not in bossard_wuerth_missing:
                 raise AssertionError(f"Fastener evidence gap was not retained: {property_id}")
+        fabory_wuerth_missing = str(
+            by_pair[("MP-FABORY-01210080030", "MP-WUERTH-00578-30")]["missing_properties"]
+        ).split(";")
+        if "PROP-FASTENER-SURFACE" not in fabory_wuerth_missing:
+            raise AssertionError("Generic electrolytic zinc versus blue zinc was treated as exact")
 
         connection = sqlite3.connect(database)
         try:

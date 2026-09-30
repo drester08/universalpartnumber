@@ -123,9 +123,35 @@ CREATE TABLE manufacturer_parts (
   UNIQUE (manufacturer_id, normalized_part_number)
 );
 
+CREATE TABLE supplier_offers (
+  supplier_offer_id TEXT PRIMARY KEY,
+  supplier_id TEXT NOT NULL REFERENCES organizations(organization_id),
+  manufacturer_part_id TEXT REFERENCES manufacturer_parts(manufacturer_part_id),
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  seller_sku TEXT NOT NULL,
+  normalized_sku TEXT NOT NULL,
+  offered_name TEXT NOT NULL,
+  brand_name TEXT,
+  pack_quantity INTEGER CHECK (pack_quantity IS NULL OR pack_quantity > 0),
+  package_level TEXT NOT NULL CHECK (package_level IN ('each','pack','box','case','pallet','unknown')),
+  lifecycle_state TEXT NOT NULL CHECK (lifecycle_state IN ('active','obsolete','unknown')),
+  UNIQUE (supplier_id, normalized_sku)
+);
+
+CREATE TABLE supplier_offer_identifiers (
+  supplier_offer_id TEXT NOT NULL REFERENCES supplier_offers(supplier_offer_id),
+  scheme TEXT NOT NULL CHECK (scheme IN ('gtin','ean','upc','other')),
+  identifier_value TEXT NOT NULL,
+  identifier_authority TEXT NOT NULL,
+  identifier_scope TEXT NOT NULL CHECK (identifier_scope IN ('each','pack','box','case','pallet','unknown')),
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  is_primary INTEGER NOT NULL DEFAULT 0 CHECK (is_primary IN (0, 1)),
+  PRIMARY KEY (supplier_offer_id, scheme, identifier_value, identifier_authority)
+);
+
 CREATE TABLE manufacturer_part_identifiers (
   manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
-  scheme TEXT NOT NULL CHECK (scheme IN ('manufacturer_part_number','gtin','upc','ean','other')),
+  scheme TEXT NOT NULL CHECK (scheme IN ('manufacturer_part_number','gtin','upc','ean','nsn','other')),
   identifier_value TEXT NOT NULL,
   identifier_authority TEXT NOT NULL,
   source_id TEXT NOT NULL REFERENCES sources(source_id),

@@ -27,6 +27,7 @@ PROP-LINEAR-MASS,,,Linear mass,Declared mass per unit length of the straight sec
 PROP-FASTENER-STANDARD,,,Fastener dimensional standard,Primary dimensional product standard explicitly asserted by the source.,code,defining
 PROP-THREAD-DIAMETER,,,Nominal thread diameter,Nominal metric thread diameter explicitly asserted for the supplied fastener.,code,defining
 PROP-THREAD-PITCH,,,Thread pitch or series,Numeric pitch or explicitly declared standard metric thread series.,code,defining
+PROP-THREAD-DIRECTION,,,Thread direction,Declared right-hand or left-hand thread direction.,code,defining
 PROP-FASTENER-LENGTH,,,Fastener nominal length,Nominal length measured according to the declared product standard.,number,defining
 PROP-THREAD-EXTENT,,,Thread extent,Whether the shank is fully or partially threaded.,code,defining
 PROP-HEAD-FORM,,,Head form,Declared external form of the fastener head.,code,defining
@@ -39,4 +40,3 @@ PROP-FASTENER-SURFACE,,,Fastener surface treatment,Coarse declared surface treat
 PROP-COATING-SPEC,,,Coating specification,Declared passivation grade or other finish detail needed to compare corrosion performance.,code,defining
 PROP-PRODUCT-CLASS,,,Dimensional product class,Declared dimensional tolerance product class.,code,defining
 PROP-CORROSION-PERFORMANCE,,,Corrosion performance,Declared corrosion resistance together with test duration and context.,text,conditional
-PROP-PACK-QUANTITY,,,Sales pack quantity,Number of physical fasteners in the stated commercial pack.,number,descriptive

@@ -1,18 +1,19 @@
 # Data model
 
-UPN separates what a manufacturer sells from the supply item the market needs to identify.
+UPN separates a physical branded part, a supplier's commercial offer, and the supply item the market needs to identify.
 
 ## Core boundaries
 
 1. A **source** is a versioned authority, catalogue, datasheet, webpage, or database. A URL alone is not evidence: retrieval date, source locator, access terms, and—when locally retained—a checksum are recorded.
-2. A **manufacturer part** is an item of production identified by a manufacturer part number. It remains distinct even when evidence later shows it belongs to the same item of supply as another manufacturer's part.
-3. An **observation** is exactly what one source said at one location and time. Raw values are preserved; normalization creates separate structured values.
-4. An **item of supply** is the canonical UPN concept. It can collect multiple manufacturer parts only after a reviewed equivalence decision.
-5. **Application interchangeability** is separate from identity. Two different items may be substitutable in a defined application, while identical items may still require procurement or certification constraints.
+2. A **manufacturer or branded part** is a physical item identified by the responsible brand's part number. It remains distinct even when evidence later shows it belongs to the same item of supply as another organization's part. When the actual legal manufacturer is unknown, that uncertainty is retained rather than assigning the seller as manufacturer by assumption.
+3. A **supplier offer** is a seller SKU for a commercial unit such as one piece, a pack, a box, or an unknown package level. It may point to a known branded part. Pack quantity and trade-item identifiers belong here, not in the physical identity profile.
+4. An **observation** is exactly what one source said at one location and time. Raw values are preserved; normalization creates separate structured values.
+5. An **item of supply** is the canonical UPN concept. It can collect multiple manufacturer parts only after a reviewed equivalence decision.
+6. **Application interchangeability** is separate from identity. Two different items may be substitutable in a defined application, while identical items may still require procurement or certification constraints.
 
 ## Identifier policy
 
-Database IDs are opaque stable keys. A UPN is nullable until an item has passed review. Fingerprints are versioned and help detect candidates; they are never proof of identity.
+Database IDs are opaque stable keys. A UPN is nullable until an item has passed review. Fingerprints are versioned and help detect candidates; they are never proof of identity. A GTIN, EAN, or UPC is attached to the observed commercial offer with an explicit scope (`each`, `pack`, `box`, `case`, `pallet`, or `unknown`) and is never assumed to identify one physical piece.
 
 ## Change policy
 

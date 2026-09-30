@@ -33,4 +33,4 @@ PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-FASTENER-SURFACE,required,normalized_
 PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-COATING-SPEC,required,normalized_exact,13,Generic zinc and an identified passivation do not prove equal corrosion performance.
 PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-PRODUCT-CLASS,required,normalized_exact,14,Dimensional tolerance class is part of the exact product definition.
 PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-CORROSION-PERFORMANCE,conditional,contextual,15,Compare duration and test method only when explicitly declared.
-PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-PACK-QUANTITY,descriptive,numeric_exact,16,Commercial packs and their GTINs must not be confused with physical item identity.
+PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-THREAD-DIRECTION,required,normalized_exact,16,Left-hand and right-hand threads are different physical items even when all nominal dimensions match.

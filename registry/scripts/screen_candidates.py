@@ -129,6 +129,13 @@ def blocking_values(property_id: str, values: set[str]) -> set[str]:
             else value
             for value in values
         }
+    if property_id == "PROP-FASTENER-SURFACE":
+        return {
+            "electrolytic_zinc"
+            if value.startswith("electrolytic_zinc")
+            else value
+            for value in values
+        }
     return values
 
 
@@ -138,6 +145,7 @@ def compatible_but_less_specific(property_id: str, left: set[str], right: set[st
         "PROP-MATERIAL",
         "PROP-SURFACE-PROTECTION",
         "PROP-COATING-SPEC",
+        "PROP-FASTENER-SURFACE",
     } and (
         blocking_values(property_id, left) == blocking_values(property_id, right)
     )
