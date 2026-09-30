@@ -1,0 +1,2 @@
+reference_id,manufacturer_part_id,external_identifier_id,relationship,assertion_source_id,review_state,observed_at,notes
+XREF-FABORY-01210-NSN,MP-FABORY-01210080030,EXT-NSN-5305-12-337-0503,claimed_same_item,SRC-FABORY-01210080030,unreviewed,2026-09-30,"Official Fabory product page and generated PDF print the NSN beside article 01210.080.030; authoritative codification verification remains outstanding."

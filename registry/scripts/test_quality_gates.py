@@ -56,6 +56,29 @@ def main() -> int:
             ).fetchone()
             if not fabory_offer or tuple(fabory_offer) != (200, "box", "box"):
                 raise AssertionError("Fabory box quantity and EAN scope were not preserved as an offer")
+            direct_nsn = screening_connection.execute(
+                """
+                SELECT count(*)
+                  FROM manufacturer_part_identifiers
+                 WHERE manufacturer_part_id = 'MP-FABORY-01210080030'
+                   AND identifier_value = '5305-12-337-0503'
+                """
+            ).fetchone()[0]
+            if direct_nsn:
+                raise AssertionError("NSN was incorrectly modeled as a manufacturer part identifier")
+            nsn = screening_connection.execute(
+                """
+                SELECT ei.verification_state, mper.review_state
+                  FROM external_identifiers AS ei
+                  JOIN manufacturer_part_external_references AS mper
+                    ON mper.external_identifier_id = ei.external_identifier_id
+                 WHERE ei.namespace = 'NSN'
+                   AND ei.identifier_value = '5305-12-337-0503'
+                   AND mper.manufacturer_part_id = 'MP-FABORY-01210080030'
+                """
+            ).fetchone()
+            if not nsn or tuple(nsn) != ("unverified", "unreviewed"):
+                raise AssertionError("Unverified Fabory NSN assertion was not kept fail-closed")
             screenings = screen_candidates.screen(screening_connection, "2026-09-30")
         finally:
             screening_connection.close()
@@ -148,6 +171,24 @@ def main() -> int:
                 VALUES (?, ?, ?, ?)
                 """,
                 ("TEST-ITEM", "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1", "Invalid issued item", "issued"),
+            )
+            expect_integrity_error(
+                connection,
+                """
+                INSERT INTO external_identifiers
+                  (external_identifier_id, namespace, identifier_value, issuing_authority,
+                   identifier_scope, verification_state, notes)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-EXT-ID",
+                    "NSN",
+                    "0000-00-000-0000",
+                    "Test authority",
+                    "item_of_supply",
+                    "authority_verified",
+                    "Invalid verified identifier without an authority source",
+                ),
             )
         finally:
             connection.close()

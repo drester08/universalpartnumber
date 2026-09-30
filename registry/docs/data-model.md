@@ -10,6 +10,7 @@ UPN separates a physical branded part, a supplier's commercial offer, and the su
 4. An **observation** is exactly what one source said at one location and time. Raw values are preserved; normalization creates separate structured values.
 5. An **item of supply** is the canonical UPN concept. It can collect multiple manufacturer parts only after a reviewed equivalence decision.
 6. **Application interchangeability** is separate from identity. Two different items may be substitutable in a defined application, while identical items may still require procurement or certification constraints.
+7. An **external identifier** such as an NSN is its own governed record. A manufacturer or supplier assertion creates an unreviewed cross-reference; it becomes authority-verified only after the exact issuing-authority record is inspected.
 
 ## Identifier policy
 

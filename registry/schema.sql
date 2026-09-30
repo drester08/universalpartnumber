@@ -151,12 +151,49 @@ CREATE TABLE supplier_offer_identifiers (
 
 CREATE TABLE manufacturer_part_identifiers (
   manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
-  scheme TEXT NOT NULL CHECK (scheme IN ('manufacturer_part_number','gtin','upc','ean','nsn','other')),
+  scheme TEXT NOT NULL CHECK (scheme IN ('manufacturer_part_number','gtin','upc','ean','other')),
   identifier_value TEXT NOT NULL,
   identifier_authority TEXT NOT NULL,
   source_id TEXT NOT NULL REFERENCES sources(source_id),
   is_primary INTEGER NOT NULL DEFAULT 0 CHECK (is_primary IN (0, 1)),
   PRIMARY KEY (manufacturer_part_id, scheme, identifier_value, identifier_authority)
+);
+
+CREATE TABLE external_identifiers (
+  external_identifier_id TEXT PRIMARY KEY,
+  namespace TEXT NOT NULL,
+  identifier_value TEXT NOT NULL,
+  issuing_authority TEXT NOT NULL,
+  identifier_scope TEXT NOT NULL CHECK (identifier_scope IN ('item_of_supply','classification','organization','unknown')),
+  verification_state TEXT NOT NULL CHECK (verification_state IN ('unverified','authority_verified','rejected')),
+  verified_source_id TEXT REFERENCES sources(source_id),
+  verified_at TEXT,
+  notes TEXT NOT NULL DEFAULT '',
+  CHECK (verification_state != 'authority_verified' OR (verified_source_id IS NOT NULL AND verified_at IS NOT NULL)),
+  UNIQUE (namespace, identifier_value)
+);
+
+CREATE TABLE manufacturer_part_external_references (
+  reference_id TEXT PRIMARY KEY,
+  manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  external_identifier_id TEXT NOT NULL REFERENCES external_identifiers(external_identifier_id),
+  relationship TEXT NOT NULL CHECK (relationship IN ('claimed_same_item','cross_reference','related','unknown')),
+  assertion_source_id TEXT NOT NULL REFERENCES sources(source_id),
+  review_state TEXT NOT NULL CHECK (review_state IN ('unreviewed','accepted','rejected')),
+  observed_at TEXT NOT NULL,
+  notes TEXT NOT NULL DEFAULT '',
+  UNIQUE (manufacturer_part_id, external_identifier_id, assertion_source_id)
+);
+
+CREATE TABLE external_identifier_evidence (
+  evidence_id TEXT PRIMARY KEY,
+  external_identifier_id TEXT NOT NULL REFERENCES external_identifiers(external_identifier_id),
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  evidence_role TEXT NOT NULL CHECK (evidence_role IN ('definition','supplier_assertion','secondary_corroboration','authority_record')),
+  source_locator TEXT NOT NULL,
+  observed_at TEXT NOT NULL,
+  notes TEXT NOT NULL DEFAULT '',
+  UNIQUE (external_identifier_id, source_id, evidence_role)
 );
 
 CREATE TABLE manufacturer_part_reviews (

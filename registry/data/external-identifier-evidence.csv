@@ -1,0 +1,4 @@
+evidence_id,external_identifier_id,source_id,evidence_role,source_locator,observed_at,notes
+EVID-NSN-5305-FABORY,EXT-NSN-5305-12-337-0503,SRC-FABORY-01210080030,supplier_assertion,"Article numbers table and generated PDF",2026-09-30,"Primary evidence that Fabory asserts the reference; not an issuing-authority record."
+EVID-NSN-5305-NATO-DEF,EXT-NSN-5305-12-337-0503,SRC-NATO-NMCRL-NSN-DEFINITION,definition,"NSN definition page",2026-09-30,"Defines NSN structure and item-of-supply scope but does not verify this exact number."
+EVID-NSN-5305-SECONDARY,EXT-NSN-5305-12-337-0503,SRC-NSNDEPOT-5305-12-337-0503,secondary_corroboration,"Summary and MCRL reference list",2026-09-30,"Secondary record names a hexagon-head cap screw and lists ISO4017-M8X30-8.8-A2P; retained only as a research lead."
