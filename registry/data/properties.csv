@@ -41,7 +41,9 @@ PROP-COATING-SPEC,,,Coating specification,Declared passivation grade or other fi
 PROP-PRODUCT-CLASS,,,Dimensional product class,Declared dimensional tolerance product class.,code,defining
 PROP-CORROSION-PERFORMANCE,,,Corrosion performance,Declared corrosion resistance together with test duration and context.,text,conditional
 PROP-OVERALL-HEIGHT,,,Overall height,Maximum external height of the supplied straight section.,number,defining
-PROP-WIRE-DIAMETER,,,Structural wire diameter,Declared diameter of the primary tray wires.,number,defining
+PROP-CROSS-WIRE-DIAMETER,,,Cross-wire diameter,Declared diameter of the transverse wires.,number,defining
+PROP-TOP-LONGITUDINAL-WIRE-DIAMETER,,,Top longitudinal wire diameter,Declared diameter of the top edge longitudinal wire.,number,defining
+PROP-OTHER-LONGITUDINAL-WIRE-DIAMETER,,,Other longitudinal wire diameter,Declared diameter of longitudinal wires other than the top edge wire.,number,defining
 PROP-MESH-LONGITUDINAL-SPACING,,,Longitudinal mesh spacing,Centre-to-centre grid spacing along the tray length.,number,defining
 PROP-MESH-TRANSVERSE-SPACING,,,Transverse mesh spacing,Centre-to-centre grid spacing across the tray width.,number,defining
 PROP-WIRE-JOINT,,,Wire joint construction,Declared welding or joining construction including any safety-edge form.,code,defining

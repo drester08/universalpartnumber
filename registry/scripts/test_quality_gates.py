@@ -45,6 +45,8 @@ def main() -> int:
         raise AssertionError("Invalid GS1 check digit was accepted")
     if not validate_registry.gs1_mod10_valid("662516721871"):
         raise AssertionError("Eaton exact-SKU UPC failed GS1 Mod-10 validation")
+    if not validate_registry.gs1_mod10_valid("800388009257"):
+        raise AssertionError("Legrand exact-SKU UPC failed GS1 Mod-10 validation")
     with tempfile.TemporaryDirectory(prefix="upn-quality-") as directory:
         database = Path(directory) / "registry.sqlite"
         build_registry.build(database)
@@ -157,12 +159,54 @@ def main() -> int:
                 """
             ).fetchall()
             if [row[0] for row in eaton_required] != [
-                "PROP-WIRE-DIAMETER",
+                "PROP-CROSS-WIRE-DIAMETER",
+                "PROP-TOP-LONGITUDINAL-WIRE-DIAMETER",
+                "PROP-OTHER-LONGITUDINAL-WIRE-DIAMETER",
                 "PROP-MESH-LONGITUDINAL-SPACING",
                 "PROP-MESH-TRANSVERSE-SPACING",
                 "PROP-SPLICES-INCLUDED",
             ]:
                 raise AssertionError("Eaton wire-mesh identity gaps were not preserved explicitly")
+            legrand_offer = screening_connection.execute(
+                """
+                SELECT so.order_quantity, so.order_unit, so.package_level,
+                       soi.scheme, soi.identifier_value, soi.identifier_scope
+                  FROM supplier_offers AS so
+                  JOIN supplier_offer_identifiers AS soi
+                    ON soi.supplier_offer_id = so.supplier_offer_id
+                 WHERE so.supplier_offer_id = 'OFFER-LEGRAND-US-CF150450BL'
+                   AND soi.identifier_value = '800388009257'
+                """
+            ).fetchone()
+            if not legrand_offer or tuple(legrand_offer) != (
+                None,
+                "unknown",
+                "unknown",
+                "upc",
+                "800388009257",
+                "unknown",
+            ):
+                raise AssertionError("Legrand UPC or unresolved commercial scope was misrepresented")
+            legrand_wire_values = screening_connection.execute(
+                """
+                SELECT sv.property_id, sv.normalized_number, sv.unit_id
+                  FROM specification_values AS sv
+                  JOIN observations AS o ON o.observation_id = sv.observation_id
+                 WHERE o.manufacturer_part_id = 'MP-LEGRAND-US-CF150450BL'
+                   AND sv.property_id IN (
+                       'PROP-CROSS-WIRE-DIAMETER',
+                       'PROP-TOP-LONGITUDINAL-WIRE-DIAMETER',
+                       'PROP-OTHER-LONGITUDINAL-WIRE-DIAMETER'
+                   )
+                 ORDER BY sv.property_id
+                """
+            ).fetchall()
+            if [tuple(row) for row in legrand_wire_values] != [
+                ("PROP-CROSS-WIRE-DIAMETER", "5.9", "UNIT-MM"),
+                ("PROP-OTHER-LONGITUDINAL-WIRE-DIAMETER", "3.9", "UNIT-MM"),
+                ("PROP-TOP-LONGITUDINAL-WIRE-DIAMETER", "5.9", "UNIT-MM"),
+            ]:
+                raise AssertionError("Cablofil's distinct load-bearing wire diameters were flattened")
             niedax_family_counts = screening_connection.execute(
                 """
                 SELECT
@@ -282,6 +326,29 @@ def main() -> int:
         ).split(";")
         if "PROP-FASTENER-SURFACE" not in fabory_wuerth_missing:
             raise AssertionError("Generic electrolytic zinc versus blue zinc was treated as exact")
+        wire_mesh_pair = by_pair[("MP-EATON-FT6X18X10-BLE", "MP-LEGRAND-US-CF150450BL")]
+        if wire_mesh_pair["result"] != "hard_conflict":
+            raise AssertionError("Eaton and Legrand wire-mesh sections were not held apart")
+        for property_id in (
+            "PROP-OVERALL-WIDTH",
+            "PROP-OVERALL-HEIGHT",
+            "PROP-LENGTH",
+            "PROP-SURFACE-PROTECTION",
+            "PROP-WIRE-JOINT",
+        ):
+            if property_id not in str(wire_mesh_pair["conflicting_properties"]).split(";"):
+                raise AssertionError(f"Wire-mesh conflict was not recorded: {property_id}")
+
+        initial_audit = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "audit_completeness.py"), "--database", str(database)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if "CF150/450BL: 12/13 required properties" not in initial_audit.stdout:
+            raise AssertionError("Legrand wire-mesh completeness was not audited")
+        if "source_conflicts=Overall height" not in initial_audit.stdout:
+            raise AssertionError("The conflicting official Legrand height values were not surfaced")
 
         connection = sqlite3.connect(database)
         try:
@@ -313,6 +380,59 @@ def main() -> int:
         )
         if audit.returncode != 1 or "Publication gate failed" not in audit.stdout:
             raise AssertionError(f"Incomplete accepted part was not rejected:\n{audit.stdout}\n{audit.stderr}")
+
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute("DELETE FROM manufacturer_part_reviews WHERE review_id = 'TEST-REVIEW'")
+            connection.execute(
+                "UPDATE observations SET review_state = 'accepted' "
+                "WHERE manufacturer_part_id = 'MP-LEGRAND-US-CF150450BL'"
+            )
+            connection.execute(
+                """
+                INSERT INTO specification_values
+                  (specification_id, observation_id, property_id, raw_value, normalized_text)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-LEGRAND-SPLICE",
+                    "OBS-LEGRAND-US-CF150450BL-PAGE",
+                    "PROP-SPLICES-INCLUDED",
+                    "Deliberate test completion value",
+                    "false",
+                ),
+            )
+            connection.execute(
+                """
+                INSERT INTO manufacturer_part_reviews
+                  (review_id, manufacturer_part_id, decision, rationale, reviewer, decided_at, policy_version)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-CONFLICT-REVIEW",
+                    "MP-LEGRAND-US-CF150450BL",
+                    "accepted",
+                    "Deliberately invalid review over conflicting height evidence",
+                    "quality-gate-test",
+                    "2026-09-30",
+                    "0.1",
+                ),
+            )
+            connection.commit()
+        finally:
+            connection.close()
+
+        conflict_audit = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "audit_completeness.py"), "--database", str(database)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if conflict_audit.returncode != 1 or "source_conflicts=Overall height" not in conflict_audit.stdout:
+            raise AssertionError(
+                "Accepted part with contradictory source evidence was not rejected:\n"
+                f"{conflict_audit.stdout}\n{conflict_audit.stderr}"
+            )
 
         connection = sqlite3.connect(database)
         try:
@@ -356,8 +476,9 @@ def main() -> int:
             connection.close()
 
     print(
-        "Quality-gate tests passed: specificity gaps stayed unresolved; incomplete review, "
-        "unverified artifact, and unnumbered issued item were rejected."
+        "Quality-gate tests passed: specificity gaps and source conflicts stayed unresolved; "
+        "incomplete review, contradictory evidence, unverified artifact, and unnumbered issued "
+        "item were rejected."
     )
     return 0
 

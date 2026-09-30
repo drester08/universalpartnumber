@@ -39,6 +39,13 @@ PROFILE_RULES = {
             "PROP-FASTENER-SURFACE",
         ),
     },
+    "PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1": {
+        "algorithm_version": "wire-mesh-screen-0.1",
+        "blocking_properties": (
+            "PROP-FORM",
+            "PROP-MATERIAL",
+        ),
+    },
 }
 FIELDS = (
     "screening_id",
@@ -116,7 +123,10 @@ def join(values: list[str]) -> str:
 
 def blocking_values(property_id: str, values: set[str]) -> set[str]:
     if property_id == "PROP-MATERIAL":
-        return {"steel" if value == "mild_steel" else value for value in values}
+        return {
+            "steel" if value in {"mild_steel", "carbon_steel"} else value
+            for value in values
+        }
     if property_id == "PROP-SURFACE-PROTECTION":
         return {
             "hot_dip_galvanized" if value.startswith("hot_dip_galvanized") else value

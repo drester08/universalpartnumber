@@ -6,6 +6,8 @@ from __future__ import annotations
 import argparse
 import sqlite3
 import sys
+from collections import defaultdict
+from decimal import Decimal
 from pathlib import Path
 
 
@@ -61,8 +63,53 @@ def main() -> int:
           ORDER BY mp.manufacturer_part_number, ipp.sequence_number
             """
         ).fetchall()
+        numeric_records = connection.execute(
+            """
+            SELECT mp.manufacturer_part_number,
+                   p.preferred_label,
+                   sv.normalized_number,
+                   u.quantity_kind,
+                   u.conversion_factor,
+                   u.conversion_offset
+              FROM manufacturer_parts AS mp
+              JOIN identity_profile_properties AS ipp
+                ON ipp.profile_id = mp.profile_id
+               AND ipp.requirement = 'required'
+              JOIN properties AS p
+                ON p.property_id = ipp.property_id
+              JOIN observations AS o
+                ON o.manufacturer_part_id = mp.manufacturer_part_id
+               AND o.review_state NOT IN ('rejected', 'superseded')
+              JOIN specification_values AS sv
+                ON sv.observation_id = o.observation_id
+               AND sv.property_id = ipp.property_id
+              JOIN units AS u ON u.unit_id = sv.unit_id
+             WHERE sv.normalized_number IS NOT NULL
+          ORDER BY mp.manufacturer_part_number, ipp.sequence_number, o.observation_id
+            """
+        ).fetchall()
     finally:
         connection.close()
+
+    numeric_values: dict[tuple[str, str], list[tuple[str | None, Decimal]]] = defaultdict(list)
+    for record in numeric_records:
+        factor = Decimal(record["conversion_factor"] or "1")
+        offset = Decimal(record["conversion_offset"] or "0")
+        base_value = Decimal(record["normalized_number"]) * factor + offset
+        numeric_values[(record["manufacturer_part_number"], record["preferred_label"])].append(
+            (record["quantity_kind"], base_value)
+        )
+
+    conflicts: dict[str, list[str]] = defaultdict(list)
+    for (part_number, label), values in numeric_values.items():
+        if len(values) < 2:
+            continue
+        quantity_kinds = {quantity_kind for quantity_kind, _ in values}
+        numbers = [number for _, number in values]
+        scale = max(abs(number) for number in numbers)
+        tolerance = max(Decimal("0.000001"), scale * Decimal("0.001"))
+        if len(quantity_kinds) != 1 or max(numbers) - min(numbers) > tolerance:
+            conflicts[part_number].append(label)
 
     parts: dict[str, dict[str, object]] = {}
     for record in records:
@@ -74,6 +121,7 @@ def main() -> int:
                 "missing": [],
                 "review": record["review_decision"],
                 "unreviewed_observations": record["unreviewed_observations"],
+                "conflicts": conflicts.get(record["manufacturer_part_number"], []),
             },
         )
         part["required"] = int(part["required"]) + 1
@@ -89,13 +137,18 @@ def main() -> int:
         missing_list = part["missing"]
         assert isinstance(missing_list, list)
         missing = "; ".join(missing_list) or "none"
+        conflict_list = part["conflicts"]
+        assert isinstance(conflict_list, list)
+        source_conflicts = "; ".join(conflict_list) or "none"
         print(
             f"{part_number}: {part['present']}/{part['required']} required properties; "
             f"review={part['review']}; unreviewed_observations={part['unreviewed_observations']}; "
-            f"missing={missing}"
+            f"missing={missing}; source_conflicts={source_conflicts}"
         )
         if part["review"] == "accepted" and (
-            part["present"] != part["required"] or int(part["unreviewed_observations"]) > 0
+            part["present"] != part["required"]
+            or int(part["unreviewed_observations"]) > 0
+            or bool(conflict_list)
         ):
             publication_errors += 1
 
