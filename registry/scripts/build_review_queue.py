@@ -94,9 +94,43 @@ def numeric_conflicts(
     return conflicts
 
 
+def supplier_identity_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
+    """Expose seller SKUs that have no established manufacturer-part link."""
+    items: list[dict[str, str]] = []
+    for row in connection.execute(
+        """
+        SELECT so.supplier_offer_id, so.seller_sku, so.source_id,
+               org.legal_name, s.source_url
+          FROM supplier_offers AS so
+          JOIN organizations AS org ON org.organization_id = so.supplier_id
+          JOIN sources AS s ON s.source_id = so.source_id
+         WHERE so.manufacturer_part_id IS NULL OR so.manufacturer_part_id = ''
+         ORDER BY so.supplier_offer_id
+        """
+    ):
+        add_item(
+            items,
+            work_item_id=f"RW-OFFER-IDENTITY-{row['supplier_offer_id']}",
+            priority="P2",
+            queue_type="supplier_manufacturer_identity",
+            readiness="ready",
+            subject_type="supplier_offer",
+            subject_id=row["supplier_offer_id"],
+            source_id=row["source_id"],
+            summary=f"Establish manufacturer provenance for {row['legal_name']} seller SKU {row['seller_sku']}",
+            next_action=(
+                "Inspect exact seller detail and technical evidence; establish the maker and "
+                "manufacturer article or an explicitly governed source-defined article key. "
+                "Do not copy seller SKU or JSON-LD mpn into a manufacturer identity without "
+                f"evidence, merge on dimensions alone, or issue a UPN. Listing: {row['source_url']}"
+            ),
+        )
+    return items
+
+
 def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
     connection.row_factory = sqlite3.Row
-    items: list[dict[str, str]] = []
+    items: list[dict[str, str]] = supplier_identity_items(connection)
 
     required_pairs = {
         (row["profile_id"], row["property_id"])

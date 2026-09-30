@@ -35,3 +35,11 @@ Outstanding: inspect every offer detail and datasheet, expand remaining pages,
 establish manufacturing provenance, review dimensional tolerances and commercial
 unit semantics, and compare with the supplied angle rows without merging on
 dimensions alone. Rights remain review-required. No user CSV was corrected.
+
+Follow-up: linked AE_S355RA_0061 and AE_S355RA_0064 technical PDFs both returned
+HTTP200, application/pdf and Content-Length 263168 in direct HEAD checks on
+2026-09-30. No body was inspected and equal response length does not prove
+identical contents. They are registered as remote-only evidence with retrieval
+tasks. Browser text extraction failed for the first URL; direct HTTP metadata
+checking succeeded, so it is not classified as a publisher access block.
+All thirty offers now have explicit missing-manufacturer identity work items.

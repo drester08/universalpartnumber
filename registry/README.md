@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+Unknown-maker offers now have explicit deterministic review tasks: 30 supplier/manufacturer provenance tasks plus two linked angle PDF retrievals bring the queue to 299. Source register now 89; 31 cached artifacts and 19 remote/blocked records. The two PDF links return HTTP200 with application/pdf headers, but body/content verification remains outstanding. See `docs/reviewer-workflow.md`; a seller-to-manufacturer link alone never approves equivalence or issuance.
+
 Seller-article expansion: `docs/macsteel-angle-offers.md` records 30 actual Macsteel equal-angle seller SKUs from one checksummed listing snapshot. There are now 62 supplier offers and 87 registered sources, with 31 cached artifacts. Manufacturer links, price, stock, billing quantities and UPN remain unapproved for these new offers. The seller-offer checker reproduces every persisted record. Remaining pages and detail/datasheet verification are outstanding.
 
 PFC corroboration: `docs/structural-pfc-corroboration.md` adds official Macsteel and ArcelorMittal evidence. Macsteel's six rows agree in five nominal fields; ArcelorMittal has two agreements, three conflicts and one absent key. Shear-centre distance is kept separate from centroid distance. Source register83, cached artifacts27. Combined structural screening67distinct rows;66have at least one selected-source nominal candidate,738outside selected tables. Three corroboration findings now integrated; eleven source-only sizes retained as research facts, not articles. Earlier PFC tasks remain open. No article approval.

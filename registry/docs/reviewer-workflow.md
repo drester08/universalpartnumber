@@ -16,6 +16,13 @@ The reviewer queue turns unresolved registry evidence into a deterministic work 
 - unresolved source licensing or access;
 - unverified external identifiers.
 - supplied bulk datasets that remain unverified or structure-only.
+- seller offers without an established manufacturer-part link.
+
+Seller identity tasks remain research-ready, not item-approval-ready. Stable offer IDs
+keep them visible even when commercial price or lifecycle is unknown. They disappear
+from this particular queue only after a manufacturer-part link is recorded; that
+link does not bypass the separate observation, completeness, equivalence or issuance
+gates. Seller SKUs and embedded `mpn` metadata are not proof of manufacturing identity.
 
 Every work-item identifier is derived from a stable registry identifier. No current date, random value, or operator-dependent ordering is used, so the same evidence produces the same queue.
 
