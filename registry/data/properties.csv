@@ -51,3 +51,20 @@ PROP-WIRE-JOINT,,,Wire joint construction,Declared welding or joining constructi
 PROP-MINIMUM-WIRE-DIAMETER,,,Minimum wire diameter,Manufacturer-declared lower bound across a product family; not an exact diameter for any individual wire position.,number,descriptive
 PROP-REQUIRED-SPLICE-COUNT,,,Required splice count,Number of connector assemblies required under a stated installation or classification condition; not evidence of package inclusion.,number,descriptive
 PROP-APPLICATION-ENVIRONMENT,,,Application environment,Manufacturer guidance for the intended installation environment.,text,descriptive
+PROP-BEARING-GEOMETRY,,,Bearing geometry,Rolling-bearing construction and row arrangement.,code,defining
+PROP-BORE-DIAMETER,,,Bore diameter,Nominal diameter of the bearing bore.,number,defining
+PROP-OUTSIDE-DIAMETER,,,Outside diameter,Nominal external diameter of the outer ring.,number,defining
+PROP-BEARING-WIDTH,,,Bearing width,Nominal axial width across the bearing rings.,number,defining
+PROP-BEARING-CLOSURE,,,Bearing closure,Closure type and sidedness including shield or seal contact form.,code,defining
+PROP-BORE-TYPE,,,Bore type,Cylindrical tapered or other bore geometry.,code,defining
+PROP-RADIAL-INTERNAL-CLEARANCE,,,Radial internal clearance,Declared radial internal-clearance class or preload group.,code,defining
+PROP-BEARING-TOLERANCE-CLASS,,,Bearing tolerance class,Declared dimensional and running-accuracy tolerance class.,code,defining
+PROP-CAGE-CONSTRUCTION,,,Cage construction,Cage material and manufacturing form.,code,defining
+PROP-BEARING-MATERIAL,,,Bearing material,Declared ring and rolling-element material where the source does not distinguish them.,code,defining
+PROP-SUPPLIED-LUBRICANT,,,Supplied lubricant,Lubricant supplied inside the bearing and any declared formulation.,code,defining
+PROP-LOCATING-FEATURE,,,Locating feature,Snap-ring groove flange or other integral locating feature.,code,defining
+PROP-BASIC-DYNAMIC-LOAD-RATING,,,Basic dynamic load rating,Manufacturer-declared basic dynamic radial load rating under its stated standard and calculation basis.,number,conditional
+PROP-BASIC-STATIC-LOAD-RATING,,,Basic static load rating,Manufacturer-declared basic static radial load rating under its stated standard and calculation basis.,number,conditional
+PROP-LIMITING-SPEED-GREASE,,,Grease limiting speed,Manufacturer-declared limiting speed under grease lubrication.,number,descriptive
+PROP-BALL-COUNT,,,Ball count,Number of rolling balls in the supplied bearing.,number,conditional
+PROP-BALL-DIAMETER,,,Ball diameter,Declared rolling-ball diameter.,number,conditional

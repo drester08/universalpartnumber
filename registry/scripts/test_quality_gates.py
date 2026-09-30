@@ -235,7 +235,7 @@ def main() -> int:
                  WHERE requirement = 'required' AND comparison_rule = 'numeric_exact'
                 """
             ).fetchone()[0]
-            if len(governed_rules) != required_numeric_count or required_numeric_count != 18:
+            if len(governed_rules) != required_numeric_count or required_numeric_count != 21:
                 raise AssertionError("Every required numeric identity property must have exactly one governed rule")
             nominal_rule = governed_rules[
                 ("PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1", "PROP-NOMINAL-WIDTH")
@@ -465,6 +465,30 @@ def main() -> int:
         ):
             if property_id not in str(wire_mesh_pair["matched_properties"]).split(";"):
                 raise AssertionError(f"Wire-mesh nominal or finish match was not retained: {property_id}")
+        bearing_pair = by_pair[("MP-NSK-6205ZZ", "MP-SKF-6205-2Z")]
+        if bearing_pair["result"] != "hard_conflict":
+            raise AssertionError("Matching 6205 boundary dimensions were mistaken for proven bearing identity")
+        for property_id in (
+            "PROP-BEARING-GEOMETRY",
+            "PROP-BORE-DIAMETER",
+            "PROP-OUTSIDE-DIAMETER",
+            "PROP-BEARING-WIDTH",
+            "PROP-BEARING-CLOSURE",
+            "PROP-RADIAL-INTERNAL-CLEARANCE",
+            "PROP-LOCATING-FEATURE",
+        ):
+            if property_id not in str(bearing_pair["matched_properties"]).split(";"):
+                raise AssertionError(f"Shared 6205 bearing evidence was not retained: {property_id}")
+        if "PROP-BEARING-TOLERANCE-CLASS" not in str(bearing_pair["conflicting_properties"]).split(";"):
+            raise AssertionError("SKF and NSK tolerance-class designations were not kept distinct")
+        for property_id in (
+            "PROP-BORE-TYPE",
+            "PROP-CAGE-CONSTRUCTION",
+            "PROP-BEARING-MATERIAL",
+            "PROP-SUPPLIED-LUBRICANT",
+        ):
+            if property_id not in str(bearing_pair["missing_properties"]).split(";"):
+                raise AssertionError(f"Bearing evidence gap was not retained: {property_id}")
 
         initial_audit = subprocess.run(
             [sys.executable, str(ROOT / "scripts" / "audit_completeness.py"), "--database", str(database)],
@@ -480,6 +504,10 @@ def main() -> int:
             "source_conflicts=Section length" not in initial_audit.stdout
         ):
             raise AssertionError("The conflicting official Eaton length values were not surfaced")
+        if "6205-2Z: 12/12 required properties" not in initial_audit.stdout:
+            raise AssertionError("SKF bearing completeness was not audited")
+        if "6205ZZ: 9/12 required properties" not in initial_audit.stdout:
+            raise AssertionError("NSK bearing evidence gaps were not audited")
 
         issuance_audit = subprocess.run(
             [sys.executable, str(ROOT / "scripts" / "audit_issuance.py"), "--database", str(database)],

@@ -55,3 +55,21 @@ PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-SPLICES-INCLUDED,required,exact
 PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-USABLE-CROSS-SECTION,descriptive,numeric_exact,19,Useful validation value only when the source states an unambiguous area unit.
 PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-MASS,descriptive,numeric_exact,20,Useful validation value but not a substitute for construction geometry.
 PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-APPLICATION-ENVIRONMENT,descriptive,contextual,21,Preserves manufacturer environment guidance without treating it as universal suitability.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BEARING-GEOMETRY,required,normalized_exact,1,Prevents a single-row deep-groove bearing from matching another rolling-element geometry or row arrangement.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BORE-DIAMETER,required,numeric_exact,2,Determines shaft fit and the principal boundary-dimension series.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-OUTSIDE-DIAMETER,required,numeric_exact,3,Determines housing fit and the principal boundary-dimension series.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BEARING-WIDTH,required,numeric_exact,4,Determines axial envelope and shoulder spacing.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BEARING-CLOSURE,required,normalized_exact,5,Shield or seal type contact form and sidedness change friction contamination protection and supplied construction.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BORE-TYPE,required,normalized_exact,6,Cylindrical and tapered bores require different mounting interfaces.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-RADIAL-INTERNAL-CLEARANCE,required,normalized_exact,7,Clearance class changes installed running clearance temperature capability and application suitability.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BEARING-TOLERANCE-CLASS,required,normalized_exact,8,Tolerance class changes dimensional and running accuracy and must not be inferred from the basic designation.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-CAGE-CONSTRUCTION,required,normalized_exact,9,Cage material and manufacturing form affect speed temperature and failure behaviour.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BEARING-MATERIAL,required,normalized_exact,10,Material and heat-treatment family affect fatigue corrosion and temperature performance.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-SUPPLIED-LUBRICANT,required,normalized_exact,11,Closed bearings can be supplied with different grease systems that materially change the item.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-LOCATING-FEATURE,required,normalized_exact,12,A snap-ring groove flange or other locating feature changes the outer-ring interface.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BASIC-DYNAMIC-LOAD-RATING,conditional,contextual,13,Compare only with the governing rating standard and manufacturer calculation basis.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BASIC-STATIC-LOAD-RATING,conditional,contextual,14,Compare only with the governing rating standard and manufacturer calculation basis.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-LIMITING-SPEED-GREASE,descriptive,contextual,15,Speed is useful performance evidence but depends on lubricant load cooling and manufacturer methodology.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BALL-COUNT,conditional,numeric_exact,16,Rolling-element count can distinguish internal geometry where an authoritative exact-part source states it.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-BALL-DIAMETER,conditional,numeric_exact,17,Rolling-element diameter can distinguish internal geometry where an authoritative exact-part source states it.
+PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,PROP-MASS,descriptive,numeric_exact,18,Mass is a useful cross-check but published rounding is not sufficient proof of identity.

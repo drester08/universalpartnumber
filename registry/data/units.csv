@@ -7,3 +7,5 @@ UNIT-EA,C62,ea,one,count,1,0
 UNIT-IN,INH,in,inch,length,0.0254,0
 UNIT-LB,LBR,lb,pound,mass,0.45359237,0
 UNIT-IN2,,in²,square inch,area,0.00064516,0
+UNIT-N,NEW,N,newton,force,1,0
+UNIT-RPM,,r/min,revolution per minute,rotational_speed,1,0

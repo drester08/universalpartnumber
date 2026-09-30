@@ -48,6 +48,16 @@ PROFILE_RULES = {
             "PROP-MATERIAL",
         ),
     },
+    "PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1": {
+        "algorithm_version": "bearing-dgbb-screen-0.1",
+        "blocking_properties": (
+            "PROP-BEARING-GEOMETRY",
+            "PROP-BORE-DIAMETER",
+            "PROP-OUTSIDE-DIAMETER",
+            "PROP-BEARING-WIDTH",
+            "PROP-BEARING-CLOSURE",
+        ),
+    },
 }
 FIELDS = (
     "screening_id",
@@ -152,6 +162,13 @@ def blocking_values(property_id: str, values: set[object]) -> set[object]:
             else value
             for value in values
         }
+    if property_id == "PROP-CAGE-CONSTRUCTION":
+        return {
+            "sheet_metal_cage"
+            if value in {"sheet_metal_unspecified", "pressed_steel"}
+            else value
+            for value in values
+        }
     return values
 
 
@@ -162,6 +179,7 @@ def compatible_but_less_specific(property_id: str, left: set[object], right: set
         "PROP-SURFACE-PROTECTION",
         "PROP-COATING-SPEC",
         "PROP-FASTENER-SURFACE",
+        "PROP-CAGE-CONSTRUCTION",
     } and (
         blocking_values(property_id, left) == blocking_values(property_id, right)
     )

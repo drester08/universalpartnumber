@@ -28,9 +28,9 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
-3. Resolve missing identity fields and source conflicts across the 36 pilot parts, especially package-included splice hardware, Atkore rung construction, Eaton geometry and length, and Legrand height.
-4. Extend artifact retrieval with per-publisher access rules; fifteen artifacts are verified locally while thirteen source records remain remote-only or blocked.
-5. Add a fourth narrow part class and continue expanding manufacturers while measuring false-negative risk in the blocking keys.
+3. Resolve missing identity fields and source conflicts across the 38 pilot parts, especially package-included splice hardware, Atkore rung construction, Eaton geometry and length, Legrand height, and the SKF/NSK bearing tolerance and evidence gaps.
+4. Extend artifact retrieval with per-publisher access rules; fifteen artifacts are verified locally while fifteen source records remain remote-only or blocked.
+5. Add a fifth narrow part class and continue expanding manufacturers while measuring false-negative risk in the blocking keys.
 6. Build the operational reviewer queue on the now-reproducible part, item, allocation, equivalence, and membership ledgers.
 7. Independently review the ten complete Niedax evidence profiles; completeness alone must not change their status.
 
@@ -38,8 +38,8 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 - Reproducible CSV-to-SQLite ingestion, foreign-key and integrity checks.
 - Evidence-completeness audit and fail-closed quality-gate tests.
-- Thirty-six manufacturer or branded parts with primary-source observations across three identity profiles.
+- Thirty-eight manufacturer or branded parts with primary-source observations across four identity profiles.
 - Ten complete-but-unreviewed Niedax profiles with explicit splice-supply evidence.
-- Versioned cross-manufacturer screening with 21 reproducible outcomes and property-specific cross-unit comparison.
+- Versioned cross-manufacturer screening with 22 reproducible outcomes and property-specific cross-unit comparison.
 - Permanent opaque UPN allocation syntax, reproducible canonical-item ledgers, and a fail-closed issuance audit; no UPN is issued yet.
 - Local verification of fifteen cached artifacts without committing copyrighted source files to Git.
