@@ -75,6 +75,28 @@ def main() -> int:
             ).fetchone()
             if not obo_offer or tuple(obo_offer) != (3, "meter", "unknown", "unknown"):
                 raise AssertionError("OBO measured sales unit and unresolved EAN scope were not preserved")
+            niedax_offer = screening_connection.execute(
+                """
+                SELECT so.order_quantity, so.order_unit, soi.scheme, soi.identifier_value,
+                       soi.identifier_scope
+                  FROM supplier_offers AS so
+                  JOIN supplier_offer_identifiers AS soi
+                    ON soi.supplier_offer_id = so.supplier_offer_id
+                 WHERE so.supplier_offer_id = 'OFFER-NIEDAX-KL100203F'
+                """
+            ).fetchone()
+            if not niedax_offer or tuple(niedax_offer) != (6, "meter", "other", "904006", "unknown"):
+                raise AssertionError("Niedax order unit or raw six-digit catalogue code was misrepresented")
+            niedax_false_ean = screening_connection.execute(
+                """
+                SELECT count(*)
+                  FROM supplier_offer_identifiers
+                 WHERE supplier_offer_id = 'OFFER-NIEDAX-KL100203F'
+                   AND scheme IN ('ean', 'gtin', 'upc')
+                """
+            ).fetchone()[0]
+            if niedax_false_ean:
+                raise AssertionError("Niedax six-digit catalogue code was incorrectly promoted to a GS1 key")
             direct_nsn = screening_connection.execute(
                 """
                 SELECT count(*)
