@@ -38,7 +38,8 @@ def main() -> int:
                 SELECT count(*)
                   FROM manufacturer_part_identifiers
                  WHERE manufacturer_part_id IN (
-                   'MP-BOSSARD-1049860', 'MP-WUERTH-00578-30', 'MP-FABORY-01210080030'
+                   'MP-BOSSARD-1049860', 'MP-WUERTH-00578-30', 'MP-FABORY-01210080030',
+                   'MP-BOELLHOFF-401788VZD830'
                  ) AND scheme = 'ean'
                 """
             ).fetchone()[0]
@@ -56,6 +57,15 @@ def main() -> int:
             ).fetchone()
             if not fabory_offer or tuple(fabory_offer) != (200, "box", "box"):
                 raise AssertionError("Fabory box quantity and EAN scope were not preserved as an offer")
+            boellhoff_offer = screening_connection.execute(
+                """
+                SELECT pack_quantity, package_level
+                  FROM supplier_offers
+                 WHERE supplier_offer_id = 'OFFER-BOELLHOFF-401788VZD830'
+                """
+            ).fetchone()
+            if not boellhoff_offer or tuple(boellhoff_offer) != (200, "pack"):
+                raise AssertionError("Böllhoff pack quantity was not preserved as an offer")
             direct_nsn = screening_connection.execute(
                 """
                 SELECT count(*)
@@ -104,6 +114,17 @@ def main() -> int:
         for pair in fastener_pairs:
             if by_pair[pair]["result"] != "insufficient_evidence":
                 raise AssertionError(f"Unproven ISO 4017 equivalence was not held for evidence: {pair}")
+        boellhoff_fabory = by_pair[("MP-BOELLHOFF-401788VZD830", "MP-FABORY-01210080030")]
+        if boellhoff_fabory["result"] != "insufficient_evidence":
+            raise AssertionError("Generic Fabory zinc evidence was over-read against Böllhoff VZD")
+        for pair in (
+            ("MP-BOELLHOFF-401788VZD830", "MP-BOSSARD-1049860"),
+            ("MP-BOELLHOFF-401788VZD830", "MP-WUERTH-00578-30"),
+        ):
+            if by_pair[pair]["result"] != "hard_conflict":
+                raise AssertionError(f"Distinct passivation systems were not kept separate: {pair}")
+            if "PROP-COATING-SPEC" not in str(by_pair[pair]["conflicting_properties"]).split(";"):
+                raise AssertionError(f"Coating conflict was not recorded: {pair}")
         bossard_wuerth_missing = str(
             by_pair[("MP-BOSSARD-1049860", "MP-WUERTH-00578-30")]["missing_properties"]
         ).split(";")
