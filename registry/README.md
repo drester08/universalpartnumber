@@ -78,4 +78,6 @@ The source-dataset review layer contributes 66 gasket and seven pipe findings to
 
 Independent pipe nominal-size corroboration is documented in `docs/pipe-independent-corroboration.md` and `reports/pipe-independent-observations.json`: six manually transcribed observations across four supplied records from a manufacturer and a supplier. `scripts/check_pipe_corroboration.py` checks internal row/key/geometry consistency, not live source fidelity. New remote-only source evidence requires capture/reuse review; original Tenaris findings remain open.
 
+Plate family screening is documented in `docs/plate-source-screening.md` and `reports/plate-macsteel-screening.json`: all395 rows have source-page-linked, unreviewed interpretations; three mass discrepancies retained. `scripts/check_plate_macsteel.py` reproduces the report. It does not compare exact stock sizes or approve article identity, aliases or corrections. The plate issues are not yet in the generic findings producer. Twenty cached artifacts are now verified locally.
+
 A similar description is not identity. UPN equivalence requires compatible identity-defining properties, traceable evidence, and a recorded human decision. Application suitability and substitution are separate decisions.

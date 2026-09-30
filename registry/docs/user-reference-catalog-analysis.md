@@ -30,6 +30,8 @@ The files confirm that a universal identity record cannot be a flattened copy of
 - `S355 JO` is likely a character ambiguity for `S355 J0`, but UPN must not correct it without a cited source.
 - Mass should be retained as a cross-check or descriptive value, not used as the sole identity field.
 
+Macsteel family evidence now screens all395 rows:268 supported family-designation interpretations,13 JO/J0 reviews,14 pressure-specification scope reviews,24 unverified W200 product-name interpretations and76 outside selected family scope. These remain unreviewed; no stock-size/article verification or approved correction. See `plate-source-screening.md` and its reproducible report.
+
 ### Structural steel — 805 rows, 27 columns
 
 - All 805 physical-field combinations are unique, spanning 21 descriptions and 17 section labels.

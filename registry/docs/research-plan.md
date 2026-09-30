@@ -29,7 +29,7 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
 3. Resolve missing identity fields and source conflicts across the 38 pilot parts, especially package-included splice hardware, Atkore rung construction, Eaton geometry and length, Legrand height, and the SKF/NSK bearing tolerance and evidence gaps.
-4. Extend artifact retrieval with per-publisher access rules; nineteen artifacts are verified locally while seventeen evidence records remain remote-only or blocked.
+4. Extend artifact retrieval with per-publisher access rules; twenty artifacts are verified locally while seventeen evidence records remain remote-only or blocked.
 5. Add a fifth narrow part class and continue expanding manufacturers while measuring false-negative risk in the blocking keys.
 6. Work the deterministic reviewer queue, starting with P0 terminology mappings and source conflicts; keep every independent decision in the governed ledgers.
 7. Independently review the ten complete Niedax evidence profiles exposed by the queue; completeness alone must not change their status.
@@ -48,3 +48,4 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 - Local verification of nineteen cached artifacts and four reference datasets without committing raw copyrighted or sensitive source files to Git.
 - Historical numerical comparison of every supplied gasket row: 11,161 agreements under supported keys, 52 differences and 949 unsupported keys across 12,162 records. Missing construction, drilling, material and thickness evidence still prevents exact-article ingestion and equivalence approval.
 - Six independent pipe nominal-geometry observations across four supplied records from Tata Steel and Steel and Pipes for Africa. Supports flagging Tenaris's DN65/NPS3 anomaly, not silently correcting it. Source pages are remote-only, transcriptions unreviewed, and all route conflicts remain open.
+- All395 plate rows screened against selected Macsteel family evidence, with five outcome categories and three retained mass discrepancies. Exact articles, stock dimensions, grade certificates and proposed interpretation reviews remain outstanding. Integrate plate issues into the generic finding producer without treating arithmetic or approximate equivalence as identity approval.
