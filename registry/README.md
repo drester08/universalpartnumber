@@ -22,6 +22,7 @@ This directory is the evidence and data foundation for the Universal Part Number
 - `docs/user-reference-catalog-analysis.md` — structural and data-quality findings from the supplied plate, structural, gasket, and piping catalogues.
 - `docs/klinger-dimension-verification.md` and `reports/klinger-maxiflex-comparison.json` — all 643 supplied Maxiflex rows compared against the official historical catalogue, with unresolved discrepancies retained by source locator.
 - `docs/klinger-maxiprofile-verification.md` and `reports/klinger-maxiprofile-comparison.json` — all 239 MaxiProfile rows compared with pages 68–70; 238 agree and one differs, without assuming component meanings or exact article identity.
+- `docs/klinger-softcut-verification.md` and `reports/klinger-softcut-comparison.json` — all remaining 11,280 gasket rows compared with historical soft-cut tables; drilling differences and unresolved class/field keys prevent OD/ID-only identity claims.
 - `docs/research-plan.md` — staged path from source discovery to reviewed records.
 - `docs/cable-ladder-straight-steel-profile.md` — first class-specific identity profile, evidence, hard stops, and unresolved fields.
 - `docs/iso4017-hex-fastener-profile.md` — second identity profile and a documented exact-article comparison that remains short of equivalence.

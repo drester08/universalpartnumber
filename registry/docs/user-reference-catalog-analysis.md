@@ -72,6 +72,7 @@ The files confirm that a universal identity record cannot be a flattened copy of
 - All 643 Maxiflex rows have now been compared with historical catalogue pages 52–59: 563 agree, 51 differ and 29 have an unsupported PN20 class key. See `klinger-dimension-verification.md` and the detailed JSON report. Confirm component meanings and resolve discrepancies before extending comparison to other families.
 - Obtain exact source catalogues or standards for the plate, structural, and pipe values and record row-level locators.
 - All 239 MaxiProfile records were compared with pages 68–70: 238 agree and one dimension differs (42 versus 426, PN16 / nominal size 400). See `klinger-maxiprofile-verification.md`. Style, component materials and thickness remain unresolved.
+- All remaining 11,280 gasket rows were compared with soft-cut pages 102–113: 10,360 supported full-face OD/ID agreements and 920 unsupported keys. See `klinger-softcut-verification.md`. Missing drilling fields are identity-critical even where OD/ID agrees. Across the whole 12,162-row file there are 11,161 numeric agreements, 52 differences and 949 unsupported keys; this is not article verification.
 - Split each domain into narrow identity profiles before ingestion.
 - Add inventory/location entities only after the operational ownership and update semantics are defined; these records must remain outside UPN identity.
 - Resolve the listed contradictions and encoding defects without destructive cleanup of the preserved source files.
