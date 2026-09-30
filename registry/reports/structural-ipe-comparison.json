@@ -1,0 +1,381 @@
+{
+  "dataset_sha256": "65b5f1c34fe0ab178281e7682a2a70c01b6dcdcd5fd0f83b6d7b94c19bfe9e90",
+  "catalogue_sha256": "7590ab9108d6ac89d44d37399d0a3b859364b38cf0b5a566f831e1a82fbf0d4f",
+  "transcription_sha256": "a242e84e2b5704a83d5b4f922ab83ad2c9318e2dccfed3d67a985fea8767d8d2",
+  "dataset_rows": 805,
+  "compared_rows": 12,
+  "not_compared_rows": 793,
+  "outcomes": {
+    "nominal_values_agree": 6,
+    "nominal_field_conflict": 6
+  },
+  "records": [
+    {
+      "csv_line": 754,
+      "designation_candidate": [
+        "IPE",
+        "100",
+        "55"
+      ],
+      "source": {
+        "family": "IPE",
+        "designation_height": "100",
+        "designation_width": "55",
+        "depth_mm": "100",
+        "width_mm": "55",
+        "web_mm": "4.1",
+        "flange_mm": "5.7",
+        "mass_kg_per_m": "8.104",
+        "pdf_page": 4
+      },
+      "actual": {
+        "depth_mm": "100",
+        "width_mm": "55",
+        "web_mm": "4.1",
+        "flange_mm": "5.7",
+        "mass_kg_per_m": "8.104"
+      },
+      "nominal_differences": [],
+      "outcome": "nominal_values_agree",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 755,
+      "designation_candidate": [
+        "IPE",
+        "120",
+        "64"
+      ],
+      "source": {
+        "family": "IPE",
+        "designation_height": "120",
+        "designation_width": "64",
+        "depth_mm": "120",
+        "width_mm": "64",
+        "web_mm": "4.4",
+        "flange_mm": "6.3",
+        "mass_kg_per_m": "10.370",
+        "pdf_page": 4
+      },
+      "actual": {
+        "depth_mm": "120",
+        "width_mm": "64",
+        "web_mm": "4.4",
+        "flange_mm": "6.3",
+        "mass_kg_per_m": "10.37"
+      },
+      "nominal_differences": [],
+      "outcome": "nominal_values_agree",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 756,
+      "designation_candidate": [
+        "IPE",
+        "140",
+        "73"
+      ],
+      "source": {
+        "family": "IPE",
+        "designation_height": "140",
+        "designation_width": "73",
+        "depth_mm": "140",
+        "width_mm": "73",
+        "web_mm": "4.7",
+        "flange_mm": "6.9",
+        "mass_kg_per_m": "12.894",
+        "pdf_page": 4
+      },
+      "actual": {
+        "depth_mm": "140",
+        "width_mm": "73",
+        "web_mm": "4.7",
+        "flange_mm": "6.9",
+        "mass_kg_per_m": "12.894"
+      },
+      "nominal_differences": [],
+      "outcome": "nominal_values_agree",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 757,
+      "designation_candidate": [
+        "IPE",
+        "160",
+        "82"
+      ],
+      "source": {
+        "family": "IPE",
+        "designation_height": "160",
+        "designation_width": "82",
+        "depth_mm": "160",
+        "width_mm": "82",
+        "web_mm": "5.0",
+        "flange_mm": "7.4",
+        "mass_kg_per_m": "15.772",
+        "pdf_page": 4
+      },
+      "actual": {
+        "depth_mm": "160",
+        "width_mm": "82",
+        "web_mm": "5",
+        "flange_mm": "7.4",
+        "mass_kg_per_m": "15.772"
+      },
+      "nominal_differences": [],
+      "outcome": "nominal_values_agree",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 758,
+      "designation_candidate": [
+        "IPE",
+        "180",
+        "91"
+      ],
+      "source": {
+        "family": "IPE",
+        "designation_height": "180",
+        "designation_width": "91",
+        "depth_mm": "180",
+        "width_mm": "91",
+        "web_mm": "5.3",
+        "flange_mm": "8.0",
+        "mass_kg_per_m": "18.799",
+        "pdf_page": 4
+      },
+      "actual": {
+        "depth_mm": "180",
+        "width_mm": "91",
+        "web_mm": "5.3",
+        "flange_mm": "8",
+        "mass_kg_per_m": "18.799"
+      },
+      "nominal_differences": [],
+      "outcome": "nominal_values_agree",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 759,
+      "designation_candidate": [
+        "IPE",
+        "200",
+        "100"
+      ],
+      "source": {
+        "family": "IPE",
+        "designation_height": "200",
+        "designation_width": "100",
+        "depth_mm": "200",
+        "width_mm": "100",
+        "web_mm": "5.6",
+        "flange_mm": "8.5",
+        "mass_kg_per_m": "22.360",
+        "pdf_page": 4
+      },
+      "actual": {
+        "depth_mm": "200",
+        "width_mm": "100",
+        "web_mm": "5.6",
+        "flange_mm": "8.5",
+        "mass_kg_per_m": "22.36"
+      },
+      "nominal_differences": [],
+      "outcome": "nominal_values_agree",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 760,
+      "designation_candidate": [
+        "IPE AA",
+        "100",
+        "55"
+      ],
+      "source": {
+        "family": "IPE AA",
+        "designation_height": "100",
+        "designation_width": "55",
+        "depth_mm": "97.6",
+        "width_mm": "55",
+        "web_mm": "3.6",
+        "flange_mm": "4.5",
+        "mass_kg_per_m": "6.720",
+        "pdf_page": 5
+      },
+      "actual": {
+        "depth_mm": "100",
+        "width_mm": "55",
+        "web_mm": "3.6",
+        "flange_mm": "4.5",
+        "mass_kg_per_m": "6.72"
+      },
+      "nominal_differences": [
+        "depth_mm"
+      ],
+      "outcome": "nominal_field_conflict",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 761,
+      "designation_candidate": [
+        "IPE AA",
+        "120",
+        "64"
+      ],
+      "source": {
+        "family": "IPE AA",
+        "designation_height": "120",
+        "designation_width": "64",
+        "depth_mm": "117",
+        "width_mm": "64",
+        "web_mm": "3.8",
+        "flange_mm": "4.8",
+        "mass_kg_per_m": "8.357",
+        "pdf_page": 5
+      },
+      "actual": {
+        "depth_mm": "120",
+        "width_mm": "64",
+        "web_mm": "3.8",
+        "flange_mm": "4.8",
+        "mass_kg_per_m": "8.357"
+      },
+      "nominal_differences": [
+        "depth_mm"
+      ],
+      "outcome": "nominal_field_conflict",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 762,
+      "designation_candidate": [
+        "IPE AA",
+        "140",
+        "73"
+      ],
+      "source": {
+        "family": "IPE AA",
+        "designation_height": "140",
+        "designation_width": "73",
+        "depth_mm": "136.6",
+        "width_mm": "73",
+        "web_mm": "3.8",
+        "flange_mm": "5.2",
+        "mass_kg_per_m": "10.054",
+        "pdf_page": 5
+      },
+      "actual": {
+        "depth_mm": "140",
+        "width_mm": "73",
+        "web_mm": "3.8",
+        "flange_mm": "5.2",
+        "mass_kg_per_m": "10.054"
+      },
+      "nominal_differences": [
+        "depth_mm"
+      ],
+      "outcome": "nominal_field_conflict",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 763,
+      "designation_candidate": [
+        "IPE AA",
+        "160",
+        "82"
+      ],
+      "source": {
+        "family": "IPE AA",
+        "designation_height": "160",
+        "designation_width": "82",
+        "depth_mm": "156.4",
+        "width_mm": "82",
+        "web_mm": "4.0",
+        "flange_mm": "5.6",
+        "mass_kg_per_m": "12.315",
+        "pdf_page": 5
+      },
+      "actual": {
+        "depth_mm": "160",
+        "width_mm": "82",
+        "web_mm": "4",
+        "flange_mm": "5.6",
+        "mass_kg_per_m": "12.315"
+      },
+      "nominal_differences": [
+        "depth_mm"
+      ],
+      "outcome": "nominal_field_conflict",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 764,
+      "designation_candidate": [
+        "IPE AA",
+        "180",
+        "91"
+      ],
+      "source": {
+        "family": "IPE AA",
+        "designation_height": "180",
+        "designation_width": "91",
+        "depth_mm": "176.4",
+        "width_mm": "91",
+        "web_mm": "4.3",
+        "flange_mm": "6.2",
+        "mass_kg_per_m": "14.940",
+        "pdf_page": 5
+      },
+      "actual": {
+        "depth_mm": "180",
+        "width_mm": "91",
+        "web_mm": "4.3",
+        "flange_mm": "6.2",
+        "mass_kg_per_m": "14.94"
+      },
+      "nominal_differences": [
+        "depth_mm"
+      ],
+      "outcome": "nominal_field_conflict",
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 765,
+      "designation_candidate": [
+        "IPE AA",
+        "200",
+        "100"
+      ],
+      "source": {
+        "family": "IPE AA",
+        "designation_height": "200",
+        "designation_width": "100",
+        "depth_mm": "196.4",
+        "width_mm": "100",
+        "web_mm": "4.5",
+        "flange_mm": "6.7",
+        "mass_kg_per_m": "17.954",
+        "pdf_page": 5
+      },
+      "actual": {
+        "depth_mm": "200",
+        "width_mm": "100",
+        "web_mm": "4.5",
+        "flange_mm": "6.7",
+        "mass_kg_per_m": "17.954"
+      },
+      "nominal_differences": [
+        "depth_mm"
+      ],
+      "outcome": "nominal_field_conflict",
+      "exact_article_verified": false
+    }
+  ],
+  "limitations": [
+    "Manual source transcription unreviewed; consistency tests do not prove transcription fidelity.",
+    "Lookup infers designation candidate from CSV Height/Width; ambiguity of Height meaning remains unresolved.",
+    "Nominal equality only, not a manufacturing tolerance or identity/interchangeability decision.",
+    "Grade/certificate, length/end/coating, root radius and current availability not verified.",
+    "Other793 structural records are outside this comparison, not invalid."
+  ]
+}

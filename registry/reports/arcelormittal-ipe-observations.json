@@ -1,0 +1,22 @@
+{
+  "source_id": "SRC-AMSA-E12-PARALLEL",
+  "catalogue_sha256": "7590ab9108d6ac89d44d37399d0a3b859364b38cf0b5a566f831e1a82fbf0d4f",
+  "observed_at": "2026-09-30",
+  "method": "Manual transcription from complete rendered PDF pages4/5; source tables are images without extractable text. Independent transcription review pending.",
+  "fields": ["family","designation_height","designation_width","depth_mm","width_mm","web_mm","flange_mm","mass_kg_per_m","pdf_page"],
+  "observations": [
+    ["IPE","100","55","100","55","4.1","5.7","8.104",4],
+    ["IPE","120","64","120","64","4.4","6.3","10.370",4],
+    ["IPE","140","73","140","73","4.7","6.9","12.894",4],
+    ["IPE","160","82","160","82","5.0","7.4","15.772",4],
+    ["IPE","180","91","180","91","5.3","8.0","18.799",4],
+    ["IPE","200","100","200","100","5.6","8.5","22.360",4],
+    ["IPE AA","100","55","97.6","55","3.6","4.5","6.720",5],
+    ["IPE AA","120","64","117","64","3.8","4.8","8.357",5],
+    ["IPE AA","140","73","136.6","73","3.8","5.2","10.054",5],
+    ["IPE AA","160","82","156.4","82","4.0","5.6","12.315",5],
+    ["IPE AA","180","91","176.4","91","4.3","6.2","14.940",5],
+    ["IPE AA","200","100","196.4","100","4.5","6.7","17.954",5]
+  ],
+  "limitations": ["Nominal fields only; not manufacturer tolerance or current availability verification.","IPE uses DIN1025:1965 heading; IPE AA uses SPE230 heading. Never collapse families by designation.","Cover says E1.2 but dimension-page footers say E1.1; source inconsistency preserved."]
+}

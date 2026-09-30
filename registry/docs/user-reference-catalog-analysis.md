@@ -40,6 +40,8 @@ Macsteel family evidence now screens all395 rows:268 supported family-designatio
 - Text contains `Rectangluar` and a mojibake description (`IPE Sections �AA�`). Two near-identical Supalite descriptions differ only by `DIN.1026/1963` versus `DIN.1026/1964`; this may be meaningful or erroneous and requires source review.
 - Supplier contact number and location each contain 122 unique values while the supplier and email remain fixed. Those sequences need operational-data review and must not influence identity.
 
+Official manufacturer IPE/IPE-AA comparison now covers12selected rows: six agree in nominal depth/width/web/flange/mass; six IPE-AA records use designation sizes in Height rather than published nominal depths. Meaning remains unresolved; other793rows not compared. See `structural-ipe-verification.md` and its source-located report. No exact article approval or correction.
+
 ### Klinger gaskets — 12,162 rows, 24 columns
 
 - The file contains 26 product descriptions. Twenty-four descriptions repeat exactly 470 geometry/class combinations, which suggests a generated product-family matrix rather than 12,162 verified exact articles.
