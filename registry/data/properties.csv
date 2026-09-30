@@ -1,6 +1,6 @@
 property_id,source_id,external_code,preferred_label,definition,value_kind,identity_role
 PROP-FORM,,,Product form,"Physical product form within the class, such as straight section or fitting.",code,defining
-PROP-NOMINAL-WIDTH,,,Nominal inside width,"Manufacturer's nominal usable ladder width; not necessarily the overall width.",number,defining
+PROP-NOMINAL-WIDTH,,,Nominal inside width,"Manufacturer's nominal usable product width; not necessarily the overall external width.",number,defining
 PROP-OVERALL-WIDTH,,,Overall width,Maximum external width of the supplied straight section.,number,defining
 PROP-SIDE-RAIL-HEIGHT,,,Side rail height,External height of the cable-ladder side rail.,number,defining
 PROP-LENGTH,,,Section length,End-to-end length of one supplied straight section.,number,defining
@@ -41,6 +41,7 @@ PROP-COATING-SPEC,,,Coating specification,Declared passivation grade or other fi
 PROP-PRODUCT-CLASS,,,Dimensional product class,Declared dimensional tolerance product class.,code,defining
 PROP-CORROSION-PERFORMANCE,,,Corrosion performance,Declared corrosion resistance together with test duration and context.,text,conditional
 PROP-OVERALL-HEIGHT,,,Overall height,Maximum external height of the supplied straight section.,number,defining
+PROP-NOMINAL-HEIGHT,,,Nominal height or depth,"Manufacturer's nominal tray or rail height; not necessarily the overall external height.",number,defining
 PROP-CROSS-WIRE-DIAMETER,,,Cross-wire diameter,Declared diameter of the transverse wires.,number,defining
 PROP-TOP-LONGITUDINAL-WIRE-DIAMETER,,,Top longitudinal wire diameter,Declared diameter of the top edge longitudinal wire.,number,defining
 PROP-OTHER-LONGITUDINAL-WIRE-DIAMETER,,,Other longitudinal wire diameter,Declared diameter of longitudinal wires other than the top edge wire.,number,defining

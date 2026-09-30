@@ -333,11 +333,17 @@ def main() -> int:
             "PROP-OVERALL-WIDTH",
             "PROP-OVERALL-HEIGHT",
             "PROP-LENGTH",
-            "PROP-SURFACE-PROTECTION",
             "PROP-WIRE-JOINT",
         ):
             if property_id not in str(wire_mesh_pair["conflicting_properties"]).split(";"):
                 raise AssertionError(f"Wire-mesh conflict was not recorded: {property_id}")
+        for property_id in (
+            "PROP-NOMINAL-WIDTH",
+            "PROP-NOMINAL-HEIGHT",
+            "PROP-SURFACE-PROTECTION",
+        ):
+            if property_id not in str(wire_mesh_pair["matched_properties"]).split(";"):
+                raise AssertionError(f"Wire-mesh nominal or finish match was not retained: {property_id}")
 
         initial_audit = subprocess.run(
             [sys.executable, str(ROOT / "scripts" / "audit_completeness.py"), "--database", str(database)],
@@ -345,7 +351,7 @@ def main() -> int:
             text=True,
             check=False,
         )
-        if "CF150/450BL: 12/13 required properties" not in initial_audit.stdout:
+        if "CF150/450BL: 14/15 required properties" not in initial_audit.stdout:
             raise AssertionError("Legrand wire-mesh completeness was not audited")
         if "source_conflicts=Overall height" not in initial_audit.stdout:
             raise AssertionError("The conflicting official Legrand height values were not surfaced")
