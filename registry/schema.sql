@@ -74,7 +74,7 @@ CREATE TABLE dataset_findings (
   dataset_id TEXT NOT NULL REFERENCES source_datasets(dataset_id),
   dataset_sha256 TEXT NOT NULL CHECK (length(dataset_sha256) = 64 AND dataset_sha256 NOT GLOB '*[^0-9A-Fa-f]*'),
   artifact_id TEXT NOT NULL REFERENCES source_artifacts(artifact_id),
-  issue_type TEXT NOT NULL CHECK (issue_type IN ('dimension_conflict','unsupported_key','duplicate_key','coverage_gap','construction_conflict','source_ambiguity')),
+  issue_type TEXT NOT NULL CHECK (issue_type IN ('dimension_conflict','unsupported_key','duplicate_key','coverage_gap','construction_conflict','source_ambiguity','material_interpretation','mass_discrepancy','article_evidence_gap')),
   priority TEXT NOT NULL CHECK (priority = CASE WHEN issue_type = 'coverage_gap' THEN 'P2' ELSE 'P0' END),
   subject_key TEXT NOT NULL,
   summary TEXT NOT NULL CHECK (length(trim(summary)) > 0),

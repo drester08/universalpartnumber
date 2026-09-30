@@ -3,8 +3,8 @@
 This report is generated deterministically from the governed registry seed data.
 It is a work list, not a set of reviewer decisions. Regenerate it whenever source data changes.
 
-- Total work items: 242
-- Ready: 231
+- Total work items: 250
+- Ready: 239
 - Blocked by explicit dependencies: 11
 - No queue item authorizes UPN issuance.
 
@@ -12,9 +12,9 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 
 | Priority | Count |
 | --- | ---: |
-| P0 | 60 |
+| P0 | 67 |
 | P1 | 42 |
-| P2 | 131 |
+| P2 | 132 |
 | P3 | 9 |
 
 ## Queue counts
@@ -24,7 +24,7 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | artifact_retrieval | 17 |
 | candidate_evidence_followup | 4 |
 | complete_part_review | 11 |
-| dataset_finding_review | 73 |
+| dataset_finding_review | 81 |
 | external_identifier_verification | 1 |
 | observation_review | 61 |
 | reference_dataset_validation | 4 |
