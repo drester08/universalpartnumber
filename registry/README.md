@@ -2,9 +2,9 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
-PFC expansion: `docs/structural-pfc-verification.md` screens six newly covered channel rows against British Steel: two nominal agreements, two conflicts and two absent serial candidates. Source register81, cached artifacts25. Combined structural screening67distinct rows;738outside selected tables. PFC research not yet in findings; queue remains262. No article approval.
+PFC expansion: `docs/structural-pfc-verification.md` screens six newly covered channel rows against British Steel: two nominal agreements, two conflicts and two absent serial candidates. Source register81, cached artifacts25. Combined structural screening67distinct rows;738outside selected tables. Two PFC findings with four row links are integrated; queue264. Nominal agreements remain unapproved.
 
-Independent follow-up: `docs/structural-british-corroboration.md` screens all49UB/UC rows against British Steel PDFs:48exact nominal candidates, one unmatched mass key and one inter-source width conflict among46cross-source comparisons. Root radii/clear depths retained. Four British-source findings now integrated; reviewer queue262. Source register80, cached artifacts24. No article approval.
+Independent follow-up: `docs/structural-british-corroboration.md` screens all49UB/UC rows against British Steel PDFs:48exact nominal candidates, one unmatched mass key and one inter-source width conflict among46cross-source comparisons. Root radii/clear depths retained. Four British UB/UC findings remain integrated. No article approval.
 
 DS.0001 structural research: `docs/structural-heavy-verification.md` documents all49UB/UC rows screened:46unique nominal candidates with field differences and three unmatched exact keys. Manual transcription remains unreviewed. Combined with IPE/British evidence,61distinct structural rows screened;744remain outside selected-table screening. Five DS.0001 findings remain open alongside the British findings. No identity approval or UPN issuance.
 
@@ -13,7 +13,7 @@ DS.0001 structural research: `docs/structural-heavy-verification.md` documents a
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.
 - `data/source-register.csv` — initial authoritative-source register with access and licensing constraints.
 - `data/source-datasets.csv` — checksummed custody and allowed-use register for supplied bulk files; raw sensitive files stay Git-ignored.
-- `data/dataset-findings.csv` and `data/dataset-finding-rows.csv` — 93 derived bulk-data findings with3,297links to2,253distinct dataset/row pairs, with checksummed report evidence and no implied corrections or identity approvals.
+- `data/dataset-findings.csv` and `data/dataset-finding-rows.csv` — 95 derived bulk-data findings with3,301links to2,253distinct dataset/row pairs, with checksummed report evidence and no implied corrections or identity approvals.
 - `data/numeric-comparison-rules.csv` — versioned property-specific cross-unit representation tolerances for required numeric identity fields.
 - `data/controlled-values.csv` and `data/specification-value-mappings.csv` — property-scoped canonical terms and reviewable mappings from raw source statements.
 - `data/items-of-supply.csv`, `data/upn-allocations.csv`, `data/item-reviews.csv`, and `data/item-memberships.csv` — reproducible canonical-item ledger, permanent opaque-number allocation, independent approval, and reviewed part membership.
@@ -80,7 +80,7 @@ The registry now builds 35 relational tables from 77 governed sources, four prof
 
 ## Non-negotiable rule
 
-The source-dataset review layer contributes 66 gasket, 7 pipe, 8 plate, 3 IPE, 5 DS.0001 and 4 British Steel findings to the 262-task reviewer queue. It preserves 3,297 row links across 2,253 distinct dataset/row pairs. Stale report/input digests and identity promotion with unresolved findings are rejected. Earlier structural tasks cover all 805 article-evidence gaps and source-specific scope/field conflicts. British findings add 50 overlapping links without closing older issues. Overlapping links represent multiple issues, not additional parts. No catalogue correction or article approval.
+The source-dataset review layer contributes 66 gasket, 7 pipe, 8 plate, 3 IPE, 5 DS.0001, 4 British UB/UC and 2 PFC findings to the 264-task reviewer queue. It preserves 3,301 row links across 2,253 distinct dataset/row pairs. Stale report/input digests and identity promotion with unresolved findings are rejected. Earlier structural tasks cover all 805 article-evidence gaps and source-specific scope/field conflicts. British UB/UC findings add 50 overlapping links, and PFC adds four, without closing older issues. Overlapping links represent multiple issues, not additional parts. No catalogue correction or article approval.
 
 Independent pipe nominal-size corroboration is documented in `docs/pipe-independent-corroboration.md` and `reports/pipe-independent-observations.json`: six manually transcribed observations across four supplied records from a manufacturer and a supplier. `scripts/check_pipe_corroboration.py` checks internal row/key/geometry consistency, not live source fidelity. New remote-only source evidence requires capture/reuse review; original Tenaris findings remain open.
 

@@ -266,8 +266,8 @@ def main() -> int:
                 for queue_type in {item["queue_type"] for item in review_items}
             }
             if (
-                len(review_items) != 262
-                or queue_counts.get("dataset_finding_review") != 93
+                len(review_items) != 264
+                or queue_counts.get("dataset_finding_review") != 95
                 or queue_counts.get("reference_dataset_validation") != 4
                 or queue_counts.get("terminology_mapping_review") != 15
                 or sum(item["readiness"] == "blocked" for item in review_items) != 11
@@ -279,7 +279,7 @@ def main() -> int:
                 "(SELECT DISTINCT f.dataset_id, r.csv_line FROM dataset_finding_rows r "
                 "JOIN dataset_findings f USING(finding_id))"
             ).fetchone()
-            if tuple(finding_counts) != (93, 3297, 2253):
+            if tuple(finding_counts) != (95, 3301, 2253):
                 raise AssertionError("Dataset findings lost groups or exact source-row references")
             finding_id = screening_connection.execute("SELECT finding_id FROM dataset_findings LIMIT 1").fetchone()[0]
             expect_integrity_error(screening_connection,

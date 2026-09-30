@@ -13,6 +13,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from decimal import Decimal
 from check_structural_heavy import candidate_key, screen, FIELDS as HEAVY_FIELDS
+from check_structural_pfc import screen as screen_pfc
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = 'DATASET-USER-KLINGER-GASKETS-20260713'
@@ -25,6 +26,7 @@ STRUCTURAL_DATASET = 'DATASET-USER-STRUCTURAL-STEEL-20260702'
 STRUCTURAL_ARTIFACT = 'ART-AMSA-E12-PARALLEL'
 HEAVY_ARTIFACT = 'ART-AMSA-H11-HEAVY'
 BRITISH_ARTIFACTS = {'UB':'ART-BS-UB-2024','UC':'ART-BS-UC-2023'}
+PFC_ARTIFACT='ART-BS-PFC-2023'
 FINDING_FIELDS = ('finding_id', 'dataset_id', 'dataset_sha256', 'artifact_id',
                   'issue_type', 'priority', 'subject_key', 'summary', 'next_action',
                   'evidence_path', 'evidence_sha256', 'evidence_locators', 'policy_version')
@@ -65,6 +67,7 @@ def derive(root=ROOT):
     reports.append(('structural-heavy-comparison.json', 'heavy', STRUCTURAL_DATASET, HEAVY_ARTIFACT))
     reports.extend(('structural-british-comparison.json','british_'+f,STRUCTURAL_DATASET,a)
                    for f,a in BRITISH_ARTIFACTS.items())
+    reports.append(('structural-pfc-comparison.json','pfc',STRUCTURAL_DATASET,PFC_ARTIFACT))
     for name, family, dataset_id, artifact_id in reports:
         dataset, artifact = datasets[dataset_id], artifacts[artifact_id]
         path = root / 'reports' / name
@@ -86,7 +89,44 @@ def derive(root=ROOT):
             entry['lines'].update(lines)
             entry['count'] += count
 
-        if family.startswith('british_'):
+        if family=='pfc':
+            records,outside=report['records'],report['outside_family_scope_csv_lines']
+            all_lines=outside+[r['csv_line'] for r in records]
+            if (report['dataset_rows']!=int(dataset['row_count']) or report['selected_rows']!=len(records)
+                    or len(records)!=6 or any(type(line) is not int for line in all_lines)
+                    or sorted(all_lines)!=list(range(2,int(dataset['row_count'])+2))):
+                raise ValueError('PFC report has missing, duplicate or overlapping row locators')
+            observations=report['source_observations']
+            if report['source_table_rows']!=12 or len(observations)!=12 or report['source_id']!=artifact['source_id']:
+                raise ValueError('PFC source table scope mismatch')
+            keys=set()
+            for o in observations:
+                key=(Decimal(o['designation_height']),Decimal(o['designation_width']))
+                if (key in keys or o['source_id']!=artifact['source_id'] or type(o['pdf_page']) is not int
+                        or o['pdf_page']!=1 or o['designation']!=f"{o['designation_height']} x {o['designation_width']} x {o['designation_mass_label']}"
+                        or any(Decimal(o[v])<=0 for v in (*HEAVY_FIELDS,'centroid_distance_cm','root_radius_mm','depth_between_fillets_mm'))):
+                    raise ValueError('PFC source key/locator/value invalid')
+                keys.add(key)
+            if dict(Counter(r['outcome'] for r in records))!=report['outcomes']:
+                raise ValueError('PFC outcome counts mismatch')
+            supplied_keys=set()
+            for i,case in enumerate(records):
+                if case['exact_article_verified'] is not False:
+                    raise ValueError('PFC comparison cannot assert reviewed article identity')
+                row={c:case['actual'][f] for f,c in HEAVY_FIELDS.items()}
+                key=(Decimal(row['Height (mm)']),Decimal(row['Width (mm)']))
+                if key in supplied_keys:
+                    raise ValueError('Duplicate PFC supplied key')
+                supplied_keys.add(key)
+                expected=screen_pfc(row,observations)
+                if any(case[k]!=v for k,v in expected.items()):
+                    raise ValueError('PFC candidates/differences differ from source observations')
+                locator=f'/records/{i}'
+                if case['outcome']=='nominal_field_conflict':
+                    add('dimension_conflict',('Structural Steel','PFC','British Steel nominal fields'),locator,[case['csv_line']])
+                elif case['outcome']=='no_serial_candidate':
+                    add('coverage_gap',('Structural Steel','PFC','British Steel serial key absent'),locator,[case['csv_line']])
+        elif family.startswith('british_'):
             source_ids={artifacts[a]['source_id'] for a in BRITISH_ARTIFACTS.values()}
             if set(report['source_pdf_sha256']) != source_ids or any(
                     report['source_pdf_sha256'][artifacts[a]['source_id']].lower()!=artifacts[a]['sha256'].lower()

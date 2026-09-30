@@ -76,7 +76,7 @@ def compare():
     if len(records)!=6 or len({tuple(r['serial_size_candidate']) for r in records})!=6:
         raise ValueError('Unexpected supplied PFC family scope')
     return {'dataset_sha256':DATASET_SHA,'catalogue_sha256':SHA,'source_id':'SRC-BS-PFC-2023',
-        'dataset_rows':805,'selected_rows':6,'source_table_rows':12,
+        'dataset_rows':805,'selected_rows':6,'source_table_rows':12,'source_observations':observations,
         'outside_family_scope_csv_lines':outside,'outcomes':dict(Counter(r['outcome'] for r in records)),
         'records':records,'limitations':['Both PDF pages rendered/reviewed; numeric extraction from page1, fidelity unreviewed.',
             'Serial Height/Width candidate binding only; mass is independently compared, not rounded to a designation.',
@@ -84,7 +84,7 @@ def compare():
             'Centroid distance is cm, radius and clear depth mm; these are not interchanged.',
             'Nominal equality is not a manufacturing tolerance, material certificate or identity approval.',
             'Grade, product article, finish/ends/length/tolerances and current availability not verified.',
-            'Older source-specific findings remain open; this PFC research is not yet in the generic review queue.']}
+            'Older source-specific findings remain open; PFC findings expose issues without approving corrections.']}
 
 
 if __name__=='__main__':

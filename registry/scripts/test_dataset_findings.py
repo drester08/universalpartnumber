@@ -16,18 +16,18 @@ class FindingTests(unittest.TestCase):
     def test_deterministic_complete_row_accounting(self):
         first = findings.derive()
         self.assertEqual(first, findings.derive())
-        self.assertEqual(len(first[0]), 93)
-        self.assertEqual(len(first[1]), 3297)
-        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 57)
-        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 36)
+        self.assertEqual(len(first[0]), 95)
+        self.assertEqual(len(first[1]), 3301)
+        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 58)
+        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 37)
         by_kind = {}
         index = {f['finding_id']: f for f in first[0]}
         self.assertEqual(len({(index[r['finding_id']]['dataset_id'], r['csv_line']) for r in first[1]}), 2253)
         for ref in first[1]:
             kind = index[ref['finding_id']]['issue_type']
             by_kind[kind] = by_kind.get(kind, 0) + 1
-        self.assertEqual(by_kind, {'dimension_conflict': 153, 'unsupported_key': 949, 'duplicate_key': 2,
-                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 885,
+        self.assertEqual(by_kind, {'dimension_conflict': 155, 'unsupported_key': 949, 'duplicate_key': 2,
+                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 887,
                                    'material_interpretation': 51, 'mass_discrepancy': 3, 'article_evidence_gap': 1200})
 
     def test_snapshot_tampering_rejected(self):
@@ -204,6 +204,49 @@ class FindingTests(unittest.TestCase):
     def test_heavy_missing_source_only_row_rejected(self):
         with self.assertRaisesRegex(ValueError,'source-only coverage mismatch'):
             self.changed_report(lambda r:r.update(source_rows_without_supplied_key=[]),'structural-heavy-comparison.json')
+
+    def test_pfc_findings_preserve_agreements_as_unapproved(self):
+        groups, refs = findings.derive()
+        pfc = {r['finding_id']: r for r in groups if r['artifact_id'] == findings.PFC_ARTIFACT}
+        self.assertEqual(len(pfc), 2)
+        self.assertEqual({r['issue_type'] for r in pfc.values()}, {'dimension_conflict', 'coverage_gap'})
+        lines = [r['csv_line'] for r in refs if r['finding_id'] in pfc]
+        self.assertEqual(len(lines), 4)
+        report = json.loads((findings.ROOT / 'reports/structural-pfc-comparison.json').read_text(encoding='utf-8'))
+        agreements = {r['csv_line'] for r in report['records'] if r['outcome'] == 'nominal_values_agree'}
+        self.assertEqual(len(agreements), 2)
+        self.assertTrue(agreements.isdisjoint(lines))
+        article_gaps = {r['finding_id'] for r in groups if r['dataset_id'] == findings.STRUCTURAL_DATASET
+                        and r['issue_type'] == 'article_evidence_gap'}
+        gap_lines = {r['csv_line'] for r in refs if r['finding_id'] in article_gaps}
+        self.assertTrue(agreements.issubset(gap_lines))
+
+    def test_pfc_invalid_evidence_rejected(self):
+        def bad_difference(r):
+            next(x for x in r['records'] if x['nominal_differences'])['nominal_differences'] = []
+        def false_approval(r):
+            r['records'][0]['exact_article_verified'] = True
+        def overlap(r):
+            r['outside_family_scope_csv_lines'][0] = r['records'][0]['csv_line']
+        def duplicate_source(r):
+            r['source_observations'][1] = copy.deepcopy(r['source_observations'][0])
+        def bad_page(r):
+            r['source_observations'][0]['pdf_page'] = True
+        def bad_units(r):
+            r['source_observations'][0]['centroid_distance_cm'] = '0'
+        cases = [
+            (bad_difference, 'candidates/differences'), (false_approval, 'cannot assert reviewed'),
+            (overlap, 'overlapping row locators'), (duplicate_source, 'key/locator/value invalid'),
+            (bad_page, 'key/locator/value invalid'), (bad_units, 'key/locator/value invalid'),
+            (lambda r: r.update(outcomes={}), 'outcome counts'),
+            (lambda r: r.update(catalogue_sha256='0'*64), 'catalogue checksum mismatch'),
+            (lambda r: r.update(dataset_sha256='0'*64), 'dataset checksum mismatch'),
+            (lambda r: r['source_observations'].pop(), 'source table scope mismatch'),
+        ]
+        for change, message in cases:
+            with self.subTest(message=message, change=change.__name__):
+                with self.assertRaisesRegex(ValueError, message):
+                    self.changed_report(change, 'structural-pfc-comparison.json')
 
     def test_british_findings_and_prior_retained(self):
         groups,refs=findings.derive()
