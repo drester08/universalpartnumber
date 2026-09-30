@@ -4,3 +4,5 @@ UNIT-MM2,MMK,mm²,square millimetre,0.000001,0
 UNIT-KG,KGM,kg,kilogram,mass,1,0
 UNIT-KG-PER-M,,kg/m,kilogram per metre,mass_per_length,1,0
 UNIT-EA,C62,ea,one,count,1,0
+UNIT-IN,INH,in,inch,length,0.0254,0
+UNIT-LB,LBR,lb,pound,mass,0.45359237,0

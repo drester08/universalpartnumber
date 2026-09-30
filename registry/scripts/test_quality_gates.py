@@ -43,6 +43,8 @@ def main() -> int:
         raise AssertionError("Manufacturer-derived Niedax EAN failed GS1 Mod-10 validation")
     if validate_registry.gs1_mod10_valid("4013339904007"):
         raise AssertionError("Invalid GS1 check digit was accepted")
+    if not validate_registry.gs1_mod10_valid("662516721871"):
+        raise AssertionError("Eaton exact-SKU UPC failed GS1 Mod-10 validation")
     with tempfile.TemporaryDirectory(prefix="upn-quality-") as directory:
         database = Path(directory) / "registry.sqlite"
         build_registry.build(database)
@@ -116,6 +118,51 @@ def main() -> int:
             ).fetchone()[0]
             if niedax_raw_code != 1:
                 raise AssertionError("Niedax six-digit catalogue EAN suffix was not preserved")
+            eaton_offer = screening_connection.execute(
+                """
+                SELECT so.order_quantity, so.order_unit, so.package_level,
+                       soi.scheme, soi.identifier_value, soi.identifier_scope
+                  FROM supplier_offers AS so
+                  JOIN supplier_offer_identifiers AS soi
+                    ON soi.supplier_offer_id = so.supplier_offer_id
+                 WHERE so.supplier_offer_id = 'OFFER-EATON-FT6X18X10-BLE'
+                   AND soi.identifier_value = '662516721871'
+                """
+            ).fetchone()
+            if not eaton_offer or tuple(eaton_offer) != (
+                None,
+                "unknown",
+                "unknown",
+                "upc",
+                "662516721871",
+                "unknown",
+            ):
+                raise AssertionError("Eaton UPC or unresolved commercial scope was misrepresented")
+            eaton_required = screening_connection.execute(
+                """
+                SELECT ipp.property_id
+                  FROM identity_profile_properties AS ipp
+                 WHERE ipp.profile_id = 'PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1'
+                   AND ipp.requirement = 'required'
+                   AND NOT EXISTS (
+                       SELECT 1
+                         FROM observations AS o
+                         JOIN specification_values AS sv
+                           ON sv.observation_id = o.observation_id
+                        WHERE o.manufacturer_part_id = 'MP-EATON-FT6X18X10-BLE'
+                          AND o.review_state NOT IN ('rejected', 'superseded')
+                          AND sv.property_id = ipp.property_id
+                   )
+                 ORDER BY ipp.sequence_number
+                """
+            ).fetchall()
+            if [row[0] for row in eaton_required] != [
+                "PROP-WIRE-DIAMETER",
+                "PROP-MESH-LONGITUDINAL-SPACING",
+                "PROP-MESH-TRANSVERSE-SPACING",
+                "PROP-SPLICES-INCLUDED",
+            ]:
+                raise AssertionError("Eaton wire-mesh identity gaps were not preserved explicitly")
             niedax_family_counts = screening_connection.execute(
                 """
                 SELECT

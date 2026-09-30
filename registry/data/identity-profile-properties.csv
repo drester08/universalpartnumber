@@ -34,3 +34,20 @@ PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-COATING-SPEC,required,normalized_exac
 PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-PRODUCT-CLASS,required,normalized_exact,14,Dimensional tolerance class is part of the exact product definition.
 PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-CORROSION-PERFORMANCE,conditional,contextual,15,Compare duration and test method only when explicitly declared.
 PROFILE-FASTENER-HEX-FULL-ISO4017-0.1,PROP-THREAD-DIRECTION,required,normalized_exact,16,Left-hand and right-hand threads are different physical items even when all nominal dimensions match.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-FORM,required,exact,1,Prevents a straight basket section from matching a fitting accessory ladder or sheet tray.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-OVERALL-WIDTH,required,numeric_exact,2,Determines routing capacity installed envelope and fitting compatibility.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-OVERALL-HEIGHT,required,numeric_exact,3,Determines routing capacity installed envelope and fitting compatibility.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-LENGTH,required,numeric_exact,4,Changes the supplied item and installation count.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-MATERIAL,required,normalized_exact,5,Material affects strength corrosion and installation context.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-MATERIAL-GRADE,conditional,normalized_exact,6,Required whenever a manufacturer declares a grade or alloy.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-SURFACE-PROTECTION,required,normalized_exact,7,Finish affects corrosion performance and environment suitability.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-WIRE-DIAMETER,required,numeric_exact,8,Wire diameter materially changes construction strength and fitting compatibility.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-MESH-LONGITUDINAL-SPACING,required,numeric_exact,9,Longitudinal grid spacing changes support geometry and attachment interfaces.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-MESH-TRANSVERSE-SPACING,required,numeric_exact,10,Transverse grid spacing changes support geometry and attachment interfaces.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-WIRE-JOINT,required,normalized_exact,11,Weld and edge construction affect strength handling and safety.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-LOAD-RATING,conditional,contextual,12,Load must be compared with span test standard orientation and safety factor context.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-CERTIFICATIONS,conditional,set_equal,13,Approval differences can prohibit substitution in regulated applications.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-SPLICES-INCLUDED,required,exact,14,Included connection hardware changes the supplied commercial item.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-USABLE-CROSS-SECTION,descriptive,numeric_exact,15,Useful validation value only when the source states an unambiguous area unit.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-MASS,descriptive,numeric_exact,16,Useful validation value but not a substitute for construction geometry.
+PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1,PROP-APPLICATION-ENVIRONMENT,descriptive,contextual,17,Preserves manufacturer environment guidance without treating it as universal suitability.
