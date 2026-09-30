@@ -74,6 +74,8 @@ The registry now builds 35 relational tables from 73 governed sources, four prof
 
 ## Non-negotiable rule
 
-The source-dataset review layer contributes 66 gasket and seven pipe findings to the 240-item reviewer queue. It preserves 1,069 exact CSV row links across 1,053 distinct dataset/row pairs and rejects stale report/input digests or identity promotion while these findings remain unresolved. Pipe findings cover all 50 construction conflicts, four ambiguous source keys and twelve outside-source-key records, with overlapping links where a row has multiple issues. It does not correct catalogues or approve articles.
+The source-dataset review layer contributes 66 gasket and seven pipe findings to the 242-item reviewer queue. It preserves 1,069 exact CSV row links across 1,053 distinct dataset/row pairs and rejects stale report/input digests or identity promotion while these findings remain unresolved. Pipe findings cover all 50 construction conflicts, four ambiguous source keys and twelve outside-source-key records, with overlapping links where a row has multiple issues. It does not correct catalogues or approve articles.
+
+Independent pipe nominal-size corroboration is documented in `docs/pipe-independent-corroboration.md` and `reports/pipe-independent-observations.json`: six manually transcribed observations across four supplied records from a manufacturer and a supplier. `scripts/check_pipe_corroboration.py` checks internal row/key/geometry consistency, not live source fidelity. New remote-only source evidence requires capture/reuse review; original Tenaris findings remain open.
 
 A similar description is not identity. UPN equivalence requires compatible identity-defining properties, traceable evidence, and a recorded human decision. Application suitability and substitution are separate decisions.

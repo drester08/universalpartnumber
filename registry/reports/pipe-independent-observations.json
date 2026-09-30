@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-09-30",
+  "method": "Manual transcription of selected factual numeric cells from read-only official pages. Not a cached source snapshot or full-table extraction.",
+  "dataset_id": "DATASET-USER-PIPING-20260702",
+  "dataset_sha256": "674cb646412b8f1ef538f3c6cf4e473f1f832f0b9c65b0b45aebed04e4d7e875",
+  "observations": [
+    {"source_id":"SRC-TATA-INLINE-360","locator":"Dimensions and pressure ratings; OD88.9 group; DN80/NPS3; schedule40","csv_line":36,"dn":"80","nps":"3","schedule":"40","od_mm":"88.9","wall_mm":"5.49"},
+    {"source_id":"SRC-TATA-INLINE-360","locator":"Dimensions and pressure ratings; OD88.9 group; DN80/NPS3; schedule80","csv_line":37,"dn":"80","nps":"3","schedule":"80","od_mm":"88.9","wall_mm":"7.62"},
+    {"source_id":"SRC-SPA-SEAMLESS-SCHEDULE","locator":"Conveyance seamless schedule40; stock description65NB","csv_line":32,"dn":"65","schedule":"40","od_mm":"73.0","wall_mm":"5.16"},
+    {"source_id":"SRC-SPA-SEAMLESS-SCHEDULE","locator":"Conveyance seamless schedule80; stock description65NB","csv_line":33,"dn":"65","schedule":"80","od_mm":"73.0","wall_mm":"7.01"},
+    {"source_id":"SRC-SPA-SEAMLESS-SCHEDULE","locator":"Conveyance seamless schedule40; stock description80NB","csv_line":36,"dn":"80","schedule":"40","od_mm":"88.9","wall_mm":"5.49"},
+    {"source_id":"SRC-SPA-SEAMLESS-SCHEDULE","locator":"Conveyance seamless schedule80; stock description80NB","csv_line":37,"dn":"80","schedule":"80","od_mm":"88.9","wall_mm":"7.62"}
+  ],
+  "limitations": ["Only four distinct supplied records inspected in this corroboration, with two records observed in both sources.","Schedules160/XXS and remaining coverage gaps not corroborated here.","Source pages are remote-only and can change; manual transcription requires independent review.","Neither dimensional agreement nor manufacturer's application-alternative wording proves same-item identity or suitability.","Original Tenaris ambiguous keys and all supplied manufacturing-route conflicts remain unresolved; no approved corrections."]
+}

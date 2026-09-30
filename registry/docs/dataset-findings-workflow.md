@@ -14,7 +14,7 @@ The three gasket reports produce 66 groups: 41 P0 conflict/key/duplicate tasks a
 
 The pipe report adds seven groups: one P0 construction-conflict task covering all 50 rows, one P0 source-ambiguity task covering four DN65 rows, and five P2 coverage tasks covering twelve DN6/8/10/80/90 rows. These contribute 66 row links because 16 rows have more than one issue. The combined snapshot contains 73 groups, 1,069 links and 1,053 distinct dataset/row pairs. Row numbers must always be scoped by dataset; identical row numbers in different files are not duplicates.
 
-The main reviewer queue now contains 240 tasks, including these 73. Existing 11 complete-part tasks retain their blocked dependencies. Each finding links back to its report and source artifact rather than becoming a guessed part number. Other dataset issues, missing gasket construction/material/drilling evidence and external-source licensing remain separate outstanding work; these tasks are not an exhaustive catalogue of all import prerequisites. Earlier 232/233-task snapshots are historical, not current status.
+The main reviewer queue now contains 242 tasks, including these 73. Existing 11 complete-part tasks retain their blocked dependencies. Each finding links back to its report and source artifact rather than becoming a guessed part number. Other dataset issues, missing gasket construction/material/drilling evidence and external-source licensing remain separate outstanding work; these tasks are not an exhaustive catalogue of all import prerequisites. Earlier 232/233/240-task snapshots are historical, not current status.
 
 ## Resolve issues
 

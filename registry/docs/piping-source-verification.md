@@ -30,3 +30,5 @@ Report includes all 50 logical CSV lines, raw OD/wall values, source candidates,
 The generic review layer now derives seven pipe findings with 66 links across all 50 supplied rows: construction conflicts, source ambiguity and coverage gaps. Dataset promotion is blocked while these findings remain unresolved. This is workflow integration, not independent corroboration or article approval.
 
 Next: corroborate the source's nominal-diameter anomaly, extend smaller/other size coverage using independent official tables, and obtain exact grade/route/end/certification evidence. A dataset-correction approval and revision ledger is still required.
+
+Independent follow-up is recorded in `pipe-independent-corroboration.md`: Tata Steel manufacturer evidence supports DN80/NPS3 OD88.9, and a separate supplier distinguishes65NB/80NB. Four supplied records have nominal OD/wall corroboration. Original source-specific findings remain open; no source correction or identity approval is asserted.
