@@ -5,6 +5,7 @@ UPN must interoperate with established identifiers without mistaking them for au
 ## Identifier layers
 
 - GTIN, EAN, and UPC normally identify trade items at a packaging level. They belong to a supplier offer until `each`, `pack`, `box`, `case`, or `pallet` scope is proven.
+- Any identifier labelled EAN, UPC, or GTIN must have a valid scheme length and GS1 Mod-10 check digit. A manufacturer's documented prefix/suffix construction rule may be applied when both components are retained in evidence; an undocumented completion or guessed prefix is prohibited.
 - A NATO Stock Number identifies an item of supply in the NATO Codification System. It is not a manufacturer part number and does not belong in `manufacturer_part_identifiers`.
 - A UPN identifies a reviewed UPN item of supply. An external identifier can be linked to it only after the external record and the UPN membership evidence have both passed review.
 
@@ -15,6 +16,8 @@ UPN must interoperate with established identifiers without mistaking them for au
 3. `rejected`: review showed the asserted identifier or relationship was wrong or obsolete.
 
 Supplier assertions, secondary corroboration, definitions, and authoritative exact records are stored as distinct evidence roles. A definition of the namespace is not verification of a particular identifier.
+
+Niedax's current catalogue is an example of a documented construction rule: its six-digit table values are suffixes, and the legend instructs readers to prepend country prefix `40` and company prefix `13339`. UPN therefore records both raw suffix `904006` and complete, checksum-valid EAN `4013339904006` for `KL 100.203 F`, while leaving packaging scope unknown.
 
 ## Current NSN lead
 

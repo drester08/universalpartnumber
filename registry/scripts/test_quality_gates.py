@@ -11,6 +11,7 @@ from pathlib import Path
 
 import build_registry
 import screen_candidates
+import validate_registry
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,6 +27,18 @@ def expect_integrity_error(connection: sqlite3.Connection, sql: str, values: tup
 
 
 def main() -> int:
+    valid_niedax_eans = (
+        "4013339903658",
+        "4013339904006",
+        "4013339904020",
+        "4013339904044",
+        "4013339904068",
+        "4013339904082",
+    )
+    if not all(validate_registry.gs1_mod10_valid(value) for value in valid_niedax_eans):
+        raise AssertionError("Manufacturer-derived Niedax EAN failed GS1 Mod-10 validation")
+    if validate_registry.gs1_mod10_valid("4013339904007"):
+        raise AssertionError("Invalid GS1 check digit was accepted")
     with tempfile.TemporaryDirectory(prefix="upn-quality-") as directory:
         database = Path(directory) / "registry.sqlite"
         build_registry.build(database)
@@ -80,23 +93,42 @@ def main() -> int:
                 SELECT so.order_quantity, so.order_unit, soi.scheme, soi.identifier_value,
                        soi.identifier_scope
                   FROM supplier_offers AS so
-                  JOIN supplier_offer_identifiers AS soi
+                 JOIN supplier_offer_identifiers AS soi
                     ON soi.supplier_offer_id = so.supplier_offer_id
                  WHERE so.supplier_offer_id = 'OFFER-NIEDAX-KL100203F'
+                   AND soi.scheme = 'ean'
                 """
             ).fetchone()
-            if not niedax_offer or tuple(niedax_offer) != (6, "meter", "other", "904006", "unknown"):
-                raise AssertionError("Niedax order unit or raw six-digit catalogue code was misrepresented")
-            niedax_false_ean = screening_connection.execute(
+            if not niedax_offer or tuple(niedax_offer) != (6, "meter", "ean", "4013339904006", "unknown"):
+                raise AssertionError("Niedax order unit or manufacturer-defined EAN was misrepresented")
+            niedax_raw_code = screening_connection.execute(
                 """
                 SELECT count(*)
                   FROM supplier_offer_identifiers
                  WHERE supplier_offer_id = 'OFFER-NIEDAX-KL100203F'
-                   AND scheme IN ('ean', 'gtin', 'upc')
+                   AND scheme = 'other'
+                   AND identifier_value = '904006'
                 """
             ).fetchone()[0]
-            if niedax_false_ean:
-                raise AssertionError("Niedax six-digit catalogue code was incorrectly promoted to a GS1 key")
+            if niedax_raw_code != 1:
+                raise AssertionError("Niedax six-digit catalogue EAN suffix was not preserved")
+            niedax_variant_values = screening_connection.execute(
+                """
+                SELECT o.manufacturer_part_id, sv.property_id, sv.normalized_text
+                  FROM specification_values AS sv
+                  JOIN observations AS o ON o.observation_id = sv.observation_id
+                 WHERE o.manufacturer_part_id IN ('MP-NIEDAX-KL100203S', 'MP-NIEDAX-KL100203F')
+                   AND sv.property_id IN ('PROP-SURFACE-PROTECTION', 'PROP-SIDE-PERFORATION')
+                 ORDER BY o.manufacturer_part_id, sv.property_id
+                """
+            ).fetchall()
+            variant_map = {
+                (row["manufacturer_part_id"], row["property_id"]): row["normalized_text"]
+                for row in niedax_variant_values
+            }
+            for property_id in ("PROP-SURFACE-PROTECTION", "PROP-SIDE-PERFORATION"):
+                if variant_map[("MP-NIEDAX-KL100203S", property_id)] == variant_map[("MP-NIEDAX-KL100203F", property_id)]:
+                    raise AssertionError(f"Niedax S/F distinction was lost for {property_id}")
             direct_nsn = screening_connection.execute(
                 """
                 SELECT count(*)

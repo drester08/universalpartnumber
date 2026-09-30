@@ -74,6 +74,37 @@ def validate_domains(errors: list[str]) -> int:
     return len(rows)
 
 
+def gs1_mod10_valid(identifier: str) -> bool:
+    if len(identifier) < 2 or not identifier.isdigit():
+        return False
+    body = identifier[:-1]
+    total = sum(
+        int(digit) * (3 if index % 2 == 0 else 1)
+        for index, digit in enumerate(reversed(body))
+    )
+    expected_check_digit = (10 - total % 10) % 10
+    return expected_check_digit == int(identifier[-1])
+
+
+def validate_trade_identifiers(errors: list[str]) -> None:
+    valid_lengths = {
+        "ean": {8, 13},
+        "upc": {12},
+        "gtin": {8, 12, 13, 14},
+    }
+    for name in ("supplier-offer-identifiers.csv", "manufacturer-part-identifiers.csv"):
+        for line, row in enumerate(read_csv(name), start=2):
+            scheme = row["scheme"].strip().lower()
+            if scheme not in valid_lengths:
+                continue
+            identifier = row["identifier_value"].strip()
+            if len(identifier) not in valid_lengths[scheme]:
+                allowed = ", ".join(str(length) for length in sorted(valid_lengths[scheme]))
+                errors.append(f"{name}:{line}: {scheme} length must be one of {allowed}")
+            elif not gs1_mod10_valid(identifier):
+                errors.append(f"{name}:{line}: {scheme} has an invalid GS1 Mod-10 check digit")
+
+
 def validate_schema(errors: list[str]) -> int:
     schema = (ROOT / "schema.sql").read_text(encoding="utf-8")
     try:
@@ -92,6 +123,7 @@ def main() -> int:
     errors: list[str] = []
     source_count = validate_sources(errors)
     domain_count = validate_domains(errors)
+    validate_trade_identifiers(errors)
     table_count = validate_schema(errors)
     if errors:
         print("Registry validation failed:")
