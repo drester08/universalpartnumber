@@ -69,8 +69,9 @@ The files confirm that a universal identity record cannot be a flattened copy of
 
 ## Next work
 
-- Ninety-five Maxiflex tuples now match official historical catalogue page 52; see `klinger-dimension-verification.md`. Confirm the component meanings with a labelled drawing and verify the remaining rows.
+- All 643 Maxiflex rows have now been compared with historical catalogue pages 52–59: 563 agree, 51 differ and 29 have an unsupported PN20 class key. See `klinger-dimension-verification.md` and the detailed JSON report. Confirm component meanings and resolve discrepancies before extending comparison to other families.
 - Obtain exact source catalogues or standards for the plate, structural, and pipe values and record row-level locators.
+- All 239 MaxiProfile records were compared with pages 68–70: 238 agree and one dimension differs (42 versus 426, PN16 / nominal size 400). See `klinger-maxiprofile-verification.md`. Style, component materials and thickness remain unresolved.
 - Split each domain into narrow identity profiles before ingestion.
 - Add inventory/location entities only after the operational ownership and update semantics are defined; these records must remain outside UPN identity.
 - Resolve the listed contradictions and encoding defects without destructive cleanup of the preserved source files.

@@ -20,7 +20,8 @@ This directory is the evidence and data foundation for the Universal Part Number
 - `docs/normalization-policy.md` — controlled terminology, mapping provenance, and independent approval requirements.
 - `docs/reviewer-workflow.md` — deterministic triage, dependency, and independent-review workflow.
 - `docs/user-reference-catalog-analysis.md` — structural and data-quality findings from the supplied plate, structural, gasket, and piping catalogues.
-- `docs/klinger-dimension-verification.md` — scoped comparison of 95 supplied Maxiflex tuples against the official historical catalogue.
+- `docs/klinger-dimension-verification.md` and `reports/klinger-maxiflex-comparison.json` — all 643 supplied Maxiflex rows compared against the official historical catalogue, with unresolved discrepancies retained by source locator.
+- `docs/klinger-maxiprofile-verification.md` and `reports/klinger-maxiprofile-comparison.json` — all 239 MaxiProfile rows compared with pages 68–70; 238 agree and one differs, without assuming component meanings or exact article identity.
 - `docs/research-plan.md` — staged path from source discovery to reviewed records.
 - `docs/cable-ladder-straight-steel-profile.md` — first class-specific identity profile, evidence, hard stops, and unresolved fields.
 - `docs/iso4017-hex-fastener-profile.md` — second identity profile and a documented exact-article comparison that remains short of equivalence.

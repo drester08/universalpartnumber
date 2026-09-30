@@ -1,0 +1,1627 @@
+{
+  "page_counts": {
+    "52": 95,
+    "53": 80,
+    "54": 66,
+    "55": 120,
+    "56": 61,
+    "57": 124,
+    "58": 108,
+    "59": 20
+  },
+  "catalogue_rows": 674,
+  "dataset_rows": 643,
+  "matched_rows": 563,
+  "conflicts": [
+    {
+      "csv_line": 291,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "250"
+      ],
+      "actual": [
+        "327",
+        "307",
+        "286",
+        "267"
+      ],
+      "catalogue": [
+        "328",
+        "307",
+        "286",
+        "267"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 292,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "300"
+      ],
+      "actual": [
+        "377",
+        "358",
+        "337",
+        "318"
+      ],
+      "catalogue": [
+        "383",
+        "358",
+        "337",
+        "318"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 293,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "350"
+      ],
+      "actual": [
+        "437",
+        "405",
+        "375",
+        "363"
+      ],
+      "catalogue": [
+        "443",
+        "405",
+        "375",
+        "363"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 294,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "400"
+      ],
+      "actual": [
+        "488",
+        "458",
+        "426",
+        "414"
+      ],
+      "catalogue": [
+        "495",
+        "458",
+        "426",
+        "414"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 295,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "500"
+      ],
+      "actual": [
+        "593",
+        "566",
+        "530",
+        "518"
+      ],
+      "catalogue": [
+        "617",
+        "566",
+        "530",
+        "518"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 296,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "600"
+      ],
+      "actual": [
+        "695",
+        "666",
+        "630",
+        "618"
+      ],
+      "catalogue": [
+        "734",
+        "666",
+        "630",
+        "618"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 297,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "700"
+      ],
+      "actual": [
+        "810",
+        "770",
+        "730",
+        "718"
+      ],
+      "catalogue": [
+        "804",
+        "770",
+        "730",
+        "718"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 298,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "800"
+      ],
+      "actual": [
+        "917",
+        "874",
+        "830",
+        "818"
+      ],
+      "catalogue": [
+        "911",
+        "874",
+        "830",
+        "818"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 299,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "900"
+      ],
+      "actual": [
+        "1017",
+        "974",
+        "930",
+        "910"
+      ],
+      "catalogue": [
+        "1011",
+        "974",
+        "930",
+        "910"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 300,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "1000"
+      ],
+      "actual": [
+        "1124",
+        "1078",
+        "1030",
+        "1010"
+      ],
+      "catalogue": [
+        "1128",
+        "1078",
+        "1030",
+        "1010"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 301,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "1200"
+      ],
+      "actual": [
+        "1341",
+        "1280",
+        "1230",
+        "1210"
+      ],
+      "catalogue": [
+        "1342",
+        "1280",
+        "1230",
+        "1210"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 302,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "1400"
+      ],
+      "actual": [
+        "1548",
+        "1510",
+        "1450",
+        "1420"
+      ],
+      "catalogue": [
+        "1542",
+        "1510",
+        "1450",
+        "1420"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 303,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "1600"
+      ],
+      "actual": [
+        "1772",
+        "1720",
+        "1660",
+        "1630"
+      ],
+      "catalogue": [
+        "1764",
+        "1720",
+        "1660",
+        "1630"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 304,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "1800"
+      ],
+      "actual": [
+        "1972",
+        "1920",
+        "1860",
+        "1830"
+      ],
+      "catalogue": [
+        "1964",
+        "1920",
+        "1860",
+        "1830"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 305,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "2000"
+      ],
+      "actual": [
+        "2182",
+        "2120",
+        "2050",
+        "2020"
+      ],
+      "catalogue": [
+        "2168",
+        "2120",
+        "2050",
+        "2020"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 306,
+      "key": [
+        "DIN Standard Flanges",
+        "PN16",
+        "2200"
+      ],
+      "actual": [
+        "2384",
+        "2330",
+        "2260",
+        "2230"
+      ],
+      "catalogue": [
+        "2378",
+        "2330",
+        "2260",
+        "2230"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 345,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "100"
+      ],
+      "actual": [
+        "162",
+        "140",
+        "120",
+        "108"
+      ],
+      "catalogue": [
+        "167",
+        "140",
+        "120",
+        "108"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 346,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "125"
+      ],
+      "actual": [
+        "192",
+        "168",
+        "146",
+        "134"
+      ],
+      "catalogue": [
+        "193",
+        "168",
+        "146",
+        "134"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 347,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "150"
+      ],
+      "actual": [
+        "217",
+        "196",
+        "174",
+        "162"
+      ],
+      "catalogue": [
+        "223",
+        "196",
+        "174",
+        "162"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 348,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "175"
+      ],
+      "actual": [
+        "247",
+        "221",
+        "195",
+        "183"
+      ],
+      "catalogue": [
+        "265",
+        "221",
+        "195",
+        "183"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 349,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "200"
+      ],
+      "actual": [
+        "272",
+        "251",
+        "225",
+        "213"
+      ],
+      "catalogue": [
+        "290",
+        "251",
+        "225",
+        "213"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 350,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "250"
+      ],
+      "actual": [
+        "327",
+        "307",
+        "286",
+        "267"
+      ],
+      "catalogue": [
+        "352",
+        "307",
+        "286",
+        "267"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 351,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "300"
+      ],
+      "actual": [
+        "377",
+        "358",
+        "337",
+        "318"
+      ],
+      "catalogue": [
+        "417",
+        "358",
+        "337",
+        "318"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 352,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "350"
+      ],
+      "actual": [
+        "437",
+        "405",
+        "375",
+        "363"
+      ],
+      "catalogue": [
+        "474",
+        "405",
+        "375",
+        "363"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 353,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "400"
+      ],
+      "actual": [
+        "488",
+        "458",
+        "426",
+        "414"
+      ],
+      "catalogue": [
+        "546",
+        "458",
+        "426",
+        "414"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 354,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "500"
+      ],
+      "actual": [
+        "593",
+        "566",
+        "530",
+        "518"
+      ],
+      "catalogue": [
+        "628",
+        "566",
+        "530",
+        "518"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 355,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "600"
+      ],
+      "actual": [
+        "695",
+        "666",
+        "630",
+        "618"
+      ],
+      "catalogue": [
+        "747",
+        "666",
+        "630",
+        "618"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 356,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "700"
+      ],
+      "actual": [
+        "810",
+        "770",
+        "730",
+        "718"
+      ],
+      "catalogue": [
+        "852",
+        "770",
+        "730",
+        "718"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 357,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "800"
+      ],
+      "actual": [
+        "917",
+        "874",
+        "830",
+        "818"
+      ],
+      "catalogue": [
+        "974",
+        "874",
+        "830",
+        "818"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 358,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "900"
+      ],
+      "actual": [
+        "1017",
+        "974",
+        "930",
+        "910"
+      ],
+      "catalogue": [
+        "1084",
+        "974",
+        "930",
+        "910"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 359,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "1000"
+      ],
+      "actual": [
+        "1124",
+        "1078",
+        "1030",
+        "1010"
+      ],
+      "catalogue": [
+        "1194",
+        "1078",
+        "1030",
+        "1010"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 360,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "1200"
+      ],
+      "actual": [
+        "1341",
+        "1280",
+        "1230",
+        "1210"
+      ],
+      "catalogue": [
+        "1398",
+        "1280",
+        "1230",
+        "1210"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 361,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "1400"
+      ],
+      "actual": [
+        "1548",
+        "1510",
+        "1450",
+        "1420"
+      ],
+      "catalogue": [
+        "1618",
+        "1510",
+        "1450",
+        "1420"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 362,
+      "key": [
+        "DIN Standard Flanges",
+        "PN40",
+        "1600"
+      ],
+      "actual": [
+        "1772",
+        "1720",
+        "1660",
+        "1630"
+      ],
+      "catalogue": [
+        "1830",
+        "1720",
+        "1660",
+        "1630"
+      ],
+      "page": 55
+    },
+    {
+      "csv_line": 394,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "50"
+      ],
+      "actual": [
+        "112",
+        "84",
+        "66",
+        "57"
+      ],
+      "catalogue": [
+        "118",
+        "84",
+        "66",
+        "57"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 395,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "65"
+      ],
+      "actual": [
+        "137",
+        "104",
+        "82",
+        "73"
+      ],
+      "catalogue": [
+        "143",
+        "104",
+        "82",
+        "73"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 396,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "80"
+      ],
+      "actual": [
+        "147",
+        "119",
+        "95",
+        "86"
+      ],
+      "catalogue": [
+        "153",
+        "119",
+        "95",
+        "86"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 397,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "100"
+      ],
+      "actual": [
+        "173",
+        "144",
+        "120",
+        "108"
+      ],
+      "catalogue": [
+        "180",
+        "144",
+        "120",
+        "108"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 398,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "125"
+      ],
+      "actual": [
+        "210",
+        "172",
+        "146",
+        "134"
+      ],
+      "catalogue": [
+        "217",
+        "172",
+        "146",
+        "134"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 399,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "150"
+      ],
+      "actual": [
+        "247",
+        "200",
+        "174",
+        "162"
+      ],
+      "catalogue": [
+        "257",
+        "200",
+        "174",
+        "162"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 400,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "175"
+      ],
+      "actual": [
+        "277",
+        "227",
+        "195",
+        "183"
+      ],
+      "catalogue": [
+        "287",
+        "227",
+        "195",
+        "183"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 401,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "200"
+      ],
+      "actual": [
+        "309",
+        "257",
+        "225",
+        "213"
+      ],
+      "catalogue": [
+        "324",
+        "257",
+        "225",
+        "213"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 402,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "250"
+      ],
+      "actual": [
+        "364",
+        "315",
+        "286",
+        "267"
+      ],
+      "catalogue": [
+        "391",
+        "315",
+        "286",
+        "267"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 403,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "300"
+      ],
+      "actual": [
+        "424",
+        "366",
+        "337",
+        "318"
+      ],
+      "catalogue": [
+        "458",
+        "366",
+        "337",
+        "318"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 404,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "350"
+      ],
+      "actual": [
+        "486",
+        "413",
+        "375",
+        "363"
+      ],
+      "catalogue": [
+        "512",
+        "413",
+        "375",
+        "363"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 405,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "400"
+      ],
+      "actual": [
+        "543",
+        "466",
+        "426",
+        "414"
+      ],
+      "catalogue": [
+        "572",
+        "466",
+        "426",
+        "414"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 406,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "500"
+      ],
+      "actual": [
+        "657",
+        "574",
+        "530",
+        "518"
+      ],
+      "catalogue": [
+        "704",
+        "574",
+        "530",
+        "518"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 407,
+      "key": [
+        "DIN Standard Flanges",
+        "PN100",
+        "600"
+      ],
+      "actual": [
+        "764",
+        "674",
+        "630",
+        "618"
+      ],
+      "catalogue": [
+        "813",
+        "674",
+        "630",
+        "618"
+      ],
+      "page": 56
+    },
+    {
+      "csv_line": 550,
+      "key": [
+        "BS 10 Standard Flanges",
+        "Table K",
+        "1"
+      ],
+      "actual": [
+        "71",
+        "56",
+        "40",
+        "27"
+      ],
+      "catalogue": [
+        "79",
+        "56",
+        "40",
+        "27"
+      ],
+      "page": 58
+    },
+    {
+      "csv_line": 578,
+      "key": [
+        "BS 10 Standard Flanges",
+        "Table R",
+        "1 1/4"
+      ],
+      "actual": [
+        "95",
+        "70",
+        "54",
+        "40"
+      ],
+      "catalogue": [
+        "83",
+        "64",
+        "48",
+        "33"
+      ],
+      "page": 58
+    },
+    {
+      "csv_line": 579,
+      "key": [
+        "BS 10 Standard Flanges",
+        "Table R",
+        "1 1/2"
+      ],
+      "actual": [
+        "83",
+        "64",
+        "48",
+        "33"
+      ],
+      "catalogue": [
+        "95",
+        "70",
+        "54",
+        "40"
+      ],
+      "page": 58
+    }
+  ],
+  "unsupported_keys": [
+    {
+      "csv_line": 307,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "10"
+      ]
+    },
+    {
+      "csv_line": 308,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "15"
+      ]
+    },
+    {
+      "csv_line": 309,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "20"
+      ]
+    },
+    {
+      "csv_line": 310,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "25"
+      ]
+    },
+    {
+      "csv_line": 311,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "32"
+      ]
+    },
+    {
+      "csv_line": 312,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "40"
+      ]
+    },
+    {
+      "csv_line": 313,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "50"
+      ]
+    },
+    {
+      "csv_line": 314,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "65"
+      ]
+    },
+    {
+      "csv_line": 315,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "80"
+      ]
+    },
+    {
+      "csv_line": 316,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "100"
+      ]
+    },
+    {
+      "csv_line": 317,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "125"
+      ]
+    },
+    {
+      "csv_line": 318,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "150"
+      ]
+    },
+    {
+      "csv_line": 319,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "175"
+      ]
+    },
+    {
+      "csv_line": 320,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "200"
+      ]
+    },
+    {
+      "csv_line": 321,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "250"
+      ]
+    },
+    {
+      "csv_line": 322,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "300"
+      ]
+    },
+    {
+      "csv_line": 323,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "350"
+      ]
+    },
+    {
+      "csv_line": 324,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "400"
+      ]
+    },
+    {
+      "csv_line": 325,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "500"
+      ]
+    },
+    {
+      "csv_line": 326,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "600"
+      ]
+    },
+    {
+      "csv_line": 327,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "700"
+      ]
+    },
+    {
+      "csv_line": 328,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "800"
+      ]
+    },
+    {
+      "csv_line": 329,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "900"
+      ]
+    },
+    {
+      "csv_line": 330,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "1000"
+      ]
+    },
+    {
+      "csv_line": 331,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "1200"
+      ]
+    },
+    {
+      "csv_line": 332,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "1400"
+      ]
+    },
+    {
+      "csv_line": 333,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "1600"
+      ]
+    },
+    {
+      "csv_line": 334,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "1800"
+      ]
+    },
+    {
+      "csv_line": 335,
+      "key": [
+        "DIN Standard Flanges",
+        "PN20",
+        "2000"
+      ]
+    }
+  ],
+  "catalogue_only_keys": [
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "1"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "1 1/2"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "1 1/4"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "1/2"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "10"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "11"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "12"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "13"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "14"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "15"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "16"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "17"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "18"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "19"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "2"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "2 1/2"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "20"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "21"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "22"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "23"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "24"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "3"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "3 1/2"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "3/4"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "4"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "4 1/2"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "5"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "6"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "7"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "8"
+    ],
+    [
+      "BS 10 Standard Flanges",
+      "Table H",
+      "9"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "10"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "100"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "1000"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "1200"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "125"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "1400"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "15"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "150"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "1600"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "175"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "1800"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "20"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "200"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "2000"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "25"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "250"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "300"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "32"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "350"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "40"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "400"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "50"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "500"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "600"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "65"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "700"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "80"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "800"
+    ],
+    [
+      "DIN Standard Flanges",
+      "PN25",
+      "900"
+    ]
+  ],
+  "catalogue_sha256": "82dfe2cb594ebd0b1202ba0114b3c6b55d184e93be5ff1a962d659c6248649ea",
+  "dataset_sha256": "207581e2b2c523fdfb7720131da2dd58f9795bc2745cfef84ee596139001ce86",
+  "interpretation": "Historical numeric tuple comparison only; component semantics and exact article identity remain unverified."
+}

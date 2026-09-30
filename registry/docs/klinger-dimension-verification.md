@@ -24,3 +24,25 @@ The [manufacturer's 2024 specification](https://www.klinger.co.uk/wp-content/upl
 ## Next evidence needed
 
 Obtain a labelled dimensional drawing, confirm the catalogue edition underlying the user export, and verify each remaining size/class combination. Record gasket style, component materials and thickness per exact article. Keep the supplied dataset at `profiled/structure_research` until these questions are resolved.
+
+## Extended comparison — pages 52–59
+
+The comparator now covers all 643 supplied Maxiflex rows. It extracts 674 catalogue keys across pages 52–59, retaining three-value tuples for Tables S and T and separate ASME Series A/B keys. Unicode inch marks and mixed-fraction punctuation are normalized only for key comparison.
+
+| Outcome | Supplied rows |
+| --- | ---: |
+| Exact tuple agreement | 563 |
+| Tuple differs from historical source | 51 |
+| Class key absent from these source tables | 29 |
+
+The 51 discrepancies comprise PN16 (16), PN40 (18), PN100 (14), Table K (1), and Table R (2). The Table R records transpose the tuples for 1¼ and 1½ inch sizes. The 29 unsupported records use PN20; the catalogue contains PN25 instead. This suggests a class-label problem but does not authorize relabelling them. Sixty catalogue keys are absent from the export: 29 PN25 records and 31 Table H records. Missing coverage is recorded separately from conflicting supplied values.
+
+All 241 supplied ASME tuples agree. DIN has 104 agreements, 48 differences and 29 unsupported keys. BS10 has 218 agreements and three differences. These counts reconcile to 643 records. The DIN and BS10 discrepancy pages 55, 56 and 58 were visually inspected. The supplied CSV remains unchanged.
+
+`reports/klinger-maxiflex-comparison.json` records each discrepancy with its CSV line, class/size key, actual tuple, catalogue tuple and source page, plus input checksums. This report is final for the historical comparison; corrected source data and current product conformity remain unresolved.
+
+```powershell
+python registry/scripts/check_klinger_asme_dimensions.py --catalogue registry/artifacts/klinger/klinger-catalogue-2014.pdf --dataset "registry/artifacts/user-reference-csvs/Klinger Gaskets - Rev02 - 13 July 2026.csv" --all-tables --report registry/reports/klinger-maxiflex-comparison.json
+```
+
+Exit status 1 is expected for this dataset because discrepancies and unsupported keys exist. Extraction errors and duplicate keys raise an exception rather than producing a passing result. The original page-52 comparison still passes independently.
