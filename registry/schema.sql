@@ -132,7 +132,8 @@ CREATE TABLE supplier_offers (
   normalized_sku TEXT NOT NULL,
   offered_name TEXT NOT NULL,
   brand_name TEXT,
-  pack_quantity INTEGER CHECK (pack_quantity IS NULL OR pack_quantity > 0),
+  order_quantity REAL CHECK (order_quantity IS NULL OR order_quantity > 0),
+  order_unit TEXT NOT NULL CHECK (order_unit IN ('piece','meter','pack','box','case','pallet','unknown')),
   package_level TEXT NOT NULL CHECK (package_level IN ('each','pack','box','case','pallet','unknown')),
   lifecycle_state TEXT NOT NULL CHECK (lifecycle_state IN ('active','obsolete','unknown')),
   UNIQUE (supplier_id, normalized_sku)

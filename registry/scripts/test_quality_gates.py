@@ -33,21 +33,18 @@ def main() -> int:
         screening_connection = sqlite3.connect(database)
         screening_connection.row_factory = sqlite3.Row
         try:
-            fastener_part_eans = screening_connection.execute(
+            physical_part_trade_identifiers = screening_connection.execute(
                 """
                 SELECT count(*)
                   FROM manufacturer_part_identifiers
-                 WHERE manufacturer_part_id IN (
-                   'MP-BOSSARD-1049860', 'MP-WUERTH-00578-30', 'MP-FABORY-01210080030',
-                   'MP-BOELLHOFF-401788VZD830'
-                 ) AND scheme = 'ean'
+                 WHERE scheme IN ('gtin', 'ean', 'upc')
                 """
             ).fetchone()[0]
-            if fastener_part_eans:
-                raise AssertionError("Commercial EAN was attached directly to a physical fastener record")
+            if physical_part_trade_identifiers:
+                raise AssertionError("Commercial trade identifier was attached directly to a physical part")
             fabory_offer = screening_connection.execute(
                 """
-                SELECT so.pack_quantity, so.package_level, soi.identifier_scope
+                SELECT so.order_quantity, so.order_unit, so.package_level, soi.identifier_scope
                   FROM supplier_offers AS so
                   JOIN supplier_offer_identifiers AS soi
                     ON soi.supplier_offer_id = so.supplier_offer_id
@@ -55,17 +52,29 @@ def main() -> int:
                    AND soi.identifier_value = '8715492030054'
                 """
             ).fetchone()
-            if not fabory_offer or tuple(fabory_offer) != (200, "box", "box"):
+            if not fabory_offer or tuple(fabory_offer) != (200, "piece", "box", "box"):
                 raise AssertionError("Fabory box quantity and EAN scope were not preserved as an offer")
             boellhoff_offer = screening_connection.execute(
                 """
-                SELECT pack_quantity, package_level
+                SELECT order_quantity, order_unit, package_level
                   FROM supplier_offers
                  WHERE supplier_offer_id = 'OFFER-BOELLHOFF-401788VZD830'
                 """
             ).fetchone()
-            if not boellhoff_offer or tuple(boellhoff_offer) != (200, "pack"):
-                raise AssertionError("Böllhoff pack quantity was not preserved as an offer")
+            if not boellhoff_offer or tuple(boellhoff_offer) != (200, "piece", "pack"):
+                raise AssertionError("Böllhoff order quantity was not preserved as an offer")
+            obo_offer = screening_connection.execute(
+                """
+                SELECT so.order_quantity, so.order_unit, so.package_level, soi.identifier_scope
+                  FROM supplier_offers AS so
+                  JOIN supplier_offer_identifiers AS soi
+                    ON soi.supplier_offer_id = so.supplier_offer_id
+                 WHERE so.supplier_offer_id = 'OFFER-OBO-6209721'
+                   AND soi.identifier_value = '4012196431731'
+                """
+            ).fetchone()
+            if not obo_offer or tuple(obo_offer) != (3, "meter", "unknown", "unknown"):
+                raise AssertionError("OBO measured sales unit and unresolved EAN scope were not preserved")
             direct_nsn = screening_connection.execute(
                 """
                 SELECT count(*)
@@ -106,6 +115,20 @@ def main() -> int:
             raise AssertionError("Generic versus specific hot-dip galvanizing was treated as a contradiction")
         if "PROP-SURFACE-PROTECTION" not in str(finish_specificity["missing_properties"]).split(";"):
             raise AssertionError("Finish specificity gap was not preserved as unresolved evidence")
+        ladder_200mm = by_pair[("MP-OBO-LCIS620", "MP-OGLAEND-1371511")]
+        if ladder_200mm["result"] != "hard_conflict":
+            raise AssertionError("The 200 mm OBO/Øglænd pair did not remain fail-closed")
+        expected_200mm_conflicts = {
+            "PROP-SIDE-RAIL-HEIGHT",
+            "PROP-RUNG-PROFILE",
+            "PROP-RUNG-ATTACHMENT",
+            "PROP-SIDE-RAIL-PROFILE",
+            "PROP-SIDE-PERFORATION",
+            "PROP-DUTY-SERIES",
+        }
+        actual_200mm_conflicts = set(str(ladder_200mm["conflicting_properties"]).split(";"))
+        if not expected_200mm_conflicts.issubset(actual_200mm_conflicts):
+            raise AssertionError("The 200 mm OBO/Øglænd identity conflicts were not preserved")
         fastener_pairs = (
             ("MP-BOSSARD-1049860", "MP-FABORY-01210080030"),
             ("MP-BOSSARD-1049860", "MP-WUERTH-00578-30"),
