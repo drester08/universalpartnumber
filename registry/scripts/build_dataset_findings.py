@@ -11,6 +11,7 @@ import io
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
+from check_structural_heavy import candidate_key, screen, FIELDS as HEAVY_FIELDS
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = 'DATASET-USER-KLINGER-GASKETS-20260713'
@@ -21,6 +22,7 @@ PLATE_DATASET = 'DATASET-USER-STEEL-PLATE-20260702'
 PLATE_ARTIFACT = 'ART-MACSTEEL-VRN-2021'
 STRUCTURAL_DATASET = 'DATASET-USER-STRUCTURAL-STEEL-20260702'
 STRUCTURAL_ARTIFACT = 'ART-AMSA-E12-PARALLEL'
+HEAVY_ARTIFACT = 'ART-AMSA-H11-HEAVY'
 FINDING_FIELDS = ('finding_id', 'dataset_id', 'dataset_sha256', 'artifact_id',
                   'issue_type', 'priority', 'subject_key', 'summary', 'next_action',
                   'evidence_path', 'evidence_sha256', 'evidence_locators', 'policy_version')
@@ -58,6 +60,7 @@ def derive(root=ROOT):
     reports.append(('piping-tenaris-comparison.json', 'pipe', PIPE_DATASET, PIPE_ARTIFACT))
     reports.append(('plate-macsteel-screening.json', 'plate', PLATE_DATASET, PLATE_ARTIFACT))
     reports.append(('structural-ipe-comparison.json', 'structural', STRUCTURAL_DATASET, STRUCTURAL_ARTIFACT))
+    reports.append(('structural-heavy-comparison.json', 'heavy', STRUCTURAL_DATASET, HEAVY_ARTIFACT))
     for name, family, dataset_id, artifact_id in reports:
         dataset, artifact = datasets[dataset_id], artifacts[artifact_id]
         path = root / 'reports' / name
@@ -77,7 +80,70 @@ def derive(root=ROOT):
             entry['lines'].update(lines)
             entry['count'] += count
 
-        if family == 'structural':
+        if family == 'heavy':
+            transcription_bytes = (root / 'reports/arcelormittal-heavy-observations.json').read_bytes()
+            transcription = json.loads(transcription_bytes)
+            if hashlib.sha256(transcription_bytes).hexdigest() != report['transcription_sha256']:
+                raise ValueError('Heavy source transcription checksum mismatch')
+            if (transcription['catalogue_sha256'].lower() != artifact['sha256'].lower()
+                    or transcription['status'] != 'manual_transcription_unreviewed'
+                    or transcription['source_id'] != artifact['source_id']
+                    or report['source_id'] != artifact['source_id']):
+                raise ValueError('Heavy source revision/status mismatch')
+            observations=[]
+            source_keys=set()
+            for values in transcription['observations']:
+                if len(values) != len(transcription['fields']):
+                    raise ValueError('Malformed heavy source transcription')
+                o=dict(zip(transcription['fields'],values))
+                key=candidate_key(o['family'],o['designation_height'],o['designation_width'],o['mass_kg_per_m'])
+                if key in source_keys or o['family'] not in ('UB','UC') or o['pdf_page'] != {'UB':1,'UC':2}[o['family']] or type(o['enquiry_only']) is not bool:
+                    raise ValueError('Invalid heavy source key/locator')
+                source_keys.add(key)
+                observations.append(o)
+            if Counter(o['family'] for o in observations) != {'UB':30,'UC':19}:
+                raise ValueError('Heavy source family counts mismatch')
+            records, outside = report['records'], report['outside_family_scope_csv_lines']
+            all_lines=outside+[r['csv_line'] for r in records]
+            if (report['dataset_rows'] != int(dataset['row_count']) or report['selected_rows'] != len(records)
+                    or any(type(line) is not int for line in all_lines)
+                    or sorted(all_lines) != list(range(2,int(dataset['row_count'])+2))):
+                raise ValueError('Heavy report has missing, duplicate or overlapping row locators')
+            if (Counter(r['designation_mass_candidate'][0] for r in records) != {'UB':31,'UC':18}
+                    or dict(Counter(r['outcome'] for r in records)) != report['outcomes']
+                    or report['uniquely_compared_rows'] != sum(len(r['source_candidates'])==1 for r in records)):
+                raise ValueError('Heavy report coverage/outcome counts mismatch')
+            used=set()
+            supplied_keys=set()
+            for i, case in enumerate(records):
+                if case['exact_article_verified'] is not False:
+                    raise ValueError('Heavy comparison cannot assert reviewed article identity')
+                family_name,height,width,mass=case['designation_mass_candidate']
+                row={column:case['actual'][field] for field,column in HEAVY_FIELDS.items()}
+                row['Type/Section/Channels/Angle/Bars/UC/I-Beams']=family_name
+                if (height,width,mass) != (row['Height (mm)'],row['Width (mm)'],row['Mass per meter (kg)']):
+                    raise ValueError('Heavy candidate key differs from reported raw values')
+                key=candidate_key(family_name,height,width,mass)
+                if key in supplied_keys:
+                    raise ValueError('Duplicate heavy supplied candidate key')
+                supplied_keys.add(key)
+                expected=screen(row,observations)
+                if any(case[k] != v for k,v in expected.items()):
+                    raise ValueError('Heavy candidate/differences differ from source transcription')
+                used.update(candidate_key(o['family'],o['designation_height'],o['designation_width'],o['mass_kg_per_m']) for o in case['source_candidates'])
+                locator=f'/records/{i}'
+                if case['outcome']=='nominal_field_conflict':
+                    add('dimension_conflict', ('Structural Steel',family_name,'DS.0001 nominal fields'),locator,[case['csv_line']])
+                elif case['outcome']=='no_exact_candidate_key':
+                    add('coverage_gap', ('Structural Steel',family_name,'DS.0001 exact designation/mass key absent'),locator,[case['csv_line']])
+                elif case['outcome']=='ambiguous_candidate_key':
+                    add('source_ambiguity', ('Structural Steel',family_name,'DS.0001 candidate key'),locator,[case['csv_line']])
+            source_only=[o for o in observations if candidate_key(o['family'],o['designation_height'],o['designation_width'],o['mass_kg_per_m']) not in used]
+            if source_only != report['source_rows_without_supplied_key']:
+                raise ValueError('Heavy source-only coverage mismatch')
+            if source_only:
+                add('coverage_gap', ('Structural Steel','DS.0001 source entries without supplied key'), '/source_rows_without_supplied_key',count=len(source_only))
+        elif family == 'structural':
             transcription_bytes = (root / 'reports/arcelormittal-ipe-observations.json').read_bytes()
             transcription = json.loads(transcription_bytes)
             if hashlib.sha256(transcription_bytes).hexdigest() != report['transcription_sha256']:

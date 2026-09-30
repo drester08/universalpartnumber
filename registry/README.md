@@ -2,14 +2,14 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
-Latest structural research: `docs/structural-heavy-verification.md` documents all49 UB/UC rows screened against manufacturer DS.0001 tables:46 unique nominal candidates with field differences and three unmatched exact keys. Manual transcription remains unreviewed. Combined with IPE,61 distinct structural rows screened;744 remain outside selected-table screening. This report is not yet integrated into the253-item review queue. Source register now78;22 cached artifacts verified. No identity approval or UPN issuance.
+Latest structural research: `docs/structural-heavy-verification.md` documents all49 UB/UC rows screened against manufacturer DS.0001 tables:46 unique nominal candidates with field differences and three unmatched exact keys. Manual transcription remains unreviewed. Combined with IPE,61 distinct structural rows screened;744 remain outside selected-table screening. Five source-specific heavy findings are now integrated into the258-item review queue. Source register78;22 cached artifacts verified. No identity approval or UPN issuance.
 
 ## What is here
 
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.
 - `data/source-register.csv` — initial authoritative-source register with access and licensing constraints.
 - `data/source-datasets.csv` — checksummed custody and allowed-use register for supplied bulk files; raw sensitive files stay Git-ignored.
-- `data/dataset-findings.csv` and `data/dataset-finding-rows.csv` — 84 derived bulk-data findings with 3,198 links to 2,253 distinct dataset/row pairs, with checksummed report evidence and no implied corrections or identity approvals.
+- `data/dataset-findings.csv` and `data/dataset-finding-rows.csv` — 89 derived bulk-data findings with 3,247 links to 2,253 distinct dataset/row pairs, with checksummed report evidence and no implied corrections or identity approvals.
 - `data/numeric-comparison-rules.csv` — versioned property-specific cross-unit representation tolerances for required numeric identity fields.
 - `data/controlled-values.csv` and `data/specification-value-mappings.csv` — property-scoped canonical terms and reviewable mappings from raw source statements.
 - `data/items-of-supply.csv`, `data/upn-allocations.csv`, `data/item-reviews.csv`, and `data/item-memberships.csv` — reproducible canonical-item ledger, permanent opaque-number allocation, independent approval, and reviewed part membership.
@@ -76,7 +76,7 @@ The registry now builds 35 relational tables from 77 governed sources, four prof
 
 ## Non-negotiable rule
 
-The source-dataset review layer contributes 66 gasket, seven pipe, eight plate and three structural findings to the 253-item reviewer queue. It preserves 3,198 exact CSV row links across 2,253 distinct dataset/row pairs and rejects stale report/input digests or identity promotion while findings remain unresolved. Structural findings cover all805 article-evidence gaps,793 rows outside the selected comparison and six Height/designation-versus-depth conflicts. Plate and pipe findings retain their earlier unresolved issues. Overlapping links represent multiple issues, not additional parts. It does not correct catalogues or approve articles.
+The source-dataset review layer contributes66gasket,7pipe,8plate,3IPE and5heavy-structural findings to the258-item reviewer queue. It preserves3,247exact CSV row links across2,253distinct dataset/row pairs and rejects stale report/input digests or identity promotion while findings remain unresolved. Earlier structural findings cover all805article evidence gaps,793rows outside the IPE comparison and six Height/designation-versus-depth conflicts. Five DS.0001 findings add46nominal conflict links and3unmatched-key links, plus3source-only entries without fabricated supplied rows. Plate/pipe issues remain unresolved. Overlapping links are multiple issues, not additional parts. No catalogue correction or article approval.
 
 Independent pipe nominal-size corroboration is documented in `docs/pipe-independent-corroboration.md` and `reports/pipe-independent-observations.json`: six manually transcribed observations across four supplied records from a manufacturer and a supplier. `scripts/check_pipe_corroboration.py` checks internal row/key/geometry consistency, not live source fidelity. New remote-only source evidence requires capture/reuse review; original Tenaris findings remain open.
 

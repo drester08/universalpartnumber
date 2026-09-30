@@ -16,18 +16,18 @@ class FindingTests(unittest.TestCase):
     def test_deterministic_complete_row_accounting(self):
         first = findings.derive()
         self.assertEqual(first, findings.derive())
-        self.assertEqual(len(first[0]), 84)
-        self.assertEqual(len(first[1]), 3198)
-        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 52)
-        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 32)
+        self.assertEqual(len(first[0]), 89)
+        self.assertEqual(len(first[1]), 3247)
+        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 54)
+        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 35)
         by_kind = {}
         index = {f['finding_id']: f for f in first[0]}
         self.assertEqual(len({(index[r['finding_id']]['dataset_id'], r['csv_line']) for r in first[1]}), 2253)
         for ref in first[1]:
             kind = index[ref['finding_id']]['issue_type']
             by_kind[kind] = by_kind.get(kind, 0) + 1
-        self.assertEqual(by_kind, {'dimension_conflict': 58, 'unsupported_key': 949, 'duplicate_key': 2,
-                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 881,
+        self.assertEqual(by_kind, {'dimension_conflict': 104, 'unsupported_key': 949, 'duplicate_key': 2,
+                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 884,
                                    'material_interpretation': 51, 'mass_discrepancy': 3, 'article_evidence_gap': 1200})
 
     def test_snapshot_tampering_rejected(self):
@@ -72,6 +72,7 @@ class FindingTests(unittest.TestCase):
                 shutil.copy2(report, root / 'reports' / report.name)
             shutil.copy2(findings.ROOT / 'reports/plate-macsteel-screening.json', root / 'reports/plate-macsteel-screening.json')
             shutil.copy2(findings.ROOT / 'reports/arcelormittal-ipe-observations.json', root / 'reports/arcelormittal-ipe-observations.json')
+            shutil.copy2(findings.ROOT / 'reports/arcelormittal-heavy-observations.json', root / 'reports/arcelormittal-heavy-observations.json')
             payload = json.loads((findings.ROOT / 'reports' / name).read_text(encoding='utf-8'))
             action(payload)
             (root / 'reports' / name).write_text(json.dumps(payload), encoding='utf-8')
@@ -158,6 +159,51 @@ class FindingTests(unittest.TestCase):
             report['records'][6]['nominal_differences'] = []
         with self.assertRaisesRegex(ValueError, 'lacks differing fields'):
             self.changed_report(change, 'structural-ipe-comparison.json')
+
+    def test_heavy_findings_source_specific(self):
+        groups,refs=findings.derive()
+        heavy={r['finding_id']:r for r in groups if r['artifact_id']==findings.HEAVY_ARTIFACT}
+        self.assertEqual(len(heavy),5)
+        lines=[r['csv_line'] for r in refs if r['finding_id'] in heavy]
+        self.assertEqual(len(lines),49)
+        self.assertEqual(len(set(lines)),49)
+        self.assertEqual(len([r for r in groups if r['artifact_id']==findings.STRUCTURAL_ARTIFACT]),3)
+
+    def test_heavy_overlapping_rows_rejected(self):
+        def change(r):
+            r['outside_family_scope_csv_lines'][0]=r['records'][0]['csv_line']
+        with self.assertRaisesRegex(ValueError,'overlapping row locators'):
+            self.changed_report(change,'structural-heavy-comparison.json')
+
+    def test_heavy_transcription_digest_rejected(self):
+        with self.assertRaisesRegex(ValueError,'transcription checksum mismatch'):
+            self.changed_report(lambda r:r.update(transcription_sha256='0'*64),'structural-heavy-comparison.json')
+
+    def test_heavy_false_approval_rejected(self):
+        def change(r):
+            r['records'][0]['exact_article_verified']=True
+        with self.assertRaisesRegex(ValueError,'cannot assert reviewed'):
+            self.changed_report(change,'structural-heavy-comparison.json')
+
+    def test_heavy_missing_difference_rejected(self):
+        def change(r):
+            r['records'][0]['nominal_differences']=[]
+        with self.assertRaisesRegex(ValueError,'differ from source transcription'):
+            self.changed_report(change,'structural-heavy-comparison.json')
+
+    def test_heavy_forged_source_candidate_rejected(self):
+        def change(r):
+            r['records'][0]['source_candidates'][0]['web_mm']='5.8'
+        with self.assertRaisesRegex(ValueError,'differ from source transcription'):
+            self.changed_report(change,'structural-heavy-comparison.json')
+
+    def test_heavy_outcome_counts_rejected(self):
+        with self.assertRaisesRegex(ValueError,'outcome counts mismatch'):
+            self.changed_report(lambda r:r.update(outcomes={}),'structural-heavy-comparison.json')
+
+    def test_heavy_missing_source_only_row_rejected(self):
+        with self.assertRaisesRegex(ValueError,'source-only coverage mismatch'):
+            self.changed_report(lambda r:r.update(source_rows_without_supplied_key=[]),'structural-heavy-comparison.json')
 
 
 if __name__ == '__main__':
