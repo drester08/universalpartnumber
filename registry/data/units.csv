@@ -1,3 +1,4 @@
 unit_id,unece_code,symbol,name,quantity_kind,conversion_factor,conversion_offset
 UNIT-MM,MMT,mm,millimetre,length,0.001,0
 UNIT-MM2,MMK,mm²,square millimetre,0.000001,0
+UNIT-KG,KGM,kg,kilogram,mass,1,0

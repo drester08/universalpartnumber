@@ -2,3 +2,11 @@ observation_id,manufacturer_part_id,item_id,source_id,source_locator,observed_na
 OBS-LEGRAND-ZL450G-20260930,MP-LEGRAND-ZL450G,,SRC-LEGRAND-ZL450G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 450mm x 100mm x 3m Length",ZL450G,2026-09-30,,unreviewed
 OBS-LEGRAND-ZL600G-20260930,MP-LEGRAND-ZL600G,,SRC-LEGRAND-ZL600G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 600mm x 100mm x 3m Length",ZL600G,2026-09-30,,unreviewed
 OBS-LEGRAND-ZL750G-20260930,MP-LEGRAND-ZL750G,,SRC-LEGRAND-ZL750G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 750mm x 100mm x 3m Length",ZL750G,2026-09-30,,unreviewed
+OBS-OGLAEND-1371512-PRODUCT,MP-OGLAEND-1371512,,SRC-OGLAEND-1371512,Characteristics,Cable ladder LOE55 CL-300-3000 HDG,1371512,2026-09-30,,unreviewed
+OBS-OGLAEND-1371512-SYSTEM,MP-OGLAEND-1371512,,SRC-OGLAEND-LOE-SYSTEM,System overview; data; design details,Cable ladder LOE55 CL-300-3000 HDG,1371512,2026-09-30,,unreviewed
+OBS-OGLAEND-1371513-PRODUCT,MP-OGLAEND-1371513,,SRC-OGLAEND-1371513,Characteristics,Cable ladder LOE55 CL-400-3000 HDG,1371513,2026-09-30,,unreviewed
+OBS-OGLAEND-1371513-SYSTEM,MP-OGLAEND-1371513,,SRC-OGLAEND-LOE-SYSTEM,System overview; data; design details,Cable ladder LOE55 CL-400-3000 HDG,1371513,2026-09-30,,unreviewed
+OBS-OGLAEND-1371514-PRODUCT,MP-OGLAEND-1371514,,SRC-OGLAEND-1371514,Characteristics,Cable ladder LOE55 CL-500-3000 HDG,1371514,2026-09-30,,unreviewed
+OBS-OGLAEND-1371514-SYSTEM,MP-OGLAEND-1371514,,SRC-OGLAEND-LOE-SYSTEM,System overview; data; design details,Cable ladder LOE55 CL-500-3000 HDG,1371514,2026-09-30,,unreviewed
+OBS-OGLAEND-1371515-PRODUCT,MP-OGLAEND-1371515,,SRC-OGLAEND-1371515,Characteristics,Cable ladder LOE55 CL-600-3000 HDG,1371515,2026-09-30,,unreviewed
+OBS-OGLAEND-1371515-SYSTEM,MP-OGLAEND-1371515,,SRC-OGLAEND-LOE-SYSTEM,System overview; data; design details,Cable ladder LOE55 CL-600-3000 HDG,1371515,2026-09-30,,unreviewed

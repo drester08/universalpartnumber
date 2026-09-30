@@ -15,6 +15,9 @@ This directory is the evidence and data foundation for the Universal Part Number
 - `scripts/validate_registry.py` — dependency-free validation for the seed data and SQLite schema.
 - `scripts/build_registry.py` — creates a fresh local SQLite database from the reviewed seed files.
 - `scripts/audit_completeness.py` — reports missing identity fields and prevents incomplete observations from being accepted.
+- `scripts/screen_candidates.py` — reproducibly screens cross-manufacturer pairs and records hard conflicts before review.
+- `scripts/verify_artifacts.py` — hashes locally retained evidence and rejects missing or mislabelled cache records.
+- `scripts/test_quality_gates.py` — proves incomplete reviews, unverified artifacts, and unnumbered issued items fail closed.
 
 Run both checks from the repository root:
 
@@ -22,6 +25,9 @@ Run both checks from the repository root:
 python registry/scripts/validate_registry.py
 python registry/scripts/build_registry.py
 python registry/scripts/audit_completeness.py
+python registry/scripts/screen_candidates.py --check registry/data/pair-screenings.csv
+python registry/scripts/verify_artifacts.py
+python registry/scripts/test_quality_gates.py
 ```
 
 The generated database is written to `registry/build/registry.sqlite` and is intentionally excluded from Git; the schema and CSV inputs are the reproducible source of truth.
@@ -30,7 +36,7 @@ The generated database is written to `registry/build/registry.sqlite` and is int
 
 Foundation only. The schema and policies are ready for reviewed ingestion work. Source licensing must be resolved before bulk ingestion, and manufacturer observations still need to be collected from primary documents.
 
-The first pilot contains three unreviewed Legrand Swifts straight-section observations. They deliberately remain unpublished because the primary product pages do not state whether splice hardware is included. Missing evidence is represented as a gap, never guessed.
+The first pilot contains three Legrand Swifts parts and four Øglænd LOE55 parts. They deliberately remain unpublished because the primary product pages do not state whether splice hardware is included. The only pair passing coarse blocking—Legrand `ZL600G` and Øglænd `1371515`—has seven hard identity conflicts and is not a match. Missing evidence is represented as a gap, never guessed.
 
 ## Non-negotiable rule
 

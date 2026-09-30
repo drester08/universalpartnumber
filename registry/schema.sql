@@ -127,9 +127,20 @@ CREATE TABLE manufacturer_part_identifiers (
   manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
   scheme TEXT NOT NULL CHECK (scheme IN ('manufacturer_part_number','gtin','upc','ean','other')),
   identifier_value TEXT NOT NULL,
+  identifier_authority TEXT NOT NULL,
   source_id TEXT NOT NULL REFERENCES sources(source_id),
   is_primary INTEGER NOT NULL DEFAULT 0 CHECK (is_primary IN (0, 1)),
-  PRIMARY KEY (manufacturer_part_id, scheme, identifier_value)
+  PRIMARY KEY (manufacturer_part_id, scheme, identifier_value, identifier_authority)
+);
+
+CREATE TABLE manufacturer_part_reviews (
+  review_id TEXT PRIMARY KEY,
+  manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  decision TEXT NOT NULL CHECK (decision IN ('accepted','rejected','needs_evidence')),
+  rationale TEXT NOT NULL,
+  reviewer TEXT NOT NULL,
+  decided_at TEXT NOT NULL,
+  policy_version TEXT NOT NULL
 );
 
 CREATE TABLE observations (
@@ -175,6 +186,24 @@ CREATE TABLE match_candidates (
   algorithm_version TEXT NOT NULL,
   score REAL NOT NULL CHECK (score BETWEEN 0 AND 1),
   blocking_keys TEXT NOT NULL,
+  generated_at TEXT NOT NULL,
+  CHECK (left_part_id < right_part_id),
+  UNIQUE (left_part_id, right_part_id, algorithm_version)
+);
+
+CREATE TABLE pair_screenings (
+  screening_id TEXT PRIMARY KEY,
+  left_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  right_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  profile_id TEXT NOT NULL REFERENCES identity_profiles(profile_id),
+  algorithm_version TEXT NOT NULL,
+  blocking_keys TEXT NOT NULL,
+  compared_properties TEXT NOT NULL,
+  matched_properties TEXT NOT NULL,
+  conflicting_properties TEXT NOT NULL,
+  missing_properties TEXT NOT NULL,
+  score REAL NOT NULL CHECK (score BETWEEN 0 AND 1),
+  result TEXT NOT NULL CHECK (result IN ('candidate','hard_conflict','insufficient_evidence')),
   generated_at TEXT NOT NULL,
   CHECK (left_part_id < right_part_id),
   UNIQUE (left_part_id, right_part_id, algorithm_version)

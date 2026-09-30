@@ -12,6 +12,9 @@ Run the registry checks with:
 python registry/scripts/validate_registry.py
 python registry/scripts/build_registry.py
 python registry/scripts/audit_completeness.py
+python registry/scripts/screen_candidates.py --check registry/data/pair-screenings.csv
+python registry/scripts/verify_artifacts.py
+python registry/scripts/test_quality_gates.py
 ```
 
 ## Deploy

@@ -27,8 +27,16 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 ## Immediate backlog
 
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
-2. Define the cable-ladder identity-property profile.
-3. Locate primary manufacturer evidence for the two example codes currently shown on the public site.
-4. Add a source-artifact downloader that respects access rules and records checksums.
-5. Implement CSV-to-SQLite ingestion and evidence completeness tests.
-6. Design a reviewer queue and immutable decision log.
+2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
+3. Resolve whether splice hardware is included with the seven Legrand and Øglænd pilot parts.
+4. Extend artifact retrieval with per-publisher access rules; one Øglænd PDF is verified, while the Legrand and Eaton PDFs remain blocked.
+5. Add a third manufacturer and test whether the coarse blocking keys expose useful candidates without false merges.
+6. Design the reviewer queue; immutable part-review and equivalence-decision tables now exist.
+
+## Completed foundation
+
+- Reproducible CSV-to-SQLite ingestion, foreign-key and integrity checks.
+- Evidence-completeness audit and fail-closed quality-gate tests.
+- Seven manufacturer parts from two manufacturers with primary-source observations.
+- Versioned cross-manufacturer pair screening with a reproducible hard-conflict record.
+- Local artifact checksum verification without committing copyrighted PDFs to Git.
