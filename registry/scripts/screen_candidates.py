@@ -94,6 +94,15 @@ def join(values: list[str]) -> str:
     return ";".join(values)
 
 
+def blocking_values(property_id: str, values: set[str]) -> set[str]:
+    if property_id == "PROP-SURFACE-PROTECTION":
+        return {
+            "hot_dip_galvanized" if value.startswith("hot_dip_galvanized") else value
+            for value in values
+        }
+    return values
+
+
 def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, object]]:
     parts = load_parts(connection)
     output: list[dict[str, object]] = []
@@ -112,7 +121,8 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
         if any(
             not left_values[property_id]
             or not right_values[property_id]
-            or left_values[property_id] != right_values[property_id]
+            or blocking_values(property_id, left_values[property_id])
+            != blocking_values(property_id, right_values[property_id])
             for property_id in BLOCKING_PROPERTIES
         ):
             continue

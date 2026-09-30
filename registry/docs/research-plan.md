@@ -28,15 +28,17 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
-3. Resolve whether splice hardware is included with the seven Legrand and Øglænd pilot parts.
-4. Extend artifact retrieval with per-publisher access rules; one Øglænd PDF is verified, while the Legrand and Eaton PDFs remain blocked.
-5. Add a third manufacturer and test whether the coarse blocking keys expose useful candidates without false merges.
+3. Resolve whether splice hardware is included with the ten Legrand and Øglænd pilot parts.
+4. Extend artifact retrieval with per-publisher access rules; Øglænd and Niedax PDFs are verified, while the Legrand and Eaton PDFs remain blocked.
+5. Add a fourth manufacturer with a materially different construction family and measure false-negative risk in the blocking keys.
 6. Design the reviewer queue; immutable part-review and equivalence-decision tables now exist.
+7. Independently review the four complete Niedax evidence profiles; completeness alone must not change their status.
 
 ## Completed foundation
 
 - Reproducible CSV-to-SQLite ingestion, foreign-key and integrity checks.
 - Evidence-completeness audit and fail-closed quality-gate tests.
-- Seven manufacturer parts from two manufacturers with primary-source observations.
-- Versioned cross-manufacturer pair screening with a reproducible hard-conflict record.
-- Local artifact checksum verification without committing copyrighted PDFs to Git.
+- Fourteen manufacturer parts from three manufacturers with primary-source observations.
+- Four complete-but-unreviewed Niedax profiles with explicit splice-supply evidence.
+- Versioned cross-manufacturer pair screening with three reproducible hard-conflict records.
+- Local verification of two cached artifacts without committing copyrighted PDFs to Git.

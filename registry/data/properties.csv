@@ -23,3 +23,4 @@ PROP-RUNG-THICKNESS,,,Rung material thickness,Declared thickness of the rung mat
 PROP-LOADING-DEPTH,,,Loading depth,Declared usable vertical loading depth.,number,descriptive
 PROP-MASS,,,Item mass,Declared mass of one supplied straight section.,number,descriptive
 PROP-EXTERNAL-CLASSIFICATION,,,External classification,Classification code and label asserted by the source.,text,descriptive
+PROP-LINEAR-MASS,,,Linear mass,Declared mass per unit length of the straight section.,number,descriptive

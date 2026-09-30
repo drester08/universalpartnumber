@@ -14,6 +14,8 @@ One rigid, straight steel cable-ladder section. The profile excludes bends, tees
 - Legrand's official [Swifts cable ladder catalogue](https://www.legrand.co.uk/sites/g/files/ocwmcr866/files/2023-05/swifts-cable-ladder.pdf), especially the product-selection and straight-length technical sections.
 - Eaton's official [B-Line metric cable-ladder catalogue](https://www.eaton.com/content/dam/eaton/products/support-systems/cable-management/metric-cable-ladder-system/metric-cable-ladder/cable-ladder-support-system-me-catalog-css-19.pdf), page 42 in the printed pagination, for the straight-section ordering grammar and dimension diagram.
 - Øglænd's official [LOE system page](https://www.oglaend-system.com/products/cableladders/loe/?offset2504=0) and product pages for HDG LOE55 item numbers [1371512](https://www.oglaend-system.com/product-variants/cable-ladder-loe55-cl-300-3000-hdg-article49562-52088.html?pid=40300), [1371513](https://www.oglaend-system.com/product-variants/cable-ladder-loe55-cl-400-3000-hdg-article49593-52088.html?pid=40300), [1371514](https://www.oglaend-system.com/product-variants/cable-ladder-loe55-cl-500-3000-hdg-article49623-52088.html), and [1371515](https://www.oglaend-system.com/product-variants/cable-ladder-loe55-cl-600-3000-hdg-article49656-52088.html?pid=40300).
+- Legrand's official 6 m product pages for [ZL300G6M](https://www.legrand.co.uk/en/catalog/products/swifts-medium-duty-hot-dip-galvanised-steel-cable-ladder-300mm-x-100mm-x-6m-length-zl300g6m), [ZL450G6M](https://www.legrand.co.uk/en/catalog/products/swifts-medium-duty-hot-dip-galvanised-steel-cable-ladder-450mm-x-100mm-x-6m-length-zl450g6m), and [ZL600G6M](https://www.legrand.co.uk/en/catalog/products/swifts-medium-duty-hot-dip-galvanised-steel-cable-ladder-600mm-x-100mm-x-6m-length-zl600g6m).
+- Niedax's official [current German catalogue](https://www.niedax.com/fileadmin/user_upload/Downloads/Global/KAT_NX_KR_DE_ab24_komplett_web_01.pdf), retained [international cable-ladder catalogue](https://www.niedax.com/fileadmin/user_upload/Downloads/Global/NX_KAT_INT_USA_Cable_Ladder_System.pdf), and [piece-galvanizing specification](https://www.niedax.com/de-en/pillarpages/galvanizing/piece-galvanizing/) for `KL 100.303 F`, `KL 100.403 F`, `KL 100.503 F`, and `KL 100.603 F`.
 
 ## Important findings
 
@@ -37,17 +39,23 @@ Any conflict in the following fields prevents a `same_item` decision under profi
 - safety/certification set where the application requires it; or
 - whether splice hardware is included.
 
-## Current evidence gaps
+## Current evidence state
 
-All seven manufacturer parts have 13 of 14 required profile properties. The cited pages show splice connectors or fastener sets as related items but do not explicitly state the straight-section package contents. That field remains unknown, so every observation remains `unreviewed` and no UPN is issued.
+The six Legrand and four Øglænd parts have 13 of 14 required profile properties. Their cited pages show splice connectors or fastener sets as related items but do not explicitly state the straight-section package contents. That field remains unknown.
 
-The Legrand and Eaton catalogue PDFs were discoverable through research tooling, but direct retrieval into the local evidence cache was blocked or timed out on 2026-09-30. Their artifact records therefore contain no fabricated local path or checksum. Øglænd's official LOE55 wall chart was retrieved successfully and recorded with its SHA-256 checksum; the cached PDF remains outside Git.
+The four Niedax parts have all 14 fields populated. The retained catalogue states that `KSV 100` splice plates must be ordered separately, so splice inclusion is recorded as `false` rather than inferred. Completeness is not approval: every observation remains `unreviewed`, no equivalence decision has been accepted, and no UPN is issued.
 
-## First cross-manufacturer screening
+The Legrand and Eaton catalogue PDFs were discoverable through research tooling, but direct retrieval into the local evidence cache was blocked or timed out on 2026-09-30. Their artifact records therefore contain no fabricated local path or checksum. Øglænd's official LOE55 wall chart and Niedax's international catalogue were retrieved successfully and recorded with SHA-256 checksums. Cached PDFs remain outside Git.
 
-The coarse blocking keys are form, nominal width, length, base material, surface protection, and rung spacing. Only Legrand `ZL600G` and Øglænd `1371515` share all six.
+## Cross-manufacturer screening
 
-They are **not the same item** under profile 0.1. The reproducible screening records conflicts in overall width (640 vs 600 mm), side-rail height (100 vs 55 mm), rung profile, rung attachment, side-rail profile, side perforation, and duty series. Splice inclusion is also missing for both. The pair receives a similarity score of 0.461538 solely as a diagnostic; the `hard_conflict` result controls and no equivalence decision or UPN is created.
+The coarse blocking keys are form, nominal width, length, base material, surface-protection family, and rung spacing. Three pairs share all six:
+
+- Legrand `ZL300G6M` versus Niedax `KL 100.303 F`: conflicts in overall width, rung profile, rung attachment, side-rail profile, side perforation, and duty series; Legrand splice inclusion is missing.
+- Legrand `ZL600G` versus Øglænd `1371515`: conflicts in overall width, side-rail height, surface-protection specificity, rung profile, rung attachment, side-rail profile, side perforation, and duty series; splice inclusion is missing.
+- Legrand `ZL600G6M` versus Niedax `KL 100.603 F`: conflicts in overall width, rung profile, rung attachment, side-rail profile, side perforation, and duty series; Legrand splice inclusion is missing.
+
+All three are `hard_conflict` and are **not the same item** under profile 0.1. Their similarity scores are diagnostic only; a score cannot override any hard-stop conflict. No equivalence decision or UPN is created.
 
 ## Review needed before profile 1.0
 
