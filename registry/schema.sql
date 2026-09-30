@@ -1,0 +1,197 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE organizations (
+  organization_id TEXT PRIMARY KEY,
+  legal_name TEXT NOT NULL,
+  organization_type TEXT NOT NULL CHECK (organization_type IN ('manufacturer','publisher','standards_body','distributor','other')),
+  website_url TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE sources (
+  source_id TEXT PRIMARY KEY,
+  publisher_name TEXT NOT NULL,
+  title TEXT NOT NULL,
+  source_url TEXT NOT NULL UNIQUE,
+  source_type TEXT NOT NULL CHECK (source_type IN ('standard','dictionary','classification','catalog','datasheet','webpage','database','other')),
+  authority_tier INTEGER NOT NULL CHECK (authority_tier BETWEEN 1 AND 4),
+  access_state TEXT NOT NULL CHECK (access_state IN ('public','registration','subscription','purchase','unknown')),
+  license_state TEXT NOT NULL CHECK (license_state IN ('open','attribution','restricted','review_required','unknown')),
+  license_url TEXT,
+  ingestion_status TEXT NOT NULL CHECK (ingestion_status IN ('metadata_only','license_verified','license_review','reference_only','blocked')),
+  version_label TEXT,
+  publication_date TEXT,
+  retrieved_at TEXT NOT NULL,
+  notes TEXT NOT NULL DEFAULT ''
+);
+
+CREATE TABLE source_artifacts (
+  artifact_id TEXT PRIMARY KEY,
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  artifact_url TEXT NOT NULL,
+  media_type TEXT,
+  local_path TEXT,
+  sha256 TEXT,
+  retrieved_at TEXT NOT NULL,
+  UNIQUE (source_id, artifact_url)
+);
+
+CREATE TABLE domains (
+  domain_id TEXT PRIMARY KEY,
+  label TEXT NOT NULL UNIQUE,
+  scope_note TEXT NOT NULL,
+  status TEXT NOT NULL CHECK (status IN ('seed','reviewed','retired'))
+);
+
+CREATE TABLE external_classes (
+  class_id TEXT PRIMARY KEY,
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  external_code TEXT NOT NULL,
+  preferred_label TEXT NOT NULL,
+  definition TEXT,
+  parent_class_id TEXT REFERENCES external_classes(class_id),
+  version_label TEXT,
+  UNIQUE (source_id, external_code, version_label)
+);
+
+CREATE TABLE properties (
+  property_id TEXT PRIMARY KEY,
+  source_id TEXT REFERENCES sources(source_id),
+  external_code TEXT,
+  preferred_label TEXT NOT NULL,
+  definition TEXT NOT NULL,
+  value_kind TEXT NOT NULL CHECK (value_kind IN ('text','number','boolean','code','range')),
+  identity_role TEXT NOT NULL CHECK (identity_role IN ('defining','conditional','descriptive','unknown')),
+  UNIQUE (source_id, external_code)
+);
+
+CREATE TABLE units (
+  unit_id TEXT PRIMARY KEY,
+  unece_code TEXT UNIQUE,
+  symbol TEXT NOT NULL,
+  name TEXT NOT NULL,
+  quantity_kind TEXT,
+  conversion_factor TEXT,
+  conversion_offset TEXT
+);
+
+CREATE TABLE items_of_supply (
+  item_id TEXT PRIMARY KEY,
+  upn TEXT UNIQUE,
+  domain_id TEXT NOT NULL REFERENCES domains(domain_id),
+  preferred_name TEXT NOT NULL,
+  lifecycle_state TEXT NOT NULL CHECK (lifecycle_state IN ('candidate','under_review','issued','deprecated','withdrawn')),
+  fingerprint_version TEXT,
+  identity_fingerprint TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  reviewed_at TEXT,
+  CHECK (lifecycle_state != 'issued' OR (upn IS NOT NULL AND reviewed_at IS NOT NULL))
+);
+
+CREATE TABLE manufacturer_parts (
+  manufacturer_part_id TEXT PRIMARY KEY,
+  manufacturer_id TEXT NOT NULL REFERENCES organizations(organization_id),
+  manufacturer_part_number TEXT NOT NULL,
+  normalized_part_number TEXT NOT NULL,
+  manufacturer_name TEXT,
+  lifecycle_state TEXT NOT NULL CHECK (lifecycle_state IN ('active','obsolete','unknown')),
+  UNIQUE (manufacturer_id, normalized_part_number)
+);
+
+CREATE TABLE observations (
+  observation_id TEXT PRIMARY KEY,
+  manufacturer_part_id TEXT REFERENCES manufacturer_parts(manufacturer_part_id),
+  item_id TEXT REFERENCES items_of_supply(item_id),
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  source_locator TEXT NOT NULL,
+  observed_name TEXT,
+  observed_part_number TEXT,
+  observed_at TEXT NOT NULL,
+  raw_payload_sha256 TEXT,
+  review_state TEXT NOT NULL CHECK (review_state IN ('unreviewed','accepted','rejected','superseded')),
+  CHECK (manufacturer_part_id IS NOT NULL OR item_id IS NOT NULL)
+);
+
+CREATE TABLE specification_values (
+  specification_id TEXT PRIMARY KEY,
+  observation_id TEXT NOT NULL REFERENCES observations(observation_id),
+  property_id TEXT NOT NULL REFERENCES properties(property_id),
+  raw_value TEXT NOT NULL,
+  normalized_text TEXT,
+  normalized_number TEXT,
+  unit_id TEXT REFERENCES units(unit_id),
+  qualifier TEXT,
+  UNIQUE (observation_id, property_id, raw_value)
+);
+
+CREATE TABLE aliases (
+  alias_id TEXT PRIMARY KEY,
+  item_id TEXT NOT NULL REFERENCES items_of_supply(item_id),
+  alias_type TEXT NOT NULL CHECK (alias_type IN ('common_name','trade_name','legacy_number','external_identifier','translation')),
+  alias_value TEXT NOT NULL,
+  language_code TEXT,
+  source_id TEXT REFERENCES sources(source_id),
+  UNIQUE (item_id, alias_type, alias_value, language_code)
+);
+
+CREATE TABLE match_candidates (
+  match_candidate_id TEXT PRIMARY KEY,
+  left_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  right_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  algorithm_version TEXT NOT NULL,
+  score REAL NOT NULL CHECK (score BETWEEN 0 AND 1),
+  blocking_keys TEXT NOT NULL,
+  generated_at TEXT NOT NULL,
+  CHECK (left_part_id < right_part_id),
+  UNIQUE (left_part_id, right_part_id, algorithm_version)
+);
+
+CREATE TABLE equivalence_decisions (
+  decision_id TEXT PRIMARY KEY,
+  match_candidate_id TEXT NOT NULL REFERENCES match_candidates(match_candidate_id),
+  decision TEXT NOT NULL CHECK (decision IN ('same_item','different_item','insufficient_evidence')),
+  rationale TEXT NOT NULL,
+  reviewer TEXT NOT NULL,
+  decided_at TEXT NOT NULL,
+  policy_version TEXT NOT NULL
+);
+
+CREATE TABLE item_memberships (
+  item_id TEXT NOT NULL REFERENCES items_of_supply(item_id),
+  manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  decision_id TEXT NOT NULL REFERENCES equivalence_decisions(decision_id),
+  valid_from TEXT NOT NULL,
+  valid_to TEXT,
+  PRIMARY KEY (item_id, manufacturer_part_id, valid_from)
+);
+
+CREATE TABLE application_interchangeability (
+  interchangeability_id TEXT PRIMARY KEY,
+  from_item_id TEXT NOT NULL REFERENCES items_of_supply(item_id),
+  to_item_id TEXT NOT NULL REFERENCES items_of_supply(item_id),
+  application_context TEXT NOT NULL,
+  decision TEXT NOT NULL CHECK (decision IN ('approved','not_approved','conditional','unknown')),
+  constraints_text TEXT NOT NULL,
+  source_id TEXT REFERENCES sources(source_id),
+  reviewer TEXT,
+  reviewed_at TEXT,
+  CHECK (from_item_id != to_item_id)
+);
+
+CREATE TABLE ingestion_runs (
+  run_id TEXT PRIMARY KEY,
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  started_at TEXT NOT NULL,
+  completed_at TEXT,
+  software_version TEXT NOT NULL,
+  status TEXT NOT NULL CHECK (status IN ('running','completed','failed','partial')),
+  records_seen INTEGER NOT NULL DEFAULT 0,
+  records_accepted INTEGER NOT NULL DEFAULT 0,
+  records_rejected INTEGER NOT NULL DEFAULT 0,
+  error_summary TEXT
+);
+
+CREATE INDEX idx_observations_source ON observations(source_id);
+CREATE INDEX idx_specs_property ON specification_values(property_id);
+CREATE INDEX idx_parts_normalized_number ON manufacturer_parts(normalized_part_number);
+CREATE INDEX idx_items_fingerprint ON items_of_supply(identity_fingerprint);

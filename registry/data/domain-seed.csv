@@ -1,0 +1,10 @@
+domain_id,label,scope_note,status
+DOM-BEARINGS,Bearings,"Rolling and plain bearings, housings, inserts and related components.",seed
+DOM-CABLE-MGMT,Cable management,"Cable ladder, tray, trunking, supports, fittings and accessories.",seed
+DOM-ELECTRICAL,Electrical,"Electrical protection, control, connection and distribution components.",seed
+DOM-FASTENERS,Fasteners,"Bolts, nuts, screws, washers, anchors and related joining hardware.",seed
+DOM-GASKETS,Gaskets and seals,"Static and dynamic sealing products, gasket materials and seal assemblies.",seed
+DOM-PIPE,Piping,"Pipe, tube, fittings, flanges and related pressure-system components.",seed
+DOM-PLATE,Plate and sheet,"Flat metal and engineered-material products defined by grade, form and dimensions.",seed
+DOM-STRUCTURAL,Structural sections,"Beams, channels, angles, hollow sections and related structural profiles.",seed
+DOM-VALVES,Valves,"Isolation, control, check, safety and special-purpose valves and actuators.",seed

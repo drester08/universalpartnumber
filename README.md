@@ -2,6 +2,17 @@
 
 Static single-page site for `universalpartnumber.com`. No build step, client-side JavaScript, external font request, analytics, or cookies.
 
+## Registry workspace
+
+The non-public registry foundation lives in [`registry/`](registry/README.md). It contains the canonical data model, evidence and matching policies, an initial register of authoritative classification sources, and a validator. It is deliberately separate from the public site: no part is assigned a UPN until its identity and evidence have passed review.
+
+Run the registry checks with:
+
+```powershell
+python registry/scripts/validate_registry.py
+python registry/scripts/build_registry.py
+```
+
 ## Deploy
 
 Import the repository into Vercel with **Framework Preset: Other** and leave the build command empty. The site is served directly from the repository root.
