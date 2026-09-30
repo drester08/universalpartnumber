@@ -1,0 +1,2728 @@
+{
+  "dataset_sha256": "65b5f1c34fe0ab178281e7682a2a70c01b6dcdcd5fd0f83b6d7b94c19bfe9e90",
+  "catalogue_sha256": "7395f9d038095e2b65d0bebce89019a3e0d29203c85691a337a740337c4464ae",
+  "transcription_sha256": "bc670663179c9e60d1229a996681fdb71aa88a59d068c9278927a7ecb017ff85",
+  "source_id": "SRC-AMSA-H11-HEAVY",
+  "dataset_rows": 805,
+  "selected_rows": 49,
+  "uniquely_compared_rows": 46,
+  "outside_family_scope_csv_lines": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268,
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357,
+    358,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364,
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    377,
+    378,
+    379,
+    380,
+    381,
+    382,
+    383,
+    384,
+    385,
+    386,
+    387,
+    388,
+    389,
+    390,
+    391,
+    392,
+    393,
+    394,
+    395,
+    396,
+    397,
+    398,
+    399,
+    400,
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416,
+    417,
+    418,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    433,
+    434,
+    435,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455,
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464,
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473,
+    474,
+    475,
+    476,
+    477,
+    478,
+    479,
+    480,
+    481,
+    482,
+    483,
+    484,
+    485,
+    486,
+    487,
+    488,
+    489,
+    490,
+    491,
+    492,
+    493,
+    494,
+    495,
+    496,
+    497,
+    498,
+    499,
+    500,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511,
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518,
+    519,
+    520,
+    521,
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    530,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541,
+    542,
+    543,
+    544,
+    545,
+    546,
+    547,
+    548,
+    549,
+    550,
+    551,
+    552,
+    553,
+    554,
+    555,
+    556,
+    557,
+    558,
+    559,
+    560,
+    561,
+    562,
+    563,
+    564,
+    565,
+    566,
+    567,
+    568,
+    569,
+    570,
+    571,
+    572,
+    573,
+    574,
+    575,
+    576,
+    577,
+    578,
+    579,
+    580,
+    581,
+    582,
+    583,
+    584,
+    585,
+    586,
+    587,
+    588,
+    589,
+    590,
+    591,
+    592,
+    593,
+    594,
+    595,
+    596,
+    597,
+    598,
+    599,
+    600,
+    601,
+    602,
+    603,
+    604,
+    605,
+    606,
+    607,
+    608,
+    609,
+    610,
+    611,
+    612,
+    613,
+    614,
+    615,
+    616,
+    617,
+    618,
+    619,
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    627,
+    628,
+    629,
+    630,
+    631,
+    632,
+    633,
+    634,
+    635,
+    636,
+    637,
+    638,
+    639,
+    640,
+    641,
+    642,
+    643,
+    644,
+    645,
+    646,
+    647,
+    648,
+    649,
+    650,
+    651,
+    652,
+    653,
+    654,
+    655,
+    656,
+    657,
+    658,
+    659,
+    660,
+    661,
+    662,
+    663,
+    664,
+    665,
+    666,
+    667,
+    668,
+    669,
+    670,
+    671,
+    672,
+    673,
+    674,
+    675,
+    676,
+    677,
+    678,
+    679,
+    680,
+    681,
+    682,
+    683,
+    684,
+    685,
+    717,
+    718,
+    719,
+    720,
+    721,
+    722,
+    723,
+    724,
+    725,
+    726,
+    727,
+    728,
+    729,
+    730,
+    731,
+    732,
+    733,
+    734,
+    735,
+    754,
+    755,
+    756,
+    757,
+    758,
+    759,
+    760,
+    761,
+    762,
+    763,
+    764,
+    765,
+    766,
+    767,
+    768,
+    769,
+    770,
+    771,
+    772,
+    773,
+    774,
+    775,
+    776,
+    777,
+    778,
+    779,
+    780,
+    781,
+    782,
+    783,
+    784,
+    785,
+    786,
+    787,
+    788,
+    789,
+    790,
+    791,
+    792,
+    793,
+    794,
+    795,
+    796,
+    797,
+    798,
+    799,
+    800,
+    801,
+    802,
+    803,
+    804,
+    805,
+    806
+  ],
+  "outcomes": {
+    "nominal_field_conflict": 46,
+    "no_exact_candidate_key": 3
+  },
+  "records": [
+    {
+      "csv_line": 686,
+      "designation_mass_candidate": [
+        "UB",
+        "203",
+        "133",
+        "25.1"
+      ],
+      "actual": {
+        "depth_mm": "203",
+        "width_mm": "133",
+        "web_mm": "5.8",
+        "flange_mm": "7.8",
+        "mass_kg_per_m": "25.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "203",
+          "designation_width": "133",
+          "mass_kg_per_m": "25.1",
+          "depth_mm": "203.2",
+          "width_mm": "133.2",
+          "flange_mm": "7.8",
+          "web_mm": "5.7",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 687,
+      "designation_mass_candidate": [
+        "UB",
+        "203",
+        "133",
+        "30"
+      ],
+      "actual": {
+        "depth_mm": "203",
+        "width_mm": "133",
+        "web_mm": "6.3",
+        "flange_mm": "9.6",
+        "mass_kg_per_m": "30"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "203",
+          "designation_width": "133",
+          "mass_kg_per_m": "30.0",
+          "depth_mm": "206.8",
+          "width_mm": "133.9",
+          "flange_mm": "9.6",
+          "web_mm": "6.4",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 688,
+      "designation_mass_candidate": [
+        "UB",
+        "254",
+        "146",
+        "31.1"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "146",
+        "web_mm": "6.1",
+        "flange_mm": "8.6",
+        "mass_kg_per_m": "31.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "254",
+          "designation_width": "146",
+          "mass_kg_per_m": "31.1",
+          "depth_mm": "251.4",
+          "width_mm": "146.1",
+          "flange_mm": "8.6",
+          "web_mm": "6.0",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 689,
+      "designation_mass_candidate": [
+        "UB",
+        "254",
+        "146",
+        "37"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "146",
+        "web_mm": "6.4",
+        "flange_mm": "10.9",
+        "mass_kg_per_m": "37"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "254",
+          "designation_width": "146",
+          "mass_kg_per_m": "37.0",
+          "depth_mm": "256.0",
+          "width_mm": "146.4",
+          "flange_mm": "10.9",
+          "web_mm": "6.3",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 690,
+      "designation_mass_candidate": [
+        "UB",
+        "254",
+        "146",
+        "43"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "146",
+        "web_mm": "7.3",
+        "flange_mm": "12.7",
+        "mass_kg_per_m": "43"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "254",
+          "designation_width": "146",
+          "mass_kg_per_m": "43.0",
+          "depth_mm": "259.6",
+          "width_mm": "147.3",
+          "flange_mm": "12.7",
+          "web_mm": "7.2",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 691,
+      "designation_mass_candidate": [
+        "UB",
+        "305",
+        "102",
+        "24.8"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "102",
+        "web_mm": "5.8",
+        "flange_mm": "6.8",
+        "mass_kg_per_m": "24.8"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "flange_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "305",
+          "designation_width": "102",
+          "mass_kg_per_m": "24.8",
+          "depth_mm": "305.1",
+          "width_mm": "101.6",
+          "flange_mm": "7.0",
+          "web_mm": "5.8",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 692,
+      "designation_mass_candidate": [
+        "UB",
+        "305",
+        "102",
+        "28.2"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "102",
+        "web_mm": "6.1",
+        "flange_mm": "8.9",
+        "mass_kg_per_m": "28.2"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm",
+        "flange_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "305",
+          "designation_width": "102",
+          "mass_kg_per_m": "28.2",
+          "depth_mm": "308.7",
+          "width_mm": "101.8",
+          "flange_mm": "8.8",
+          "web_mm": "6.0",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 693,
+      "designation_mass_candidate": [
+        "UB",
+        "305",
+        "102",
+        "32.8"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "102",
+        "web_mm": "6.6",
+        "flange_mm": "10.8",
+        "mass_kg_per_m": "32.8"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "305",
+          "designation_width": "102",
+          "mass_kg_per_m": "32.8",
+          "depth_mm": "312.7",
+          "width_mm": "102.0",
+          "flange_mm": "10.8",
+          "web_mm": "6.6",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 694,
+      "designation_mass_candidate": [
+        "UB",
+        "305",
+        "165",
+        "40.3"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "165",
+        "web_mm": "6.1",
+        "flange_mm": "10.2",
+        "mass_kg_per_m": "40.3"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "305",
+          "designation_width": "165",
+          "mass_kg_per_m": "40.3",
+          "depth_mm": "303.4",
+          "width_mm": "165.0",
+          "flange_mm": "10.2",
+          "web_mm": "6.0",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 695,
+      "designation_mass_candidate": [
+        "UB",
+        "305",
+        "165",
+        "46.1"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "165",
+        "web_mm": "6.7",
+        "flange_mm": "11.8",
+        "mass_kg_per_m": "46.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "305",
+          "designation_width": "165",
+          "mass_kg_per_m": "46.1",
+          "depth_mm": "306.6",
+          "width_mm": "165.7",
+          "flange_mm": "11.8",
+          "web_mm": "6.7",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 696,
+      "designation_mass_candidate": [
+        "UB",
+        "305",
+        "165",
+        "54"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "165",
+        "web_mm": "7.7",
+        "flange_mm": "13.7",
+        "mass_kg_per_m": "54"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "305",
+          "designation_width": "165",
+          "mass_kg_per_m": "54.0",
+          "depth_mm": "310.4",
+          "width_mm": "166.9",
+          "flange_mm": "13.7",
+          "web_mm": "7.9",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 697,
+      "designation_mass_candidate": [
+        "UB",
+        "356",
+        "171",
+        "45"
+      ],
+      "actual": {
+        "depth_mm": "356",
+        "width_mm": "171",
+        "web_mm": "6.9",
+        "flange_mm": "9.7",
+        "mass_kg_per_m": "45"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "356",
+          "designation_width": "171",
+          "mass_kg_per_m": "45.0",
+          "depth_mm": "351.4",
+          "width_mm": "171.1",
+          "flange_mm": "9.7",
+          "web_mm": "7.0",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 698,
+      "designation_mass_candidate": [
+        "UB",
+        "356",
+        "171",
+        "51"
+      ],
+      "actual": {
+        "depth_mm": "356",
+        "width_mm": "171",
+        "web_mm": "7.3",
+        "flange_mm": "11.5",
+        "mass_kg_per_m": "51"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "356",
+          "designation_width": "171",
+          "mass_kg_per_m": "51.0",
+          "depth_mm": "355.0",
+          "width_mm": "171.5",
+          "flange_mm": "11.5",
+          "web_mm": "7.4",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 699,
+      "designation_mass_candidate": [
+        "UB",
+        "356",
+        "171",
+        "57"
+      ],
+      "actual": {
+        "depth_mm": "356",
+        "width_mm": "171",
+        "web_mm": "8",
+        "flange_mm": "13",
+        "mass_kg_per_m": "57"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "356",
+          "designation_width": "171",
+          "mass_kg_per_m": "57.0",
+          "depth_mm": "358.0",
+          "width_mm": "172.2",
+          "flange_mm": "13.0",
+          "web_mm": "8.1",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 700,
+      "designation_mass_candidate": [
+        "UB",
+        "356",
+        "171",
+        "67.1"
+      ],
+      "actual": {
+        "depth_mm": "356",
+        "width_mm": "171",
+        "web_mm": "9.1",
+        "flange_mm": "15.7",
+        "mass_kg_per_m": "67.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "356",
+          "designation_width": "171",
+          "mass_kg_per_m": "67.1",
+          "depth_mm": "363.4",
+          "width_mm": "173.2",
+          "flange_mm": "15.7",
+          "web_mm": "9.1",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 701,
+      "designation_mass_candidate": [
+        "UB",
+        "406",
+        "140",
+        "39"
+      ],
+      "actual": {
+        "depth_mm": "406",
+        "width_mm": "140",
+        "web_mm": "6.3",
+        "flange_mm": "8.6",
+        "mass_kg_per_m": "39"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "140",
+          "mass_kg_per_m": "39.0",
+          "depth_mm": "398.0",
+          "width_mm": "141.8",
+          "flange_mm": "8.6",
+          "web_mm": "6.4",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 702,
+      "designation_mass_candidate": [
+        "UB",
+        "406",
+        "140",
+        "46"
+      ],
+      "actual": {
+        "depth_mm": "406",
+        "width_mm": "140",
+        "web_mm": "6.9",
+        "flange_mm": "11.2",
+        "mass_kg_per_m": "46"
+      },
+      "outcome": "no_exact_candidate_key",
+      "nominal_differences": [],
+      "source_candidates": [],
+      "same_serial_source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "140",
+          "mass_kg_per_m": "39.0",
+          "depth_mm": "398.0",
+          "width_mm": "141.8",
+          "flange_mm": "8.6",
+          "web_mm": "6.4",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 703,
+      "designation_mass_candidate": [
+        "UB",
+        "406",
+        "178",
+        "54.1"
+      ],
+      "actual": {
+        "depth_mm": "406",
+        "width_mm": "178",
+        "web_mm": "7.6",
+        "flange_mm": "10.9",
+        "mass_kg_per_m": "54.1"
+      },
+      "outcome": "no_exact_candidate_key",
+      "nominal_differences": [],
+      "source_candidates": [],
+      "same_serial_source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "178",
+          "mass_kg_per_m": "74.2",
+          "depth_mm": "412.8",
+          "width_mm": "179.5",
+          "flange_mm": "16.0",
+          "web_mm": "9.5",
+          "enquiry_only": false,
+          "pdf_page": 1
+        },
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "178",
+          "mass_kg_per_m": "67.1",
+          "depth_mm": "409.4",
+          "width_mm": "178.8",
+          "flange_mm": "14.3",
+          "web_mm": "8.8",
+          "enquiry_only": false,
+          "pdf_page": 1
+        },
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "178",
+          "mass_kg_per_m": "60.1",
+          "depth_mm": "406.4",
+          "width_mm": "177.9",
+          "flange_mm": "12.8",
+          "web_mm": "7.9",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 704,
+      "designation_mass_candidate": [
+        "UB",
+        "406",
+        "178",
+        "60.1"
+      ],
+      "actual": {
+        "depth_mm": "406",
+        "width_mm": "178",
+        "web_mm": "7.8",
+        "flange_mm": "12.8",
+        "mass_kg_per_m": "60.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "178",
+          "mass_kg_per_m": "60.1",
+          "depth_mm": "406.4",
+          "width_mm": "177.9",
+          "flange_mm": "12.8",
+          "web_mm": "7.9",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 705,
+      "designation_mass_candidate": [
+        "UB",
+        "406",
+        "178",
+        "67.1"
+      ],
+      "actual": {
+        "depth_mm": "406",
+        "width_mm": "178",
+        "web_mm": "8.8",
+        "flange_mm": "14.3",
+        "mass_kg_per_m": "67.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "178",
+          "mass_kg_per_m": "67.1",
+          "depth_mm": "409.4",
+          "width_mm": "178.8",
+          "flange_mm": "14.3",
+          "web_mm": "8.8",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 706,
+      "designation_mass_candidate": [
+        "UB",
+        "406",
+        "178",
+        "74.2"
+      ],
+      "actual": {
+        "depth_mm": "406",
+        "width_mm": "178",
+        "web_mm": "9.7",
+        "flange_mm": "16",
+        "mass_kg_per_m": "74.2"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "406",
+          "designation_width": "178",
+          "mass_kg_per_m": "74.2",
+          "depth_mm": "412.8",
+          "width_mm": "179.5",
+          "flange_mm": "16.0",
+          "web_mm": "9.5",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 707,
+      "designation_mass_candidate": [
+        "UB",
+        "457",
+        "191",
+        "67.1"
+      ],
+      "actual": {
+        "depth_mm": "457",
+        "width_mm": "191",
+        "web_mm": "8.5",
+        "flange_mm": "12.7",
+        "mass_kg_per_m": "67.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "457",
+          "designation_width": "191",
+          "mass_kg_per_m": "67.1",
+          "depth_mm": "453.4",
+          "width_mm": "189.9",
+          "flange_mm": "12.7",
+          "web_mm": "8.5",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 708,
+      "designation_mass_candidate": [
+        "UB",
+        "457",
+        "191",
+        "74.3"
+      ],
+      "actual": {
+        "depth_mm": "457",
+        "width_mm": "191",
+        "web_mm": "9.1",
+        "flange_mm": "14.5",
+        "mass_kg_per_m": "74.3"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "457",
+          "designation_width": "191",
+          "mass_kg_per_m": "74.3",
+          "depth_mm": "457.0",
+          "width_mm": "190.4",
+          "flange_mm": "14.5",
+          "web_mm": "9.0",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 709,
+      "designation_mass_candidate": [
+        "UB",
+        "457",
+        "191",
+        "82"
+      ],
+      "actual": {
+        "depth_mm": "457",
+        "width_mm": "191",
+        "web_mm": "9.9",
+        "flange_mm": "16",
+        "mass_kg_per_m": "82"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "457",
+          "designation_width": "191",
+          "mass_kg_per_m": "82.0",
+          "depth_mm": "460.0",
+          "width_mm": "191.3",
+          "flange_mm": "16.0",
+          "web_mm": "9.9",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 710,
+      "designation_mass_candidate": [
+        "UB",
+        "457",
+        "191",
+        "89.3"
+      ],
+      "actual": {
+        "depth_mm": "457",
+        "width_mm": "191",
+        "web_mm": "10.6",
+        "flange_mm": "17.7",
+        "mass_kg_per_m": "89.3"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "457",
+          "designation_width": "191",
+          "mass_kg_per_m": "89.3",
+          "depth_mm": "463.4",
+          "width_mm": "191.9",
+          "flange_mm": "17.7",
+          "web_mm": "10.5",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 711,
+      "designation_mass_candidate": [
+        "UB",
+        "457",
+        "191",
+        "98.3"
+      ],
+      "actual": {
+        "depth_mm": "457",
+        "width_mm": "191",
+        "web_mm": "11.4",
+        "flange_mm": "19.6",
+        "mass_kg_per_m": "98.3"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "457",
+          "designation_width": "191",
+          "mass_kg_per_m": "98.3",
+          "depth_mm": "467.2",
+          "width_mm": "192.8",
+          "flange_mm": "19.6",
+          "web_mm": "11.4",
+          "enquiry_only": false,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 712,
+      "designation_mass_candidate": [
+        "UB",
+        "533",
+        "210",
+        "82.2"
+      ],
+      "actual": {
+        "depth_mm": "533",
+        "width_mm": "210",
+        "web_mm": "9.6",
+        "flange_mm": "13.2",
+        "mass_kg_per_m": "82.2"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "533",
+          "designation_width": "210",
+          "mass_kg_per_m": "82.2",
+          "depth_mm": "528.3",
+          "width_mm": "208.8",
+          "flange_mm": "13.2",
+          "web_mm": "9.6",
+          "enquiry_only": true,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 713,
+      "designation_mass_candidate": [
+        "UB",
+        "533",
+        "210",
+        "92.1"
+      ],
+      "actual": {
+        "depth_mm": "533",
+        "width_mm": "210",
+        "web_mm": "10.2",
+        "flange_mm": "15.6",
+        "mass_kg_per_m": "92.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "533",
+          "designation_width": "210",
+          "mass_kg_per_m": "92.1",
+          "depth_mm": "533.1",
+          "width_mm": "209.3",
+          "flange_mm": "15.6",
+          "web_mm": "10.1",
+          "enquiry_only": true,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 714,
+      "designation_mass_candidate": [
+        "UB",
+        "533",
+        "210",
+        "101"
+      ],
+      "actual": {
+        "depth_mm": "533",
+        "width_mm": "210",
+        "web_mm": "10.9",
+        "flange_mm": "17.4",
+        "mass_kg_per_m": "101"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "533",
+          "designation_width": "210",
+          "mass_kg_per_m": "101.0",
+          "depth_mm": "536.7",
+          "width_mm": "210.0",
+          "flange_mm": "17.4",
+          "web_mm": "10.8",
+          "enquiry_only": true,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 715,
+      "designation_mass_candidate": [
+        "UB",
+        "533",
+        "210",
+        "109"
+      ],
+      "actual": {
+        "depth_mm": "533",
+        "width_mm": "210",
+        "web_mm": "11.6",
+        "flange_mm": "18.8",
+        "mass_kg_per_m": "109"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "533",
+          "designation_width": "210",
+          "mass_kg_per_m": "109.0",
+          "depth_mm": "539.5",
+          "width_mm": "210.8",
+          "flange_mm": "18.8",
+          "web_mm": "11.6",
+          "enquiry_only": true,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 716,
+      "designation_mass_candidate": [
+        "UB",
+        "533",
+        "210",
+        "122"
+      ],
+      "actual": {
+        "depth_mm": "533",
+        "width_mm": "210",
+        "web_mm": "12.8",
+        "flange_mm": "21.3",
+        "mass_kg_per_m": "122"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UB",
+          "designation_height": "533",
+          "designation_width": "210",
+          "mass_kg_per_m": "122.0",
+          "depth_mm": "544.5",
+          "width_mm": "211.9",
+          "flange_mm": "21.3",
+          "web_mm": "12.7",
+          "enquiry_only": true,
+          "pdf_page": 1
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 736,
+      "designation_mass_candidate": [
+        "UC",
+        "152",
+        "152",
+        "23"
+      ],
+      "actual": {
+        "depth_mm": "152",
+        "width_mm": "152",
+        "web_mm": "6.1",
+        "flange_mm": "6.8",
+        "mass_kg_per_m": "23"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "152",
+          "designation_width": "152",
+          "mass_kg_per_m": "23.0",
+          "depth_mm": "152.4",
+          "width_mm": "152.2",
+          "flange_mm": "6.8",
+          "web_mm": "5.8",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 737,
+      "designation_mass_candidate": [
+        "UC",
+        "152",
+        "152",
+        "30"
+      ],
+      "actual": {
+        "depth_mm": "152",
+        "width_mm": "152",
+        "web_mm": "6.6",
+        "flange_mm": "9.4",
+        "mass_kg_per_m": "30"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "152",
+          "designation_width": "152",
+          "mass_kg_per_m": "30.0",
+          "depth_mm": "157.6",
+          "width_mm": "152.9",
+          "flange_mm": "9.4",
+          "web_mm": "6.5",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 738,
+      "designation_mass_candidate": [
+        "UC",
+        "152",
+        "152",
+        "37"
+      ],
+      "actual": {
+        "depth_mm": "152",
+        "width_mm": "152",
+        "web_mm": "8.1",
+        "flange_mm": "11.5",
+        "mass_kg_per_m": "37"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "152",
+          "designation_width": "152",
+          "mass_kg_per_m": "37.0",
+          "depth_mm": "161.8",
+          "width_mm": "154.4",
+          "flange_mm": "11.5",
+          "web_mm": "8.0",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 739,
+      "designation_mass_candidate": [
+        "UC",
+        "203",
+        "203",
+        "46.1"
+      ],
+      "actual": {
+        "depth_mm": "203",
+        "width_mm": "203",
+        "web_mm": "7.3",
+        "flange_mm": "11",
+        "mass_kg_per_m": "46.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "203",
+          "designation_width": "203",
+          "mass_kg_per_m": "46.1",
+          "depth_mm": "203.2",
+          "width_mm": "203.6",
+          "flange_mm": "11.0",
+          "web_mm": "7.2",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 740,
+      "designation_mass_candidate": [
+        "UC",
+        "203",
+        "203",
+        "52"
+      ],
+      "actual": {
+        "depth_mm": "203",
+        "width_mm": "203",
+        "web_mm": "8",
+        "flange_mm": "12.5",
+        "mass_kg_per_m": "52"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "203",
+          "designation_width": "203",
+          "mass_kg_per_m": "52.0",
+          "depth_mm": "206.2",
+          "width_mm": "204.3",
+          "flange_mm": "12.5",
+          "web_mm": "7.9",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 741,
+      "designation_mass_candidate": [
+        "UC",
+        "203",
+        "203",
+        "60"
+      ],
+      "actual": {
+        "depth_mm": "203",
+        "width_mm": "203",
+        "web_mm": "9.3",
+        "flange_mm": "14.2",
+        "mass_kg_per_m": "60"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "203",
+          "designation_width": "203",
+          "mass_kg_per_m": "60.0",
+          "depth_mm": "209.6",
+          "width_mm": "205.8",
+          "flange_mm": "14.2",
+          "web_mm": "9.4",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 742,
+      "designation_mass_candidate": [
+        "UC",
+        "203",
+        "203",
+        "71"
+      ],
+      "actual": {
+        "depth_mm": "203",
+        "width_mm": "203",
+        "web_mm": "10.3",
+        "flange_mm": "17.3",
+        "mass_kg_per_m": "71"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "203",
+          "designation_width": "203",
+          "mass_kg_per_m": "71.0",
+          "depth_mm": "215.8",
+          "width_mm": "206.4",
+          "flange_mm": "17.3",
+          "web_mm": "10.0",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 743,
+      "designation_mass_candidate": [
+        "UC",
+        "203",
+        "203",
+        "86.1"
+      ],
+      "actual": {
+        "depth_mm": "203",
+        "width_mm": "203",
+        "web_mm": "13",
+        "flange_mm": "20.5",
+        "mass_kg_per_m": "86.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "203",
+          "designation_width": "203",
+          "mass_kg_per_m": "86.1",
+          "depth_mm": "222.2",
+          "width_mm": "209.1",
+          "flange_mm": "20.5",
+          "web_mm": "12.7",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 744,
+      "designation_mass_candidate": [
+        "UC",
+        "254",
+        "254",
+        "73.1"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "254",
+        "web_mm": "8.6",
+        "flange_mm": "14.2",
+        "mass_kg_per_m": "73.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "73.1",
+          "depth_mm": "254.1",
+          "width_mm": "254.6",
+          "flange_mm": "14.2",
+          "web_mm": "8.6",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 745,
+      "designation_mass_candidate": [
+        "UC",
+        "254",
+        "254",
+        "88.9"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "254",
+        "web_mm": "10.5",
+        "flange_mm": "17.3",
+        "mass_kg_per_m": "88.9"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "88.9",
+          "depth_mm": "260.3",
+          "width_mm": "256.3",
+          "flange_mm": "17.3",
+          "web_mm": "10.3",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 746,
+      "designation_mass_candidate": [
+        "UC",
+        "254",
+        "254",
+        "107.1"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "254",
+        "web_mm": "13",
+        "flange_mm": "20.5",
+        "mass_kg_per_m": "107.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "107.1",
+          "depth_mm": "266.7",
+          "width_mm": "258.8",
+          "flange_mm": "20.5",
+          "web_mm": "12.8",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 747,
+      "designation_mass_candidate": [
+        "UC",
+        "254",
+        "254",
+        "132"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "254",
+        "web_mm": "15.6",
+        "flange_mm": "25.1",
+        "mass_kg_per_m": "132"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm",
+        "flange_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "132.0",
+          "depth_mm": "276.3",
+          "width_mm": "261.3",
+          "flange_mm": "25.3",
+          "web_mm": "15.3",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 748,
+      "designation_mass_candidate": [
+        "UC",
+        "254",
+        "254",
+        "167"
+      ],
+      "actual": {
+        "depth_mm": "254",
+        "width_mm": "254",
+        "web_mm": "19.2",
+        "flange_mm": "31.7",
+        "mass_kg_per_m": "167"
+      },
+      "outcome": "no_exact_candidate_key",
+      "nominal_differences": [],
+      "source_candidates": [],
+      "same_serial_source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "167.1",
+          "depth_mm": "289.1",
+          "width_mm": "265.2",
+          "flange_mm": "31.7",
+          "web_mm": "19.2",
+          "enquiry_only": true,
+          "pdf_page": 2
+        },
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "132.0",
+          "depth_mm": "276.3",
+          "width_mm": "261.3",
+          "flange_mm": "25.3",
+          "web_mm": "15.3",
+          "enquiry_only": true,
+          "pdf_page": 2
+        },
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "107.1",
+          "depth_mm": "266.7",
+          "width_mm": "258.8",
+          "flange_mm": "20.5",
+          "web_mm": "12.8",
+          "enquiry_only": true,
+          "pdf_page": 2
+        },
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "88.9",
+          "depth_mm": "260.3",
+          "width_mm": "256.3",
+          "flange_mm": "17.3",
+          "web_mm": "10.3",
+          "enquiry_only": true,
+          "pdf_page": 2
+        },
+        {
+          "family": "UC",
+          "designation_height": "254",
+          "designation_width": "254",
+          "mass_kg_per_m": "73.1",
+          "depth_mm": "254.1",
+          "width_mm": "254.6",
+          "flange_mm": "14.2",
+          "web_mm": "8.6",
+          "enquiry_only": false,
+          "pdf_page": 2
+        }
+      ],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 749,
+      "designation_mass_candidate": [
+        "UC",
+        "305",
+        "305",
+        "96.9"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "305",
+        "web_mm": "9.9",
+        "flange_mm": "15.4",
+        "mass_kg_per_m": "96.9"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "305",
+          "designation_width": "305",
+          "mass_kg_per_m": "96.9",
+          "depth_mm": "307.9",
+          "width_mm": "305.3",
+          "flange_mm": "15.4",
+          "web_mm": "9.9",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 750,
+      "designation_mass_candidate": [
+        "UC",
+        "305",
+        "305",
+        "117.9"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "305",
+        "web_mm": "11.9",
+        "flange_mm": "18.7",
+        "mass_kg_per_m": "117.9"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "305",
+          "designation_width": "305",
+          "mass_kg_per_m": "117.9",
+          "depth_mm": "314.5",
+          "width_mm": "307.4",
+          "flange_mm": "18.7",
+          "web_mm": "12.0",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 751,
+      "designation_mass_candidate": [
+        "UC",
+        "305",
+        "305",
+        "136.9"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "305",
+        "web_mm": "13.8",
+        "flange_mm": "21.7",
+        "mass_kg_per_m": "136.9"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "305",
+          "designation_width": "305",
+          "mass_kg_per_m": "136.9",
+          "depth_mm": "320.5",
+          "width_mm": "309.2",
+          "flange_mm": "21.7",
+          "web_mm": "13.8",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 752,
+      "designation_mass_candidate": [
+        "UC",
+        "305",
+        "305",
+        "158.1"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "305",
+        "web_mm": "15.7",
+        "flange_mm": "25",
+        "mass_kg_per_m": "158.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm",
+        "web_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "305",
+          "designation_width": "305",
+          "mass_kg_per_m": "158.1",
+          "depth_mm": "327.1",
+          "width_mm": "311.2",
+          "flange_mm": "25.0",
+          "web_mm": "15.8",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    },
+    {
+      "csv_line": 753,
+      "designation_mass_candidate": [
+        "UC",
+        "305",
+        "305",
+        "198.1"
+      ],
+      "actual": {
+        "depth_mm": "305",
+        "width_mm": "305",
+        "web_mm": "19.1",
+        "flange_mm": "31.4",
+        "mass_kg_per_m": "198.1"
+      },
+      "outcome": "nominal_field_conflict",
+      "nominal_differences": [
+        "depth_mm",
+        "width_mm"
+      ],
+      "source_candidates": [
+        {
+          "family": "UC",
+          "designation_height": "305",
+          "designation_width": "305",
+          "mass_kg_per_m": "198.1",
+          "depth_mm": "339.9",
+          "width_mm": "314.5",
+          "flange_mm": "31.4",
+          "web_mm": "19.1",
+          "enquiry_only": true,
+          "pdf_page": 2
+        }
+      ],
+      "same_serial_source_candidates": [],
+      "exact_article_verified": false
+    }
+  ],
+  "source_rows_without_supplied_key": [
+    {
+      "family": "UB",
+      "designation_height": "533",
+      "designation_width": "210",
+      "mass_kg_per_m": "138.0",
+      "depth_mm": "549.0",
+      "width_mm": "214.0",
+      "flange_mm": "23.6",
+      "web_mm": "14.7",
+      "enquiry_only": true,
+      "pdf_page": 1
+    },
+    {
+      "family": "UC",
+      "designation_height": "305",
+      "designation_width": "305",
+      "mass_kg_per_m": "240.0",
+      "depth_mm": "352.5",
+      "width_mm": "318.4",
+      "flange_mm": "37.7",
+      "web_mm": "23.0",
+      "enquiry_only": true,
+      "pdf_page": 2
+    },
+    {
+      "family": "UC",
+      "designation_height": "254",
+      "designation_width": "254",
+      "mass_kg_per_m": "167.1",
+      "depth_mm": "289.1",
+      "width_mm": "265.2",
+      "flange_mm": "31.7",
+      "web_mm": "19.2",
+      "enquiry_only": true,
+      "pdf_page": 2
+    }
+  ],
+  "limitations": [
+    "Manual image-table transcription remains unreviewed; tests do not prove fidelity.",
+    "Height/Width interpreted as designation candidates only, not approved physical dimensions.",
+    "Exact mass key for candidate binding; no rounding, nearest-key selection or correction.",
+    "Source URL calls this H1.1; document labels DS.0001 and has no verified publication date.",
+    "Nominal equality is not manufacturing tolerance, article identity or interchangeability.",
+    "Grade, certificates, radii, length/end/finish and current availability remain unverified.",
+    "Enquiry-only footnotes retained; their absence does not prove current availability.",
+    "Earlier IPE/source-specific findings remain open; this report is not yet in the review queue."
+  ]
+}

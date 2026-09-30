@@ -42,6 +42,8 @@ Macsteel family evidence now screens all395 rows:268 supported family-designatio
 
 Official manufacturer IPE/IPE-AA comparison now covers12selected rows: six agree in nominal depth/width/web/flange/mass; six IPE-AA records use designation sizes in Height rather than published nominal depths. Meaning remains unresolved; other793rows not compared. See `structural-ipe-verification.md` and its source-located report. No exact article approval or correction.
 
+Further UB/UC screening covers49 distinct rows against DS.0001 image tables:46 unique designation/mass candidates with nominal differences and three unmatched exact keys. Depth differs in45, width in43, web thickness in32 and flange thickness in3 compared rows; counts overlap. Combined selected-family screening now covers61 of805 structural rows, leaving744 without selected-table screening. This unreviewed research is not yet integrated into the review queue. See `structural-heavy-verification.md`.
+
 ### Klinger gaskets — 12,162 rows, 24 columns
 
 - The file contains 26 product descriptions. Twenty-four descriptions repeat exactly 470 geometry/class combinations, which suggests a generated product-family matrix rather than 12,162 verified exact articles.

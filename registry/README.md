@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+Latest structural research: `docs/structural-heavy-verification.md` documents all49 UB/UC rows screened against manufacturer DS.0001 tables:46 unique nominal candidates with field differences and three unmatched exact keys. Manual transcription remains unreviewed. Combined with IPE,61 distinct structural rows screened;744 remain outside selected-table screening. This report is not yet integrated into the253-item review queue. Source register now78;22 cached artifacts verified. No identity approval or UPN issuance.
+
 ## What is here
 
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.
