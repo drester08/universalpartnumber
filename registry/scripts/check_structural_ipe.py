@@ -49,10 +49,11 @@ def compare():
         rows = list(csv.DictReader(handle))
     if len(rows) != 805:
         raise ValueError('Expected805 supplied records')
-    records, seen = [], set()
+    records, seen, not_compared = [], set(), []
     for line,row in enumerate(rows,2):
         family = row['Type/Section/Channels/Angle/Bars/UC/I-Beams']
         if family not in ('IPE','IPE AA'):
+            not_compared.append(line)
             continue
         key = (family,row['Height (mm)'],row['Width (mm)'])
         if key in seen or key not in index:
@@ -66,6 +67,7 @@ def compare():
     return {'dataset_sha256':DATASET_SHA, 'catalogue_sha256':CATALOGUE_SHA,
             'transcription_sha256':hashlib.sha256(payload).hexdigest(),
             'dataset_rows':805,'compared_rows':len(records),'not_compared_rows':805-len(records),
+            'not_compared_csv_lines':not_compared,
             'outcomes':dict(Counter(r['outcome'] for r in records)), 'records':records,
             'limitations':['Manual source transcription unreviewed; consistency tests do not prove transcription fidelity.',
                 'Lookup infers designation candidate from CSV Height/Width; ambiguity of Height meaning remains unresolved.',

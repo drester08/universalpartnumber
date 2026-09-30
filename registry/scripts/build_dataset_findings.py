@@ -19,6 +19,8 @@ PIPE_DATASET = 'DATASET-USER-PIPING-20260702'
 PIPE_ARTIFACT = 'ART-TENARIS-CIVIL-2026'
 PLATE_DATASET = 'DATASET-USER-STEEL-PLATE-20260702'
 PLATE_ARTIFACT = 'ART-MACSTEEL-VRN-2021'
+STRUCTURAL_DATASET = 'DATASET-USER-STRUCTURAL-STEEL-20260702'
+STRUCTURAL_ARTIFACT = 'ART-AMSA-E12-PARALLEL'
 FINDING_FIELDS = ('finding_id', 'dataset_id', 'dataset_sha256', 'artifact_id',
                   'issue_type', 'priority', 'subject_key', 'summary', 'next_action',
                   'evidence_path', 'evidence_sha256', 'evidence_locators', 'policy_version')
@@ -55,6 +57,7 @@ def derive(root=ROOT):
         ('klinger-softcut-comparison.json', 'softcut'))]
     reports.append(('piping-tenaris-comparison.json', 'pipe', PIPE_DATASET, PIPE_ARTIFACT))
     reports.append(('plate-macsteel-screening.json', 'plate', PLATE_DATASET, PLATE_ARTIFACT))
+    reports.append(('structural-ipe-comparison.json', 'structural', STRUCTURAL_DATASET, STRUCTURAL_ARTIFACT))
     for name, family, dataset_id, artifact_id in reports:
         dataset, artifact = datasets[dataset_id], artifacts[artifact_id]
         path = root / 'reports' / name
@@ -74,7 +77,38 @@ def derive(root=ROOT):
             entry['lines'].update(lines)
             entry['count'] += count
 
-        if family == 'plate':
+        if family == 'structural':
+            transcription_bytes = (root / 'reports/arcelormittal-ipe-observations.json').read_bytes()
+            transcription = json.loads(transcription_bytes)
+            if hashlib.sha256(transcription_bytes).hexdigest() != report['transcription_sha256']:
+                raise ValueError('Structural source transcription checksum mismatch')
+            if transcription['catalogue_sha256'].lower() != artifact['sha256'].lower():
+                raise ValueError('Structural transcription catalogue checksum mismatch')
+            records, outside = report['records'], report['not_compared_csv_lines']
+            if (report['dataset_rows'] != int(dataset['row_count']) or report['compared_rows'] != len(records)
+                    or report['not_compared_rows'] != len(outside)):
+                raise ValueError('Structural coverage count differs from registered dataset')
+            all_lines = outside + [r['csv_line'] for r in records]
+            if any(type(line) is not int for line in all_lines) or sorted(all_lines) != list(range(2, int(dataset['row_count']) + 2)):
+                raise ValueError('Structural report has missing, duplicate or overlapping row locators')
+            if dict(Counter(r['outcome'] for r in records)) != report['outcomes']:
+                raise ValueError('Structural outcome counts do not reconcile')
+            for i, case in enumerate(records):
+                if case['exact_article_verified'] is not False:
+                    raise ValueError('Structural comparison cannot assert reviewed article identity')
+                locator, lines = f'/records/{i}', [case['csv_line']]
+                add('article_evidence_gap', ('Structural Steel', 'exact article/certified specification'), locator, lines)
+                if case['outcome'] == 'nominal_field_conflict':
+                    if not case['nominal_differences']:
+                        raise ValueError('Structural conflict lacks differing fields')
+                    add('dimension_conflict', ('Structural Steel', case['designation_candidate'][0], 'Height/designation versus depth'), locator, lines)
+                elif case['outcome'] != 'nominal_values_agree' or case['nominal_differences']:
+                    raise ValueError('Unsupported or inconsistent structural outcome')
+            for i, line in enumerate(outside):
+                locator = f'/not_compared_csv_lines/{i}'
+                add('article_evidence_gap', ('Structural Steel', 'exact article/certified specification'), locator, [line])
+                add('coverage_gap', ('Structural Steel', 'outside selected IPE families'), locator, [line])
+        elif family == 'plate':
             records = report['records']
             if report['dataset_rows'] != int(dataset['row_count']) or len(records) != int(dataset['row_count']):
                 raise ValueError('Plate report coverage count differs from registered dataset')

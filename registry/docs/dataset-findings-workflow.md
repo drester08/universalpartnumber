@@ -16,7 +16,9 @@ The pipe report adds seven groups: one P0 construction-conflict task covering al
 
 The plate report adds eight groups: three P0 material-interpretation tasks (51rows), three P0 mass-discrepancy tasks (three rows), one P2 family-scope task (76rows) and one P0 exact-article evidence task covering all395rows. Its525links overlap because specific issues coexist with the shared article-evidence gap. Supported family wording does not remove the latter task.
 
-The current combined snapshot contains81groups,1594links and1448distinct dataset/row pairs. The main reviewer queue contains250tasks, including these81. Existing11complete-part tasks retain their blocked dependencies. Each finding links to its report and source artifact rather than becoming a guessed part number. Other dataset issues, missing gasket construction/material/drilling evidence and external-source licensing remain separate outstanding work. These tasks are not an exhaustive catalogue of import prerequisites. Earlier232/233/240/242-task snapshots are historical, not current status.
+The structural report adds three groups: one P0 exact-article evidence task covering all805 rows, one P2 selected-source coverage task covering793 untested rows, and one P0 dimension/field-meaning conflict task covering six IPE-AA rows. Its1604links overlap by design. A list of untested row locators proves accounting only, not manufacturer comparison. Report/source-transcription hashes bind the manual source snapshot; independent fidelity review remains outstanding.
+
+The current combined snapshot contains84groups,3198links and2253distinct dataset/row pairs. The main reviewer queue contains253tasks, including these84. Existing11complete-part tasks retain their blocked dependencies. Each finding links to its report and source artifact rather than becoming a guessed part number. Other dataset issues, missing gasket construction/material/drilling evidence and external-source licensing remain separate outstanding work. These tasks are not an exhaustive catalogue of import prerequisites. Earlier232/233/240/242/250-task snapshots are historical, not current status.
 
 ## Resolve issues
 

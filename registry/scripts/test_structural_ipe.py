@@ -7,6 +7,8 @@ class StructuralTests(unittest.TestCase):
         report=compare()
         self.assertEqual(report['compared_rows'],12)
         self.assertEqual(report['not_compared_rows'],793)
+        self.assertEqual(len(report['not_compared_csv_lines']),793)
+        self.assertEqual(sorted(report['not_compared_csv_lines']+[r['csv_line'] for r in report['records']]),list(range(2,807)))
         self.assertEqual(report['outcomes'],{'nominal_values_agree':6,'nominal_field_conflict':6})
         self.assertEqual([r['csv_line'] for r in report['records']],list(range(754,766)))
         self.assertTrue(all(not r['exact_article_verified'] for r in report['records']))

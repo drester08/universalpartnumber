@@ -266,8 +266,8 @@ def main() -> int:
                 for queue_type in {item["queue_type"] for item in review_items}
             }
             if (
-                len(review_items) != 250
-                or queue_counts.get("dataset_finding_review") != 81
+                len(review_items) != 253
+                or queue_counts.get("dataset_finding_review") != 84
                 or queue_counts.get("reference_dataset_validation") != 4
                 or queue_counts.get("terminology_mapping_review") != 15
                 or sum(item["readiness"] == "blocked" for item in review_items) != 11
@@ -279,7 +279,7 @@ def main() -> int:
                 "(SELECT DISTINCT f.dataset_id, r.csv_line FROM dataset_finding_rows r "
                 "JOIN dataset_findings f USING(finding_id))"
             ).fetchone()
-            if tuple(finding_counts) != (81, 1594, 1448):
+            if tuple(finding_counts) != (84, 3198, 2253):
                 raise AssertionError("Dataset findings lost groups or exact source-row references")
             finding_id = screening_connection.execute("SELECT finding_id FROM dataset_findings LIMIT 1").fetchone()[0]
             expect_integrity_error(screening_connection,
@@ -299,6 +299,14 @@ def main() -> int:
             expect_integrity_error(screening_connection,
                 "UPDATE source_datasets SET verification_state = 'validated', allowed_use = 'identity_evidence' WHERE dataset_id = ?",
                 ('DATASET-USER-STEEL-PLATE-20260702',))
+            expect_integrity_error(screening_connection,
+                "UPDATE source_datasets SET verification_state = 'validated', allowed_use = 'identity_evidence' WHERE dataset_id = ?",
+                ('DATASET-USER-STRUCTURAL-STEEL-20260702',))
+            structural_finding = screening_connection.execute(
+                "SELECT finding_id FROM dataset_findings WHERE dataset_id = 'DATASET-USER-STRUCTURAL-STEEL-20260702' LIMIT 1"
+            ).fetchone()[0]
+            expect_integrity_error(screening_connection,
+                "INSERT INTO dataset_finding_rows VALUES (?, ?)", (structural_finding, 807))
             plate_finding = screening_connection.execute(
                 "SELECT finding_id FROM dataset_findings WHERE dataset_id = 'DATASET-USER-STEEL-PLATE-20260702' LIMIT 1"
             ).fetchone()[0]
