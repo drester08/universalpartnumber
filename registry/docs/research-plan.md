@@ -28,9 +28,9 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
-3. Resolve whether splice hardware is included with the fourteen Legrand, Øglænd, and OBO pilot parts.
-4. Extend artifact retrieval with per-publisher access rules; six Øglænd, Niedax, and OBO PDFs are verified, while the Legrand and Eaton PDFs remain blocked.
-5. Add a fifth manufacturer or a second narrow part class and measure false-negative risk in the blocking keys.
+3. Resolve missing identity fields for the eighteen Legrand, Øglænd, OBO, and Atkore pilot parts, especially package-included splice hardware and Atkore rung construction.
+4. Extend artifact retrieval with per-publisher access rules; eleven Øglænd, Niedax, OBO, and Atkore artifacts are verified, while the Legrand and Eaton PDFs remain blocked.
+5. Add a sixth manufacturer or a second narrow part class and measure false-negative risk in the blocking keys.
 6. Design the reviewer queue; immutable part-review and equivalence-decision tables now exist.
 7. Independently review the four complete Niedax evidence profiles; completeness alone must not change their status.
 
@@ -38,7 +38,7 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 - Reproducible CSV-to-SQLite ingestion, foreign-key and integrity checks.
 - Evidence-completeness audit and fail-closed quality-gate tests.
-- Eighteen manufacturer parts from four manufacturers with primary-source observations.
+- Twenty-two manufacturer parts from five manufacturers with primary-source observations.
 - Four complete-but-unreviewed Niedax profiles with explicit splice-supply evidence.
-- Versioned cross-manufacturer pair screening with eight reproducible hard-conflict records.
-- Local verification of six cached artifacts without committing copyrighted PDFs to Git.
+- Versioned cross-manufacturer pair screening with thirteen reproducible hard-conflict records and specificity-aware comparison.
+- Local verification of eleven cached artifacts without committing copyrighted source files to Git.

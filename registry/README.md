@@ -36,9 +36,9 @@ The generated database is written to `registry/build/registry.sqlite` and is int
 
 Foundation and pilot data only. The schema, policies, ingestion checks, artifact verification, candidate screening, and fail-closed publication gates are operational. Source licensing must be resolved before bulk ingestion, and every manufacturer observation still requires independent review.
 
-The pilot contains 18 manufacturer parts: six Legrand Swifts, four Øglænd LOE55, four Niedax KL, and four OBO Bettermann LCIS 60. The Niedax profiles contain all 14 required fields, including an explicit statement that splice plates are ordered separately; the Legrand, Øglænd, and OBO profiles remain at 13 of 14 because their cited evidence does not establish package-included splice hardware. All records remain `unreviewed`, and no UPN has been issued.
+The pilot contains 22 manufacturer parts: six Legrand Swifts and four each from Øglænd LOE55, Niedax KL, OBO Bettermann LCIS 60, and Atkore/Unistrut NEMA 3 20B. The Niedax profiles contain all 14 required fields, including an explicit statement that splice plates are ordered separately. The Legrand, Øglænd, and OBO profiles remain at 13 of 14 because splice inclusion is unstated. The Atkore profiles contain 10 of 14; rung profile, rung attachment, side perforation, and splice inclusion remain unknown. All records remain `unreviewed`, and no UPN has been issued.
 
-Eight pairs pass coarse blocking. Each is reproducibly classified `hard_conflict`: the original three pairs, Legrand `ZL600G` versus OBO `6209729`, and four same-width OBO/Øglænd pairs. Similarity scores are diagnostic only and never override an identity conflict. Missing evidence is represented as a gap, never guessed.
+Thirteen pairs pass coarse blocking. Each is reproducibly classified `hard_conflict`, including five new Atkore comparisons. Version 0.2 of the screen distinguishes an actual contradiction from compatible but unequal evidence specificity: generic `steel` versus `mild steel`, for example, is unresolved rather than falsely conflicting. Similarity scores are diagnostic only and never override an identity conflict. Missing evidence is represented as a gap, never guessed.
 
 ## Non-negotiable rule
 

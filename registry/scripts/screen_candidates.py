@@ -13,7 +13,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ALGORITHM_VERSION = "cable-ladder-screen-0.1"
+ALGORITHM_VERSION = "cable-ladder-screen-0.2"
 BLOCKING_PROPERTIES = (
     "PROP-FORM",
     "PROP-NOMINAL-WIDTH",
@@ -95,12 +95,21 @@ def join(values: list[str]) -> str:
 
 
 def blocking_values(property_id: str, values: set[str]) -> set[str]:
+    if property_id == "PROP-MATERIAL":
+        return {"steel" if value == "mild_steel" else value for value in values}
     if property_id == "PROP-SURFACE-PROTECTION":
         return {
             "hot_dip_galvanized" if value.startswith("hot_dip_galvanized") else value
             for value in values
         }
     return values
+
+
+def compatible_but_less_specific(property_id: str, left: set[str], right: set[str]) -> bool:
+    """Return true when values share a coarse family but do not prove exact equality."""
+    return property_id in {"PROP-MATERIAL", "PROP-SURFACE-PROTECTION"} and (
+        blocking_values(property_id, left) == blocking_values(property_id, right)
+    )
 
 
 def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, object]]:
@@ -136,6 +145,10 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
                 missing.append(property_id)
             elif left_values[property_id] == right_values[property_id]:
                 matched.append(property_id)
+            elif compatible_but_less_specific(
+                property_id, left_values[property_id], right_values[property_id]
+            ):
+                missing.append(property_id)
             else:
                 conflicts.append(property_id)
         compared = len(matched) + len(conflicts)

@@ -10,6 +10,7 @@ import tempfile
 from pathlib import Path
 
 import build_registry
+import screen_candidates
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +29,28 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="upn-quality-") as directory:
         database = Path(directory) / "registry.sqlite"
         build_registry.build(database)
+
+        screening_connection = sqlite3.connect(database)
+        screening_connection.row_factory = sqlite3.Row
+        try:
+            screenings = screen_candidates.screen(screening_connection, "2026-09-30")
+        finally:
+            screening_connection.close()
+        by_pair = {
+            (row["left_part_id"], row["right_part_id"]): row
+            for row in screenings
+        }
+        material_specificity = by_pair[("MP-ATKORE-LEK103RHG", "MP-NIEDAX-KL100303F")]
+        if "PROP-MATERIAL" in str(material_specificity["conflicting_properties"]).split(";"):
+            raise AssertionError("Generic steel versus mild steel was incorrectly treated as a contradiction")
+        if "PROP-MATERIAL" not in str(material_specificity["missing_properties"]).split(";"):
+            raise AssertionError("Material specificity gap was not preserved as unresolved evidence")
+        finish_specificity = by_pair[("MP-OBO-LCIS630", "MP-OGLAEND-1371512")]
+        if "PROP-SURFACE-PROTECTION" in str(finish_specificity["conflicting_properties"]).split(";"):
+            raise AssertionError("Generic versus specific hot-dip galvanizing was treated as a contradiction")
+        if "PROP-SURFACE-PROTECTION" not in str(finish_specificity["missing_properties"]).split(";"):
+            raise AssertionError("Finish specificity gap was not preserved as unresolved evidence")
+
         connection = sqlite3.connect(database)
         try:
             connection.execute(
@@ -82,7 +105,10 @@ def main() -> int:
         finally:
             connection.close()
 
-    print("Quality-gate tests passed: incomplete review, unverified artifact, and unnumbered issued item were rejected.")
+    print(
+        "Quality-gate tests passed: specificity gaps stayed unresolved; incomplete review, "
+        "unverified artifact, and unnumbered issued item were rejected."
+    )
     return 0
 
 
