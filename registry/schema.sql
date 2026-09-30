@@ -68,6 +68,20 @@ CREATE TABLE properties (
   UNIQUE (source_id, external_code)
 );
 
+CREATE TABLE controlled_values (
+  controlled_value_id TEXT PRIMARY KEY,
+  property_id TEXT NOT NULL REFERENCES properties(property_id),
+  canonical_code TEXT NOT NULL,
+  preferred_label TEXT NOT NULL,
+  definition TEXT NOT NULL,
+  lifecycle_state TEXT NOT NULL CHECK (lifecycle_state IN ('active','deprecated')),
+  CHECK (length(trim(canonical_code)) > 0),
+  CHECK (length(trim(preferred_label)) > 0),
+  CHECK (length(trim(definition)) > 0),
+  UNIQUE (property_id, canonical_code),
+  UNIQUE (controlled_value_id, property_id)
+);
+
 CREATE TABLE identity_profiles (
   profile_id TEXT PRIMARY KEY,
   domain_id TEXT NOT NULL REFERENCES domains(domain_id),
@@ -274,7 +288,41 @@ CREATE TABLE specification_values (
   normalized_number TEXT,
   unit_id TEXT REFERENCES units(unit_id),
   qualifier TEXT,
-  UNIQUE (observation_id, property_id, raw_value)
+  UNIQUE (observation_id, property_id, raw_value),
+  UNIQUE (specification_id, property_id)
+);
+
+CREATE TABLE specification_value_mappings (
+  mapping_id TEXT PRIMARY KEY,
+  specification_id TEXT NOT NULL,
+  property_id TEXT NOT NULL,
+  controlled_value_id TEXT NOT NULL,
+  mapping_basis TEXT NOT NULL CHECK (
+    mapping_basis IN ('source_exact','manufacturer_definition','standard_crosswalk','expert_interpretation')
+  ),
+  mapping_state TEXT NOT NULL CHECK (mapping_state IN ('proposed','approved','rejected')),
+  rationale TEXT NOT NULL,
+  proposed_by TEXT NOT NULL,
+  proposed_at TEXT NOT NULL,
+  reviewer TEXT,
+  reviewed_at TEXT,
+  policy_version TEXT NOT NULL,
+  CHECK (length(trim(rationale)) > 0),
+  CHECK (length(trim(proposed_by)) > 0),
+  CHECK (length(trim(policy_version)) > 0),
+  FOREIGN KEY (specification_id, property_id)
+    REFERENCES specification_values(specification_id, property_id),
+  FOREIGN KEY (controlled_value_id, property_id)
+    REFERENCES controlled_values(controlled_value_id, property_id),
+  UNIQUE (specification_id, controlled_value_id),
+  CHECK (
+    mapping_state != 'approved'
+    OR (
+      reviewer IS NOT NULL
+      AND reviewed_at IS NOT NULL
+      AND reviewer != proposed_by
+    )
+  )
 );
 
 CREATE TABLE aliases (

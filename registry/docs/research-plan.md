@@ -42,4 +42,5 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 - Ten complete-but-unreviewed Niedax profiles with explicit splice-supply evidence.
 - Versioned cross-manufacturer screening with 22 reproducible outcomes and property-specific cross-unit comparison.
 - Permanent opaque UPN allocation syntax, reproducible canonical-item ledgers, and a fail-closed issuance audit; no UPN is issued yet.
+- Property-scoped controlled terminology and independently reviewable source-term mappings; the initial bearing mappings remain proposed.
 - Local verification of fifteen cached artifacts without committing copyrighted source files to Git.

@@ -80,6 +80,8 @@ def normalized_value(row: sqlite3.Row) -> str | numeric_rules.NumericValue:
     numeric = numeric_rules.to_base_value(row)
     if numeric is not None:
         return numeric
+    if row["canonical_code"] is not None:
+        return str(row["canonical_code"]).strip().casefold()
     if row["normalized_text"] is not None:
         return str(row["normalized_text"]).strip().casefold()
     return str(row["raw_value"]).strip().casefold()
@@ -101,10 +103,16 @@ def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
         """
         SELECT o.manufacturer_part_id, sv.property_id, sv.raw_value,
                sv.normalized_text, sv.normalized_number, sv.unit_id,
-               u.quantity_kind, u.conversion_factor, u.conversion_offset
+               u.quantity_kind, u.conversion_factor, u.conversion_offset,
+               cv.canonical_code
           FROM observations AS o
           JOIN specification_values AS sv ON sv.observation_id = o.observation_id
           LEFT JOIN units AS u ON u.unit_id = sv.unit_id
+          LEFT JOIN specification_value_mappings AS svm
+            ON svm.specification_id = sv.specification_id
+           AND svm.mapping_state != 'rejected'
+          LEFT JOIN controlled_values AS cv
+            ON cv.controlled_value_id = svm.controlled_value_id
          WHERE o.review_state NOT IN ('rejected', 'superseded')
         """
     ):

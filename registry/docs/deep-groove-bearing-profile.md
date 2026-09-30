@@ -20,6 +20,8 @@ SKF's exact page currently supplies all twelve required fields. NSK's exact page
 
 SKF publishes tolerance group `Class 6 (p6)` while NSK publishes `P0`. UPN preserves these as distinct unreviewed source claims. It does not assume that familiar `6205` and double-shield suffixes override that difference. SKF's generic `sheet metal` cage description and NSK's `pressed steel` description are treated as a compatible but unequal specificity gap, not a contradiction.
 
+The bearing terminology is now represented by eleven property-scoped controlled values and fifteen explicit source-term mappings. The mappings record whether the source states a term directly or whether a manufacturer definition is being applied. All remain `proposed`; none is an approved semantic crosswalk.
+
 The reproducible screen therefore records one hard conflict, four missing identity fields, seven matched fields, and no equivalence decision.
 
 ## Hard stops
@@ -29,6 +31,7 @@ The reproducible screen therefore records one hard conflict, four missing identi
 - Clearance, precision, cage, grease, materials, coatings, heat treatment, noise class, electrical insulation, temperature stabilization, and locating features can all create distinct items.
 - Load and speed ratings cannot be compared without their standard and operating context.
 - Distributor cross-reference tables can generate research candidates but cannot approve equivalence.
+- A proposed term mapping can generate a candidate but cannot support an accepted part review or UPN issuance.
 
 ## Primary sources
 

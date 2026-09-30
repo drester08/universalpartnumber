@@ -237,6 +237,32 @@ def main() -> int:
             ).fetchone()[0]
             if len(governed_rules) != required_numeric_count or required_numeric_count != 21:
                 raise AssertionError("Every required numeric identity property must have exactly one governed rule")
+            mapping_summary = screening_connection.execute(
+                """
+                SELECT COUNT(*) AS mapping_count,
+                       SUM(CASE WHEN mapping_state = 'approved' THEN 1 ELSE 0 END) AS approved_count
+                  FROM specification_value_mappings
+                """
+            ).fetchone()
+            controlled_value_count = screening_connection.execute(
+                "SELECT COUNT(*) FROM controlled_values"
+            ).fetchone()[0]
+            if tuple(mapping_summary) != (15, 0) or controlled_value_count != 11:
+                raise AssertionError("Bearing terminology mappings are incomplete or prematurely approved")
+            screening_connection.execute("SAVEPOINT mapping_precedence")
+            screening_connection.execute(
+                """
+                UPDATE specification_values
+                   SET normalized_text = 'deliberately_wrong_unmapped_value'
+                 WHERE specification_id = 'SPEC-SKF-6205-2Z-CLOSURE'
+                """
+            )
+            mapped_parts = screen_candidates.load_parts(screening_connection)
+            mapped_closure = mapped_parts["MP-SKF-6205-2Z"]["values"]["PROP-BEARING-CLOSURE"]
+            if mapped_closure != {"double_non_contact_metal_shield"}:
+                raise AssertionError("Candidate screening did not prefer the auditable controlled-value mapping")
+            screening_connection.execute("ROLLBACK TO mapping_precedence")
+            screening_connection.execute("RELEASE mapping_precedence")
             nominal_rule = governed_rules[
                 ("PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1", "PROP-NOMINAL-WIDTH")
             ]
@@ -508,6 +534,53 @@ def main() -> int:
             raise AssertionError("SKF bearing completeness was not audited")
         if "6205ZZ: 9/12 required properties" not in initial_audit.stdout:
             raise AssertionError("NSK bearing evidence gaps were not audited")
+
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute(
+                "UPDATE observations SET review_state = 'accepted' WHERE observation_id = 'OBS-SKF-6205-2Z-20260930'"
+            )
+            connection.execute(
+                """
+                INSERT INTO manufacturer_part_reviews
+                  (review_id, manufacturer_part_id, decision, rationale, reviewer, decided_at, policy_version)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-SKF-MAPPING-REVIEW",
+                    "MP-SKF-6205-2Z",
+                    "accepted",
+                    "Deliberately premature acceptance with proposed terminology mappings",
+                    "quality-gate-test",
+                    "2026-09-30",
+                    "0.1",
+                ),
+            )
+            connection.commit()
+        finally:
+            connection.close()
+        unapproved_mapping_audit = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "audit_completeness.py"), "--database", str(database)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if unapproved_mapping_audit.returncode != 1 or "unapproved_code_mappings=9" not in (
+            unapproved_mapping_audit.stdout
+        ):
+            raise AssertionError(
+                "Accepted part with unapproved terminology mappings was not rejected:\n"
+                f"{unapproved_mapping_audit.stdout}\n{unapproved_mapping_audit.stderr}"
+            )
+        connection = sqlite3.connect(database)
+        try:
+            connection.execute("DELETE FROM manufacturer_part_reviews WHERE review_id = 'TEST-SKF-MAPPING-REVIEW'")
+            connection.execute(
+                "UPDATE observations SET review_state = 'unreviewed' WHERE observation_id = 'OBS-SKF-6205-2Z-20260930'"
+            )
+            connection.commit()
+        finally:
+            connection.close()
 
         issuance_audit = subprocess.run(
             [sys.executable, str(ROOT / "scripts" / "audit_issuance.py"), "--database", str(database)],
@@ -791,6 +864,52 @@ def main() -> int:
 
         connection = sqlite3.connect(database)
         try:
+            connection.execute("PRAGMA foreign_keys = ON")
+            expect_integrity_error(
+                connection,
+                """
+                INSERT INTO specification_value_mappings
+                  (mapping_id, specification_id, property_id, controlled_value_id,
+                   mapping_basis, mapping_state, rationale, proposed_by, proposed_at, policy_version)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-MAPPING-PROPERTY-MISMATCH",
+                    "SPEC-SKF-6205-2Z-GEOMETRY",
+                    "PROP-BEARING-CLOSURE",
+                    "CV-BEARING-CLOSURE-DOUBLE-NONCONTACT-METAL",
+                    "source_exact",
+                    "proposed",
+                    "Deliberately mismatched property",
+                    "quality-gate-test",
+                    "2026-09-30",
+                    "0.1",
+                ),
+            )
+            expect_integrity_error(
+                connection,
+                """
+                INSERT INTO specification_value_mappings
+                  (mapping_id, specification_id, property_id, controlled_value_id,
+                   mapping_basis, mapping_state, rationale, proposed_by, proposed_at,
+                   reviewer, reviewed_at, policy_version)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    "TEST-MAPPING-NONINDEPENDENT",
+                    "SPEC-SKF-6205-2Z-TOLERANCE",
+                    "PROP-BEARING-TOLERANCE-CLASS",
+                    "CV-BEARING-TOLERANCE-P0",
+                    "expert_interpretation",
+                    "approved",
+                    "Deliberately non-independent approval",
+                    "same-person",
+                    "2026-09-30",
+                    "same-person",
+                    "2026-09-30",
+                    "0.1",
+                ),
+            )
             expect_integrity_error(
                 connection,
                 """
@@ -877,8 +996,8 @@ def main() -> int:
 
     print(
         "Quality-gate tests passed: specificity gaps and source conflicts stayed unresolved; "
-        "incomplete review, contradictory evidence, unverified artifacts, inconsistent reservations, "
-        "unanchored items, and unnumbered or unreviewed issued UPN items were rejected."
+        "incomplete review, contradictory evidence, unapproved terminology mappings, unverified artifacts, "
+        "inconsistent reservations, unanchored items, and unnumbered or unreviewed issued UPN items were rejected."
     )
     return 0
 

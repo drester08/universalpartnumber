@@ -52,9 +52,33 @@ def main() -> int:
                       LIMIT 1
                    ), 'unreviewed') AS review_decision,
                    (SELECT COUNT(*)
-                      FROM observations AS o
+                     FROM observations AS o
                      WHERE o.manufacturer_part_id = mp.manufacturer_part_id
-                       AND o.review_state = 'unreviewed') AS unreviewed_observations
+                       AND o.review_state = 'unreviewed') AS unreviewed_observations,
+                   (SELECT COUNT(DISTINCT sv.specification_id)
+                       FROM observations AS o
+                       JOIN specification_values AS sv
+                         ON sv.observation_id = o.observation_id
+                       JOIN identity_profile_properties AS required_ipp
+                         ON required_ipp.profile_id = mp.profile_id
+                        AND required_ipp.property_id = sv.property_id
+                        AND required_ipp.requirement = 'required'
+                       JOIN properties AS mapped_property
+                         ON mapped_property.property_id = sv.property_id
+                      WHERE o.manufacturer_part_id = mp.manufacturer_part_id
+                        AND o.review_state NOT IN ('rejected', 'superseded')
+                        AND mapped_property.value_kind = 'code'
+                        AND (
+                            (SELECT COUNT(*)
+                               FROM specification_value_mappings AS approved_mapping
+                              WHERE approved_mapping.specification_id = sv.specification_id
+                                AND approved_mapping.mapping_state = 'approved') != 1
+                            OR
+                            (SELECT COUNT(*)
+                               FROM specification_value_mappings AS active_mapping
+                              WHERE active_mapping.specification_id = sv.specification_id
+                                AND active_mapping.mapping_state != 'rejected') != 1
+                        )) AS unapproved_code_mappings
               FROM manufacturer_parts AS mp
               JOIN identity_profile_properties AS ipp
                 ON ipp.profile_id = mp.profile_id
@@ -128,6 +152,7 @@ def main() -> int:
                 "missing": [],
                 "review": record["review_decision"],
                 "unreviewed_observations": record["unreviewed_observations"],
+                "unapproved_code_mappings": record["unapproved_code_mappings"],
                 "conflicts": conflicts.get(record["manufacturer_part_number"], []),
             },
         )
@@ -150,19 +175,21 @@ def main() -> int:
         print(
             f"{part_number}: {part['present']}/{part['required']} required properties; "
             f"review={part['review']}; unreviewed_observations={part['unreviewed_observations']}; "
+            f"unapproved_code_mappings={part['unapproved_code_mappings']}; "
             f"missing={missing}; source_conflicts={source_conflicts}"
         )
         if part["review"] == "accepted" and (
             part["present"] != part["required"]
             or int(part["unreviewed_observations"]) > 0
+            or int(part["unapproved_code_mappings"]) > 0
             or bool(conflict_list)
         ):
             publication_errors += 1
 
     if publication_errors:
-        print(f"Publication gate failed: {publication_errors} accepted observation(s) are incomplete.")
+        print(f"Publication gate failed: {publication_errors} accepted part record(s) fail evidence or normalization governance.")
         return 1
-    print("Publication gate passed: no incomplete or unreviewed evidence set has an accepted part review.")
+    print("Publication gate passed: no incomplete, unreviewed, conflicting, or unnormalized evidence set has an accepted part review.")
     return 0
 
 

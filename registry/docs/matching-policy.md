@@ -8,7 +8,7 @@ Two manufacturer part numbers may share one UPN only when the evidence supports 
 
 ## Workflow
 
-1. Normalize part numbers, units, terminology, and enumerated values without discarding the raw source values.
+1. Normalize part numbers, units, terminology, and enumerated values without discarding the raw source values. Enumerated terminology uses property-scoped controlled values and a separate mapping record; candidate discovery may use a proposed mapping, but accepted part evidence requires independent mapping approval.
 2. Block candidates by domain and the minimum identity-defining properties for that class.
 3. Compare every identity-defining property. Missing or less-specific values reduce certainty; only contradictory values block equivalence. A generic family value such as `steel` or `hot-dip galvanized` does not contradict a compatible, more-specific value, but it also does not prove exact equality.
 4. Check material grade, governing standard and edition, dimensions and tolerances, performance/rating, connection or interface, finish/coating, certification, and supply form when applicable.

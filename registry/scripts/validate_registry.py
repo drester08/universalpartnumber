@@ -184,6 +184,66 @@ def validate_upn_seeds(errors: list[str]) -> None:
             errors.append(f"upn-allocations.csv:{line}: UPN does not match its sequence/check digit")
 
 
+def validate_controlled_values(errors: list[str]) -> None:
+    values = read_csv("controlled-values.csv")
+    mappings = read_csv("specification-value-mappings.csv")
+    specifications = {
+        row["specification_id"]: row
+        for row in read_csv("specification-values.csv")
+    }
+    properties = {
+        row["property_id"]: row
+        for row in read_csv("properties.csv")
+    }
+    require_unique(values, "controlled_value_id", errors)
+    require_unique(mappings, "mapping_id", errors)
+    value_keys = [(row["property_id"], row["canonical_code"]) for row in values]
+    duplicate_value_keys = sorted({key for key in value_keys if value_keys.count(key) > 1})
+    if duplicate_value_keys:
+        errors.append(f"controlled-values.csv: duplicate property/code values {duplicate_value_keys}")
+    values_by_id = {row["controlled_value_id"]: row for row in values}
+    for line, row in enumerate(values, start=2):
+        if row["property_id"] not in properties:
+            errors.append(f"controlled-values.csv:{line}: unknown property_id")
+        elif properties[row["property_id"]]["value_kind"] != "code":
+            errors.append(f"controlled-values.csv:{line}: controlled values require a code property")
+        if row["lifecycle_state"] not in {"active", "deprecated"}:
+            errors.append(f"controlled-values.csv:{line}: invalid lifecycle_state")
+        if not row["canonical_code"].strip() or not row["preferred_label"].strip() or not row["definition"].strip():
+            errors.append(f"controlled-values.csv:{line}: code, label, and definition are required")
+
+    valid_bases = {"source_exact", "manufacturer_definition", "standard_crosswalk", "expert_interpretation"}
+    valid_states = {"proposed", "approved", "rejected"}
+    mapping_keys: list[tuple[str, str]] = []
+    for line, row in enumerate(mappings, start=2):
+        mapping_keys.append((row["specification_id"], row["controlled_value_id"]))
+        specification = specifications.get(row["specification_id"])
+        value = values_by_id.get(row["controlled_value_id"])
+        if specification is None:
+            errors.append(f"specification-value-mappings.csv:{line}: unknown specification_id")
+        if value is None:
+            errors.append(f"specification-value-mappings.csv:{line}: unknown controlled_value_id")
+        if row["property_id"] not in properties:
+            errors.append(f"specification-value-mappings.csv:{line}: unknown property_id")
+        if specification is not None and specification["property_id"] != row["property_id"]:
+            errors.append(f"specification-value-mappings.csv:{line}: specification property mismatch")
+        if value is not None and value["property_id"] != row["property_id"]:
+            errors.append(f"specification-value-mappings.csv:{line}: controlled-value property mismatch")
+        if row["mapping_basis"] not in valid_bases:
+            errors.append(f"specification-value-mappings.csv:{line}: invalid mapping_basis")
+        if row["mapping_state"] not in valid_states:
+            errors.append(f"specification-value-mappings.csv:{line}: invalid mapping_state")
+        if row["mapping_state"] == "approved" and (
+            not row["reviewer"].strip()
+            or not row["reviewed_at"].strip()
+            or row["reviewer"] == row["proposed_by"]
+        ):
+            errors.append(f"specification-value-mappings.csv:{line}: approval requires an independent reviewer and date")
+    duplicate_mapping_keys = sorted({key for key in mapping_keys if mapping_keys.count(key) > 1})
+    if duplicate_mapping_keys:
+        errors.append(f"specification-value-mappings.csv: duplicate specification/value mappings {duplicate_mapping_keys}")
+
+
 def validate_schema(errors: list[str]) -> int:
     schema = (ROOT / "schema.sql").read_text(encoding="utf-8")
     try:
@@ -205,6 +265,7 @@ def main() -> int:
     validate_trade_identifiers(errors)
     validate_numeric_rules(errors)
     validate_upn_seeds(errors)
+    validate_controlled_values(errors)
     table_count = validate_schema(errors)
     if errors:
         print("Registry validation failed:")

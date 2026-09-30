@@ -1,0 +1,12 @@
+controlled_value_id,property_id,canonical_code,preferred_label,definition,lifecycle_state
+CV-BEARING-GEOMETRY-SR-DGBB,PROP-BEARING-GEOMETRY,single_row_deep_groove_ball,Single-row deep-groove ball bearing,One row of balls running in deep raceway grooves.,active
+CV-BEARING-CLOSURE-DOUBLE-NONCONTACT-METAL,PROP-BEARING-CLOSURE,double_non_contact_metal_shield,Two non-contact metal shields,A non-contact metal shield is present on each side of the bearing.,active
+CV-BEARING-BORE-CYLINDRICAL,PROP-BORE-TYPE,cylindrical,Cylindrical bore,The bearing bore is cylindrical rather than tapered.,active
+CV-BEARING-CLEARANCE-CN,PROP-RADIAL-INTERNAL-CLEARANCE,cn,Normal radial internal clearance,Manufacturer designation CN or Cn for normal radial internal clearance.,active
+CV-BEARING-TOLERANCE-CLASS6-P6,PROP-BEARING-TOLERANCE-CLASS,class_6_p6,Class 6 (P6),Manufacturer-declared tolerance designation Class 6 or P6; standards equivalence remains subject to review.,active
+CV-BEARING-TOLERANCE-P0,PROP-BEARING-TOLERANCE-CLASS,p0,P0,Manufacturer-declared tolerance designation P0; standards equivalence remains subject to review.,active
+CV-BEARING-CAGE-SHEET-METAL-UNSPECIFIED,PROP-CAGE-CONSTRUCTION,sheet_metal_unspecified,Sheet-metal cage material unspecified,The source states sheet metal without proving the metal grade or forming method.,active
+CV-BEARING-CAGE-PRESSED-STEEL,PROP-CAGE-CONSTRUCTION,pressed_steel,Pressed-steel cage,A cage manufactured from pressed steel.,active
+CV-BEARING-MATERIAL-BEARING-STEEL,PROP-BEARING-MATERIAL,bearing_steel,Bearing steel,The manufacturer describes the bearing material only as bearing steel.,active
+CV-BEARING-LUBRICANT-GREASE-UNSPECIFIED,PROP-SUPPLIED-LUBRICANT,grease_unspecified,Grease formulation unspecified,The bearing is supplied with grease but the exact grease formulation is not stated.,active
+CV-BEARING-LOCATING-NONE,PROP-LOCATING-FEATURE,none,No integral locating feature,No snap-ring groove flange or other integral locating feature is declared.,active

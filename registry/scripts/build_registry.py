@@ -34,6 +34,7 @@ ORGANIZATION_FIELDS = ("organization_id", "legal_name", "organization_type", "we
 ARTIFACT_FIELDS = ("artifact_id", "source_id", "artifact_url", "media_type", "local_path", "sha256", "retrieved_at", "retrieval_state", "notes")
 UNIT_FIELDS = ("unit_id", "unece_code", "symbol", "name", "quantity_kind", "conversion_factor", "conversion_offset")
 PROPERTY_FIELDS = ("property_id", "source_id", "external_code", "preferred_label", "definition", "value_kind", "identity_role")
+CONTROLLED_VALUE_FIELDS = ("controlled_value_id", "property_id", "canonical_code", "preferred_label", "definition", "lifecycle_state")
 PROFILE_FIELDS = ("profile_id", "domain_id", "class_label", "version_label", "status", "scope_note")
 PROFILE_PROPERTY_FIELDS = ("profile_id", "property_id", "requirement", "comparison_rule", "sequence_number", "rationale")
 NUMERIC_RULE_FIELDS = ("rule_id", "profile_id", "property_id", "comparison_method", "quantity_kind", "absolute_tolerance_base", "relative_tolerance", "version_label", "rationale")
@@ -53,6 +54,7 @@ ITEM_REVIEW_FIELDS = ("item_review_id", "item_id", "decision", "rationale", "rev
 ITEM_MEMBERSHIP_FIELDS = ("item_id", "manufacturer_part_id", "equivalence_decision_id", "part_review_id", "valid_from", "valid_to")
 OBSERVATION_FIELDS = ("observation_id", "manufacturer_part_id", "item_id", "source_id", "source_locator", "observed_name", "observed_part_number", "observed_at", "raw_payload_sha256", "review_state")
 SPECIFICATION_FIELDS = ("specification_id", "observation_id", "property_id", "raw_value", "normalized_text", "normalized_number", "unit_id", "qualifier")
+SPECIFICATION_MAPPING_FIELDS = ("mapping_id", "specification_id", "property_id", "controlled_value_id", "mapping_basis", "mapping_state", "rationale", "proposed_by", "proposed_at", "reviewer", "reviewed_at", "policy_version")
 PAIR_SCREENING_FIELDS = ("screening_id", "left_part_id", "right_part_id", "profile_id", "algorithm_version", "blocking_keys", "compared_properties", "matched_properties", "conflicting_properties", "missing_properties", "score", "result", "generated_at")
 
 
@@ -92,6 +94,7 @@ def build(output: Path) -> None:
             insert_rows(connection, "domains", DOMAIN_FIELDS, rows("domain-seed.csv"))
             insert_rows(connection, "units", UNIT_FIELDS, rows("units.csv"))
             insert_rows(connection, "properties", PROPERTY_FIELDS, rows("properties.csv"))
+            insert_rows(connection, "controlled_values", CONTROLLED_VALUE_FIELDS, rows("controlled-values.csv"))
             insert_rows(connection, "identity_profiles", PROFILE_FIELDS, rows("identity-profiles.csv"))
             insert_rows(connection, "identity_profile_properties", PROFILE_PROPERTY_FIELDS, rows("identity-profile-properties.csv"))
             insert_rows(connection, "numeric_comparison_rules", NUMERIC_RULE_FIELDS, rows("numeric-comparison-rules.csv"))
@@ -107,6 +110,7 @@ def build(output: Path) -> None:
             insert_rows(connection, "manufacturer_part_reviews", PART_REVIEW_FIELDS, rows("manufacturer-part-reviews.csv"))
             insert_rows(connection, "observations", OBSERVATION_FIELDS, rows("observations.csv"))
             insert_rows(connection, "specification_values", SPECIFICATION_FIELDS, rows("specification-values.csv"))
+            insert_rows(connection, "specification_value_mappings", SPECIFICATION_MAPPING_FIELDS, rows("specification-value-mappings.csv"))
             insert_rows(connection, "match_candidates", MATCH_CANDIDATE_FIELDS, rows("match-candidates.csv"))
             insert_rows(connection, "equivalence_decisions", EQUIVALENCE_DECISION_FIELDS, rows("equivalence-decisions.csv"))
             insert_rows(connection, "item_reviews", ITEM_REVIEW_FIELDS, rows("item-reviews.csv"))

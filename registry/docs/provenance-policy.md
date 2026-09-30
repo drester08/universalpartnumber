@@ -11,6 +11,8 @@ Identity decisions require Tier 1 or Tier 2 evidence for each manufacturer part.
 
 Final item approval is separate from evidence capture. An approving item reviewer must attest independence, and the automated issuance gate must verify the complete part-review or equivalence-decision chain before publication.
 
+Normalization is also a governed assertion. Proposed source-term mappings may generate research candidates, but an accepted manufacturer-part review requires every required code-valued specification to have an independently approved controlled-value mapping. The mapper and reviewer must be different people or accountable identities.
+
 ## Required evidence fields
 
 Every accepted observation must identify the publisher, source title, canonical URL, retrieval date, exact page/section/table locator, observed part number, and review state. Retained files additionally require a SHA-256 checksum.
