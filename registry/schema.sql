@@ -25,6 +25,36 @@ CREATE TABLE sources (
   notes TEXT NOT NULL DEFAULT ''
 );
 
+CREATE TABLE source_datasets (
+  dataset_id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  provenance_type TEXT NOT NULL CHECK (
+    provenance_type IN ('user_supplied','external_export','partner_feed')
+  ),
+  supplied_at TEXT NOT NULL,
+  local_path TEXT NOT NULL UNIQUE,
+  sha256 TEXT NOT NULL CHECK (
+    length(sha256) = 64 AND sha256 NOT GLOB '*[^0-9A-Fa-f]*'
+  ),
+  media_type TEXT NOT NULL,
+  row_count INTEGER NOT NULL CHECK (row_count > 0),
+  column_count INTEGER NOT NULL CHECK (column_count > 0),
+  sensitivity TEXT NOT NULL CHECK (
+    sensitivity IN ('public','business_contact','commercial','confidential','unknown')
+  ),
+  verification_state TEXT NOT NULL CHECK (
+    verification_state IN ('unverified','profiled','validated','rejected')
+  ),
+  allowed_use TEXT NOT NULL CHECK (
+    allowed_use IN ('structure_research','identity_evidence','ingestion_candidate','blocked')
+  ),
+  notes TEXT NOT NULL DEFAULT '',
+  CHECK (length(trim(title)) > 0),
+  CHECK (length(trim(local_path)) > 0),
+  CHECK (length(trim(media_type)) > 0),
+  CHECK (verification_state = 'validated' OR allowed_use != 'identity_evidence')
+);
+
 CREATE TABLE source_artifacts (
   artifact_id TEXT PRIMARY KEY,
   source_id TEXT NOT NULL REFERENCES sources(source_id),

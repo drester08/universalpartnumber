@@ -31,8 +31,8 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 3. Resolve missing identity fields and source conflicts across the 38 pilot parts, especially package-included splice hardware, Atkore rung construction, Eaton geometry and length, Legrand height, and the SKF/NSK bearing tolerance and evidence gaps.
 4. Extend artifact retrieval with per-publisher access rules; fifteen artifacts are verified locally while fifteen source records remain remote-only or blocked.
 5. Add a fifth narrow part class and continue expanding manufacturers while measuring false-negative risk in the blocking keys.
-6. Build the operational reviewer queue on the now-reproducible part, item, allocation, equivalence, and membership ledgers.
-7. Independently review the ten complete Niedax evidence profiles; completeness alone must not change their status.
+6. Work the deterministic reviewer queue, starting with P0 terminology mappings and source conflicts; keep every independent decision in the governed ledgers.
+7. Independently review the ten complete Niedax evidence profiles exposed by the queue; completeness alone must not change their status.
 
 ## Completed foundation
 
@@ -43,4 +43,6 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 - Versioned cross-manufacturer screening with 22 reproducible outcomes and property-specific cross-unit comparison.
 - Permanent opaque UPN allocation syntax, reproducible canonical-item ledgers, and a fail-closed issuance audit; no UPN is issued yet.
 - Property-scoped controlled terminology and independently reviewable source-term mappings; the initial bearing mappings remain proposed.
+- A deterministic reviewer queue covering terminology, evidence gaps, observations, conflicts, artifacts, source governance, external identifiers, and complete-part review dependencies.
+- Four checksummed user-supplied catalogues covering plate, structural steel, gaskets, and piping are registered as structure research only; their field conflicts and profile implications are documented without treating their rows as verified identity evidence.
 - Local verification of fifteen cached artifacts without committing copyrighted source files to Git.

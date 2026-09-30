@@ -29,6 +29,21 @@ SOURCE_FIELDS = (
     "retrieved_at",
     "notes",
 )
+SOURCE_DATASET_FIELDS = (
+    "dataset_id",
+    "title",
+    "provenance_type",
+    "supplied_at",
+    "local_path",
+    "sha256",
+    "media_type",
+    "row_count",
+    "column_count",
+    "sensitivity",
+    "verification_state",
+    "allowed_use",
+    "notes",
+)
 DOMAIN_FIELDS = ("domain_id", "label", "scope_note", "status")
 ORGANIZATION_FIELDS = ("organization_id", "legal_name", "organization_type", "website_url")
 ARTIFACT_FIELDS = ("artifact_id", "source_id", "artifact_url", "media_type", "local_path", "sha256", "retrieved_at", "retrieval_state", "notes")
@@ -89,6 +104,7 @@ def build(output: Path) -> None:
         try:
             connection.executescript((ROOT / "schema.sql").read_text(encoding="utf-8"))
             insert_rows(connection, "sources", SOURCE_FIELDS, rows("source-register.csv"))
+            insert_rows(connection, "source_datasets", SOURCE_DATASET_FIELDS, rows("source-datasets.csv"))
             insert_rows(connection, "source_artifacts", ARTIFACT_FIELDS, rows("source-artifacts.csv"))
             insert_rows(connection, "organizations", ORGANIZATION_FIELDS, rows("organizations.csv"))
             insert_rows(connection, "domains", DOMAIN_FIELDS, rows("domain-seed.csv"))
@@ -148,13 +164,15 @@ def main() -> int:
     connection = sqlite3.connect(output)
     try:
         source_count = connection.execute("SELECT count(*) FROM sources").fetchone()[0]
+        dataset_count = connection.execute("SELECT count(*) FROM source_datasets").fetchone()[0]
         domain_count = connection.execute("SELECT count(*) FROM domains").fetchone()[0]
         part_count = connection.execute("SELECT count(*) FROM manufacturer_parts").fetchone()[0]
         observation_count = connection.execute("SELECT count(*) FROM observations").fetchone()[0]
     finally:
         connection.close()
     print(
-        f"Built {output} with {source_count} sources, {domain_count} domains, "
+        f"Built {output} with {source_count} sources, {dataset_count} reference datasets, "
+        f"{domain_count} domains, "
         f"{part_count} manufacturer parts and {observation_count} observations."
     )
     return 0

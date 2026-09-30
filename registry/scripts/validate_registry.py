@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import sqlite3
+import string
 import sys
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -62,6 +63,40 @@ def validate_sources(errors: list[str]) -> int:
                 raise ValueError
         except ValueError:
             errors.append(f"source-register.csv:{line}: authority_tier must be 1-4")
+    return len(rows)
+
+
+def validate_source_datasets(errors: list[str]) -> int:
+    rows = read_csv("source-datasets.csv")
+    require_unique(rows, "dataset_id", errors)
+    require_unique(rows, "local_path", errors)
+    valid_provenance = {"user_supplied", "external_export", "partner_feed"}
+    valid_sensitivity = {"public", "business_contact", "commercial", "confidential", "unknown"}
+    valid_state = {"unverified", "profiled", "validated", "rejected"}
+    valid_use = {"structure_research", "identity_evidence", "ingestion_candidate", "blocked"}
+    for line, row in enumerate(rows, start=2):
+        if row["provenance_type"] not in valid_provenance:
+            errors.append(f"source-datasets.csv:{line}: invalid provenance_type")
+        if row["sensitivity"] not in valid_sensitivity:
+            errors.append(f"source-datasets.csv:{line}: invalid sensitivity")
+        if row["verification_state"] not in valid_state:
+            errors.append(f"source-datasets.csv:{line}: invalid verification_state")
+        if row["allowed_use"] not in valid_use:
+            errors.append(f"source-datasets.csv:{line}: invalid allowed_use")
+        if row["allowed_use"] == "identity_evidence" and row["verification_state"] != "validated":
+            errors.append(f"source-datasets.csv:{line}: identity evidence must be validated")
+        digest = row["sha256"].strip()
+        if len(digest) != 64 or any(character not in string.hexdigits for character in digest):
+            errors.append(f"source-datasets.csv:{line}: invalid SHA-256")
+        try:
+            if int(row["row_count"]) <= 0 or int(row["column_count"]) <= 0:
+                raise ValueError
+        except ValueError:
+            errors.append(
+                f"source-datasets.csv:{line}: row_count and column_count must be positive integers"
+            )
+        if not row["local_path"].startswith("registry/artifacts/"):
+            errors.append(f"source-datasets.csv:{line}: local_path must remain under registry/artifacts")
     return len(rows)
 
 
@@ -261,6 +296,7 @@ def validate_schema(errors: list[str]) -> int:
 def main() -> int:
     errors: list[str] = []
     source_count = validate_sources(errors)
+    dataset_count = validate_source_datasets(errors)
     domain_count = validate_domains(errors)
     validate_trade_identifiers(errors)
     validate_numeric_rules(errors)
@@ -272,7 +308,10 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print(f"Registry validation passed: {source_count} sources, {domain_count} domains, {table_count} tables.")
+    print(
+        f"Registry validation passed: {source_count} sources, {dataset_count} reference datasets, "
+        f"{domain_count} domains, {table_count} tables."
+    )
     return 0
 
 

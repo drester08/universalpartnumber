@@ -11,6 +11,7 @@ from decimal import Decimal
 from pathlib import Path
 
 import build_registry
+import build_review_queue
 import numeric_rules
 import screen_candidates
 import upn
@@ -249,6 +250,28 @@ def main() -> int:
             ).fetchone()[0]
             if tuple(mapping_summary) != (15, 0) or controlled_value_count != 11:
                 raise AssertionError("Bearing terminology mappings are incomplete or prematurely approved")
+            dataset_summary = screening_connection.execute(
+                """
+                SELECT COUNT(*),
+                       SUM(CASE WHEN verification_state = 'profiled' THEN 1 ELSE 0 END),
+                       SUM(CASE WHEN allowed_use = 'identity_evidence' THEN 1 ELSE 0 END)
+                  FROM source_datasets
+                """
+            ).fetchone()
+            if tuple(dataset_summary) != (4, 4, 0):
+                raise AssertionError("User reference datasets were treated as verified identity evidence")
+            review_items = build_review_queue.build_items(screening_connection)
+            queue_counts = {
+                queue_type: sum(item["queue_type"] == queue_type for item in review_items)
+                for queue_type in {item["queue_type"] for item in review_items}
+            }
+            if (
+                len(review_items) != 166
+                or queue_counts.get("reference_dataset_validation") != 4
+                or queue_counts.get("terminology_mapping_review") != 15
+                or sum(item["readiness"] == "blocked" for item in review_items) != 11
+            ):
+                raise AssertionError("Deterministic reviewer queue omitted or misclassified governed work")
             screening_connection.execute("SAVEPOINT mapping_precedence")
             screening_connection.execute(
                 """
