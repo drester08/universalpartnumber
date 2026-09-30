@@ -2,7 +2,9 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
-PFC expansion: `docs/structural-pfc-verification.md` screens six newly covered channel rows against British Steel: two nominal agreements, two conflicts and two absent serial candidates. Source register81, cached artifacts25. Combined structural screening67distinct rows;738outside selected tables. Two PFC findings with four row links are integrated; queue264. Nominal agreements remain unapproved.
+PFC corroboration: `docs/structural-pfc-corroboration.md` adds official Macsteel and ArcelorMittal evidence. Macsteel's six rows agree in five nominal fields; ArcelorMittal has two agreements, three conflicts and one absent key. Shear-centre distance is kept separate from centroid distance. Source register83, cached artifacts27. Combined structural screening67distinct rows;66have at least one selected-source nominal candidate,738outside selected tables. New corroboration report not yet in generic findings; earlier PFC tasks remain open. No article approval.
+
+PFC expansion: `docs/structural-pfc-verification.md` screens six channel rows against British Steel: two nominal agreements, two conflicts and two absent serial candidates. Two findings with four row links are integrated; queue264. Nominal agreements remain unapproved.
 
 Independent follow-up: `docs/structural-british-corroboration.md` screens all49UB/UC rows against British Steel PDFs:48exact nominal candidates, one unmatched mass key and one inter-source width conflict among46cross-source comparisons. Root radii/clear depths retained. Four British UB/UC findings remain integrated. No article approval.
 

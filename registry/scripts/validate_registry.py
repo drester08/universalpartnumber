@@ -40,9 +40,12 @@ def validate_sources(errors: list[str]) -> int:
     require_unique(rows, "source_id", errors)
     require_unique(rows, "source_url", errors)
     valid_access = {"public", "registration", "subscription", "purchase", "unknown"}
+    valid_types = {"standard", "dictionary", "classification", "catalog", "datasheet", "webpage", "database", "other"}
     valid_license = {"open", "attribution", "restricted", "review_required", "unknown"}
     valid_ingestion = {"metadata_only", "license_verified", "license_review", "reference_only", "blocked"}
     for line, row in enumerate(rows, start=2):
+        if row["source_type"] not in valid_types:
+            errors.append(f"source-register.csv:{line}: invalid source_type")
         parsed = urlparse(row["source_url"])
         if parsed.scheme != "https" or not parsed.netloc:
             errors.append(f"source-register.csv:{line}: source_url must be an absolute HTTPS URL")
