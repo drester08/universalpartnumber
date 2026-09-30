@@ -1,0 +1,20 @@
+property_id,source_id,external_code,preferred_label,definition,value_kind,identity_role
+PROP-FORM,,,Product form,"Physical product form within the class, such as straight section or fitting.",code,defining
+PROP-NOMINAL-WIDTH,,,Nominal inside width,"Manufacturer's nominal usable ladder width; not necessarily the overall width.",number,defining
+PROP-OVERALL-WIDTH,,,Overall width,Maximum external width of the supplied straight section.,number,defining
+PROP-SIDE-RAIL-HEIGHT,,,Side rail height,External height of the cable-ladder side rail.,number,defining
+PROP-LENGTH,,,Section length,End-to-end length of one supplied straight section.,number,defining
+PROP-MATERIAL,,,Base material,Primary structural material of the ladder section.,code,defining
+PROP-MATERIAL-GRADE,,,Material grade,Specified grade or alloy of the primary structural material.,code,conditional
+PROP-SURFACE-PROTECTION,,,Surface protection,Coating or treatment applied to the structural material.,code,defining
+PROP-RUNG-SPACING,,,Rung centre spacing,Centre-to-centre distance between adjacent rungs.,number,defining
+PROP-RUNG-PROFILE,,,Rung profile,Cross-section and perforation form of the rung.,code,defining
+PROP-RUNG-ATTACHMENT,,,Rung attachment,Method by which rungs are fixed to the side rails.,code,defining
+PROP-SIDE-RAIL-PROFILE,,,Side rail profile,Cross-sectional form of the ladder side rails.,code,defining
+PROP-SIDE-PERFORATION,,,Side perforation,Whether and how the side rails are perforated.,code,defining
+PROP-DUTY-SERIES,,,Duty or load series,Manufacturer series that determines construction and load performance.,code,defining
+PROP-LOAD-RATING,,,Load rating,"Rated load together with span, test standard, orientation and safety factor context.",text,conditional
+PROP-CERTIFICATIONS,,,Certifications,Applicable third-party approvals and declared conformity set.,text,conditional
+PROP-CIRCUIT-INTEGRITY,,,Circuit integrity suitability,Declared suitability for maintaining circuit integrity.,boolean,conditional
+PROP-SPLICES-INCLUDED,,,Splice hardware included,Whether splice plates and their fasteners are included with the section.,boolean,defining
+PROP-USABLE-CROSS-SECTION,,,Usable cross-sectional area,Manufacturer-declared usable cable area.,number,descriptive

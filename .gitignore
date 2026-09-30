@@ -1,4 +1,5 @@
 .vercel
 registry/build/
+registry/artifacts/
 __pycache__/
 *.pyc

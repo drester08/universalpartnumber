@@ -30,6 +30,16 @@ SOURCE_FIELDS = (
     "notes",
 )
 DOMAIN_FIELDS = ("domain_id", "label", "scope_note", "status")
+ORGANIZATION_FIELDS = ("organization_id", "legal_name", "organization_type", "website_url")
+ARTIFACT_FIELDS = ("artifact_id", "source_id", "artifact_url", "media_type", "local_path", "sha256", "retrieved_at", "retrieval_state", "notes")
+UNIT_FIELDS = ("unit_id", "unece_code", "symbol", "name", "quantity_kind", "conversion_factor", "conversion_offset")
+PROPERTY_FIELDS = ("property_id", "source_id", "external_code", "preferred_label", "definition", "value_kind", "identity_role")
+PROFILE_FIELDS = ("profile_id", "domain_id", "class_label", "version_label", "status", "scope_note")
+PROFILE_PROPERTY_FIELDS = ("profile_id", "property_id", "requirement", "comparison_rule", "sequence_number", "rationale")
+MANUFACTURER_PART_FIELDS = ("manufacturer_part_id", "manufacturer_id", "profile_id", "manufacturer_part_number", "normalized_part_number", "manufacturer_name", "lifecycle_state")
+PART_IDENTIFIER_FIELDS = ("manufacturer_part_id", "scheme", "identifier_value", "source_id", "is_primary")
+OBSERVATION_FIELDS = ("observation_id", "manufacturer_part_id", "item_id", "source_id", "source_locator", "observed_name", "observed_part_number", "observed_at", "raw_payload_sha256", "review_state")
+SPECIFICATION_FIELDS = ("specification_id", "observation_id", "property_id", "raw_value", "normalized_text", "normalized_number", "unit_id", "qualifier")
 
 
 def rows(name: str) -> list[dict[str, str | None]]:
@@ -63,7 +73,17 @@ def build(output: Path) -> None:
         try:
             connection.executescript((ROOT / "schema.sql").read_text(encoding="utf-8"))
             insert_rows(connection, "sources", SOURCE_FIELDS, rows("source-register.csv"))
+            insert_rows(connection, "source_artifacts", ARTIFACT_FIELDS, rows("source-artifacts.csv"))
+            insert_rows(connection, "organizations", ORGANIZATION_FIELDS, rows("organizations.csv"))
             insert_rows(connection, "domains", DOMAIN_FIELDS, rows("domain-seed.csv"))
+            insert_rows(connection, "units", UNIT_FIELDS, rows("units.csv"))
+            insert_rows(connection, "properties", PROPERTY_FIELDS, rows("properties.csv"))
+            insert_rows(connection, "identity_profiles", PROFILE_FIELDS, rows("identity-profiles.csv"))
+            insert_rows(connection, "identity_profile_properties", PROFILE_PROPERTY_FIELDS, rows("identity-profile-properties.csv"))
+            insert_rows(connection, "manufacturer_parts", MANUFACTURER_PART_FIELDS, rows("manufacturer-parts.csv"))
+            insert_rows(connection, "manufacturer_part_identifiers", PART_IDENTIFIER_FIELDS, rows("manufacturer-part-identifiers.csv"))
+            insert_rows(connection, "observations", OBSERVATION_FIELDS, rows("observations.csv"))
+            insert_rows(connection, "specification_values", SPECIFICATION_FIELDS, rows("specification-values.csv"))
             foreign_key_errors = connection.execute("PRAGMA foreign_key_check").fetchall()
             if foreign_key_errors:
                 raise RuntimeError(f"Foreign-key errors: {foreign_key_errors}")
@@ -97,9 +117,14 @@ def main() -> int:
     try:
         source_count = connection.execute("SELECT count(*) FROM sources").fetchone()[0]
         domain_count = connection.execute("SELECT count(*) FROM domains").fetchone()[0]
+        part_count = connection.execute("SELECT count(*) FROM manufacturer_parts").fetchone()[0]
+        observation_count = connection.execute("SELECT count(*) FROM observations").fetchone()[0]
     finally:
         connection.close()
-    print(f"Built {output} with {source_count} sources and {domain_count} domains.")
+    print(
+        f"Built {output} with {source_count} sources, {domain_count} domains, "
+        f"{part_count} manufacturer parts and {observation_count} observations."
+    )
     return 0
 
 

@@ -11,6 +11,7 @@ Run the registry checks with:
 ```powershell
 python registry/scripts/validate_registry.py
 python registry/scripts/build_registry.py
+python registry/scripts/audit_completeness.py
 ```
 
 ## Deploy

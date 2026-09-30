@@ -33,6 +33,9 @@ CREATE TABLE source_artifacts (
   local_path TEXT,
   sha256 TEXT,
   retrieved_at TEXT NOT NULL,
+  retrieval_state TEXT NOT NULL CHECK (retrieval_state IN ('retrieved','remote_only','blocked','superseded')),
+  notes TEXT NOT NULL DEFAULT '',
+  CHECK (retrieval_state != 'retrieved' OR (local_path IS NOT NULL AND sha256 IS NOT NULL)),
   UNIQUE (source_id, artifact_url)
 );
 
@@ -65,6 +68,27 @@ CREATE TABLE properties (
   UNIQUE (source_id, external_code)
 );
 
+CREATE TABLE identity_profiles (
+  profile_id TEXT PRIMARY KEY,
+  domain_id TEXT NOT NULL REFERENCES domains(domain_id),
+  class_label TEXT NOT NULL,
+  version_label TEXT NOT NULL,
+  status TEXT NOT NULL CHECK (status IN ('draft','reviewed','retired')),
+  scope_note TEXT NOT NULL,
+  reviewed_at TEXT,
+  UNIQUE (domain_id, class_label, version_label)
+);
+
+CREATE TABLE identity_profile_properties (
+  profile_id TEXT NOT NULL REFERENCES identity_profiles(profile_id),
+  property_id TEXT NOT NULL REFERENCES properties(property_id),
+  requirement TEXT NOT NULL CHECK (requirement IN ('required','conditional','descriptive')),
+  comparison_rule TEXT NOT NULL CHECK (comparison_rule IN ('exact','normalized_exact','numeric_exact','set_equal','contextual')),
+  sequence_number INTEGER NOT NULL,
+  rationale TEXT NOT NULL,
+  PRIMARY KEY (profile_id, property_id)
+);
+
 CREATE TABLE units (
   unit_id TEXT PRIMARY KEY,
   unece_code TEXT UNIQUE,
@@ -78,7 +102,7 @@ CREATE TABLE units (
 CREATE TABLE items_of_supply (
   item_id TEXT PRIMARY KEY,
   upn TEXT UNIQUE,
-  domain_id TEXT NOT NULL REFERENCES domains(domain_id),
+  profile_id TEXT NOT NULL REFERENCES identity_profiles(profile_id),
   preferred_name TEXT NOT NULL,
   lifecycle_state TEXT NOT NULL CHECK (lifecycle_state IN ('candidate','under_review','issued','deprecated','withdrawn')),
   fingerprint_version TEXT,
@@ -91,11 +115,21 @@ CREATE TABLE items_of_supply (
 CREATE TABLE manufacturer_parts (
   manufacturer_part_id TEXT PRIMARY KEY,
   manufacturer_id TEXT NOT NULL REFERENCES organizations(organization_id),
+  profile_id TEXT NOT NULL REFERENCES identity_profiles(profile_id),
   manufacturer_part_number TEXT NOT NULL,
   normalized_part_number TEXT NOT NULL,
   manufacturer_name TEXT,
   lifecycle_state TEXT NOT NULL CHECK (lifecycle_state IN ('active','obsolete','unknown')),
   UNIQUE (manufacturer_id, normalized_part_number)
+);
+
+CREATE TABLE manufacturer_part_identifiers (
+  manufacturer_part_id TEXT NOT NULL REFERENCES manufacturer_parts(manufacturer_part_id),
+  scheme TEXT NOT NULL CHECK (scheme IN ('manufacturer_part_number','gtin','upc','ean','other')),
+  identifier_value TEXT NOT NULL,
+  source_id TEXT NOT NULL REFERENCES sources(source_id),
+  is_primary INTEGER NOT NULL DEFAULT 0 CHECK (is_primary IN (0, 1)),
+  PRIMARY KEY (manufacturer_part_id, scheme, identifier_value)
 );
 
 CREATE TABLE observations (

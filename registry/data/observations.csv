@@ -1,0 +1,4 @@
+observation_id,manufacturer_part_id,item_id,source_id,source_locator,observed_name,observed_part_number,observed_at,raw_payload_sha256,review_state
+OBS-LEGRAND-ZL450G-20260930,MP-LEGRAND-ZL450G,,SRC-LEGRAND-ZL450G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 450mm x 100mm x 3m Length",ZL450G,2026-09-30,,unreviewed
+OBS-LEGRAND-ZL600G-20260930,MP-LEGRAND-ZL600G,,SRC-LEGRAND-ZL600G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 600mm x 100mm x 3m Length",ZL600G,2026-09-30,,unreviewed
+OBS-LEGRAND-ZL750G-20260930,MP-LEGRAND-ZL750G,,SRC-LEGRAND-ZL750G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 750mm x 100mm x 3m Length",ZL750G,2026-09-30,,unreviewed

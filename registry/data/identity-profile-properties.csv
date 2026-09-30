@@ -1,0 +1,20 @@
+profile_id,property_id,requirement,comparison_rule,sequence_number,rationale
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-FORM,required,exact,1,Prevents a straight section from matching a fitting or accessory.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-NOMINAL-WIDTH,required,numeric_exact,2,Determines usable routing width and fitting compatibility.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-OVERALL-WIDTH,required,numeric_exact,3,Determines installed envelope and support compatibility.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-SIDE-RAIL-HEIGHT,required,numeric_exact,4,Determines capacity and fitting/coupler compatibility.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-LENGTH,required,numeric_exact,5,Changes the supplied item and installation count.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-MATERIAL,required,normalized_exact,6,Material affects strength corrosion and installation context.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-MATERIAL-GRADE,conditional,normalized_exact,7,Required whenever a manufacturer declares a grade or alloy.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-SURFACE-PROTECTION,required,normalized_exact,8,Finish affects corrosion performance and environment suitability.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-RUNG-SPACING,required,numeric_exact,9,Changes cable support and load performance.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-RUNG-PROFILE,required,normalized_exact,10,Changes fastening interfaces and physical construction.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-RUNG-ATTACHMENT,required,normalized_exact,11,Changes structural construction and performance.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-SIDE-RAIL-PROFILE,required,normalized_exact,12,Changes coupler compatibility and structural performance.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-SIDE-PERFORATION,required,normalized_exact,13,Changes mounting options and construction.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-DUTY-SERIES,required,contextual,14,Series encodes construction and load performance until full ratings are captured.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-LOAD-RATING,conditional,contextual,15,Must compare load span test standard orientation and safety factor together.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-CERTIFICATIONS,conditional,set_equal,16,Approval differences can prohibit substitution in regulated applications.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-CIRCUIT-INTEGRITY,conditional,exact,17,Safety-critical declared suitability cannot be inferred.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-SPLICES-INCLUDED,required,exact,18,Included hardware changes the supplied commercial item.
+PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-USABLE-CROSS-SECTION,descriptive,numeric_exact,19,Useful validation value but not a substitute for geometry.
