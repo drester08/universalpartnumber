@@ -16,7 +16,7 @@ Wire-mesh tray is not a lighter-looking cable ladder. Its load-bearing geometry,
 
 The fifteen required fields are product form, nominal width, overall width, nominal height, overall height, section length, base material, surface protection, cross-wire diameter, top longitudinal wire diameter, other longitudinal wire diameter, longitudinal and transverse mesh spacing, wire-joint construction, and whether connection hardware is included. Nominal size preserves the market and fitting class; overall size preserves the real installed envelope. Material grade, contextual load rating, and certifications are conditional when declared. Mass, unambiguous usable area, and application guidance remain descriptive.
 
-Numeric values retain the source unit. Completeness auditing converts values to each unit's common base and surfaces cross-source differences greater than 0.1 percent. Screening 0.1 blocks only on compatible form and coarse steel material, then reports all remaining required-property differences. It deliberately cannot approve equivalence; candidate-grade numeric comparison still requires a versioned precision and unit-conversion policy.
+Numeric values retain the source unit. Completeness auditing and screening convert them through governed unit factors and property-specific rules. Nominal market classes allow metric-inch naming differences up to two percent, while actual envelope, length, wire, and mesh geometry use much tighter representation limits. These are comparison rules, not manufacturing tolerances. Screening 0.2 blocks only on compatible form and coarse steel material, then reports all remaining required-property differences. It deliberately cannot approve equivalence.
 
 ## Eaton pilot record
 
@@ -26,7 +26,7 @@ The catalog and Section 16135 specification state a minimum wire diameter of 0.1
 
 The exact page's accessible text renders `107.3" actual area` ambiguously. A separate official Eaton load-fill table resolves the same FT6X18 value as 107.3 square inches, so the normalized area is sourced to that table rather than inferred from the page. Official performance material also records six-inch load depth and span-specific ratings. It states that four splices are required for UL Classification, but that installation requirement is not evidence that four splices are included with the sold section. `Splice hardware included` remains unknown.
 
-The record therefore still has nine of fifteen required identity properties and remains `unreviewed`. The extra evidence improves engineering context without manufacturing false completeness. Family claims remain in their own observations and are not silently promoted to exact-SKU facts.
+The exact page states a 118.312-inch section while the official catalog states three metres. Those values differ by 5.1248 mm, beyond the governed three-millimetre representation allowance, so `Length` is an explicit internal source conflict. The record therefore still has nine of fifteen required identity properties and remains `unreviewed`. The extra evidence improves engineering context without manufacturing false completeness. Family claims remain in their own observations and are not silently promoted to exact-SKU facts.
 
 The UPC is valid under GS1 Mod-10, but the official page does not establish whether it identifies one section or another packaging level. It is therefore attached to the supplier offer with `unknown` scope, never to the physical part record.
 
@@ -42,7 +42,7 @@ The two articles match on nominal width, nominal height, and black powder-coat f
 
 - Resolve Eaton's three exact wire diameters, two directional mesh spacings, and splice-inclusion evidence; also resolve Legrand's missing splice-inclusion evidence.
 - Resolve Legrand's conflicting official height statements or obtain an authoritative revision decision.
-- Define and test candidate-grade numeric precision and unit conversion before any positive match.
+- Obtain independent engineering review of the versioned numeric comparison rules before any positive match.
 - Obtain independent review of each observation before any equivalence decision.
 
 Until those conditions are met, this profile can support capture, completeness auditing, and negative screening only. It cannot issue a UPN.

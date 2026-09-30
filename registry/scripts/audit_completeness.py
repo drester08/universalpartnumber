@@ -7,8 +7,9 @@ import argparse
 import sqlite3
 import sys
 from collections import defaultdict
-from decimal import Decimal
 from pathlib import Path
+
+import numeric_rules
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -65,7 +66,9 @@ def main() -> int:
         ).fetchall()
         numeric_records = connection.execute(
             """
-            SELECT mp.manufacturer_part_number,
+            SELECT mp.profile_id,
+                   mp.manufacturer_part_number,
+                   ipp.property_id,
                    p.preferred_label,
                    sv.normalized_number,
                    u.quantity_kind,
@@ -88,27 +91,31 @@ def main() -> int:
           ORDER BY mp.manufacturer_part_number, ipp.sequence_number, o.observation_id
             """
         ).fetchall()
+        governed_numeric_rules = numeric_rules.load_rules(connection)
     finally:
         connection.close()
 
-    numeric_values: dict[tuple[str, str], list[tuple[str | None, Decimal]]] = defaultdict(list)
+    numeric_values: dict[
+        tuple[str, str, str, str], set[numeric_rules.NumericValue]
+    ] = defaultdict(set)
     for record in numeric_records:
-        factor = Decimal(record["conversion_factor"] or "1")
-        offset = Decimal(record["conversion_offset"] or "0")
-        base_value = Decimal(record["normalized_number"]) * factor + offset
-        numeric_values[(record["manufacturer_part_number"], record["preferred_label"])].append(
-            (record["quantity_kind"], base_value)
-        )
+        value = numeric_rules.to_base_value(record)
+        if value is not None:
+            numeric_values[
+                (
+                    record["profile_id"],
+                    record["manufacturer_part_number"],
+                    record["property_id"],
+                    record["preferred_label"],
+                )
+            ].add(value)
 
     conflicts: dict[str, list[str]] = defaultdict(list)
-    for (part_number, label), values in numeric_values.items():
+    for (profile_id, part_number, property_id, label), values in numeric_values.items():
         if len(values) < 2:
             continue
-        quantity_kinds = {quantity_kind for quantity_kind, _ in values}
-        numbers = [number for _, number in values]
-        scale = max(abs(number) for number in numbers)
-        tolerance = max(Decimal("0.000001"), scale * Decimal("0.001"))
-        if len(quantity_kinds) != 1 or max(numbers) - min(numbers) > tolerance:
+        rule = governed_numeric_rules.get((profile_id, property_id))
+        if rule is None or not numeric_rules.sets_compatible(values, values, rule):
             conflicts[part_number].append(label)
 
     parts: dict[str, dict[str, object]] = {}

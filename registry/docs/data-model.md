@@ -11,6 +11,7 @@ UPN separates a physical branded part, a supplier's commercial offer, and the su
 5. An **item of supply** is the canonical UPN concept. It can collect multiple manufacturer parts only after a reviewed equivalence decision.
 6. **Application interchangeability** is separate from identity. Two different items may be substitutable in a defined application, while identical items may still require procurement or certification constraints.
 7. An **external identifier** such as an NSN is its own governed record. A manufacturer or supplier assertion creates an unreviewed cross-reference; it becomes authority-verified only after the exact issuing-authority record is inspected.
+8. A **numeric comparison rule** belongs to one profile-property pair. It defines only how differently rounded source representations are compared after unit conversion. It is versioned, cannot stand in for a manufacturer's dimensional tolerance, and is mandatory for every required `numeric_exact` field.
 
 ## Identifier policy
 

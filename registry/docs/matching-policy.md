@@ -1,6 +1,6 @@
 # Matching and equivalence policy
 
-Version: 0.2-draft
+Version: 0.3-draft
 
 ## Decision rule
 
@@ -16,6 +16,14 @@ Two manufacturer part numbers may share one UPN only when the evidence supports 
 6. Require primary-source evidence for both manufacturer parts. Secondary sources may identify a lead but cannot close the decision.
 7. Record one of `same_item`, `different_item`, or `insufficient_evidence`, with a reviewer, policy version, rationale, and source locators.
 8. Issue or attach a UPN only after the `same_item` decision passes review.
+
+## Numeric comparison
+
+Required `numeric_exact` properties are compared only through a versioned rule in `data/numeric-comparison-rules.csv`. Values are converted to a common SI base with the governed unit table before comparison. A rule uses the greater of its absolute and relative representation tolerances.
+
+These limits reconcile source rounding; they are not manufacturing tolerances and never expand a declared product tolerance. Nominal market classes deliberately have broader rules because, for example, 450 mm and 18 inches can name the same fitting class. Overall dimensions remain independently defining under much tighter rules. A required numeric property without a rule, a missing unit, or a quantity-kind mismatch yields insufficient evidence rather than a match.
+
+When one part has multiple authoritative values, every value must be mutually compatible under the same property rule. Otherwise the part has an internal source conflict and cannot advance to positive equivalence review. Candidate-screen algorithm versions change whenever these rules or their interpretation change.
 
 ## Hard stops
 

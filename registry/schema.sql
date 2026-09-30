@@ -99,6 +99,21 @@ CREATE TABLE units (
   conversion_offset TEXT
 );
 
+CREATE TABLE numeric_comparison_rules (
+  rule_id TEXT PRIMARY KEY,
+  profile_id TEXT NOT NULL REFERENCES identity_profiles(profile_id),
+  property_id TEXT NOT NULL REFERENCES properties(property_id),
+  comparison_method TEXT NOT NULL CHECK (comparison_method = 'absolute_or_relative'),
+  quantity_kind TEXT NOT NULL,
+  absolute_tolerance_base TEXT NOT NULL,
+  relative_tolerance TEXT NOT NULL,
+  version_label TEXT NOT NULL,
+  rationale TEXT NOT NULL,
+  UNIQUE (profile_id, property_id),
+  CHECK (CAST(absolute_tolerance_base AS REAL) >= 0),
+  CHECK (CAST(relative_tolerance AS REAL) >= 0)
+);
+
 CREATE TABLE items_of_supply (
   item_id TEXT PRIMARY KEY,
   upn TEXT UNIQUE,

@@ -11,11 +11,13 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+import numeric_rules
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_RULES = {
     "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1": {
-        "algorithm_version": "cable-ladder-screen-0.2",
+        "algorithm_version": "cable-ladder-screen-0.3",
         "blocking_properties": (
             "PROP-FORM",
             "PROP-NOMINAL-WIDTH",
@@ -26,7 +28,7 @@ PROFILE_RULES = {
         ),
     },
     "PROFILE-FASTENER-HEX-FULL-ISO4017-0.1": {
-        "algorithm_version": "iso4017-hex-screen-0.1",
+        "algorithm_version": "iso4017-hex-screen-0.2",
         "blocking_properties": (
             "PROP-FASTENER-STANDARD",
             "PROP-THREAD-DIAMETER",
@@ -40,7 +42,7 @@ PROFILE_RULES = {
         ),
     },
     "PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1": {
-        "algorithm_version": "wire-mesh-screen-0.1",
+        "algorithm_version": "wire-mesh-screen-0.2",
         "blocking_properties": (
             "PROP-FORM",
             "PROP-MATERIAL",
@@ -64,12 +66,12 @@ FIELDS = (
 )
 
 
-def normalized_value(row: sqlite3.Row) -> str:
+def normalized_value(row: sqlite3.Row) -> str | numeric_rules.NumericValue:
+    numeric = numeric_rules.to_base_value(row)
+    if numeric is not None:
+        return numeric
     if row["normalized_text"] is not None:
         return str(row["normalized_text"]).strip().casefold()
-    if row["normalized_number"] is not None:
-        unit = row["unit_id"] or ""
-        return f"{row['normalized_number']}|{unit}"
     return str(row["raw_value"]).strip().casefold()
 
 
@@ -88,9 +90,11 @@ def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
     for row in connection.execute(
         """
         SELECT o.manufacturer_part_id, sv.property_id, sv.raw_value,
-               sv.normalized_text, sv.normalized_number, sv.unit_id
+               sv.normalized_text, sv.normalized_number, sv.unit_id,
+               u.quantity_kind, u.conversion_factor, u.conversion_offset
           FROM observations AS o
           JOIN specification_values AS sv ON sv.observation_id = o.observation_id
+          LEFT JOIN units AS u ON u.unit_id = sv.unit_id
          WHERE o.review_state NOT IN ('rejected', 'superseded')
         """
     ):
@@ -100,12 +104,12 @@ def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
     return parts
 
 
-def required_properties(connection: sqlite3.Connection, profile_id: str) -> list[str]:
+def required_properties(connection: sqlite3.Connection, profile_id: str) -> list[tuple[str, str]]:
     return [
-        row[0]
+        (row[0], row[1])
         for row in connection.execute(
             """
-            SELECT property_id
+            SELECT property_id, comparison_rule
               FROM identity_profile_properties
              WHERE profile_id = ? AND requirement = 'required'
              ORDER BY sequence_number
@@ -121,7 +125,7 @@ def join(values: list[str]) -> str:
     return ";".join(values) if values else "none"
 
 
-def blocking_values(property_id: str, values: set[str]) -> set[str]:
+def blocking_values(property_id: str, values: set[object]) -> set[object]:
     if property_id == "PROP-MATERIAL":
         return {
             "steel" if value in {"mild_steel", "carbon_steel"} else value
@@ -129,27 +133,29 @@ def blocking_values(property_id: str, values: set[str]) -> set[str]:
         }
     if property_id == "PROP-SURFACE-PROTECTION":
         return {
-            "hot_dip_galvanized" if value.startswith("hot_dip_galvanized") else value
+            "hot_dip_galvanized"
+            if isinstance(value, str) and value.startswith("hot_dip_galvanized")
+            else value
             for value in values
         }
     if property_id == "PROP-COATING-SPEC":
         return {
             "blue_passivated"
-            if value.startswith("blue_passivated")
+            if isinstance(value, str) and value.startswith("blue_passivated")
             else value
             for value in values
         }
     if property_id == "PROP-FASTENER-SURFACE":
         return {
             "electrolytic_zinc"
-            if value.startswith("electrolytic_zinc")
+            if isinstance(value, str) and value.startswith("electrolytic_zinc")
             else value
             for value in values
         }
     return values
 
 
-def compatible_but_less_specific(property_id: str, left: set[str], right: set[str]) -> bool:
+def compatible_but_less_specific(property_id: str, left: set[object], right: set[object]) -> bool:
     """Return true when values share a coarse family but do not prove exact equality."""
     return property_id in {
         "PROP-MATERIAL",
@@ -161,8 +167,35 @@ def compatible_but_less_specific(property_id: str, left: set[str], right: set[st
     )
 
 
+def compare_property(
+    profile_id: str,
+    property_id: str,
+    comparison_rule: str,
+    left: set[object],
+    right: set[object],
+    governed_numeric_rules: dict[tuple[str, str], numeric_rules.NumericRule],
+) -> str:
+    if not left or not right:
+        return "missing"
+    if comparison_rule == "numeric_exact":
+        rule = governed_numeric_rules.get((profile_id, property_id))
+        if rule is None:
+            return "missing"
+        if not all(isinstance(value, numeric_rules.NumericValue) for value in left | right):
+            return "missing"
+        numeric_left = {value for value in left if isinstance(value, numeric_rules.NumericValue)}
+        numeric_right = {value for value in right if isinstance(value, numeric_rules.NumericValue)}
+        return "match" if numeric_rules.sets_compatible(numeric_left, numeric_right, rule) else "conflict"
+    if left == right:
+        return "match"
+    if compatible_but_less_specific(property_id, left, right):
+        return "missing"
+    return "conflict"
+
+
 def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, object]]:
     parts = load_parts(connection)
+    governed_numeric_rules = numeric_rules.load_rules(connection)
     output: list[dict[str, object]] = []
     sequence = 1
     for left_id, right_id in itertools.combinations(sorted(parts), 2):
@@ -181,28 +214,43 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
         right_values = right["values"]
         assert isinstance(left_values, defaultdict)
         assert isinstance(right_values, defaultdict)
+        profile_properties = dict(required_properties(connection, profile_id))
         if any(
-            not left_values[property_id]
-            or not right_values[property_id]
-            or blocking_values(property_id, left_values[property_id])
-            != blocking_values(property_id, right_values[property_id])
+            (
+                compare_property(
+                    profile_id,
+                    property_id,
+                    profile_properties[property_id],
+                    left_values[property_id],
+                    right_values[property_id],
+                    governed_numeric_rules,
+                )
+                != "match"
+                if profile_properties[property_id] == "numeric_exact"
+                else blocking_values(property_id, left_values[property_id])
+                != blocking_values(property_id, right_values[property_id])
+            )
             for property_id in blocking_properties
         ):
             continue
 
-        required = required_properties(connection, profile_id)
+        required = list(profile_properties.items())
         matched: list[str] = []
         conflicts: list[str] = []
         missing: list[str] = []
-        for property_id in required:
-            if not left_values[property_id] or not right_values[property_id]:
+        for property_id, comparison_rule in required:
+            outcome = compare_property(
+                profile_id,
+                property_id,
+                comparison_rule,
+                left_values[property_id],
+                right_values[property_id],
+                governed_numeric_rules,
+            )
+            if outcome == "missing":
                 missing.append(property_id)
-            elif left_values[property_id] == right_values[property_id]:
+            elif outcome == "match":
                 matched.append(property_id)
-            elif compatible_but_less_specific(
-                property_id, left_values[property_id], right_values[property_id]
-            ):
-                missing.append(property_id)
             else:
                 conflicts.append(property_id)
         compared = len(matched) + len(conflicts)

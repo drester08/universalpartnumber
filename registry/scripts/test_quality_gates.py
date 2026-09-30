@@ -7,9 +7,11 @@ import sqlite3
 import subprocess
 import sys
 import tempfile
+from decimal import Decimal
 from pathlib import Path
 
 import build_registry
+import numeric_rules
 import screen_candidates
 import validate_registry
 
@@ -213,6 +215,37 @@ def main() -> int:
                 ("UNIT-MM2", "area", "0.000001"),
             ]:
                 raise AssertionError("Area units are malformed or not convertible to square metres")
+            governed_rules = numeric_rules.load_rules(screening_connection)
+            required_numeric_count = screening_connection.execute(
+                """
+                SELECT COUNT(*)
+                  FROM identity_profile_properties
+                 WHERE requirement = 'required' AND comparison_rule = 'numeric_exact'
+                """
+            ).fetchone()[0]
+            if len(governed_rules) != required_numeric_count or required_numeric_count != 18:
+                raise AssertionError("Every required numeric identity property must have exactly one governed rule")
+            nominal_rule = governed_rules[
+                ("PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1", "PROP-NOMINAL-WIDTH")
+            ]
+            overall_rule = governed_rules[
+                ("PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1", "PROP-OVERALL-WIDTH")
+            ]
+            metric_450 = numeric_rules.NumericValue("length", Decimal("0.450"))
+            inch_18 = numeric_rules.NumericValue("length", Decimal("0.4572"))
+            if not numeric_rules.compatible(metric_450, inch_18, nominal_rule):
+                raise AssertionError("Metric and inch nominal market classes were not normalized")
+            if numeric_rules.compatible(metric_450, inch_18, overall_rule):
+                raise AssertionError("Nominal-class tolerance leaked into exact overall geometry")
+            if screen_candidates.compare_property(
+                "PROFILE-WIRE-MESH-BASKET-STRAIGHT-STEEL-0.1",
+                "PROP-OVERALL-WIDTH",
+                "numeric_exact",
+                {metric_450},
+                {inch_18},
+                {},
+            ) != "missing":
+                raise AssertionError("An ungoverned numeric identity property did not fail closed")
             legrand_offer = screening_connection.execute(
                 """
                 SELECT so.order_quantity, so.order_unit, so.package_level,
@@ -431,6 +464,10 @@ def main() -> int:
             raise AssertionError("Legrand wire-mesh completeness was not audited")
         if "source_conflicts=Overall height" not in initial_audit.stdout:
             raise AssertionError("The conflicting official Legrand height values were not surfaced")
+        if "FT6X18X10 BLE: 9/15 required properties" not in initial_audit.stdout or (
+            "source_conflicts=Section length" not in initial_audit.stdout
+        ):
+            raise AssertionError("The conflicting official Eaton length values were not surfaced")
 
         connection = sqlite3.connect(database)
         try:

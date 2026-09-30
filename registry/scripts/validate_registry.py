@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import sqlite3
 import sys
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -105,6 +106,53 @@ def validate_trade_identifiers(errors: list[str]) -> None:
                 errors.append(f"{name}:{line}: {scheme} has an invalid GS1 Mod-10 check digit")
 
 
+def validate_numeric_rules(errors: list[str]) -> None:
+    rules = read_csv("numeric-comparison-rules.csv")
+    require_unique(rules, "rule_id", errors)
+    rule_keys = [(row["profile_id"], row["property_id"]) for row in rules]
+    duplicate_keys = sorted({key for key in rule_keys if rule_keys.count(key) > 1})
+    if duplicate_keys:
+        errors.append(f"numeric-comparison-rules.csv: duplicate profile/property rules {duplicate_keys}")
+
+    properties = {row["property_id"]: row for row in read_csv("properties.csv")}
+    profiles = {row["profile_id"] for row in read_csv("identity-profiles.csv")}
+    quantity_kinds = {row["quantity_kind"] for row in read_csv("units.csv") if row["quantity_kind"]}
+    required_numeric = {
+        (row["profile_id"], row["property_id"])
+        for row in read_csv("identity-profile-properties.csv")
+        if row["requirement"] == "required" and row["comparison_rule"] == "numeric_exact"
+    }
+
+    for line, row in enumerate(rules, start=2):
+        if row["profile_id"] not in profiles:
+            errors.append(f"numeric-comparison-rules.csv:{line}: unknown profile_id")
+        property_row = properties.get(row["property_id"])
+        if property_row is None:
+            errors.append(f"numeric-comparison-rules.csv:{line}: unknown property_id")
+        elif property_row["value_kind"] != "number":
+            errors.append(f"numeric-comparison-rules.csv:{line}: property must have number value_kind")
+        if row["comparison_method"] != "absolute_or_relative":
+            errors.append(f"numeric-comparison-rules.csv:{line}: unsupported comparison_method")
+        if row["quantity_kind"] not in quantity_kinds:
+            errors.append(f"numeric-comparison-rules.csv:{line}: unknown quantity_kind")
+        try:
+            absolute = Decimal(row["absolute_tolerance_base"])
+            relative = Decimal(row["relative_tolerance"])
+            if absolute < 0 or relative < 0 or relative > Decimal("0.02"):
+                raise InvalidOperation
+        except (InvalidOperation, ValueError):
+            errors.append(
+                f"numeric-comparison-rules.csv:{line}: tolerances must be non-negative decimals and relative_tolerance cannot exceed 0.02"
+            )
+
+    missing = sorted(required_numeric - set(rule_keys))
+    extra = sorted(set(rule_keys) - required_numeric)
+    if missing:
+        errors.append(f"numeric-comparison-rules.csv: missing required numeric rules {missing}")
+    if extra:
+        errors.append(f"numeric-comparison-rules.csv: rules may only govern required numeric_exact properties {extra}")
+
+
 def validate_schema(errors: list[str]) -> int:
     schema = (ROOT / "schema.sql").read_text(encoding="utf-8")
     try:
@@ -124,6 +172,7 @@ def main() -> int:
     source_count = validate_sources(errors)
     domain_count = validate_domains(errors)
     validate_trade_identifiers(errors)
+    validate_numeric_rules(errors)
     table_count = validate_schema(errors)
     if errors:
         print("Registry validation failed:")
