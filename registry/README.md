@@ -7,7 +7,7 @@ This directory is the evidence and data foundation for the Universal Part Number
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.
 - `data/source-register.csv` — initial authoritative-source register with access and licensing constraints.
 - `data/source-datasets.csv` — checksummed custody and allowed-use register for supplied bulk files; raw sensitive files stay Git-ignored.
-- `data/dataset-findings.csv` and `data/dataset-finding-rows.csv` — 66 derived bulk-data findings linked to 1,003 source rows, with checksummed report evidence and no implied corrections or identity approvals.
+- `data/dataset-findings.csv` and `data/dataset-finding-rows.csv` — 73 derived bulk-data findings with 1,069 links to 1,053 distinct dataset/row pairs, with checksummed report evidence and no implied corrections or identity approvals.
 - `data/numeric-comparison-rules.csv` — versioned property-specific cross-unit representation tolerances for required numeric identity fields.
 - `data/controlled-values.csv` and `data/specification-value-mappings.csv` — property-scoped canonical terms and reviewable mappings from raw source statements.
 - `data/items-of-supply.csv`, `data/upn-allocations.csv`, `data/item-reviews.csv`, and `data/item-memberships.csv` — reproducible canonical-item ledger, permanent opaque-number allocation, independent approval, and reviewed part membership.
@@ -74,6 +74,6 @@ The registry now builds 35 relational tables from 73 governed sources, four prof
 
 ## Non-negotiable rule
 
-The source-dataset review layer contributes 66 derived gasket findings to the 233-item reviewer queue. It preserves 1,003 exact CSV row references and rejects stale report/input digests or identity promotion while these findings remain unresolved. Pipe findings remain outside this layer pending producer integration. It does not correct catalogues or approve articles.
+The source-dataset review layer contributes 66 gasket and seven pipe findings to the 240-item reviewer queue. It preserves 1,069 exact CSV row links across 1,053 distinct dataset/row pairs and rejects stale report/input digests or identity promotion while these findings remain unresolved. Pipe findings cover all 50 construction conflicts, four ambiguous source keys and twelve outside-source-key records, with overlapping links where a row has multiple issues. It does not correct catalogues or approve articles.
 
 A similar description is not identity. UPN equivalence requires compatible identity-defining properties, traceable evidence, and a recorded human decision. Application suitability and substitution are separate decisions.

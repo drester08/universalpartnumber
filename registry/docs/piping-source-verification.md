@@ -27,4 +27,6 @@ python registry/scripts/test_piping_tenaris.py
 
 Report includes all 50 logical CSV lines, raw OD/wall values, source candidates, page and input checksums. Extraction requires 57 source rows and 50 supplied records. Exit1 is expected for source ambiguity, scope gaps and construction contradictions. No inference of interchangeability or UPN issuance.
 
-Next: corroborate the source's nominal-diameter anomaly, extend smaller/other size coverage using independent official tables, obtain exact grade/route/end/certification evidence, and add pipe findings to the generic review layer. That layer currently derives gasket findings only; these pipe issues are not yet included in its 66 finding groups.
+The generic review layer now derives seven pipe findings with 66 links across all 50 supplied rows: construction conflicts, source ambiguity and coverage gaps. Dataset promotion is blocked while these findings remain unresolved. This is workflow integration, not independent corroboration or article approval.
+
+Next: corroborate the source's nominal-diameter anomaly, extend smaller/other size coverage using independent official tables, and obtain exact grade/route/end/certification evidence. A dataset-correction approval and revision ledger is still required.

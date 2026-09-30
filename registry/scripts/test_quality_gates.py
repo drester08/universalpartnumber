@@ -266,17 +266,20 @@ def main() -> int:
                 for queue_type in {item["queue_type"] for item in review_items}
             }
             if (
-                len(review_items) != 233
-                or queue_counts.get("dataset_finding_review") != 66
+                len(review_items) != 240
+                or queue_counts.get("dataset_finding_review") != 73
                 or queue_counts.get("reference_dataset_validation") != 4
                 or queue_counts.get("terminology_mapping_review") != 15
                 or sum(item["readiness"] == "blocked" for item in review_items) != 11
             ):
                 raise AssertionError("Deterministic reviewer queue omitted or misclassified governed work")
             finding_counts = screening_connection.execute(
-                "SELECT (SELECT count(*) FROM dataset_findings), count(*), count(DISTINCT csv_line) FROM dataset_finding_rows"
+                "SELECT (SELECT count(*) FROM dataset_findings), "
+                "(SELECT count(*) FROM dataset_finding_rows), count(*) FROM "
+                "(SELECT DISTINCT f.dataset_id, r.csv_line FROM dataset_finding_rows r "
+                "JOIN dataset_findings f USING(finding_id))"
             ).fetchone()
-            if tuple(finding_counts) != (66, 1003, 1003):
+            if tuple(finding_counts) != (73, 1069, 1053):
                 raise AssertionError("Dataset findings lost groups or exact source-row references")
             finding_id = screening_connection.execute("SELECT finding_id FROM dataset_findings LIMIT 1").fetchone()[0]
             expect_integrity_error(screening_connection,
@@ -290,6 +293,14 @@ def main() -> int:
             expect_integrity_error(screening_connection,
                 "UPDATE source_datasets SET verification_state = 'validated', allowed_use = 'identity_evidence' WHERE dataset_id = ?",
                 ('DATASET-USER-KLINGER-GASKETS-20260713',))
+            expect_integrity_error(screening_connection,
+                "UPDATE source_datasets SET verification_state = 'validated', allowed_use = 'identity_evidence' WHERE dataset_id = ?",
+                ('DATASET-USER-PIPING-20260702',))
+            pipe_finding = screening_connection.execute(
+                "SELECT finding_id FROM dataset_findings WHERE dataset_id = 'DATASET-USER-PIPING-20260702' LIMIT 1"
+            ).fetchone()[0]
+            expect_integrity_error(screening_connection,
+                "INSERT INTO dataset_finding_rows VALUES (?, ?)", (pipe_finding, 52))
             expect_integrity_error(screening_connection,
                 "UPDATE source_datasets SET row_count = 1 WHERE dataset_id = ?",
                 ('DATASET-USER-KLINGER-GASKETS-20260713',))
