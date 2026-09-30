@@ -29,6 +29,10 @@ def expect_integrity_error(connection: sqlite3.Connection, sql: str, values: tup
 def main() -> int:
     valid_niedax_eans = (
         "4013339903658",
+        "4013339903665",
+        "4013339903672",
+        "4013339903689",
+        "4013339903696",
         "4013339904006",
         "4013339904020",
         "4013339904044",
@@ -112,6 +116,19 @@ def main() -> int:
             ).fetchone()[0]
             if niedax_raw_code != 1:
                 raise AssertionError("Niedax six-digit catalogue EAN suffix was not preserved")
+            niedax_family_counts = screening_connection.execute(
+                """
+                SELECT
+                    (SELECT count(*) FROM manufacturer_parts WHERE manufacturer_part_id LIKE 'MP-NIEDAX-KL100%'),
+                    (SELECT count(*) FROM supplier_offers WHERE supplier_offer_id LIKE 'OFFER-NIEDAX-KL100%'),
+                    (SELECT count(*) FROM supplier_offer_identifiers
+                      WHERE supplier_offer_id LIKE 'OFFER-NIEDAX-KL100%' AND scheme = 'ean'),
+                    (SELECT count(*) FROM supplier_offer_identifiers
+                      WHERE supplier_offer_id LIKE 'OFFER-NIEDAX-KL100%' AND scheme = 'other')
+                """
+            ).fetchone()
+            if tuple(niedax_family_counts) != (10, 10, 10, 10):
+                raise AssertionError("The complete Niedax KL 100 S/F width family was not preserved")
             niedax_variant_values = screening_connection.execute(
                 """
                 SELECT o.manufacturer_part_id, sv.property_id, sv.normalized_text
