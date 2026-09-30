@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+PFC expansion: `docs/structural-pfc-verification.md` screens six newly covered channel rows against British Steel: two nominal agreements, two conflicts and two absent serial candidates. Source register81, cached artifacts25. Combined structural screening67distinct rows;738outside selected tables. PFC research not yet in findings; queue remains262. No article approval.
+
 Independent follow-up: `docs/structural-british-corroboration.md` screens all49UB/UC rows against British Steel PDFs:48exact nominal candidates, one unmatched mass key and one inter-source width conflict among46cross-source comparisons. Root radii/clear depths retained. Four British-source findings now integrated; reviewer queue262. Source register80, cached artifacts24. No article approval.
 
 DS.0001 structural research: `docs/structural-heavy-verification.md` documents all49UB/UC rows screened:46unique nominal candidates with field differences and three unmatched exact keys. Manual transcription remains unreviewed. Combined with IPE/British evidence,61distinct structural rows screened;744remain outside selected-table screening. Five DS.0001 findings remain open alongside the British findings. No identity approval or UPN issuance.
