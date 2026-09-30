@@ -42,7 +42,7 @@ Macsteel family evidence now screens all395 rows:268 supported family-designatio
 
 Official manufacturer IPE/IPE-AA comparison now covers12selected rows: six agree in nominal depth/width/web/flange/mass; six IPE-AA records use designation sizes in Height rather than published nominal depths. Meaning remains unresolved; other793rows not compared. See `structural-ipe-verification.md` and its source-located report. No exact article approval or correction.
 
-Further UB/UC screening covers49distinct rows against DS.0001 image tables:46unique designation/mass candidates with nominal differences and three unmatched exact keys. Depth differs in45, width in43, web thickness in32 and flange thickness in3 compared rows; counts overlap. Combined selected-family screening covers61of805structural rows, leaving744without selected-table screening. Five source-specific findings are integrated into the258-item review queue, while interpretation/transcription remain unreviewed. See `structural-heavy-verification.md`.
+UB/UC screening covers 49 rows against DS.0001 image tables: 46 unique designation/mass candidates with differences and three unmatched keys. British Steel adds candidates for two missing beams, retains the unmatched column mass key and one inter-source width conflict. Combined selected-family screening covers 61 of 805 structural rows, leaving 744 outside selected tables. Five DS.0001 and four British findings are integrated into the 262-task queue; interpretations and source fidelity remain unreviewed. See `structural-heavy-verification.md` and `structural-british-corroboration.md`.
 
 ### Klinger gaskets — 12,162 rows, 24 columns
 

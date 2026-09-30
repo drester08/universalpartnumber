@@ -16,18 +16,18 @@ class FindingTests(unittest.TestCase):
     def test_deterministic_complete_row_accounting(self):
         first = findings.derive()
         self.assertEqual(first, findings.derive())
-        self.assertEqual(len(first[0]), 89)
-        self.assertEqual(len(first[1]), 3247)
-        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 54)
-        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 35)
+        self.assertEqual(len(first[0]), 93)
+        self.assertEqual(len(first[1]), 3297)
+        self.assertEqual(sum(f['priority'] == 'P0' for f in first[0]), 57)
+        self.assertEqual(sum(f['priority'] == 'P2' for f in first[0]), 36)
         by_kind = {}
         index = {f['finding_id']: f for f in first[0]}
         self.assertEqual(len({(index[r['finding_id']]['dataset_id'], r['csv_line']) for r in first[1]}), 2253)
         for ref in first[1]:
             kind = index[ref['finding_id']]['issue_type']
             by_kind[kind] = by_kind.get(kind, 0) + 1
-        self.assertEqual(by_kind, {'dimension_conflict': 104, 'unsupported_key': 949, 'duplicate_key': 2,
-                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 884,
+        self.assertEqual(by_kind, {'dimension_conflict': 153, 'unsupported_key': 949, 'duplicate_key': 2,
+                                   'construction_conflict': 50, 'source_ambiguity': 4, 'coverage_gap': 885,
                                    'material_interpretation': 51, 'mass_discrepancy': 3, 'article_evidence_gap': 1200})
 
     def test_snapshot_tampering_rejected(self):
@@ -204,6 +204,57 @@ class FindingTests(unittest.TestCase):
     def test_heavy_missing_source_only_row_rejected(self):
         with self.assertRaisesRegex(ValueError,'source-only coverage mismatch'):
             self.changed_report(lambda r:r.update(source_rows_without_supplied_key=[]),'structural-heavy-comparison.json')
+
+    def test_british_findings_and_prior_retained(self):
+        groups,refs=findings.derive()
+        bs={r['finding_id']:r for r in groups if r['artifact_id'] in findings.BRITISH_ARTIFACTS.values()}
+        self.assertEqual(len(bs),4)
+        lines=[r['csv_line'] for r in refs if r['finding_id'] in bs]
+        self.assertEqual(len(lines),50)
+        self.assertEqual(len(set(lines)),49)
+        self.assertEqual(len([r for r in groups if r['artifact_id']==findings.HEAVY_ARTIFACT]),5)
+
+    def test_british_source_digest(self):
+        def change(r):
+            r['source_pdf_sha256']['SRC-BS-UB-2024']='0'*64
+        with self.assertRaisesRegex(ValueError,'catalogue checksum mismatch'):
+            self.changed_report(change,'structural-british-comparison.json')
+
+    def test_british_prior_digest(self):
+        with self.assertRaisesRegex(ValueError,'earlier report checksum mismatch'):
+            self.changed_report(lambda r:r.update(earlier_report_sha256='0'*64),'structural-british-comparison.json')
+
+    def test_british_false_approval(self):
+        def change(r):
+            r['records'][0]['exact_article_verified']=True
+        with self.assertRaisesRegex(ValueError,'cannot assert reviewed'):
+            self.changed_report(change,'structural-british-comparison.json')
+
+    def test_british_missing_source_conflict(self):
+        def change(r):
+            next(x for x in r['records'] if x['cross_source_nominal_differences'])['cross_source_nominal_differences']=[]
+        with self.assertRaisesRegex(ValueError,'differences/outcome mismatch'):
+            self.changed_report(change,'structural-british-comparison.json')
+
+    def test_british_label_not_mass(self):
+        def change(r):
+            x=next(x for x in r['records'] if x['csv_line']==748)
+            x['source_candidates']=x['designation_label_observations_not_mass_matches']
+            x['designation_label_observations_not_mass_matches']=[]
+        with self.assertRaisesRegex(ValueError,'exact mass key mismatch'):
+            self.changed_report(change,'structural-british-comparison.json')
+
+    def test_british_bad_page(self):
+        def change(r):
+            r['records'][0]['source_candidates'][0]['pdf_page']=2
+        with self.assertRaisesRegex(ValueError,'values/locator invalid'):
+            self.changed_report(change,'structural-british-comparison.json')
+
+    def test_british_overlapping_rows(self):
+        def change(r):
+            r['outside_family_scope_csv_lines'][0]=r['records'][0]['csv_line']
+        with self.assertRaisesRegex(ValueError,'overlapping row locators'):
+            self.changed_report(change,'structural-british-comparison.json')
 
 
 if __name__ == '__main__':

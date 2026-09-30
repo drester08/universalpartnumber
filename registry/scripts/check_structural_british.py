@@ -118,7 +118,7 @@ def compare():
             'New nominal candidates do not close older source-specific coverage findings.',
             'Same nominal dimensions do not establish material, certificates, tolerances, identity or suitability.',
             'Root radius and clear depth retained as source facts, not approved defining attributes.',
-            'No raw correction or approved equivalence. This corroboration is not yet integrated into findings.']}
+            'Source-specific findings retain unresolved differences; no raw correction or approved equivalence.']}
 
 
 if __name__=='__main__':

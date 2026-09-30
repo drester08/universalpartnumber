@@ -11,6 +11,7 @@ import io
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
+from decimal import Decimal
 from check_structural_heavy import candidate_key, screen, FIELDS as HEAVY_FIELDS
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +24,7 @@ PLATE_ARTIFACT = 'ART-MACSTEEL-VRN-2021'
 STRUCTURAL_DATASET = 'DATASET-USER-STRUCTURAL-STEEL-20260702'
 STRUCTURAL_ARTIFACT = 'ART-AMSA-E12-PARALLEL'
 HEAVY_ARTIFACT = 'ART-AMSA-H11-HEAVY'
+BRITISH_ARTIFACTS = {'UB':'ART-BS-UB-2024','UC':'ART-BS-UC-2023'}
 FINDING_FIELDS = ('finding_id', 'dataset_id', 'dataset_sha256', 'artifact_id',
                   'issue_type', 'priority', 'subject_key', 'summary', 'next_action',
                   'evidence_path', 'evidence_sha256', 'evidence_locators', 'policy_version')
@@ -61,6 +63,8 @@ def derive(root=ROOT):
     reports.append(('plate-macsteel-screening.json', 'plate', PLATE_DATASET, PLATE_ARTIFACT))
     reports.append(('structural-ipe-comparison.json', 'structural', STRUCTURAL_DATASET, STRUCTURAL_ARTIFACT))
     reports.append(('structural-heavy-comparison.json', 'heavy', STRUCTURAL_DATASET, HEAVY_ARTIFACT))
+    reports.extend(('structural-british-comparison.json','british_'+f,STRUCTURAL_DATASET,a)
+                   for f,a in BRITISH_ARTIFACTS.items())
     for name, family, dataset_id, artifact_id in reports:
         dataset, artifact = datasets[dataset_id], artifacts[artifact_id]
         path = root / 'reports' / name
@@ -68,7 +72,9 @@ def derive(root=ROOT):
         report = json.loads(payload)
         if report['dataset_sha256'].lower() != dataset['sha256'].lower():
             raise ValueError(f'{name}: dataset checksum mismatch')
-        if report['catalogue_sha256'].lower() != artifact['sha256'].lower():
+        source_sha = (report['source_pdf_sha256'].get(artifact['source_id'],'') if family.startswith('british_')
+                      else report['catalogue_sha256'])
+        if source_sha.lower() != artifact['sha256'].lower():
             raise ValueError(f'{name}: catalogue checksum mismatch')
         groups = defaultdict(lambda: {'locators': [], 'lines': set(), 'count': 0})
 
@@ -80,7 +86,83 @@ def derive(root=ROOT):
             entry['lines'].update(lines)
             entry['count'] += count
 
-        if family == 'heavy':
+        if family.startswith('british_'):
+            source_ids={artifacts[a]['source_id'] for a in BRITISH_ARTIFACTS.values()}
+            if set(report['source_pdf_sha256']) != source_ids or any(
+                    report['source_pdf_sha256'][artifacts[a]['source_id']].lower()!=artifacts[a]['sha256'].lower()
+                    for a in BRITISH_ARTIFACTS.values()):
+                raise ValueError('British source PDF checksum mismatch')
+            prior_bytes=(root/'reports/structural-heavy-comparison.json').read_bytes()
+            if hashlib.sha256(prior_bytes).hexdigest()!=report['earlier_report_sha256']:
+                raise ValueError('British earlier report checksum mismatch')
+            prior={r['csv_line']:r for r in json.loads(prior_bytes)['records']}
+            records,outside=report['records'],report['outside_family_scope_csv_lines']
+            lines=outside+[r['csv_line'] for r in records]
+            if (report['dataset_rows']!=int(dataset['row_count']) or report['selected_rows']!=len(records)
+                    or any(type(line) is not int for line in lines)
+                    or sorted(lines)!=list(range(2,int(dataset['row_count'])+2))):
+                raise ValueError('British report has missing, duplicate or overlapping row locators')
+            if (Counter(r['designation_mass_candidate'][0] for r in records)!={'UB':31,'UC':18}
+                    or dict(Counter(r['outcome'] for r in records))!=report['outcomes']):
+                raise ValueError('British family/outcome counts mismatch')
+            cross_count=conflict_count=0
+            seen=set()
+            for i,case in enumerate(records):
+                if case['exact_article_verified'] is not False:
+                    raise ValueError('British comparison cannot assert reviewed article identity')
+                f,h,w,m=case['designation_mass_candidate']
+                actual=case['actual']
+                if (h,w,m)!=(actual['depth_mm'],actual['width_mm'],actual['mass_kg_per_m']):
+                    raise ValueError('British raw candidate key mismatch')
+                key=candidate_key(f,h,w,m)
+                if key in seen:
+                    raise ValueError('Duplicate British supplied key')
+                seen.add(key)
+                old=prior[case['csv_line']]
+                if case['previous_source_candidates']!=old['source_candidates'] or case['previous_source_outcome']!=old['outcome'] or actual!=old['actual']:
+                    raise ValueError('British prior evidence differs from bound report')
+                candidates=case['source_candidates']
+                label_only=case['designation_label_observations_not_mass_matches']
+                if len(candidates)>1 or len(label_only)>1 or (candidates and label_only):
+                    raise ValueError('British candidate selection is ambiguous')
+                for o in candidates+label_only:
+                    if (o['family']!=f or o['source_id']!=artifacts[BRITISH_ARTIFACTS[f]]['source_id']
+                            or type(o['pdf_page']) is not int or o['pdf_page'] not in ({1,3} if f=='UB' else {1})
+                            or o['designation']!=f"{o['designation_height']} x {o['designation_width']} x {o['designation_mass_label']}"
+                            or any(Decimal(o[v])<=0 for v in (*HEAVY_FIELDS,'root_radius_mm','depth_between_fillets_mm'))):
+                        raise ValueError('British source candidate values/locator invalid')
+                    if candidate_key(f,o['designation_height'],o['designation_width'],o['mass_kg_per_m'])[:3]!=key[:3]:
+                        raise ValueError('British source serial key mismatch')
+                differences=[]
+                cross=[]
+                if candidates:
+                    o=candidates[0]
+                    if candidate_key(f,o['designation_height'],o['designation_width'],o['mass_kg_per_m'])!=key:
+                        raise ValueError('British exact mass key mismatch')
+                    differences=[v for v in HEAVY_FIELDS if Decimal(actual[v])!=Decimal(o[v])]
+                    outcome='nominal_field_conflict' if differences else 'nominal_values_agree'
+                    if len(old['source_candidates'])==1:
+                        cross_count+=1
+                        cross=[v for v in HEAVY_FIELDS if Decimal(old['source_candidates'][0][v])!=Decimal(o[v])]
+                        conflict_count+=bool(cross)
+                else:
+                    outcome='no_exact_candidate_key'
+                    if label_only and (label_only[0]['designation_mass_label']!=m or Decimal(label_only[0]['mass_kg_per_m'])==Decimal(m)):
+                        raise ValueError('British label-only observation cannot be a mass match')
+                if case['outcome']!=outcome or case['nominal_differences']!=differences or case['cross_source_nominal_differences']!=cross:
+                    raise ValueError('British nominal differences/outcome mismatch')
+                if f!=family.removeprefix('british_'):
+                    continue
+                locator=f'/records/{i}'
+                if differences:
+                    add('dimension_conflict',('Structural Steel',f,'British Steel nominal fields'),locator,[case['csv_line']])
+                elif not candidates:
+                    add('coverage_gap',('Structural Steel',f,'British Steel exact mass key absent'),locator,[case['csv_line']])
+                if cross:
+                    add('dimension_conflict',('Structural Steel',f,'British Steel versus DS.0001 source fields'),locator,[case['csv_line']])
+            if report['cross_source_compared_rows']!=cross_count or report['cross_source_conflict_rows']!=conflict_count:
+                raise ValueError('British cross-source totals mismatch')
+        elif family == 'heavy':
             transcription_bytes = (root / 'reports/arcelormittal-heavy-observations.json').read_bytes()
             transcription = json.loads(transcription_bytes)
             if hashlib.sha256(transcription_bytes).hexdigest() != report['transcription_sha256']:
