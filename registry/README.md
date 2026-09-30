@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+Independent follow-up: `docs/structural-british-corroboration.md` screens all49UB/UC rows against British Steel PDFs:48exact nominal candidates, one unmatched mass key and one inter-source width conflict among46cross-source comparisons. Root radii/clear depths retained. New report not yet in findings; source register80, cached artifacts24. No article approval.
+
 Latest structural research: `docs/structural-heavy-verification.md` documents all49 UB/UC rows screened against manufacturer DS.0001 tables:46 unique nominal candidates with field differences and three unmatched exact keys. Manual transcription remains unreviewed. Combined with IPE,61 distinct structural rows screened;744 remain outside selected-table screening. Five source-specific heavy findings are now integrated into the258-item review queue. Source register78;22 cached artifacts verified. No identity approval or UPN issuance.
 
 ## What is here
