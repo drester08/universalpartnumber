@@ -253,6 +253,36 @@ def main() -> int:
                 ("PROP-TOP-LONGITUDINAL-WIRE-DIAMETER", "5.9", "UNIT-MM"),
             ]:
                 raise AssertionError("Cablofil's distinct load-bearing wire diameters were flattened")
+            legrand_context = screening_connection.execute(
+                """
+                SELECT sv.property_id, sv.normalized_number, sv.unit_id
+                  FROM specification_values AS sv
+                  JOIN observations AS o ON o.observation_id = sv.observation_id
+                 WHERE o.manufacturer_part_id = 'MP-LEGRAND-US-CF150450BL'
+                   AND sv.property_id IN (
+                       'PROP-REQUIRED-SPLICE-COUNT',
+                       'PROP-USABLE-CROSS-SECTION'
+                   )
+                 ORDER BY sv.property_id, sv.specification_id
+                """
+            ).fetchall()
+            if [tuple(row) for row in legrand_context] != [
+                ("PROP-REQUIRED-SPLICE-COUNT", "4", None),
+                ("PROP-REQUIRED-SPLICE-COUNT", "4", None),
+                ("PROP-USABLE-CROSS-SECTION", "103.23", "UNIT-IN2"),
+            ]:
+                raise AssertionError("Legrand exact-size splice or fill-area context was not preserved")
+            if screening_connection.execute(
+                """
+                SELECT COUNT(*)
+                  FROM observations AS o
+                  JOIN specification_values AS sv
+                    ON sv.observation_id = o.observation_id
+                 WHERE o.manufacturer_part_id = 'MP-LEGRAND-US-CF150450BL'
+                   AND sv.property_id = 'PROP-SPLICES-INCLUDED'
+                """
+            ).fetchone()[0]:
+                raise AssertionError("Legrand installation splice counts were misrepresented as package inclusion")
             niedax_family_counts = screening_connection.execute(
                 """
                 SELECT

@@ -570,6 +570,10 @@ SPEC-EATON-FT6X18-LOAD-WP,OBS-EATON-FT6X18-WP302016EN,PROP-LOAD-RATING,"89 lb/ft
 SPEC-EATON-FT6X18-SPLICE-COUNT,OBS-EATON-FT6X18-WP302016EN,PROP-REQUIRED-SPLICE-COUNT,Four splices required for UL Classification,,4,,"Six-inch-high by eighteen-inch-wide tray; requirement does not prove included hardware"
 SPEC-EATON-FT6X18-AREA,OBS-EATON-FT6X18-LOAD-FILL,PROP-USABLE-CROSS-SECTION,Actual inside area 107.3 square inches,,107.3,UNIT-IN2,
 SPEC-EATON-FT6X18-LOAD-FILL,OBS-EATON-FT6X18-LOAD-FILL,PROP-LOAD-RATING,"128 lb/ft at 5 ft; 89 lb/ft at 6 ft; 65 lb/ft at 7 ft; 50 lb/ft at 8 ft",5ft:128lb/ft|6ft:89lb/ft|7ft:65lb/ft|8ft:50lb/ft,,,Load chart not tested with Flexmate splice
+SPEC-LEGRAND-CF150450-AREA,OBS-LEGRAND-US-CF150450-TECH-GUIDE,PROP-USABLE-CROSS-SECTION,Fill area 103.23 square inches,,103.23,UNIT-IN2,
+SPEC-LEGRAND-CF150450-LOAD,OBS-LEGRAND-US-CF150450-TECH-GUIDE,PROP-LOAD-RATING,"175.9 lb/ft at 5 ft; 155.0 lb/ft at 6 ft; 113.9 lb/ft at 7 ft; 98.3 lb/ft at 8 ft",5ft:175.9lb/ft|6ft:155.0lb/ft|7ft:113.9lb/ft|8ft:98.3lb/ft,,,Technical guide cites UL CSA NEMA BI 50015 and IEC testing context
+SPEC-LEGRAND-CF150450-EDRN-COUNT,OBS-LEGRAND-US-CF150450-INSTALL,PROP-REQUIRED-SPLICE-COUNT,Two EDRN splices on side wires and two on bottom for 450 mm CF150 tray,,4,,"EDRN method; installation quantity does not prove packaged inclusion"
+SPEC-LEGRAND-CF150450-SWK-COUNT,OBS-LEGRAND-US-CF150450-INSTALL,PROP-REQUIRED-SPLICE-COUNT,Two SWK sets on side wires and two on bottom for 450 mm CF150 tray,,4,,"SWK method; installation quantity does not prove packaged inclusion"
 SPEC-LEGRAND-CF150450BL-FORM,OBS-LEGRAND-US-CF150450BL-PAGE,PROP-FORM,Straight Sections,straight_wire_mesh_basket_section,,,
 SPEC-LEGRAND-CF150450BL-NOMWIDTH,OBS-LEGRAND-US-CF150450BL-PAGE,PROP-NOMINAL-WIDTH,Width selection 18.0 in and title 18W,,18,UNIT-IN,
 SPEC-LEGRAND-CF150450BL-WIDTH-PAGE,OBS-LEGRAND-US-CF150450BL-PAGE,PROP-OVERALL-WIDTH,Product Width US 17.71 in,,17.71,UNIT-IN,
