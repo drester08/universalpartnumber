@@ -26,6 +26,8 @@ DS.0001 structural research: `docs/structural-heavy-verification.md` documents a
 
 Manufacturer equal-angle research: `docs/orangebook-equal-angle-screening.md` records 192 ArcelorMittal Orange Book S355 nominal rows screened against all 136 captured seller offers. There are 111 geometry candidates and 25 table-coverage gaps. Seven of ten earlier material-context gaps have geometry here, but none are closed: S355 does not verify seller S355JR+AR or the manufacturer of stock. No article approval.
 
+Equal-angle mass audit: `docs/angle-mass-discrepancies.md` separates 40 distinct section/context comparisons across 104 offers from 32 uncomparable offers. Six displayed numeric values agree exactly; 30 pairs do not exclude a conditional nearest-rounding explanation; four pairs affecting nine offers are not explained by that hypothesis. No physical conflict or material-context equivalence is approved.
+
 ## What is here
 
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.
