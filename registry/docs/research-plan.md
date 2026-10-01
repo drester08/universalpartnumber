@@ -2,9 +2,11 @@
 
 ## Current baseline — 1 October 2026
 
-There are 131 registered sources, 76 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The reproducible screen has 25 pairs; the reviewer queue has 466 tasks (455 ready, 11 dependency-blocked). All 26 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 132 registered sources, 77 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The reproducible screen has 25 pairs; the reviewer queue has 469 tasks (458 ready, 11 dependency-blocked). All 26 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
+
+Later [Maxiprofile registration](klinger-maxiprofile-registration.md) brings the private manufacturer-family capture into custody with unknown publication date and reuse gates. Three new tasks cover licensing, independent scope review and publisher maintenance clarification. Earlier staged snapshots stay unchanged; no exact article observations or specifications are added. Seek exact drawings and component definitions before tuple interpretation and identity promotion.
 
 New [Maxiprofile construction research](klinger-maxiprofile-context.md) adds the official South African six-page document after the earlier UK retrieval gap. Separate core/facing tables, styles and partition scope improve the exact-article evidence requirements. Its local serration diagram does not label supplied dimension tuples. Register bounded manufacturer context and reuse gates; independently review applicability and core-refurbishment versus gasket-non-reuse scope. Obtain exact drawings and component materials before tuple interpretation or identity promotion. Earlier 239-row geometry findings and registered counts remain unchanged.
 

@@ -32,7 +32,7 @@ class MPSRegistrationTests(unittest.TestCase):
         items=build_review_queue.build_items(self.db)
         new=[r for r in items if r['source_id']==c.SOURCE]
         self.assertEqual(len(new),6)
-        self.assertEqual(len(items),466)
+        self.assertEqual(len(items),469)
         self.assertEqual(sum(r['readiness']=='blocked' for r in items),11)
         scoped=[r for r in new if r['work_item_id'].startswith('RW-MPS-')]
         self.assertEqual(len(scoped),5)

@@ -1,0 +1,38 @@
+{
+  "policy_version": "klinger-maxiprofile-registration-0.1",
+  "registered_source": true,
+  "source_id": "SRC-KLINGER-MAXIPROFILE-SA",
+  "artifact_id": "ART-KLINGER-MAXIPROFILE-SA",
+  "source_sha256": "0C632A50EFF0BA9BD3FBA663340B4BA0C52E1B1032BA1592078E025D452597D8",
+  "historical_research_sha256": "B6FD9F86173A4131B1C8FDF64B5A9EE2002DDA6C74D1B1D19CD03F479876F27D",
+  "historical_comparison_sha256": "8B6CAA9D3B69FC81C544815D810B3828D0971E046361C4C6A352AF9B18688C9C",
+  "source_role": "manufacturer product-family context, not exact supplied article",
+  "publication_date": null,
+  "previously_reviewed_physical_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "component_material_rows": 19,
+  "style_contexts": 4,
+  "article_observations_added": 0,
+  "identity_approved": false,
+  "historical_findings_resolved": false,
+  "reuse_permission": false,
+  "independent_review": "outstanding",
+  "source_reuse_review": "outstanding",
+  "maintenance_clarification": "outstanding",
+  "required_article_evidence": [
+    "exact style and parallel/convex profile",
+    "core material grade",
+    "facing material grade",
+    "guide ring material and attachment",
+    "core/facing/overall thickness",
+    "labelled drawing and dimension roles",
+    "partition geometry where present",
+    "flange standard/class/size and source revision"
+  ]
+}

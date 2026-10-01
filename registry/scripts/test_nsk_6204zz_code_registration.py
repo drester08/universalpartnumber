@@ -28,7 +28,7 @@ class RegistrationTests(unittest.TestCase):
         for source, artifact, observation, publisher in c.BINDINGS:
             self.assertIn(source, text)
             self.assertIn(observation, text)
-        self.assertEqual(len(items), 466)
+        self.assertEqual(len(items), 469)
 
     def test_other_article_rejected(self):
         self.db.execute("UPDATE observations SET manufacturer_part_id='MP-NSK-6205ZZ' WHERE observation_id=?", (c.BINDINGS[0][2],))

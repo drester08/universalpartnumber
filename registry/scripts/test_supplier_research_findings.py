@@ -49,7 +49,7 @@ class SupplierResearchTests(unittest.TestCase):
         self.assertEqual(len(research), 14)
         self.assertTrue(all(i['priority'] == 'P2' and i['readiness'] == 'ready' for i in research))
         self.assertTrue(all('SHA-256' in i['next_action'] and 'Related offers:' in i['next_action'] for i in research))
-        self.assertEqual(len(items), 466)
+        self.assertEqual(len(items), 469)
 
     def test_link_assignment_does_not_close_research(self):
         before = self.derive()
