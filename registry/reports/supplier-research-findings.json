@@ -1,0 +1,440 @@
+{
+  "policy_version": "supplier-research-0.1",
+  "input_report_hashes": {
+    "macsteel-angle-coverage.json": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+    "angle-mass-discrepancies.json": "9C944525325D93AFF3A8B9BAC91DDCEFE5A782E99ABB60A8B1E536A7A905A2A7"
+  },
+  "finding_count": 14,
+  "findings": [
+    {
+      "finding_id": "SRF-0F29F57C5E32798D9863794C",
+      "issue_type": "published_mass_discrepancy",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "nominal_geometry_mm": [
+          "200",
+          "200",
+          "18"
+        ],
+        "seller_pdf_table": 2
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0264",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0264"
+        }
+      ],
+      "source_ids": [
+        "SRC-AM-ORANGEBOOK-EQUAL-ANGLES",
+        "SRC-MACSTEEL-AE0061-PDF"
+      ],
+      "evidence_path": "registry/reports/angle-mass-discrepancies.json",
+      "evidence_sha256": "9C944525325D93AFF3A8B9BAC91DDCEFE5A782E99ABB60A8B1E536A7A905A2A7",
+      "evidence_pointer": "/records/37",
+      "summary": "200 x 200 x 18 mm: seller 54.200 versus manufacturer-table 54.3 kg/m; 1 offers. Displayed nearest-rounding hypothesis does not explain the difference.",
+      "next_action": "Review source section drawings, radii, mass definitions, rounding policy and material contexts. Keep both values; do not classify a physical conflict, auto-correct data or approve identical-item equivalence from this diagnostic.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-2B096224C9B5685C67985187",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0593"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0593",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0593"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/83",
+      "summary": "AE_S355RA_0593: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-6C097CB9B2B270B43341376F",
+      "issue_type": "published_mass_discrepancy",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "nominal_geometry_mm": [
+          "70",
+          "70",
+          "8"
+        ],
+        "seller_pdf_table": 2
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0093",
+          "source_id": "SRC-MACSTEEL-ANGLE-P4",
+          "seller_sku": "AE_S355RA_0093"
+        },
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0094",
+          "source_id": "SRC-MACSTEEL-ANGLE-P4",
+          "seller_sku": "AE_S355RA_0094"
+        },
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0095",
+          "source_id": "SRC-MACSTEEL-ANGLE-P4",
+          "seller_sku": "AE_S355RA_0095"
+        },
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0097000013000",
+          "source_id": "SRC-MACSTEEL-AE20261001-P5",
+          "seller_sku": "AE_S355RA_0097000013000"
+        }
+      ],
+      "source_ids": [
+        "SRC-AM-ORANGEBOOK-EQUAL-ANGLES",
+        "SRC-MACSTEEL-AE0061-PDF"
+      ],
+      "evidence_path": "registry/reports/angle-mass-discrepancies.json",
+      "evidence_sha256": "9C944525325D93AFF3A8B9BAC91DDCEFE5A782E99ABB60A8B1E536A7A905A2A7",
+      "evidence_pointer": "/records/17",
+      "summary": "70 x 70 x 8 mm: seller 8.358 versus manufacturer-table 8.37 kg/m; 4 offers. Displayed nearest-rounding hypothesis does not explain the difference.",
+      "next_action": "Review source section drawings, radii, mass definitions, rounding policy and material contexts. Keep both values; do not classify a physical conflict, auto-correct data or approve identical-item equivalence from this diagnostic.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-75D486841074F31D60D326AF",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0044"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0044",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0044"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/88",
+      "summary": "AE_S355RA_0044: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-843A2CAFBFCA5CF78EDCB921",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0034"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0034",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0034"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/85",
+      "summary": "AE_S355RA_0034: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-87AA60AA3D1037C2B5901BC0",
+      "issue_type": "published_mass_discrepancy",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "nominal_geometry_mm": [
+          "25",
+          "25",
+          "3"
+        ],
+        "seller_pdf_table": 1
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-CQ-0009",
+          "source_id": "SRC-MACSTEEL-AE20261001-P1",
+          "seller_sku": "AE_CQ_0009"
+        },
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-CQ-0370",
+          "source_id": "SRC-MACSTEEL-AE20261001-P1",
+          "seller_sku": "AE_CQ_0370"
+        }
+      ],
+      "source_ids": [
+        "SRC-AM-ORANGEBOOK-EQUAL-ANGLES",
+        "SRC-MACSTEEL-AE0061-PDF"
+      ],
+      "evidence_path": "registry/reports/angle-mass-discrepancies.json",
+      "evidence_sha256": "9C944525325D93AFF3A8B9BAC91DDCEFE5A782E99ABB60A8B1E536A7A905A2A7",
+      "evidence_pointer": "/records/0",
+      "summary": "25 x 25 x 3 mm: seller 1.114 versus manufacturer-table 1.12 kg/m; 2 offers. Displayed nearest-rounding hypothesis does not explain the difference.",
+      "next_action": "Review source section drawings, radii, mass definitions, rounding policy and material contexts. Keep both values; do not classify a physical conflict, auto-correct data or approve identical-item equivalence from this diagnostic.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-9B0E8580DE579A1E4C6E061A",
+      "issue_type": "published_mass_discrepancy",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "nominal_geometry_mm": [
+          "45",
+          "45",
+          "3"
+        ],
+        "seller_pdf_table": 1
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-CQ-0066",
+          "source_id": "SRC-MACSTEEL-AE20261001-P1",
+          "seller_sku": "AE_CQ_0066"
+        },
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-CQ-0069",
+          "source_id": "SRC-MACSTEEL-AE20261001-P1",
+          "seller_sku": "AE_CQ_0069"
+        }
+      ],
+      "source_ids": [
+        "SRC-AM-ORANGEBOOK-EQUAL-ANGLES",
+        "SRC-MACSTEEL-AE0061-PDF"
+      ],
+      "evidence_path": "registry/reports/angle-mass-discrepancies.json",
+      "evidence_sha256": "9C944525325D93AFF3A8B9BAC91DDCEFE5A782E99ABB60A8B1E536A7A905A2A7",
+      "evidence_pointer": "/records/5",
+      "summary": "45 x 45 x 3 mm: seller 2.131 versus manufacturer-table 2.09 kg/m; 2 offers. Displayed nearest-rounding hypothesis does not explain the difference.",
+      "next_action": "Review source section drawings, radii, mass definitions, rounding policy and material contexts. Keep both values; do not classify a physical conflict, auto-correct data or approve identical-item equivalence from this diagnostic.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-9E0D714B2C566459EDA2166A",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0032"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0032",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0032"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/86",
+      "summary": "AE_S355RA_0032: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-AE5663FB8E8CF66F33BA3BEE",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0039"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0039",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0039"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/87",
+      "summary": "AE_S355RA_0039: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-AEFE1120189DCE40125F44D4",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0008"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0008",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0008"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/80",
+      "summary": "AE_S355RA_0008: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-E5FDE0223E9E696B099E5693",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0016"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0016",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0016"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/81",
+      "summary": "AE_S355RA_0016: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-E642C46B5CA06143F84969AA",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0030"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0030",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0030"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/84",
+      "summary": "AE_S355RA_0030: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-E9875402734CEB6F4E48EEE7",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0023"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0023",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0023"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/82",
+      "summary": "AE_S355RA_0023: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    },
+    {
+      "finding_id": "SRF-F283A93F3C84755BBA15A74B",
+      "issue_type": "material_context_gap",
+      "priority": "P2",
+      "review_state": "open_research",
+      "subject_key": {
+        "seller_sku": "AE_S355RA_0049"
+      },
+      "related_offers": [
+        {
+          "supplier_offer_id": "OFFER-MACSTEEL-AE-S355RA-0049",
+          "source_id": "SRC-MACSTEEL-AE20261001-P3",
+          "seller_sku": "AE_S355RA_0049"
+        }
+      ],
+      "source_ids": [
+        "SRC-MACSTEEL-AE0061-PDF",
+        "SRC-MACSTEEL-AE20261001-P3"
+      ],
+      "evidence_path": "registry/reports/macsteel-angle-coverage.json",
+      "evidence_sha256": "B9BB5AA678DA1307680FEAB93294AF6C5203CD34B701311DC611F6C5A06003BA",
+      "evidence_pointer": "/records/89",
+      "summary": "AE_S355RA_0049: no nominal row in the selected seller sheet under its declared material context.",
+      "next_action": "Obtain exact grade and delivery-condition evidence for seller stock; geometry in a CQ or generic S355 table does not close S355JR+AR. Do not infer global unavailability, approve substitution or issue a UPN.",
+      "policy_version": "supplier-research-0.1",
+      "identity_approved": false
+    }
+  ],
+  "limitations": [
+    "Derived research tasks, not adjudicated article findings or equivalence decisions.",
+    "Input hashes bind retained reports; this adapter does not independently validate extraction fidelity.",
+    "Findings do not disappear merely because a manufacturer link is assigned.",
+    "Input revision changes fail closed and require deliberate evidence and task reconciliation."
+  ],
+  "identity_approved": false
+}

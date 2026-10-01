@@ -30,6 +30,8 @@ Equal-angle mass audit: `docs/angle-mass-discrepancies.md` separates 40 distinct
 
 Structural identity foundation: `docs/equal-angle-identity-profile.md` documents a new draft profile with seventeen required fields, six exact cross-unit numeric rules and grade/shape/route specificity guards. Mass remains diagnostic. Ten synthetic regression tests cover missing evidence and differences; no seller offers or design-table rows were promoted to manufacturer articles.
 
+Supplier research intake: `docs/supplier-research-findings.md` connects ten material-context gaps and four distinct publication mass discrepancies to checksum-bound, offer-linked P2 research tasks. The deterministic reviewer queue now has 417 tasks. These tasks do not authorize article approval and do not close merely when a maker link is assigned.
+
 ## What is here
 
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.

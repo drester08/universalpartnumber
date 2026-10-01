@@ -12,6 +12,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 import numeric_rules
+import build_supplier_research_findings
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -131,6 +132,15 @@ def supplier_identity_items(connection: sqlite3.Connection) -> list[dict[str, st
 def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
     connection.row_factory = sqlite3.Row
     items: list[dict[str, str]] = supplier_identity_items(connection)
+    for finding in build_supplier_research_findings.build_report(connection)['findings']:
+        related = '; '.join(o['supplier_offer_id'] for o in finding['related_offers'])
+        add_item(items, work_item_id='RW-' + finding['finding_id'], priority=finding['priority'],
+                 queue_type='supplier_research_' + finding['issue_type'], readiness='ready',
+                 subject_type='supplier_research_finding', subject_id=finding['finding_id'],
+                 source_id=finding['source_ids'][0], summary=finding['summary'],
+                 next_action=(finding['next_action'] + ' Evidence: ' + finding['evidence_path'] +
+                    '#' + finding['evidence_pointer'] + '; SHA-256 ' + finding['evidence_sha256'] +
+                    '. Related offers: ' + related), policy_version=finding['policy_version'])
 
     required_pairs = {
         (row["profile_id"], row["property_id"])
@@ -548,7 +558,7 @@ def render_summary(items: list[dict[str, str]]) -> str:
     lines = [
         "# Current UPN reviewer queue",
         "",
-        "This report is generated deterministically from the governed registry seed data.",
+        "This report is generated deterministically from registry seed data and checksum-bound supplier research reports.",
         "It is a work list, not a set of reviewer decisions. Regenerate it whenever source data changes.",
         "",
         f"- Total work items: {len(items)}",

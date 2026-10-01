@@ -1,10 +1,10 @@
 # Current UPN reviewer queue
 
-This report is generated deterministically from the governed registry seed data.
+This report is generated deterministically from registry seed data and checksum-bound supplier research reports.
 It is a work list, not a set of reviewer decisions. Regenerate it whenever source data changes.
 
-- Total work items: 403
-- Ready: 392
+- Total work items: 417
+- Ready: 406
 - Blocked by explicit dependencies: 11
 - No queue item authorizes UPN issuance.
 
@@ -14,7 +14,7 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | --- | ---: |
 | P0 | 76 |
 | P1 | 42 |
-| P2 | 276 |
+| P2 | 290 |
 | P3 | 9 |
 
 ## Queue counts
@@ -32,6 +32,8 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | source_conflict_resolution | 2 |
 | source_governance | 5 |
 | supplier_manufacturer_identity | 136 |
+| supplier_research_material_context_gap | 10 |
+| supplier_research_published_mass_discrepancy | 4 |
 | terminology_mapping_review | 15 |
 
 ## Priority meaning
