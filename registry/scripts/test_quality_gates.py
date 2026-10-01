@@ -236,7 +236,7 @@ def main() -> int:
                  WHERE requirement = 'required' AND comparison_rule = 'numeric_exact'
                 """
             ).fetchone()[0]
-            if len(governed_rules) != required_numeric_count or required_numeric_count != 21:
+            if len(governed_rules) != required_numeric_count or required_numeric_count != 27:
                 raise AssertionError("Every required numeric identity property must have exactly one governed rule")
             mapping_summary = screening_connection.execute(
                 """
@@ -246,7 +246,9 @@ def main() -> int:
                 """
             ).fetchone()
             controlled_value_count = screening_connection.execute(
-                "SELECT COUNT(*) FROM controlled_values"
+                "SELECT COUNT(*) FROM controlled_values WHERE property_id IN "
+                "(SELECT property_id FROM identity_profile_properties WHERE "
+                "profile_id = 'PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1')"
             ).fetchone()[0]
             if tuple(mapping_summary) != (15, 0) or controlled_value_count != 11:
                 raise AssertionError("Bearing terminology mappings are incomplete or prematurely approved")

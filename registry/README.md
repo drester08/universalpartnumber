@@ -28,6 +28,8 @@ Manufacturer equal-angle research: `docs/orangebook-equal-angle-screening.md` re
 
 Equal-angle mass audit: `docs/angle-mass-discrepancies.md` separates 40 distinct section/context comparisons across 104 offers from 32 uncomparable offers. Six displayed numeric values agree exactly; 30 pairs do not exclude a conditional nearest-rounding explanation; four pairs affecting nine offers are not explained by that hypothesis. No physical conflict or material-context equivalence is approved.
 
+Structural identity foundation: `docs/equal-angle-identity-profile.md` documents a new draft profile with seventeen required fields, six exact cross-unit numeric rules and grade/shape/route specificity guards. Mass remains diagnostic. Ten synthetic regression tests cover missing evidence and differences; no seller offers or design-table rows were promoted to manufacturer articles.
+
 ## What is here
 
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.

@@ -1,4 +1,23 @@
 profile_id,property_id,requirement,comparison_rule,sequence_number,rationale
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-GEOMETRY,required,normalized_exact,1,Equal-leg right-angle form must be explicitly supported and cannot be inferred from a size label alone.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-PRODUCTION-ROUTE,required,normalized_exact,2,Hot rolling and cold forming are not the same construction; as-rolled delivery condition is not route proof.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-MATERIAL,required,normalized_exact,3,The exact base material family must be attributable to the article.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-MATERIAL-STANDARD,required,normalized_exact,4,Material standards and their parts editions and options must not be inferred from dimensional standards.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-MATERIAL-GRADE,required,normalized_exact,5,Full impact-quality grade designation is required; S355 and commercial quality do not establish S355JR.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-DELIVERY-CONDITION,required,normalized_exact,6,JR impact quality does not establish AR or another metallurgical delivery condition.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-DIMENSION-STANDARD,required,normalized_exact,7,Retain the governing nominal dimension standard edition and any exceptions.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-TOLERANCE-STANDARD,required,normalized_exact,8,Matching nominal dimensions do not establish matching dimensional shape or length tolerances.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-LEG-A,required,numeric_exact,9,First leg dimension defines the supplied cross-section.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-LEG-B,required,numeric_exact,10,Second leg dimension is retained separately rather than assuming equal legs from the family name.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-THICKNESS,required,numeric_exact,11,Thickness changes cross-section and performance.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-ROOT-RADIUS,required,numeric_exact,12,Root fillet geometry can differ despite matching legs and thickness.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-TOE-RADIUS,required,numeric_exact,13,Toe geometry must not be silently inherited from another publisher or assumed from root radius.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-LENGTH,required,numeric_exact,14,Different stock lengths are different items of supply even with the same section geometry.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SURFACE-PROTECTION,required,normalized_exact,15,Coating or explicitly uncoated finish affects the as-supplied item.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-SURFACE-CONDITION,required,normalized_exact,16,Surface quality specification and coating are different facts.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-END-CONDITION,required,normalized_exact,17,As-supplied end geometry and preparation must be declared.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-SECTION-MASS-PER-LENGTH,descriptive,contextual,18,Mass is a useful source discrepancy check but cannot prove geometry or replace missing identity evidence.
+PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-CERTIFICATIONS,conditional,set_equal,19,Compare declared product approvals without treating batch certificate numbers as new physical item identities.
 PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-FORM,required,exact,1,Prevents a straight section from matching a fitting or accessory.
 PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-NOMINAL-WIDTH,required,numeric_exact,2,Determines usable routing width and fitting compatibility.
 PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-OVERALL-WIDTH,required,numeric_exact,3,Determines installed envelope and support compatibility.

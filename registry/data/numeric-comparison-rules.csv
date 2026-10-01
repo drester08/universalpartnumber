@@ -1,4 +1,10 @@
 rule_id,profile_id,property_id,comparison_method,quantity_kind,absolute_tolerance_base,relative_tolerance,version_label,rationale
+NUM-ANGLE-LEG-A-1,PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-LEG-A,absolute_or_relative,length,0,0,1.0,Exact nominal dimension after unit conversion; declared manufacturing tolerances are separate evidence.
+NUM-ANGLE-LEG-B-1,PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-LEG-B,absolute_or_relative,length,0,0,1.0,Exact nominal dimension after unit conversion; no implicit equality or leg swap.
+NUM-ANGLE-THICKNESS-1,PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-THICKNESS,absolute_or_relative,length,0,0,1.0,Exact nominal thickness after unit conversion; do not borrow a tolerance from a steel standard.
+NUM-ANGLE-ROOT-RADIUS-1,PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-ROOT-RADIUS,absolute_or_relative,length,0,0,1.0,Exact published nominal fillet radius; missing radius is not zero or a default.
+NUM-ANGLE-TOE-RADIUS-1,PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-ANGLE-TOE-RADIUS,absolute_or_relative,length,0,0,1.0,Exact published nominal toe radius; do not infer one-half of root radius.
+NUM-ANGLE-LENGTH-1,PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1,PROP-LENGTH,absolute_or_relative,length,0,0,1.0,Exact supplied nominal length after unit conversion; stock lengths remain separate items.
 NUM-CABLE-NOMINAL-WIDTH-1,PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-NOMINAL-WIDTH,absolute_or_relative,length,0,0.02,1.0,"Nominal metric and inch market classes may differ by up to two percent; this rule never substitutes for overall width."
 NUM-CABLE-OVERALL-WIDTH-1,PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-OVERALL-WIDTH,absolute_or_relative,length,0.001,0.001,1.0,"Allows documented representation rounding only; it is not a manufacturing tolerance."
 NUM-CABLE-RAIL-HEIGHT-1,PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,PROP-SIDE-RAIL-HEIGHT,absolute_or_relative,length,0.001,0.001,1.0,"Allows documented representation rounding only; it is not a manufacturing tolerance."

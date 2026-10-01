@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import itertools
+import re
 import sqlite3
 import sys
 from collections import defaultdict
@@ -16,6 +17,10 @@ import numeric_rules
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_RULES = {
+    "PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1": {
+        "algorithm_version": "equal-angle-screen-0.1",
+        "blocking_properties": ("PROP-ANGLE-LEG-A", "PROP-ANGLE-LEG-B", "PROP-ANGLE-THICKNESS"),
+    },
     "PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1": {
         "algorithm_version": "cable-ladder-screen-0.3",
         "blocking_properties": (
@@ -203,6 +208,19 @@ def compare_property(
 ) -> str:
     if not left or not right:
         return "missing"
+    if profile_id == "PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1":
+        generic = {"unknown", "unspecified", "not_stated", "not_applicable", "cq", "commercial_quality"}
+        if any(isinstance(v, str) and v in generic for v in left | right):
+            return "missing"
+        scope_codes = {"PROP-ANGLE-GEOMETRY": "equal_leg_angle_90_degree",
+                       "PROP-SECTION-PRODUCTION-ROUTE": "hot_rolled"}
+        if property_id in scope_codes and left | right != {scope_codes[property_id]}:
+            return "missing"
+    if profile_id == "PROFILE-ANGLE-EQUAL-HOT-ROLLED-STEEL-0.1" and property_id == "PROP-MATERIAL-GRADE":
+        # This draft scope requires impact-quality grades. A broad grade family
+        # or commercial-quality assertion never proves the full designation.
+        if any(not isinstance(v, str) or not re.fullmatch(r"s\d{3}(?:jr|j0|j2|k2)", v) for v in left | right):
+            return "missing"
     if comparison_rule == "numeric_exact":
         rule = governed_numeric_rules.get((profile_id, property_id))
         if rule is None:

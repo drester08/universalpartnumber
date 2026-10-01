@@ -1,4 +1,8 @@
 controlled_value_id,property_id,canonical_code,preferred_label,definition,lifecycle_state
+CV-ANGLE-EQUAL-90,PROP-ANGLE-GEOMETRY,equal_leg_angle_90_degree,Equal-leg right-angle section,Two nominally equal legs forming a nominal 90-degree angle; exact tolerance remains separate.,active
+CV-SECTION-ROUTE-HOT-ROLLED,PROP-SECTION-PRODUCTION-ROUTE,hot_rolled,Hot-rolled section,The article is explicitly manufactured by hot rolling; as-rolled delivery condition alone is not sufficient evidence.,active
+CV-STEEL-GRADE-S355JR,PROP-MATERIAL-GRADE,s355jr,S355JR,Full source-declared S355JR designation; governing material standard edition and delivery condition remain separate.,active
+CV-STEEL-GRADE-S355J2,PROP-MATERIAL-GRADE,s355j2,S355J2,Full source-declared S355J2 designation; not equivalent to S355JR.,active
 CV-BEARING-GEOMETRY-SR-DGBB,PROP-BEARING-GEOMETRY,single_row_deep_groove_ball,Single-row deep-groove ball bearing,One row of balls running in deep raceway grooves.,active
 CV-BEARING-CLOSURE-DOUBLE-NONCONTACT-METAL,PROP-BEARING-CLOSURE,double_non_contact_metal_shield,Two non-contact metal shields,A non-contact metal shield is present on each side of the bearing.,active
 CV-BEARING-BORE-CYLINDRICAL,PROP-BORE-TYPE,cylindrical,Cylindrical bore,The bearing bore is cylindrical rather than tapered.,active

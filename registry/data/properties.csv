@@ -1,4 +1,19 @@
 property_id,source_id,external_code,preferred_label,definition,value_kind,identity_role
+PROP-ANGLE-GEOMETRY,,,Angle section geometry,Declared equal-leg or unequal-leg section form and included-angle geometry.,code,defining
+PROP-SECTION-PRODUCTION-ROUTE,,,Section production route,Declared production route such as hot rolling or cold forming; not delivery condition.,code,defining
+PROP-SECTION-MATERIAL,,,Section base material,Declared base material for a structural section.,code,defining
+PROP-SECTION-MATERIAL-STANDARD,,,Section material standard,Applicable steel material standard with part edition and declared options.,code,defining
+PROP-SECTION-DELIVERY-CONDITION,,,Section delivery condition,Declared metallurgical delivery condition such as as-rolled or normalised; separate from production route.,code,defining
+PROP-SECTION-DIMENSION-STANDARD,,,Section dimension standard,Applicable nominal dimension standard including edition and declared exceptions.,code,defining
+PROP-SECTION-TOLERANCE-STANDARD,,,Section tolerance specification,Applicable dimensional shape and length tolerance standard edition classes and declared exceptions.,code,defining
+PROP-ANGLE-LEG-A,,,Angle first leg dimension,Nominal external first leg dimension of the supplied section.,number,defining
+PROP-ANGLE-LEG-B,,,Angle second leg dimension,Nominal external second leg dimension of the supplied section.,number,defining
+PROP-ANGLE-THICKNESS,,,Angle thickness,Nominal section leg thickness.,number,defining
+PROP-ANGLE-ROOT-RADIUS,,,Angle root radius,Nominal inside fillet radius of the angle section.,number,defining
+PROP-ANGLE-TOE-RADIUS,,,Angle toe radius,Nominal outside toe radius of the angle section.,number,defining
+PROP-SECTION-SURFACE-CONDITION,,,Section surface quality specification,Declared surface quality standard edition class subclass and agreed deviations; separate from coating.,code,defining
+PROP-SECTION-END-CONDITION,,,Section end condition,Declared as-supplied end geometry and preparation including plain square or specially prepared ends.,code,defining
+PROP-SECTION-MASS-PER-LENGTH,,,Section mass per unit length,Published nominal linear mass and its calculation or measurement basis; not whole-piece mass.,number,descriptive
 PROP-FORM,,,Product form,"Physical product form within the class, such as straight section or fitting.",code,defining
 PROP-NOMINAL-WIDTH,,,Nominal inside width,"Manufacturer's nominal usable product width; not necessarily the overall external width.",number,defining
 PROP-OVERALL-WIDTH,,,Overall width,Maximum external width of the supplied straight section.,number,defining
