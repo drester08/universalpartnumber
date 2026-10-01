@@ -24,6 +24,8 @@ Independent follow-up: `docs/structural-british-corroboration.md` screens all49U
 
 DS.0001 structural research: `docs/structural-heavy-verification.md` documents all49UB/UC rows screened:46unique nominal candidates with field differences and three unmatched exact keys. Manual transcription remains unreviewed. Combined with IPE/British evidence,61distinct structural rows screened;744remain outside selected-table screening. Five DS.0001 findings remain open alongside the British findings. No identity approval or UPN issuance.
 
+Manufacturer equal-angle research: `docs/orangebook-equal-angle-screening.md` records 192 ArcelorMittal Orange Book S355 nominal rows screened against all 136 captured seller offers. There are 111 geometry candidates and 25 table-coverage gaps. Seven of ten earlier material-context gaps have geometry here, but none are closed: S355 does not verify seller S355JR+AR or the manufacturer of stock. No article approval.
+
 ## What is here
 
 - `schema.sql` — relational schema for sources, taxonomies, manufacturers, parts, observations, evidence, candidate matches, and reviewed equivalence decisions.
