@@ -3,8 +3,8 @@
 This report is generated deterministically from registry seed data and checksum-bound supplier research reports.
 It is a work list, not a set of reviewer decisions. Regenerate it whenever source data changes.
 
-- Total work items: 417
-- Ready: 406
+- Total work items: 421
+- Ready: 410
 - Blocked by explicit dependencies: 11
 - No queue item authorizes UPN issuance.
 
@@ -14,7 +14,7 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | --- | ---: |
 | P0 | 76 |
 | P1 | 42 |
-| P2 | 290 |
+| P2 | 294 |
 | P3 | 9 |
 
 ## Queue counts
@@ -26,9 +26,9 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | complete_part_review | 11 |
 | dataset_finding_review | 98 |
 | external_identifier_verification | 1 |
-| observation_review | 61 |
+| observation_review | 62 |
 | reference_dataset_validation | 4 |
-| required_evidence_gap | 49 |
+| required_evidence_gap | 52 |
 | source_conflict_resolution | 2 |
 | source_governance | 5 |
 | supplier_manufacturer_identity | 136 |

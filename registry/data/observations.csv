@@ -1,4 +1,5 @@
 observation_id,manufacturer_part_id,item_id,source_id,source_locator,observed_name,observed_part_number,observed_at,raw_payload_sha256,review_state
+OBS-NTN-6205ZZ-20261001,MP-NTN-6205ZZ,,SRC-NTN-6205ZZ,Exact article heading and named native property rows; row HTML line locators in registry/reports/ntn-6205zz-source.json,6205ZZ Single Row Radial Ball Bearing Double Shielded,6205ZZ,2026-10-01,9C1EE760F042A1A6AAE56E1DEC21AD35A9817F66ADBDE3B1FBA86D5FD12B3F9D,unreviewed
 OBS-LEGRAND-ZL450G-20260930,MP-LEGRAND-ZL450G,,SRC-LEGRAND-ZL450G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 450mm x 100mm x 3m Length",ZL450G,2026-09-30,,unreviewed
 OBS-LEGRAND-ZL600G-20260930,MP-LEGRAND-ZL600G,,SRC-LEGRAND-ZL600G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 600mm x 100mm x 3m Length",ZL600G,2026-09-30,,unreviewed
 OBS-LEGRAND-ZL750G-20260930,MP-LEGRAND-ZL750G,,SRC-LEGRAND-ZL750G,Technical characteristics,"Swifts Medium Duty Hot Dip Galvanised Steel Cable Ladder 750mm x 100mm x 3m Length",ZL750G,2026-09-30,,unreviewed

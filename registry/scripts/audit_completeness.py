@@ -33,7 +33,7 @@ def main() -> int:
     try:
         records = connection.execute(
             """
-            SELECT mp.manufacturer_part_number,
+            SELECT mp.manufacturer_part_id, mp.manufacturer_part_number,
                    p.preferred_label,
                    CASE WHEN EXISTS (
                      SELECT 1
@@ -85,12 +85,12 @@ def main() -> int:
                AND ipp.requirement = 'required'
               JOIN properties AS p
                 ON p.property_id = ipp.property_id
-          ORDER BY mp.manufacturer_part_number, ipp.sequence_number
+          ORDER BY mp.manufacturer_part_id, ipp.sequence_number
             """
         ).fetchall()
         numeric_records = connection.execute(
             """
-            SELECT mp.profile_id,
+            SELECT mp.profile_id, mp.manufacturer_part_id,
                    mp.manufacturer_part_number,
                    ipp.property_id,
                    p.preferred_label,
@@ -128,32 +128,33 @@ def main() -> int:
             numeric_values[
                 (
                     record["profile_id"],
-                    record["manufacturer_part_number"],
+                    record["manufacturer_part_id"],
                     record["property_id"],
                     record["preferred_label"],
                 )
             ].add(value)
 
     conflicts: dict[str, list[str]] = defaultdict(list)
-    for (profile_id, part_number, property_id, label), values in numeric_values.items():
+    for (profile_id, part_id, property_id, label), values in numeric_values.items():
         if len(values) < 2:
             continue
         rule = governed_numeric_rules.get((profile_id, property_id))
         if rule is None or not numeric_rules.sets_compatible(values, values, rule):
-            conflicts[part_number].append(label)
+            conflicts[part_id].append(label)
 
     parts: dict[str, dict[str, object]] = {}
     for record in records:
         part = parts.setdefault(
-            record["manufacturer_part_number"],
+            record["manufacturer_part_id"],
             {
                 "required": 0,
+                "part_number": record["manufacturer_part_number"],
                 "present": 0,
                 "missing": [],
                 "review": record["review_decision"],
                 "unreviewed_observations": record["unreviewed_observations"],
                 "unapproved_code_mappings": record["unapproved_code_mappings"],
-                "conflicts": conflicts.get(record["manufacturer_part_number"], []),
+                "conflicts": conflicts.get(record["manufacturer_part_id"], []),
             },
         )
         part["required"] = int(part["required"]) + 1
@@ -165,7 +166,7 @@ def main() -> int:
             missing_list.append(record["preferred_label"])
 
     publication_errors = 0
-    for part_number, part in parts.items():
+    for part_id, part in parts.items():
         missing_list = part["missing"]
         assert isinstance(missing_list, list)
         missing = "; ".join(missing_list) or "none"
@@ -173,10 +174,10 @@ def main() -> int:
         assert isinstance(conflict_list, list)
         source_conflicts = "; ".join(conflict_list) or "none"
         print(
-            f"{part_number}: {part['present']}/{part['required']} required properties; "
+            f"{part['part_number']}: {part['present']}/{part['required']} required properties; "
             f"review={part['review']}; unreviewed_observations={part['unreviewed_observations']}; "
             f"unapproved_code_mappings={part['unapproved_code_mappings']}; "
-            f"missing={missing}; source_conflicts={source_conflicts}"
+            f"missing={missing}; source_conflicts={source_conflicts}; manufacturer_part_id={part_id}"
         )
         if part["review"] == "accepted" and (
             part["present"] != part["required"]

@@ -1,4 +1,5 @@
 manufacturer_part_id,manufacturer_id,profile_id,manufacturer_part_number,normalized_part_number,manufacturer_name,lifecycle_state
+MP-NTN-6205ZZ,ORG-NTN-AMERICAS,PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,6205ZZ,6205ZZ,NTN single-row double-shielded radial ball bearing,unknown
 MP-LEGRAND-ZL450G,ORG-LEGRAND-UK,PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,ZL450G,ZL450G,Swifts medium duty cable ladder,active
 MP-LEGRAND-ZL600G,ORG-LEGRAND-UK,PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,ZL600G,ZL600G,Swifts medium duty cable ladder,active
 MP-LEGRAND-ZL750G,ORG-LEGRAND-UK,PROFILE-CABLE-LADDER-STRAIGHT-STEEL-0.1,ZL750G,ZL750G,Swifts medium duty cable ladder,active

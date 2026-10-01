@@ -1,0 +1,411 @@
+{
+  "source_id": "SRC-NTN-6205ZZ",
+  "source_sha256": "9C1EE760F042A1A6AAE56E1DEC21AD35A9817F66ADBDE3B1FBA86D5FD12B3F9D",
+  "manufacturer_article": "6205ZZ",
+  "manufacturer_namespace": "NTN",
+  "native_property_count": 26,
+  "native_properties": [
+    {
+      "name": "Ordering Options",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Find a Distributor"
+        },
+        {
+          "measure": "general",
+          "text": "Contact NTN Customer Support Specialist"
+        },
+        {
+          "measure": "general",
+          "text": "Order through NTN DOL (Authorized Distributors Only)"
+        }
+      ],
+      "html_line": 637
+    },
+    {
+      "name": "Type",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Deep Groove Ball Bearing"
+        }
+      ],
+      "html_line": 661
+    },
+    {
+      "name": "Bore Type",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Round"
+        }
+      ],
+      "html_line": 674
+    },
+    {
+      "name": "Material",
+      "values": [
+        {
+          "measure": "general",
+          "text": "High Carbon Chrome Steel"
+        }
+      ],
+      "html_line": 687
+    },
+    {
+      "name": "Cage Type",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Pressed"
+        }
+      ],
+      "html_line": 700
+    },
+    {
+      "name": "Cage Material",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Steel"
+        }
+      ],
+      "html_line": 713
+    },
+    {
+      "name": "Ball Material",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Steel"
+        }
+      ],
+      "html_line": 726
+    },
+    {
+      "name": "Limiting Speed - Grease",
+      "values": [
+        {
+          "measure": "general",
+          "text": "13000 RPM"
+        }
+      ],
+      "html_line": 739
+    },
+    {
+      "name": "Precision",
+      "values": [
+        {
+          "measure": "general",
+          "text": "ISO Class 0"
+        }
+      ],
+      "html_line": 752
+    },
+    {
+      "name": "Configuration",
+      "values": [
+        {
+          "measure": "general",
+          "text": "One"
+        }
+      ],
+      "html_line": 765
+    },
+    {
+      "name": "Factor",
+      "values": [
+        {
+          "measure": "general",
+          "text": "13.9"
+        }
+      ],
+      "html_line": 778
+    },
+    {
+      "name": "Radial Internal Clearance",
+      "values": [
+        {
+          "measure": "general",
+          "text": "CN"
+        }
+      ],
+      "html_line": 791
+    },
+    {
+      "name": "Static Load Rating",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1760 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "7850 N"
+        },
+        {
+          "measure": "metric",
+          "text": "11.60 kN"
+        }
+      ],
+      "html_line": 804
+    },
+    {
+      "name": "Dynamic Load Rating",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "3480 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "15500 N"
+        },
+        {
+          "measure": "metric",
+          "text": "15.50 kN"
+        }
+      ],
+      "html_line": 817
+    },
+    {
+      "name": "Enclosure",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Double Shielded"
+        }
+      ],
+      "html_line": 830
+    },
+    {
+      "name": "Weight",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.280 lb"
+        },
+        {
+          "measure": "metric",
+          "text": "0.127 kg"
+        }
+      ],
+      "html_line": 843
+    },
+    {
+      "name": "Operating Temperature Range",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "-40 to 250 \u00baF"
+        },
+        {
+          "measure": "metric",
+          "text": "-40 to 120 \u00baC"
+        }
+      ],
+      "html_line": 856
+    },
+    {
+      "name": "d",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.9843 in"
+        },
+        {
+          "measure": "metric",
+          "text": "25.000 mm"
+        }
+      ],
+      "html_line": 888
+    },
+    {
+      "name": "D",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "2.0472 in"
+        },
+        {
+          "measure": "metric",
+          "text": "52.000 mm"
+        }
+      ],
+      "html_line": 901
+    },
+    {
+      "name": "B",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.5906 in"
+        },
+        {
+          "measure": "metric",
+          "text": "15.000 mm"
+        }
+      ],
+      "html_line": 914
+    },
+    {
+      "name": "r",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.0394 in"
+        },
+        {
+          "measure": "metric",
+          "text": "1.000 mm"
+        }
+      ],
+      "html_line": 927
+    },
+    {
+      "name": "r1",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.0197 in"
+        },
+        {
+          "measure": "metric",
+          "text": "0.500 mm"
+        }
+      ],
+      "html_line": 940
+    },
+    {
+      "name": "da min",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1.1811 in"
+        },
+        {
+          "measure": "metric",
+          "text": "30.000 mm"
+        }
+      ],
+      "html_line": 953
+    },
+    {
+      "name": "da max",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1.2598 in"
+        },
+        {
+          "measure": "imperial",
+          "text": "1.8504 in"
+        },
+        {
+          "measure": "metric",
+          "text": "32.000 mm"
+        },
+        {
+          "measure": "metric",
+          "text": "47.000 mm"
+        }
+      ],
+      "html_line": 966
+    },
+    {
+      "name": "Da max",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1.8504 in"
+        },
+        {
+          "measure": "metric",
+          "text": "47.000 mm"
+        }
+      ],
+      "html_line": 979
+    },
+    {
+      "name": "ras max",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.0394 in"
+        },
+        {
+          "measure": "metric",
+          "text": "1.000 mm"
+        }
+      ],
+      "html_line": 992
+    }
+  ],
+  "metric_boundary_dimensions_mm": {
+    "d": "25.000",
+    "D": "52.000",
+    "B": "15.000"
+  },
+  "quality_findings": [
+    {
+      "issue_type": "inconsistent_static_load_metric_units",
+      "source_html_line": 804,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1760 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "7850 N"
+        },
+        {
+          "measure": "metric",
+          "text": "11.60 kN"
+        }
+      ],
+      "metric_values_converted_to_n": [
+        "7850",
+        "11600.00"
+      ],
+      "difference_n": "3750.00",
+      "priority": "P2",
+      "corrected_value": null,
+      "rating_trusted": false
+    },
+    {
+      "issue_type": "ambiguous_da_max_values",
+      "source_html_line": 966,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1.2598 in"
+        },
+        {
+          "measure": "imperial",
+          "text": "1.8504 in"
+        },
+        {
+          "measure": "metric",
+          "text": "32.000 mm"
+        },
+        {
+          "measure": "metric",
+          "text": "47.000 mm"
+        }
+      ],
+      "corrected_value": null
+    }
+  ],
+  "limitations": [
+    "Manufacturer-specific article number is not a cross-brand identity.",
+    "Round bore does not prove cylindrical rather than tapered bore.",
+    "Double Shielded does not explicitly prove non-contact metal shielding.",
+    "Grease limiting speed does not establish the supplied grease formulation.",
+    "No integral-locating-feature absence is inferred from a plain designation.",
+    "Static rating and da max remain quarantined research facts, not trusted normalized values.",
+    "Automatic extraction fidelity remains independently unreviewed."
+  ],
+  "identity_approved": false
+}

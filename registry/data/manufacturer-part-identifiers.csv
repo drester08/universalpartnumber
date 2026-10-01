@@ -1,4 +1,5 @@
 manufacturer_part_id,scheme,identifier_value,identifier_authority,source_id,is_primary
+MP-NTN-6205ZZ,manufacturer_part_number,6205ZZ,NTN,SRC-NTN-6205ZZ,1
 MP-LEGRAND-ZL450G,manufacturer_part_number,ZL450G,Legrand,SRC-LEGRAND-ZL450G,1
 MP-LEGRAND-ZL600G,manufacturer_part_number,ZL600G,Legrand,SRC-LEGRAND-ZL600G,1
 MP-LEGRAND-ZL750G,manufacturer_part_number,ZL750G,Legrand,SRC-LEGRAND-ZL750G,1

@@ -1,4 +1,15 @@
 specification_id,observation_id,property_id,raw_value,normalized_text,normalized_number,unit_id,qualifier
+SPEC-NTN-6205ZZ-GEOMETRY,OBS-NTN-6205ZZ-20261001,PROP-BEARING-GEOMETRY,Deep Groove Ball Bearing; Single Row Radial Ball Bearing,single_row_deep_groove_ball,,,Source Type and article heading
+SPEC-NTN-6205ZZ-BORE,OBS-NTN-6205ZZ-20261001,PROP-BORE-DIAMETER,d 25.000 mm,,25.000,UNIT-MM,Explicit metric span in d row
+SPEC-NTN-6205ZZ-OD,OBS-NTN-6205ZZ-20261001,PROP-OUTSIDE-DIAMETER,D 52.000 mm,,52.000,UNIT-MM,Explicit metric span in D row
+SPEC-NTN-6205ZZ-WIDTH,OBS-NTN-6205ZZ-20261001,PROP-BEARING-WIDTH,B 15.000 mm,,15.000,UNIT-MM,Explicit metric span in B row
+SPEC-NTN-6205ZZ-CLOSURE,OBS-NTN-6205ZZ-20261001,PROP-BEARING-CLOSURE,Double Shielded,,,,Contact form and metal material not explicitly established; no canonical mapping
+SPEC-NTN-6205ZZ-CLEARANCE,OBS-NTN-6205ZZ-20261001,PROP-RADIAL-INTERNAL-CLEARANCE,CN,cn,,,Raw source designation only; no independent terminology approval
+SPEC-NTN-6205ZZ-TOLERANCE,OBS-NTN-6205ZZ-20261001,PROP-BEARING-TOLERANCE-CLASS,ISO Class 0,,,,Not automatically equated to NSK P0 or SKF Class 6
+SPEC-NTN-6205ZZ-CAGE,OBS-NTN-6205ZZ-20261001,PROP-CAGE-CONSTRUCTION,Cage Type Pressed; Cage Material Steel,pressed_steel,,,Separate source rows jointly state form and material; no independent mapping approval
+SPEC-NTN-6205ZZ-MATERIAL,OBS-NTN-6205ZZ-20261001,PROP-BEARING-MATERIAL,High Carbon Chrome Steel,,,,Exact grade and ring/ball material distinctions unresolved
+SPEC-NTN-6205ZZ-SPEED,OBS-NTN-6205ZZ-20261001,PROP-LIMITING-SPEED-GREASE,13000 RPM,,13000,UNIT-RPM,Limiting speed under grease lubrication does not establish supplied grease
+SPEC-NTN-6205ZZ-MASS,OBS-NTN-6205ZZ-20261001,PROP-MASS,0.127 kg,,0.127,UNIT-KG,Explicit metric span; not part identity proof
 SPEC-ZL450G-FORM,OBS-LEGRAND-ZL450G-20260930,PROP-FORM,Cable ladder straight length,straight_section,,,
 SPEC-ZL450G-NOMW,OBS-LEGRAND-ZL450G-20260930,PROP-NOMINAL-WIDTH,450 mm,,450,UNIT-MM,from product name
 SPEC-ZL450G-OVERW,OBS-LEGRAND-ZL450G-20260930,PROP-OVERALL-WIDTH,490 mm,,490,UNIT-MM,technical characteristics width

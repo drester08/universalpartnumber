@@ -33,7 +33,23 @@ The reproducible screen therefore records one hard conflict, four missing identi
 - Distributor cross-reference tables can generate research candidates but cannot approve equivalence.
 - A proposed term mapping can generate a candidate but cannot support an accepted part review or UPN issuance.
 
+## NTN source extension — 1 October 2026
+
+NTN `6205ZZ` is now a separate manufacturer-namespaced research article. Its placement in this draft family is provisional: the captured page does not fully prove the profile's scope. A shared designation with NSK is not an identity link.
+
+The private, checksum-bound HTML retains 26 named native rows (25 engineering rows plus one ordering-options row), including 25 × 52 × 15 mm boundary dimensions. Eleven selected specification rows were ingested with an unreviewed observation. No NTN terminology mapping was approved; “ISO Class 0” is not silently converted to NSK P0. “Round” does not prove cylindrical bore, “Double Shielded” does not explicitly establish non-contact metal closure, and grease limiting speed does not establish the supplied grease. Integral locating-feature absence remains unproven.
+
+Two publication issues remain open research questions:
+
+- The static-load row simultaneously displays 7,850 N and 11.60 kN (11,600 N). Neither is chosen as the corrected value or ingested as a trusted rating.
+- The `da max` row contains two inch and two metric values, including 32 mm and 47 mm. Its interpretation is unresolved and no normalized mounting dimension was ingested.
+
+The reproducible evidence is `registry/reports/ntn-6205zz-source.json`; run `registry/scripts/check_ntn_6205zz.py` to check its source hash, row extraction and specification custody. Extraction fidelity still needs independent review. Seek NTN clarification or a revised exact-article datasheet for the two publication issues, and manufacturer definitions/drawings for scope and missing identity fields. This extension creates no cross-brand equivalence decision.
+
+Adding the second manufacturer's `6205ZZ` exposed a completeness-report grouping defect. Coverage and numeric-conflict aggregation now use the manufacturer-part ID, not bare part-number text. The report shows NTN and NSK separately, with nine of twelve required fields present for each; presence is not evidence approval. Ten regression tests cover source scope, contradictions, custody and namespace separation. The general reviewer queue grows from 417 to 421 items (one observation review and three required-field gaps); the two NTN publication issues are documented research questions, not yet dedicated queue items.
+
 ## Primary sources
 
 - SKF exact product page: <https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6205-2z>
 - NSK exact product page: <https://www.nsk.com/eu-en/engineering/products/bearings/ball-bearings/deep-groove-ball-bearings/single-row-deep-groove-ball-bearings/6205zz-apn.html>
+- NTN exact product page: <https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6205zz>
