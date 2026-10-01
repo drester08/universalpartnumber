@@ -1,5 +1,15 @@
 # Research and ingestion plan
 
+## Current baseline — 1 October 2026
+
+There are 122 registered sources, 67 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 39 manufacturer parts, 168 supplier offers and 62 observations. The reproducible screen has 24 pairs; the reviewer queue has 426 tasks (415 ready, 11 dependency-blocked). All 17 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+
+These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
+
+Next: resolve the two NTN publication questions with evidence-backed resolution/waiver governance; obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
+
+The [Schaeffler retrieval lead](schaeffler-retrieval-lead.md) remains outside article ingestion. Verify real content and source pages before promoting any search excerpt or HTTP-success response. `J:\Codex\UPN` preserves dated research and handoffs; it remains a partial archive.
+
 ## Phase 1 — Authority map
 
 Maintain the source register, verify licences, and map relevant standards, classifications, unit systems, regulatory sources, and manufacturer families. Store metadata before content.
@@ -28,13 +38,15 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
-3. Resolve missing identity fields and source conflicts across the 38 pilot parts, especially package-included splice hardware, Atkore rung construction, Eaton geometry and length, Legrand height, and the SKF/NSK bearing tolerance and evidence gaps.
-4. Extend artifact retrieval with per-publisher access rules; twenty-one artifacts are verified locally while seventeen evidence records remain remote-only or blocked.
-5. Add a fifth narrow part class and continue expanding manufacturers while measuring false-negative risk in the blocking keys.
+3. Resolve missing identity fields and source conflicts across the 39 pilot parts, especially splice supply, construction, geometry and exact-article bearing evidence. Do not treat catalogue corroboration as publisher correction.
+4. Extend artifact retrieval with per-publisher access rules; 67 artifact records are hash-verified locally while 17 evidence records remain remote-only or blocked. Hash integrity does not independently approve extraction fidelity or identity.
+5. Expand manufacturers within the five draft profiles while measuring false-negative risk in the blocking keys; add new classes only with explicit identity rules and evidence scope.
 6. Work the deterministic reviewer queue, starting with P0 terminology mappings and source conflicts; keep every independent decision in the governed ledgers.
 7. Independently review the ten complete Niedax evidence profiles exposed by the queue; completeness alone must not change their status.
 
-## Completed foundation
+## Historical foundation snapshots
+
+The counts in this section describe earlier milestones, not current totals. See the current baseline above and the linked class-specific reports for later expansions.
 
 - Reproducible CSV-to-SQLite ingestion, foreign-key and integrity checks.
 - Evidence-completeness audit and fail-closed quality-gate tests.

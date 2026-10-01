@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+Current baseline (1 October 2026): 122 sources, 67 cached evidence records, four supplied datasets, five draft profiles, 39 manufacturer parts, 168 supplier offers and 62 observations. The screen contains 24 pairs and the reviewer queue contains 426 tasks (415 ready, 11 blocked). All 17 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+
 Current ten-gap detail follow-up: `docs/macsteel-angle-gap-details.md` records ten matching seller detail assertions and ten linked PDFs identical to the earlier generic sheet. One content source does not become twelve independent confirmations. All ten material-context gaps remain open. Sources115/cache60records/queue403; no maker link, mass transfer, correction or UPN.
 
 Current full angle-context screen: `docs/macsteel-angle-coverage.md` partitions all136captured offers into126nominal-context candidates and10S355JRtable gaps. Geometries appearing only under CQ are not transferred into S355JRproperties. Earlier30offer screen remains unchanged. Sources95/cache40/offers168/queue403unchanged; identity, route and delivery condition unapproved.
