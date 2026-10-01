@@ -62,3 +62,7 @@ python registry/scripts/build_review_queue.py --write-snapshot
 ```
 
 The tracked outputs are `reports/review-queue.csv` and `reports/review-queue-summary.md`.
+
+## Manufacturer publication questions
+
+The queue also includes checksum-bound manufacturer source-publication research findings. See `manufacturer-source-findings.md`. A research-ready task is not an adjudicated physical conflict. Observation acceptance, manufacturer linking and terminology mapping do not correct a publisher's inconsistent cells. New evidence requires deliberate reconciliation; open questions are not silently removed when a catalogue corroborates one interpretation. Formal closure/waiver governance remains a separate outstanding task.

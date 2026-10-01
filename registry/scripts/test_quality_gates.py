@@ -268,7 +268,8 @@ def main() -> int:
                 for queue_type in {item["queue_type"] for item in review_items}
             }
             if (
-                len(review_items) != 424
+                len(review_items) != 426
+                or queue_counts.get('manufacturer_source_publication_research') != 2
                 or queue_counts.get('supplier_research_material_context_gap') != 10
                 or queue_counts.get('supplier_research_published_mass_discrepancy') != 4
                 or queue_counts.get("supplier_manufacturer_identity") != 136

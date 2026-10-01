@@ -1,0 +1,132 @@
+{
+  "policy_version": "manufacturer-source-research-0.1",
+  "input_report_hashes": {
+    "ntn-6205zz-source.json": "F3988876EBD7F33E071AEC3FE8A4665242A21F035C1DF8D57BA7D2C645AE8F6D",
+    "ntn-shield-seal-corroboration.json": "1A50EE384B5B12F3D1098DD0390F2F0953C8D9F932AAF6F06BDF3E78904CA948"
+  },
+  "finding_count": 2,
+  "findings": [
+    {
+      "finding_id": "MRF-40C715BF85E80E997E233698",
+      "subject_key": {
+        "manufacturer_id": "ORG-NTN-AMERICAS",
+        "manufacturer_part_id": "MP-NTN-6205ZZ",
+        "source_id": "SRC-NTN-6205ZZ",
+        "source_field": "Static Load Rating",
+        "issue_type": "inconsistent_static_load_metric_units"
+      },
+      "priority": "P2",
+      "review_state": "open_research",
+      "property_id": "PROP-BASIC-STATIC-LOAD-RATING",
+      "profile_id": "PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1",
+      "observation_id": "OBS-NTN-6205ZZ-20261001",
+      "source_html_line": 804,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1760 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "7850 N"
+        },
+        {
+          "measure": "metric",
+          "text": "11.60 kN"
+        }
+      ],
+      "evidence_pointer": "/quality_findings/0",
+      "evidence": [
+        {
+          "source_id": "SRC-NTN-6205ZZ",
+          "source_url": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6205zz",
+          "artifact_id": "ART-NTN-6205ZZ",
+          "artifact_sha256": "9C1EE760F042A1A6AAE56E1DEC21AD35A9817F66ADBDE3B1FBA86D5FD12B3F9D",
+          "report_path": "registry/reports/ntn-6205zz-source.json",
+          "report_sha256": "F3988876EBD7F33E071AEC3FE8A4665242A21F035C1DF8D57BA7D2C645AE8F6D"
+        },
+        {
+          "source_id": "SRC-NTN-SHIELD-SEAL-3015",
+          "source_url": "https://www.ntnglobal.com/en/products/catalog/pdf/3015E.pdf",
+          "artifact_id": "ART-NTN-SHIELD-SEAL-3015",
+          "artifact_sha256": "7F1357233C6089610F0E5246EB427553487A14101EB38E15E0D32BB59B405924",
+          "report_path": "registry/reports/ntn-shield-seal-corroboration.json",
+          "report_sha256": "1A50EE384B5B12F3D1098DD0390F2F0953C8D9F932AAF6F06BDF3E78904CA948"
+        }
+      ],
+      "summary": "The exact NTN article publishes contradictory metric static-load cells; catalogue corroboration is not a publisher correction.",
+      "next_action": "Obtain a corrected exact-article publication or explicit manufacturer clarification. Preserve 7850 N and 11.60 kN, rating basis and source revisions. Do not choose a rating or approve physical identity from corroboration alone.",
+      "policy_version": "manufacturer-source-research-0.1",
+      "publisher_correction_obtained": false,
+      "physical_conflict_verified": false,
+      "identity_approved": false
+    },
+    {
+      "finding_id": "MRF-F5A2B7A23C150B49115398DF",
+      "subject_key": {
+        "manufacturer_id": "ORG-NTN-AMERICAS",
+        "manufacturer_part_id": "MP-NTN-6205ZZ",
+        "source_id": "SRC-NTN-6205ZZ",
+        "source_field": "da max",
+        "issue_type": "ambiguous_da_max_values"
+      },
+      "priority": "P2",
+      "review_state": "open_research",
+      "property_id": "",
+      "profile_id": "PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1",
+      "observation_id": "OBS-NTN-6205ZZ-20261001",
+      "source_html_line": 966,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1.2598 in"
+        },
+        {
+          "measure": "imperial",
+          "text": "1.8504 in"
+        },
+        {
+          "measure": "metric",
+          "text": "32.000 mm"
+        },
+        {
+          "measure": "metric",
+          "text": "47.000 mm"
+        }
+      ],
+      "evidence_pointer": "/quality_findings/1",
+      "evidence": [
+        {
+          "source_id": "SRC-NTN-6205ZZ",
+          "source_url": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6205zz",
+          "artifact_id": "ART-NTN-6205ZZ",
+          "artifact_sha256": "9C1EE760F042A1A6AAE56E1DEC21AD35A9817F66ADBDE3B1FBA86D5FD12B3F9D",
+          "report_path": "registry/reports/ntn-6205zz-source.json",
+          "report_sha256": "F3988876EBD7F33E071AEC3FE8A4665242A21F035C1DF8D57BA7D2C645AE8F6D"
+        },
+        {
+          "source_id": "SRC-NTN-SHIELD-SEAL-3015",
+          "source_url": "https://www.ntnglobal.com/en/products/catalog/pdf/3015E.pdf",
+          "artifact_id": "ART-NTN-SHIELD-SEAL-3015",
+          "artifact_sha256": "7F1357233C6089610F0E5246EB427553487A14101EB38E15E0D32BB59B405924",
+          "report_path": "registry/reports/ntn-shield-seal-corroboration.json",
+          "report_sha256": "1A50EE384B5B12F3D1098DD0390F2F0953C8D9F932AAF6F06BDF3E78904CA948"
+        }
+      ],
+      "summary": "The exact NTN article places multiple values under da max; the catalogue distinguishes lowercase da from uppercase Da.",
+      "next_action": "Obtain a corrected exact-article drawing/table or explicit manufacturer clarification of both case-sensitive symbols and dimensions. Preserve all four article cells and the separate catalogue columns. Do not silently repair the article or infer variant identity.",
+      "policy_version": "manufacturer-source-research-0.1",
+      "publisher_correction_obtained": false,
+      "physical_conflict_verified": false,
+      "identity_approved": false
+    }
+  ],
+  "identity_approved": false,
+  "limitations": [
+    "Research-ready tasks, not identity-ready evidence or physical incompatibility decisions.",
+    "Manufacturer links, observation acceptance and terminology mappings do not correct source publications.",
+    "Report or observation revision requires deliberate reconciliation; issues are never silently dropped.",
+    "This adapter binds retained reports and registry custody, not independent extraction approval.",
+    "Formal resolution and waiver records are not implemented by this intake milestone."
+  ]
+}

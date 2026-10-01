@@ -13,6 +13,7 @@ from pathlib import Path
 
 import numeric_rules
 import build_supplier_research_findings
+import build_manufacturer_source_findings
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -132,6 +133,18 @@ def supplier_identity_items(connection: sqlite3.Connection) -> list[dict[str, st
 def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
     connection.row_factory = sqlite3.Row
     items: list[dict[str, str]] = supplier_identity_items(connection)
+    for finding in build_manufacturer_source_findings.build_report(connection)['findings']:
+        subject = finding['subject_key']
+        evidence = '; '.join(e['report_path'] + ('#' + finding['evidence_pointer'] if index == 0 else '#/catalogue_6205_context') +
+            '; SHA-256 ' + e['report_sha256'] + '; artifact ' + e['artifact_id'] + ' SHA-256 ' + e['artifact_sha256']
+            for index, e in enumerate(finding['evidence']))
+        add_item(items, work_item_id='RW-' + finding['finding_id'], priority=finding['priority'],
+                 queue_type='manufacturer_source_publication_research', readiness='ready',
+                 subject_type='manufacturer_source_finding', subject_id=finding['finding_id'],
+                 source_id=subject['source_id'], manufacturer_part_id=subject['manufacturer_part_id'],
+                 profile_id=finding['profile_id'], property_id=finding['property_id'], summary=finding['summary'],
+                 next_action=finding['next_action'] + ' Evidence: ' + evidence + '. Article HTML line ' + str(finding['source_html_line']),
+                 policy_version=finding['policy_version'])
     for finding in build_supplier_research_findings.build_report(connection)['findings']:
         related = '; '.join(o['supplier_offer_id'] for o in finding['related_offers'])
         add_item(items, work_item_id='RW-' + finding['finding_id'], priority=finding['priority'],
@@ -558,7 +571,7 @@ def render_summary(items: list[dict[str, str]]) -> str:
     lines = [
         "# Current UPN reviewer queue",
         "",
-        "This report is generated deterministically from registry seed data and checksum-bound supplier research reports.",
+        "This report is generated deterministically from registry seed data and checksum-bound supplier and manufacturer research reports.",
         "It is a work list, not a set of reviewer decisions. Regenerate it whenever source data changes.",
         "",
         f"- Total work items: {len(items)}",

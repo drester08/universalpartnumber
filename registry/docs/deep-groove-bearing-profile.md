@@ -2,6 +2,8 @@
 
 Status: draft 0.1. No equivalence decision or UPN has been issued.
 
+This document preserves milestone history. Later subsections supersede earlier totals and task-tracking statements; none of the dated research sections is a final identity decision.
+
 ## Scope
 
 This profile covers individual metric single-row deep-groove ball bearings with a cylindrical bore and a non-contact metal shield on both sides. It excludes open bearings, contact-sealed bearings, one-sided closures, snap-ring variants, flanged rings, special-temperature or coated variants, and complete bearing units.
@@ -75,6 +77,10 @@ The deep-groove section (PDF page 1, printed B-17) describes grease-prelubricate
 - Number-code section: <https://www.ntnglobal.com/en/products/catalog/pdf/2203E_a05.pdf>
 - Tolerances section: <https://www.ntnglobal.com/en/products/catalog/pdf/2203E_a06.pdf>
 - Deep-groove section: <https://www.ntnglobal.com/en/products/catalog/pdf/2203E_b02.pdf>
+
+### Publication issue tracking — 1 October 2026
+
+The two NTN article-publication issues are now dedicated stable manufacturer-source research tasks, superseding the earlier note that they were only documented. See `manufacturer-source-findings.md` and `manufacturer-source-findings.json`. They remain open despite catalogue corroboration and the proposed tolerance/closure mappings. Registry custody and input hashes bind their exact article line/report locators. The current queue has 426 tasks; source, part, observation, mapping and candidate counts are otherwise unchanged. Formal evidence-backed closure/waiver governance is not yet implemented.
 
 - SKF exact product page: <https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6205-2z>
 - NSK exact product page: <https://www.nsk.com/eu-en/engineering/products/bearings/ball-bearings/deep-groove-ball-bearings/single-row-deep-groove-ball-bearings/6205zz-apn.html>
