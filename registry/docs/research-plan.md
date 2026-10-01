@@ -2,9 +2,11 @@
 
 ## Current baseline — 1 October 2026
 
-There are 132 registered sources, 77 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The reproducible screen has 25 pairs; the reviewer queue has 469 tasks (458 ready, 11 dependency-blocked). All 26 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 133 registered sources, 78 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The reproducible screen has 25 pairs; the reviewer queue has 472 tasks (461 ready, 11 dependency-blocked). All 26 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
+
+Latest [UK family registration](klinger-uk-registration.md) adds guarded custody and three review tasks without changing article observations or approving interpretations. The printed issue date is preserved; licensing, independent review and publisher clarification remain required. Exact article drawings/component details and predicate-aware profile integration remain next identity work.
 
 New [UK Maxiprofile specification research](klinger-uk-maxiprofile.md) privately captures the three-page issue dated 28 August 2019. Fourteen bounded material-label comparisons find seven differing published temperatures; preserve both values, avoid universal defaults, and request publisher clarification. Register scoped source custody and review work next. The explicit floating LA3 ring does not establish the construction of any supplied article; exact drawing and tuple-role gaps remain open.
 

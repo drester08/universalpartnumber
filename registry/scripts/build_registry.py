@@ -159,6 +159,8 @@ def build(output: Path) -> None:
             check_mps_pipe_registration.verify(connection)
             import check_klinger_maxiprofile_registration
             check_klinger_maxiprofile_registration.verify(connection)
+            import check_klinger_uk_registration
+            check_klinger_uk_registration.verify(connection)
             connection.commit()
         finally:
             connection.close()

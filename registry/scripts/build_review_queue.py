@@ -501,6 +501,9 @@ def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
     import check_klinger_maxiprofile_registration
     for task in check_klinger_maxiprofile_registration.review_tasks(connection):
         add_item(items, **task)
+    import check_klinger_uk_registration
+    for task in check_klinger_uk_registration.review_tasks(connection):
+        add_item(items, **task)
 
     for row in connection.execute(
         """

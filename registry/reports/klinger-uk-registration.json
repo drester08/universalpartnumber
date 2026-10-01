@@ -1,0 +1,28 @@
+{
+  "policy_version": "klinger-uk-registration-0.1",
+  "source_id": "SRC-KLINGER-MAXIPROFILE-UK",
+  "artifact_id": "ART-KLINGER-MAXIPROFILE-UK",
+  "registered_source": true,
+  "source_sha256": "D769825A67D89D12E3F3C929D506D31E15F51C175F38B440FA6B1F546A6418E5",
+  "historical_research_sha256": "14E813FEDC62FF06611C2A2C206CCF929BF43669CA1797FDD9E5A40947E4F860",
+  "printed_issue": "01",
+  "publication_date": "2019-08-28",
+  "source_role": "manufacturer family context, not exact article or certificate",
+  "previously_reviewed_physical_pages": [
+    1,
+    2,
+    3
+  ],
+  "component_material_rows": 25,
+  "research_label_comparisons": 14,
+  "temperature_disagreements": 7,
+  "article_observations_added": 0,
+  "independent_review": "outstanding",
+  "temperature_clarification": "outstanding",
+  "source_reuse_review": "outstanding",
+  "identity_approved": false,
+  "application_suitability_approved": false,
+  "reuse_permission": false,
+  "production_upn_allowed": false,
+  "dimensional_tuple_roles_resolved": false
+}

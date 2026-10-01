@@ -30,7 +30,7 @@ class KlingerRegistrationTests(unittest.TestCase):
         items=build_review_queue.build_items(self.db)
         new=[r for r in items if r['source_id']==c.SOURCE]
         self.assertEqual(len(new),3)
-        self.assertEqual(len(items),469)
+        self.assertEqual(len(items),472)
         scoped=[r for r in new if r['work_item_id'].startswith('RW-KLINGER-MAXIPROFILE-')]
         self.assertEqual(len(scoped),2)
         self.assertTrue(all(c.RESEARCH_SHA in r['next_action'] for r in scoped))
