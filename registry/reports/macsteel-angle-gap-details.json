@@ -1,0 +1,239 @@
+{
+  "report_date": "2026-10-01",
+  "detail_hashes": {
+    "AE_S355RA_0008": "C4E79F8C5D3DA194363DFD78CD88F58F1BAEBE81EFB87FF4670D522185B54FD5",
+    "AE_S355RA_0016": "5693A61CF7461308BBB9D4603695B8E3DD52257F31A3AC7D3AEEDB587F5CC31B",
+    "AE_S355RA_0023": "5699A3EDE1AAE0616CF46F045617394B24009D1591B4C2B97D11E53E379AE025",
+    "AE_S355RA_0593": "B485B27CCF6784E900E94A60BF487273C7686AFA4E464B6009FA6365ADECD74A",
+    "AE_S355RA_0030": "1211C9EB3D13AA1DC1D3BE7ED41E223381CBA703092A901659A1AFDD199C7F94",
+    "AE_S355RA_0034": "633DA4335698D17AD5B5F20A52429F4698D3F42153B38CD2060F7DE3A5EAF4F4",
+    "AE_S355RA_0032": "5CE0259419CFA2AE4F2403A276650EBF0CD280815B3748C88AE9305F17235F04",
+    "AE_S355RA_0039": "E14BE42B7C66F027691A2860927D9339D3694033D7C0F3DA121EC453D8201D81",
+    "AE_S355RA_0044": "FCFBA80340D0F6A81612467A20E92036AD63343619D8F19F367D516DC9FD3EF9",
+    "AE_S355RA_0049": "6CACDB4A520AE683DF7C6895558DA8F23610BC2903D1F4F99EC4C6C81B92B520"
+  },
+  "records": [
+    {
+      "seller_sku": "AE_S355RA_0008",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 40 x 40 x 3 13.000Mtr",
+      "visible_specifications": {
+        "Size": "40.00 X 40.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "3.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0008.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0008-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0008-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0016",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 40 x 40 x 5 13.000Mtr",
+      "visible_specifications": {
+        "Size": "40.00 X 40.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "5.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0016.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0016-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0016-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0023",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 45 x 45 x 3 13.000Mtr",
+      "visible_specifications": {
+        "Size": "45.00 X 45.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "3.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0023.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0023-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0023-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0593",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 45 x 45 x 3 6.500Mtr",
+      "visible_specifications": {
+        "Size": "45.00 X 45.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "3.00mm",
+        "UOM": "EA",
+        "Length": "6.500m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0593.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0593-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0593-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0030",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 45 x 45 x 5 13.000Mtr",
+      "visible_specifications": {
+        "Size": "45.00 X 45.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "5.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0030.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0030-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0030-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0034",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 50 x 50 x 3 13.000Mtr",
+      "visible_specifications": {
+        "Size": "50.00 X 50.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "3.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0034.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0034-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0034-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0032",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 50 x 50 x 3 6.000Mtr",
+      "visible_specifications": {
+        "Size": "50.00 X 50.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "3.00mm",
+        "UOM": "EA",
+        "Length": "6.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0032.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0032-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0032-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0039",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 50 x 50 x 4 13.000Mtr",
+      "visible_specifications": {
+        "Size": "50.00 X 50.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "4.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0039.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0039-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0039-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0044",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 50 x 50 x 5 13.000Mtr",
+      "visible_specifications": {
+        "Size": "50.00 X 50.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "5.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0044.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0044-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0044-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    },
+    {
+      "seller_sku": "AE_S355RA_0049",
+      "heading": "ANGLE EQUAL S355 JR+AR EN 10025-2 AS ROLLED 50 x 50 x 6 13.000Mtr",
+      "visible_specifications": {
+        "Size": "50.00 X 50.00",
+        "Grade": "S355 JR+AR EN 10025-2 AS ROLLED",
+        "Thickness": "6.00mm",
+        "UOM": "EA",
+        "Length": "13.000m"
+      },
+      "detail_locator": "h1; span[id^=sku-]; named td.spec-name/td.spec-value pairs",
+      "linked_pdf_url": "https://shop.macsteel.co.za/SpecSheets/AE_S355RA_0049.pdf",
+      "listing_differences": [],
+      "exact_article_verified": false,
+      "identity_approved": false,
+      "detail_source_id": "SRC-MACSTEEL-GAP-0049-HTML",
+      "pdf_source_id": "SRC-MACSTEEL-GAP-0049-PDF",
+      "pdf_sha256": "E3DCBF06039844BB99ADD88B77153F37543EC30EF617368C44383748D4AEB1A1",
+      "generic_pdf_context_candidate_count": 0,
+      "outcome": "seller_detail_agrees_generic_context_gap_remains"
+    }
+  ],
+  "detail_count": 10,
+  "identical_pdf_content_count": 1,
+  "new_pdf_urls": 10,
+  "independent_corroboration": false,
+  "identity_approved": false,
+  "limitations": [
+    "Ten seller grade assertions are not independent manufacturer verification",
+    "Ten PDF links return the already reviewed generic sheet; same content is not ten independent sources",
+    "All ten S355JR table context gaps remain open",
+    "EA does not establish order quantity or package level",
+    "Maker, grade certificate, route, tolerances and current stock remain unverified"
+  ]
+}

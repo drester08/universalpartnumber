@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+Current ten-gap detail follow-up: `docs/macsteel-angle-gap-details.md` records ten matching seller detail assertions and ten linked PDFs identical to the earlier generic sheet. One content source does not become twelve independent confirmations. All ten material-context gaps remain open. Sources115/cache60records/queue403; no maker link, mass transfer, correction or UPN.
+
 Current full angle-context screen: `docs/macsteel-angle-coverage.md` partitions all136captured offers into126nominal-context candidates and10S355JRtable gaps. Geometries appearing only under CQ are not transferred into S355JRproperties. Earlier30offer screen remains unchanged. Sources95/cache40/offers168/queue403unchanged; identity, route and delivery condition unapproved.
 
 Current detail follow-up: `docs/macsteel-cq-pair.md` establishes that both nominally duplicated CQ50x50x5seller pages explicitly state6m. The7200suffix is not a verified length; article identity and maker remain unresolved. Two new private detail artifacts bring sources95andcached artifacts40. Queue403unchanged; no offer correction/merge or UPN.
