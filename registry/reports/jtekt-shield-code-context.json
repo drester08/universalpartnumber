@@ -1,0 +1,146 @@
+{
+  "source_id": "SRC-JTEKT-BEARING-NUMBER",
+  "artifact_id": "ART-JTEKT-BEARING-NUMBER",
+  "source_sha256": "ED41FF7A2565FF8B1DA23FED6B34379D1E9B73F7C6D1238F13B390020C5E6A9F",
+  "manufacturer_namespace": "JTEKT",
+  "table": "Table 6-2",
+  "shield_seal_subtable": {
+    "table_html_line": 1181,
+    "rows": [
+      {
+        "category": "(Shield)",
+        "category_html_line": 1186,
+        "code": "Z",
+        "description": "one side Fixed shield",
+        "source_html_line": 1189
+      },
+      {
+        "category": "(Shield)",
+        "category_html_line": 1186,
+        "code": "ZZ",
+        "description": "both sides Fixed shield",
+        "source_html_line": 1193
+      },
+      {
+        "category": "(Shield)",
+        "category_html_line": 1186,
+        "code": "ZX",
+        "description": "one side Removable shield",
+        "source_html_line": 1197
+      },
+      {
+        "category": "(Shield)",
+        "category_html_line": 1186,
+        "code": "ZZX",
+        "description": "both sides Removable shield",
+        "source_html_line": 1201
+      },
+      {
+        "category": "(Non-contact seal)",
+        "category_html_line": 1205,
+        "code": "RU",
+        "description": "one side",
+        "source_html_line": 1208
+      },
+      {
+        "category": "(Non-contact seal)",
+        "category_html_line": 1205,
+        "code": "2RU",
+        "description": "both sides",
+        "source_html_line": 1212
+      },
+      {
+        "category": "(Non-contact seal)",
+        "category_html_line": 1205,
+        "code": "ZU",
+        "description": "one side",
+        "source_html_line": 1216
+      },
+      {
+        "category": "(Non-contact seal)",
+        "category_html_line": 1205,
+        "code": "2ZU",
+        "description": "both sides",
+        "source_html_line": 1220
+      },
+      {
+        "category": "(Contact seal)",
+        "category_html_line": 1224,
+        "code": "RS",
+        "description": "one side",
+        "source_html_line": 1227
+      },
+      {
+        "category": "(Contact seal)",
+        "category_html_line": 1224,
+        "code": "2RS",
+        "description": "both sides",
+        "source_html_line": 1231
+      },
+      {
+        "category": "(Contact seal)",
+        "category_html_line": 1224,
+        "code": "RK",
+        "description": "one side",
+        "source_html_line": 1235
+      },
+      {
+        "category": "(Contact seal)",
+        "category_html_line": 1224,
+        "code": "2RK",
+        "description": "both sides",
+        "source_html_line": 1239
+      },
+      {
+        "category": "(Contact seal)",
+        "category_html_line": 1224,
+        "code": "U",
+        "description": "one side",
+        "source_html_line": 1243
+      },
+      {
+        "category": "(Contact seal)",
+        "category_html_line": 1224,
+        "code": "UU",
+        "description": "both sides",
+        "source_html_line": 1247
+      },
+      {
+        "category": "(Extremely light contact seal)",
+        "category_html_line": 1251,
+        "code": "RD",
+        "description": "one side",
+        "source_html_line": 1254
+      },
+      {
+        "category": "(Extremely light contact seal)",
+        "category_html_line": 1251,
+        "code": "2RD",
+        "description": "both sides",
+        "source_html_line": 1258
+      }
+    ]
+  },
+  "related_manufacturer_part_id": "MP-JTEKT-6205-ZZ",
+  "related_specification_id": "SPEC-JTEKT-6205-ZZ-CLOSURE",
+  "partial_closure_context": {
+    "source_code": "ZZ",
+    "source_description": "both sides Fixed shield",
+    "shield_sidedness": "both_sides",
+    "shield_fixing": "fixed",
+    "shield_material": null,
+    "shield_contact_form": null,
+    "complete_canonical_closure_mapping": false
+  },
+  "identity_approved": false,
+  "policy_version": "jtekt-shield-code-context-0.1",
+  "limitations": [
+    "Manufacturer terminology context is not a new exact-article observation.",
+    "The Shield category is separate from Non-contact seal; do not transfer the adjacent category label to ZZ.",
+    "Both-side fixed shielding does not establish metal material or non-contact form on this page.",
+    "No clearance, cage, material, tolerance, bore, grease or locating facts inferred from omitted suffixes.",
+    "No canonical closure mapping, equivalence or UPN approved.",
+    "Existing 6205 ZZ raw observation and source hash remain unchanged.",
+    "Independent extraction/interpretation review remains outstanding."
+  ]
+}
