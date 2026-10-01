@@ -6,6 +6,8 @@ There are 133 registered sources, 78 cached evidence records, 17 remote/blocked 
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
+New [JTEKT permission review](jtekt-permission-review.md) checks official English and Japanese terms before further intake. The Japanese family page and exact `6204 ZZ` route remain un-ingested leads, not verified technical observations. An unsent scoped permission/clarification draft is available; obtain user authorization before contacting the manufacturer and genuine independent review before recording a grant. Existing JTEKT evidence and all registered counts remain unchanged.
+
 Latest [source-use decision chain](source-use-decision-chain.md) requires evidence-bound exact-revision scope, independent attestation and current validity before source-use holds can clear. The real ledger is empty. Authentic review ingestion, immutable history, attribution fulfillment and permission expiry/revocation monitoring remain next governance work; metadata flags are not proof of permission.
 
 Latest [source-use gate](source-use-publication-gate.md) records SKF marketplace restrictions and enforces source permission metadata in publication/issuance, including profiles without required rows. Obtain scoped authorization or rights-compatible alternatives before further marketplace intake. Next bind genuine permission evidence/reviews to source/artifact scope, attribution obligations and expiry/revocation. No new SKF 6204 article or facts are ingested.

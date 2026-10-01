@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/jtekt-permission-review.md` records newly checked official terms and un-ingested bearing leads. `drafts/jtekt-permission-request.md` is an unsent scope-specific request, not permission. No JTEKT article facts, mappings, source registrations or counts change.
+
 `docs/source-use-decision-chain.md` ties permission to exact captured source revisions, private grant evidence, independent attestation and validity/revocation dates. The real ledger has no decisions. Source metadata alone cannot release a publication hold; attribution remains blocked pending fulfillment. Registered counts and actual reviews are unchanged.
 
 `docs/source-use-publication-gate.md` records an SKF marketplace authorization hold and closes a missing runtime reuse check. Accepted publication and issuance cannot rely on sources without verified permitted-use metadata. Private captures are retained, but no 6204 article table is ingested and registered counts remain unchanged.
