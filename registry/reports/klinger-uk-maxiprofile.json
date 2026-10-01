@@ -1,0 +1,370 @@
+{
+  "policy_version": "klinger-uk-maxiprofile-context-0.1",
+  "publisher": "KLINGER United Kingdom",
+  "source_url": "https://www.klinger.co.uk/wp-content/uploads/2025/01/maxiprofile.pdf",
+  "local_path": "registry/artifacts/klinger/Maxiprofile-UK-issue01-20190828-captured20261001.pdf",
+  "source_sha256": "D769825A67D89D12E3F3C929D506D31E15F51C175F38B440FA6B1F546A6418E5",
+  "printed_issue": "01",
+  "printed_issue_date": "2019-08-28",
+  "retrieved_date": "2026-10-01",
+  "document_pages": 3,
+  "visually_reviewed_physical_pages": [
+    1,
+    2,
+    3
+  ],
+  "source_registered": false,
+  "source_reuse_review": "pending",
+  "sa_research_sha256": "B6FD9F86173A4131B1C8FDF64B5A9EE2002DDA6C74D1B1D19CD03F479876F27D",
+  "component_material_context": [
+    {
+      "component": "facing",
+      "material_label_raw": "Graphite",
+      "published_maximum_temperature_C_raw": "550",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "facing",
+      "material_label_raw": "PTFE",
+      "published_maximum_temperature_C_raw": "260",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "facing",
+      "material_label_raw": "Mica",
+      "published_maximum_temperature_C_raw": "1000",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "facing",
+      "material_label_raw": "KLINGERsil C-4430",
+      "published_maximum_temperature_C_raw": "250",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Stainless Steel 316L",
+      "published_maximum_temperature_C_raw": "800",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Duplex UN S31803",
+      "published_maximum_temperature_C_raw": "300",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Stainless Steel 304",
+      "published_maximum_temperature_C_raw": "650",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Stainless Steel 347",
+      "published_maximum_temperature_C_raw": "870",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Carbon Steel",
+      "published_maximum_temperature_C_raw": "500",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Stainless Steel 321",
+      "published_maximum_temperature_C_raw": "870",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Monel 400",
+      "published_maximum_temperature_C_raw": "400",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Zirconium",
+      "published_maximum_temperature_C_raw": "500",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Nickel 200",
+      "published_maximum_temperature_C_raw": "315",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Super Duplex",
+      "published_maximum_temperature_C_raw": "300",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Inconel 600",
+      "published_maximum_temperature_C_raw": "1000",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "254 SMO",
+      "published_maximum_temperature_C_raw": "400",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Inconel 625",
+      "published_maximum_temperature_C_raw": "650",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Titanium Gr7",
+      "published_maximum_temperature_C_raw": "350",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Incoloy 825",
+      "published_maximum_temperature_C_raw": "450",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Hastelloy C-22",
+      "published_maximum_temperature_C_raw": "450",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Hastelloy B-2/B-3",
+      "published_maximum_temperature_C_raw": "450",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Hastelloy G-31",
+      "published_maximum_temperature_C_raw": "450",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Hastelloy C-276",
+      "published_maximum_temperature_C_raw": "450",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Alloy 20",
+      "published_maximum_temperature_C_raw": "600",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Titanium Gr 2",
+      "published_maximum_temperature_C_raw": "350",
+      "physical_page": 2,
+      "temperature_is_article_rating": false
+    }
+  ],
+  "research_label_comparisons": [
+    {
+      "component": "facing",
+      "uk_label_raw": "Graphite",
+      "sa_label_raw": "Graphite",
+      "uk_temperature_C_raw": "550",
+      "sa_temperature_C_raw": "550",
+      "values_agree": true,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "facing",
+      "uk_label_raw": "PTFE",
+      "sa_label_raw": "PTFE",
+      "uk_temperature_C_raw": "260",
+      "sa_temperature_C_raw": "260",
+      "values_agree": true,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "facing",
+      "uk_label_raw": "Mica",
+      "sa_label_raw": "Mica",
+      "uk_temperature_C_raw": "1000",
+      "sa_temperature_C_raw": "1000",
+      "values_agree": true,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Stainless Steel 316L",
+      "sa_label_raw": "316L Stainless Steel",
+      "uk_temperature_C_raw": "800",
+      "sa_temperature_C_raw": "650",
+      "values_agree": false,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Stainless Steel 304",
+      "sa_label_raw": "304 Stainless Steel",
+      "uk_temperature_C_raw": "650",
+      "sa_temperature_C_raw": "650",
+      "values_agree": true,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Stainless Steel 347",
+      "sa_label_raw": "347 Stainless Steel",
+      "uk_temperature_C_raw": "870",
+      "sa_temperature_C_raw": "650",
+      "values_agree": false,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Carbon Steel",
+      "sa_label_raw": "Carbon Steel",
+      "uk_temperature_C_raw": "500",
+      "sa_temperature_C_raw": "500",
+      "values_agree": true,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Stainless Steel 321",
+      "sa_label_raw": "321 Stainless Steel",
+      "uk_temperature_C_raw": "870",
+      "sa_temperature_C_raw": "650",
+      "values_agree": false,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Monel 400",
+      "sa_label_raw": "Monel 400",
+      "uk_temperature_C_raw": "400",
+      "sa_temperature_C_raw": "600",
+      "values_agree": false,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Nickel 200",
+      "sa_label_raw": "Nickel 200",
+      "uk_temperature_C_raw": "315",
+      "sa_temperature_C_raw": "600",
+      "values_agree": false,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Inconel 600",
+      "sa_label_raw": "Inconel 600",
+      "uk_temperature_C_raw": "1000",
+      "sa_temperature_C_raw": "950",
+      "values_agree": false,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Inconel 625",
+      "sa_label_raw": "Inconel 625",
+      "uk_temperature_C_raw": "650",
+      "sa_temperature_C_raw": "450",
+      "values_agree": false,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Incoloy 825",
+      "sa_label_raw": "Incoloy 825",
+      "uk_temperature_C_raw": "450",
+      "sa_temperature_C_raw": "450",
+      "values_agree": true,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    },
+    {
+      "component": "core",
+      "uk_label_raw": "Hastelloy C-276",
+      "sa_label_raw": "Hastelloy C-276",
+      "uk_temperature_C_raw": "450",
+      "sa_temperature_C_raw": "450",
+      "values_agree": true,
+      "label_mapping_approved": false,
+      "application_suitability_approved": false
+    }
+  ],
+  "unmatched_uk_labels": [
+    "KLINGERsil C-4430",
+    "Duplex UN S31803",
+    "Zirconium",
+    "Super Duplex",
+    "254 SMO",
+    "Titanium Gr7",
+    "Hastelloy C-22",
+    "Hastelloy B-2/B-3",
+    "Hastelloy G-31",
+    "Alloy 20",
+    "Titanium Gr 2"
+  ],
+  "temperature_disagreement_count": 7,
+  "style_context": {
+    "LA1": "guide ring present; fixed attachment not explicitly established",
+    "LA2": "guide ring absent",
+    "LA3": "floating guide ring",
+    "CA1_CA2_CA3": "convex profiles in corresponding styles"
+  },
+  "dimensional_tuple_roles_resolved": false,
+  "certificate_claims_independently_verified": false,
+  "article_observations_added": 0,
+  "identity_approved": false,
+  "application_suitability_approved": false,
+  "production_upn_allowed": false,
+  "next_reviews": [
+    "publisher clarification of divergent material temperature context",
+    "independent extraction and style applicability review",
+    "exact article drawing and component evidence",
+    "source registration and reuse review"
+  ]
+}
