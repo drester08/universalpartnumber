@@ -53,7 +53,8 @@ class EqualAngleProfileTests(unittest.TestCase):
         self.assertEqual(self.db.execute('SELECT status FROM identity_profiles WHERE profile_id=?', (PROFILE,)).fetchone()[0], 'draft')
         self.assertEqual(self.db.execute('SELECT count(*) FROM manufacturer_parts WHERE profile_id=?', (PROFILE,)).fetchone()[0], 0)
         self.assertEqual(len(self.required), 17)
-        self.assertEqual(self.screen()[0]['result'], 'candidate')
+        self.assertEqual(self.screen()[0]['result'], 'insufficient_evidence')
+        self.assertEqual(self.screen()[0]['missing_properties'], 'PROP-CERTIFICATIONS')
         added = self.db.execute("SELECT controlled_value_id FROM controlled_values WHERE controlled_value_id IN "
             "('CV-ANGLE-EQUAL-90','CV-SECTION-ROUTE-HOT-ROLLED','CV-STEEL-GRADE-S355JR','CV-STEEL-GRADE-S355J2')").fetchall()
         self.assertEqual(len(added), 4)

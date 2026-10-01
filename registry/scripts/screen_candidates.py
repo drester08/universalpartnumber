@@ -13,6 +13,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import numeric_rules
+import conditional_requirements
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -246,6 +247,7 @@ def compare_property(
 def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, object]]:
     parts = load_parts(connection)
     governed_numeric_rules = numeric_rules.load_rules(connection)
+    unresolved_conditions = conditional_requirements.unresolved_profiles(connection)
     output: list[dict[str, object]] = []
     sequence = 1
     for left_id, right_id in itertools.combinations(sorted(parts), 2):
@@ -310,13 +312,21 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
         compared = len(matched) + len(conflicts)
         score = len(matched) / compared if compared else 0.0
         result = "hard_conflict" if conflicts else ("insufficient_evidence" if missing else "candidate")
+        algorithm_version = str(rule['algorithm_version'])
+        if result == 'candidate' and profile_id in unresolved_conditions:
+            # Existing negative screens remain historical/reproducible. Only a
+            # would-be positive candidate needs this additional fail-closed
+            # reason: conditional applicability has no governed SQL predicate.
+            missing.extend(property_id for property_id, _ in unresolved_conditions[profile_id])
+            result = 'insufficient_evidence'
+            algorithm_version += '-conditional-guard-0.1'
         output.append(
             {
                 "screening_id": f"SCREEN-{sequence:06d}",
                 "left_part_id": left_id,
                 "right_part_id": right_id,
                 "profile_id": left["profile_id"],
-                "algorithm_version": rule["algorithm_version"],
+                "algorithm_version": algorithm_version,
                 "blocking_keys": join(list(blocking_properties)),
                 "compared_properties": join(matched + conflicts),
                 "matched_properties": join(matched),

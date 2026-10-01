@@ -1,0 +1,15 @@
+# Conditional applicability guard - 1 October 2026
+
+The five current SQL identity profiles contain conditional properties, but the SQL schema has no governed applicability predicate or review record. Previously, candidate screening and publication completeness considered only `required` fields. Populating a conditional field, leaving it blank, or accepting a part review does not establish that it applies or can safely be omitted.
+
+`scripts/conditional_requirements.py` lists unresolved conditional fields per profile and manufacturer part. Screening now demotes an otherwise positive candidate to `insufficient_evidence`, recording the conditional property IDs in `missing_properties` and adding `-conditional-guard-0.1` to the algorithm version. Hard-conflict and already-insufficient screens retain their previous output: they are already blocked, and the current 25 negative research screens remain reproducible. The score continues to describe compared required fields, never equivalence confidence or conditional completeness.
+
+The completeness audit explicitly reports unresolved applicability and rejects accepted parts affected by it. Profiles containing only conditional properties are checked even though they produce no rows in the required-field query. The issuance audit inherits this publication failure. Unreviewed research may still be stored and examined. This does not change source data, profile definitions, reviewer decisions, registered counts or UPN allocations.
+
+Seven synthetic/in-memory regression tests cover current profiles, populated-but-unresolved values, otherwise-positive screening, unchanged negative research screens, conditional-only accepted records, permitted unreviewed research and issuance propagation. Tests never create real approvals.
+
+## Limits and next implementation
+
+This is a fail-closed runtime audit guard, not a conditional predicate engine. It does not alter SQLite review-insertion constraints; direct database writes are not evidence that an audit passed. All current profiles therefore remain unsuitable for positive candidate promotion or accepted publication until their conditional semantics are governed and represented. A reviewer cannot resolve this by filling every conditional field or relabelling it merely to bypass the gate.
+
+Next implement versioned, review-bound applicability rules, including explicit state domains and required/forbidden detail branches. Distinguish identity construction conditions from application-specific suitability conditions rather than treating every condition as an unconditional identity requirement. Unknown/multiple selector values must remain unresolved. Every actual rule needs manufacturer/standard applicability evidence, governed mappings and independent semantic review. Apply the same evaluator across ingestion, screening, publication and issuance, with mutation/bypass tests. The draft kamprofile JSON design is a construction-focused research proposal, still outside SQL profiles and production issuance.

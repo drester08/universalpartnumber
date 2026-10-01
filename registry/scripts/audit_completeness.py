@@ -10,6 +10,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import numeric_rules
+import conditional_requirements
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -116,6 +117,14 @@ def main() -> int:
             """
         ).fetchall()
         governed_numeric_rules = numeric_rules.load_rules(connection)
+        conditional_parts = conditional_requirements.unresolved_parts(connection)
+        conditional_reviews = connection.execute(
+            "SELECT mp.manufacturer_part_id, mp.manufacturer_part_number, "
+            "COALESCE((SELECT decision FROM manufacturer_part_reviews r "
+            "WHERE r.manufacturer_part_id=mp.manufacturer_part_id "
+            "ORDER BY decided_at DESC, review_id DESC LIMIT 1), 'unreviewed') "
+            "FROM manufacturer_parts mp ORDER BY mp.manufacturer_part_id"
+        ).fetchall()
     finally:
         connection.close()
 
@@ -165,6 +174,14 @@ def main() -> int:
             assert isinstance(missing_list, list)
             missing_list.append(record["preferred_label"])
 
+    conditional_errors = set()
+    for row in conditional_reviews:
+        if row[0] not in conditional_parts:
+            continue
+        labels = '; '.join(label for _, label in conditional_parts[row[0]])
+        print(f'{row[1]}: unresolved_conditional_applicability={labels}; manufacturer_part_id={row[0]}')
+        if row[2] == 'accepted':
+            conditional_errors.add(row[0])
     publication_errors = 0
     for part_id, part in parts.items():
         missing_list = part["missing"]
@@ -184,13 +201,18 @@ def main() -> int:
             or int(part["unreviewed_observations"]) > 0
             or int(part["unapproved_code_mappings"]) > 0
             or bool(conflict_list)
+            or part_id in conditional_errors
         ):
             publication_errors += 1
+
+    # A profile containing only conditional fields has no rows in the required-
+    # property query above. It must still fail for an accepted part.
+    publication_errors += len(conditional_errors - parts.keys())
 
     if publication_errors:
         print(f"Publication gate failed: {publication_errors} accepted part record(s) fail evidence or normalization governance.")
         return 1
-    print("Publication gate passed: no incomplete, unreviewed, conflicting, or unnormalized evidence set has an accepted part review.")
+    print("Publication gate passed: no accepted part has incomplete, unreviewed, conflicting, unnormalized evidence or unresolved conditional applicability.")
     return 0
 
 

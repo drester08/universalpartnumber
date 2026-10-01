@@ -57,10 +57,13 @@ class NTNSourceTests(unittest.TestCase):
 
     def test_completeness_does_not_merge_manufacturer_namespaces(self):
         result = subprocess.run([sys.executable, str(checker.ROOT / 'registry/scripts/audit_completeness.py')], capture_output=True, text=True, check=True)
-        lines = [line for line in result.stdout.splitlines() if line.startswith('6205ZZ:')]
+        lines = [line for line in result.stdout.splitlines() if line.startswith('6205ZZ:') and 'required properties' in line]
         self.assertEqual(len(lines), 2)
         self.assertTrue(all('9/12 required properties' in line for line in lines))
         self.assertEqual({line.split('manufacturer_part_id=')[1] for line in lines}, {'MP-NTN-6205ZZ', 'MP-NSK-6205ZZ'})
+        conditions = [line for line in result.stdout.splitlines() if line.startswith('6205ZZ:') and 'unresolved_conditional_applicability=' in line]
+        self.assertEqual(len(conditions), 2)
+        self.assertEqual({line.split('manufacturer_part_id=')[1] for line in conditions}, {'MP-NTN-6205ZZ', 'MP-NSK-6205ZZ'})
 
 
 if __name__ == '__main__':

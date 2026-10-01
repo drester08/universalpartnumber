@@ -6,6 +6,8 @@ There are 133 registered sources, 78 cached evidence records, 17 remote/blocked 
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
+Latest [conditional applicability guard](conditional-applicability-guard.md) prevents positive screening and accepted publication while SQL conditional semantics are unresolved; issuance inherits the gate. Current negative research screens stay reproducible. Implement versioned evidence/review-bound predicates next, separating construction identity from application suitability, without bypassing conditions by blanket required-field relabelling.
+
 Latest [UK family registration](klinger-uk-registration.md) adds guarded custody and three review tasks without changing article observations or approving interpretations. The printed issue date is preserved; licensing, independent review and publisher clarification remain required. Exact article drawings/component details and predicate-aware profile integration remain next identity work.
 
 New [UK Maxiprofile specification research](klinger-uk-maxiprofile.md) privately captures the three-page issue dated 28 August 2019. Fourteen bounded material-label comparisons find seven differing published temperatures; preserve both values, avoid universal defaults, and request publisher clarification. Register scoped source custody and review work next. The explicit floating LA3 ring does not establish the construction of any supplied article; exact drawing and tuple-role gaps remain open.
