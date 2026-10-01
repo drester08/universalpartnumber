@@ -1,0 +1,110 @@
+{
+  "policy_version": "numeric-evidence-gaps-0.1",
+  "scope": "active_numeric_evidence_diagnostics",
+  "active_normalized_numeric_records": 301,
+  "usable_explicit_conversion_records": 298,
+  "issue_count": 3,
+  "issues": [
+    {
+      "specification_id": "SPEC-EATON-FT6X18-SPLICE-COUNT",
+      "property_id": "PROP-REQUIRED-SPLICE-COUNT",
+      "raw_value": "Four splices required for UL Classification",
+      "normalized_number": "4",
+      "unit_id": null,
+      "qualifier": "Six-inch-high by eighteen-inch-wide tray; requirement does not prove included hardware",
+      "observation_id": "OBS-EATON-FT6X18-WP302016EN",
+      "manufacturer_part_id": "MP-EATON-FT6X18X10-BLE",
+      "source_id": "SRC-EATON-FLEXTRAY-WP302016EN",
+      "source_locator": "Load chart and UL splice chart",
+      "raw_payload_sha256": null,
+      "quantity_kind": null,
+      "conversion_factor": null,
+      "conversion_offset": null,
+      "issue_id": "NUMERIC-GAP-SPEC-EATON-FT6X18-SPLICE-COUNT",
+      "missing_metadata": [
+        "unit_id",
+        "quantity_kind",
+        "conversion_factor",
+        "conversion_offset"
+      ],
+      "issue_type": "missing_conversion_metadata",
+      "registered_source_artifact_states": [
+        "blocked"
+      ],
+      "observation_declares_source_hash": false,
+      "status": "needs_source_and_normalization_review",
+      "next_action": "Verify source revision, counted object/quantity scope and explicit unit/conversion metadata. Preserve raw values and qualifiers; do not infer package inclusion or fill a default unit.",
+      "identity_approved": false,
+      "reuse_permission": false
+    },
+    {
+      "specification_id": "SPEC-LEGRAND-CF150450-EDRN-COUNT",
+      "property_id": "PROP-REQUIRED-SPLICE-COUNT",
+      "raw_value": "Two EDRN splices on side wires and two on bottom for 450 mm CF150 tray",
+      "normalized_number": "4",
+      "unit_id": null,
+      "qualifier": "EDRN method; installation quantity does not prove packaged inclusion",
+      "observation_id": "OBS-LEGRAND-US-CF150450-INSTALL",
+      "manufacturer_part_id": "MP-LEGRAND-US-CF150450BL",
+      "source_id": "SRC-LEGRAND-US-WIRE-MESH-INSTALL",
+      "source_locator": "CF105-CF150 splicing tables for 450 mm width",
+      "raw_payload_sha256": null,
+      "quantity_kind": null,
+      "conversion_factor": null,
+      "conversion_offset": null,
+      "issue_id": "NUMERIC-GAP-SPEC-LEGRAND-CF150450-EDRN-COUNT",
+      "missing_metadata": [
+        "unit_id",
+        "quantity_kind",
+        "conversion_factor",
+        "conversion_offset"
+      ],
+      "issue_type": "missing_conversion_metadata",
+      "registered_source_artifact_states": [
+        "remote_only"
+      ],
+      "observation_declares_source_hash": false,
+      "status": "needs_source_and_normalization_review",
+      "next_action": "Verify source revision, counted object/quantity scope and explicit unit/conversion metadata. Preserve raw values and qualifiers; do not infer package inclusion or fill a default unit.",
+      "identity_approved": false,
+      "reuse_permission": false
+    },
+    {
+      "specification_id": "SPEC-LEGRAND-CF150450-SWK-COUNT",
+      "property_id": "PROP-REQUIRED-SPLICE-COUNT",
+      "raw_value": "Two SWK sets on side wires and two on bottom for 450 mm CF150 tray",
+      "normalized_number": "4",
+      "unit_id": null,
+      "qualifier": "SWK method; installation quantity does not prove packaged inclusion",
+      "observation_id": "OBS-LEGRAND-US-CF150450-INSTALL",
+      "manufacturer_part_id": "MP-LEGRAND-US-CF150450BL",
+      "source_id": "SRC-LEGRAND-US-WIRE-MESH-INSTALL",
+      "source_locator": "CF105-CF150 splicing tables for 450 mm width",
+      "raw_payload_sha256": null,
+      "quantity_kind": null,
+      "conversion_factor": null,
+      "conversion_offset": null,
+      "issue_id": "NUMERIC-GAP-SPEC-LEGRAND-CF150450-SWK-COUNT",
+      "missing_metadata": [
+        "unit_id",
+        "quantity_kind",
+        "conversion_factor",
+        "conversion_offset"
+      ],
+      "issue_type": "missing_conversion_metadata",
+      "registered_source_artifact_states": [
+        "remote_only"
+      ],
+      "observation_declares_source_hash": false,
+      "status": "needs_source_and_normalization_review",
+      "next_action": "Verify source revision, counted object/quantity scope and explicit unit/conversion metadata. Preserve raw values and qualifiers; do not infer package inclusion or fill a default unit.",
+      "identity_approved": false,
+      "reuse_permission": false
+    }
+  ],
+  "database_mutated": false,
+  "source_truth_verified": false,
+  "identity_approved": false,
+  "application_suitability_approved": false,
+  "production_upn_allowed": false
+}

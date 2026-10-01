@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/numeric-evidence-gaps.md` and its reproducible read-only report preserve three unresolved splice-count normalization/custody gaps. Installation methods, counted objects and package inclusion stay separate; no unit or source checksum is invented.
+
 `docs/numeric-conversion-metadata.md` requires explicit finite conversion metadata, validates numeric quantity kinds in coverage and closes singleton-set comparison bypasses. Numeric normalization is not equivalence approval; real source data and counts are unchanged.
 
 `docs/specification-value-presence.md` closes blank-value coverage and screening gaps. Empty normalization and invalid/non-finite normalized numbers do not become usable identity evidence. Current research data and approvals remain unchanged.

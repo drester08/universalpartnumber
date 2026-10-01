@@ -6,6 +6,8 @@ There are 133 registered sources, 78 cached evidence records, 17 remote/blocked 
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
+New [numeric evidence diagnostic](numeric-evidence-gaps.md) identifies three unitless installation-count records with missing observation hashes and blocked/remote source custody. Eaton browser text corroborates chart context, but direct download and visual retrieval did not establish retained original evidence; Legrand remains inaccessible. Obtain originals and independent counted-object/normalization review before changing units or hashes. Other research can continue; registered counts and queue are unchanged.
+
 New [explicit numeric conversions](numeric-conversion-metadata.md) remove implicit factor/offset defaults, exclude unusable numeric evidence from screening and enforce matching quantity kinds in required coverage. Equal singleton sets now validate their numeric rule too. Continue independent unit/source validation, physical-range and precision policy, and governed conditional predicates; no identity approvals or article facts change.
 
 New [value presence checks](specification-value-presence.md) share missing-value semantics between coverage and screening. Blank rows/normalization and malformed/non-finite normalized numbers are excluded rather than counted or matched. This does not resolve conditional predicates or prove typed engineering validity. The SNR shop remains an un-ingested lead because usable product content and reuse authorization are missing.
