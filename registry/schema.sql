@@ -61,13 +61,17 @@ CREATE TABLE source_artifacts (
   artifact_url TEXT NOT NULL,
   media_type TEXT,
   local_path TEXT,
-  sha256 TEXT,
+  sha256 TEXT COLLATE NOCASE,
   retrieved_at TEXT NOT NULL,
   retrieval_state TEXT NOT NULL CHECK (retrieval_state IN ('retrieved','remote_only','blocked','superseded')),
   notes TEXT NOT NULL DEFAULT '',
   CHECK (retrieval_state != 'retrieved' OR (local_path IS NOT NULL AND sha256 IS NOT NULL)),
-  UNIQUE (source_id, artifact_url)
+  UNIQUE (source_id, artifact_url, sha256)
 );
+
+-- Preserve changed evidence bytes at the same URL without duplicating unknown captures.
+CREATE UNIQUE INDEX source_artifact_pending_unique
+  ON source_artifacts(source_id, artifact_url) WHERE sha256 IS NULL OR sha256 = '';
 
 CREATE TABLE dataset_findings (
   finding_id TEXT PRIMARY KEY,

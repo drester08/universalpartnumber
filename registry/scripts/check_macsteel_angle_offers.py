@@ -120,7 +120,7 @@ def main():
         reader = csv.DictReader(handle)
         fields = reader.fieldnames
         existing = list(reader)
-    actual = [r for r in existing if r['supplier_id'] == 'ORG-MACSTEEL-SA']
+    actual = [r for r in existing if r['supplier_id'] == 'ORG-MACSTEEL-SA' and r['source_id'] == 'SRC-MACSTEEL-ANGLE-P4']
     report = {'snapshot_sha256': FILES, 'scope': 'One retained equal-angle listing page; not full catalogue coverage',
               'offers': records, 'offer_count': len(records), 'identity_approved': False,
               'warnings': ['Seller SKU is not proven manufacturer MPN',
