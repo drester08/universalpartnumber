@@ -1,0 +1,45 @@
+{
+  "source_id": "SRC-JTEKT-BS004-B",
+  "artifact_id": "ART-JTEKT-BS004-B",
+  "source_sha256": "BCD21D456A473132E87F42C1D78E54750E62E247F400491AC2C4D745779D6412",
+  "policy_version": "jtekt-shield-catalogue-0.1",
+  "related_manufacturer_part_id": "MP-JTEKT-6205-ZZ",
+  "definition_pdf_page": 4,
+  "definition_printed_page": "B6",
+  "article_pdf_page": 12,
+  "article_printed_pages": "B22-B23",
+  "extracted_evidence": {
+    "zz_header": "Shielded Non-contact type ZZ type",
+    "6205_row": "25 52 15 1 17.5 7.85 0.550 13.9 13 000 12 000 8 400 15 000 6205 ZZ 6205 2RU 6205 2RD 6205 2RS 30 31.5 47 1 0.128",
+    "mass_header": "(Refer.) Mass Open type (kg)"
+  },
+  "partial_closure_context": {
+    "shield_sidedness": "both_sides",
+    "shield_fixing": "fixed",
+    "shield_contact_form": "non_contact",
+    "shield_material": null,
+    "complete_canonical_closure_mapping": false
+  },
+  "catalogue_row_context": {
+    "d_mm": "25",
+    "D_mm": "52",
+    "B_mm": "15",
+    "dynamic_load_kn": "17.5",
+    "static_load_kn": "7.85",
+    "grease_limiting_speed_min_inverse": "13000",
+    "open_type_reference_mass_kg": "0.128",
+    "exact_ZZ_mass_corroborated": false
+  },
+  "identity_approved": false,
+  "independent_review": "outstanding",
+  "limitations": [
+    "Three complete relevant PDF pages visually reviewed; not the whole 226-page document.",
+    "Non-contact shield definition is bounded to the ZZ column, not transferred from seals.",
+    "No shield material is inferred from the drawing.",
+    "Mass column explicitly applies to open type, not the exact ZZ article.",
+    "Standard cage discussion permits application-specific alternatives; no exact cage assigned.",
+    "No exact grease formulation, clearance, tolerance, bore, material or locating default assigned.",
+    "Earlier raw article observations and mappings remain unchanged.",
+    "No equivalence, source correction or UPN approval."
+  ]
+}

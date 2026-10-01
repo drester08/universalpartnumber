@@ -2,7 +2,7 @@
 
 ## Current baseline — 1 October 2026
 
-There are 124 registered sources, 69 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 40 manufacturer parts, 168 supplier offers and 63 observations. The reproducible screen has 24 pairs; the reviewer queue has 434 tasks (423 ready, 11 dependency-blocked). All 17 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 125 registered sources, 70 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 40 manufacturer parts, 168 supplier offers and 63 observations. The reproducible screen has 24 pairs; the reviewer queue has 434 tasks (423 ready, 11 dependency-blocked). All 17 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
@@ -13,6 +13,8 @@ The [Schaeffler retrieval lead](schaeffler-retrieval-lead.md) remains outside ar
 The [JTEKT 6205 ZZ intake](jtekt-6205-ZZ-source.md) retains exact source fields without resolving seven identity gaps or canonical closure. Seek an official JTEKT shield definition and article-specific bore/cage/clearance/tolerance/material/grease/locating evidence. Its missing closure blocks candidate generation; this known coverage limitation must not be reported as physical difference.
 
 [JTEKT Table 6-2](jtekt-shield-code-context.md) now provides fixed shielding on both sides for ZZ. Shield material and contact form remain unproven; seek a deep-groove construction statement before proposing the full canonical closure mapping. The adjacent non-contact seal category does not apply to the shield row.
+
+Later [BS004 catalogue research](jtekt-shield-catalogue.md) supplies the ZZ non-contact definition. Material remains unresolved; seek an explicit manufacturer material statement. The catalogue's open-type reference mass is not exact-ZZ corroboration. Earlier code-guide limitations remain source-specific, not claims about this later PDF.
 
 ## Phase 1 — Authority map
 

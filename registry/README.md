@@ -2,7 +2,9 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
-Current baseline (1 October 2026): 124 sources, 69 cached evidence records, four supplied datasets, five draft profiles, 40 manufacturer parts, 168 supplier offers and 63 observations. The screen contains 24 pairs and the reviewer queue contains 434 tasks (423 ready, 11 blocked). All 17 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+Current baseline (1 October 2026): 125 sources, 70 cached evidence records, four supplied datasets, five draft profiles, 40 manufacturer parts, 168 supplier offers and 63 observations. The screen contains 24 pairs and the reviewer queue contains 434 tasks (423 ready, 11 blocked). All 17 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+
+`docs/jtekt-shield-catalogue.md` adds bounded non-contact ZZ construction evidence and an exact catalogue row. Shield material remains unknown. Catalogue mass applies to open type, not independently to ZZ; no article defaults or approvals are added.
 
 `docs/jtekt-shield-code-context.md` adds JTEKT's own Table 6-2 definition: ZZ fixed shielding on both sides. The table does not establish shield metal or non-contact form. Category boundaries are preserved and the full closure mapping remains absent.
 
