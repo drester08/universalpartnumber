@@ -161,6 +161,8 @@ def build(output: Path) -> None:
             check_klinger_maxiprofile_registration.verify(connection)
             import check_klinger_uk_registration
             check_klinger_uk_registration.verify(connection)
+            import source_use_decisions
+            source_use_decisions.load()
             connection.commit()
         finally:
             connection.close()

@@ -20,7 +20,7 @@ class SourceUseGateTests(unittest.TestCase):
 
     def test_existing_restricted_skf_evidence_is_held(self):
         records = gates.part_holds(self.db)['MP-SKF-6205-2Z']
-        self.assertIn(dict(source_id='SRC-SKF-6205-2Z', license_state='restricted', ingestion_status='reference_only'), records)
+        self.assertIn(dict(source_id='SRC-SKF-6205-2Z', license_state='restricted', ingestion_status='reference_only', reason='registered reuse metadata is unresolved'), records)
 
     def test_verified_state_and_acceptable_license_both_required(self):
         for license_state, status in [('restricted', 'license_verified'), ('open', 'reference_only'),
@@ -29,7 +29,8 @@ class SourceUseGateTests(unittest.TestCase):
                             (license_state, status, 'SRC-SKF-6205-2Z'))
             self.assertIn('MP-SKF-6205-2Z', gates.part_holds(self.db))
         self.db.execute("UPDATE sources SET license_state='attribution',ingestion_status='license_verified' WHERE source_id='SRC-SKF-6205-2Z'")
-        self.assertNotIn('MP-SKF-6205-2Z', gates.part_holds(self.db))
+        self.assertIn('MP-SKF-6205-2Z', gates.part_holds(self.db))
+        self.assertIn('attribution license fulfillment', gates.part_holds(self.db)['MP-SKF-6205-2Z'][0]['reason'])
 
     def test_rejected_superseded_evidence_not_active_hold(self):
         self.db.execute("UPDATE observations SET review_state='superseded' WHERE manufacturer_part_id='MP-SKF-6205-2Z'")

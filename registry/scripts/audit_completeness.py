@@ -180,7 +180,7 @@ def main() -> int:
     source_errors = set()
     for row in conditional_reviews:
         if row[0] in source_holds:
-            sources = '; '.join(h['source_id'] + ' (' + h['license_state'] + '/' + h['ingestion_status'] + ')'
+            sources = '; '.join(h['source_id'] + ' (' + h['license_state'] + '/' + h['ingestion_status'] + '): ' + h['reason']
                                 for h in source_holds[row[0]])
             print(f'Source-use hold: manufacturer_part_id={row[0]}; sources={sources}')
             if row[2] == 'accepted':

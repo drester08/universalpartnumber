@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/source-use-decision-chain.md` ties permission to exact captured source revisions, private grant evidence, independent attestation and validity/revocation dates. The real ledger has no decisions. Source metadata alone cannot release a publication hold; attribution remains blocked pending fulfillment. Registered counts and actual reviews are unchanged.
+
 `docs/source-use-publication-gate.md` records an SKF marketplace authorization hold and closes a missing runtime reuse check. Accepted publication and issuance cannot rely on sources without verified permitted-use metadata. Private captures are retained, but no 6204 article table is ingested and registered counts remain unchanged.
 
 `docs/research-applicability-evaluator.md` adds a shared explicit-state research evaluator and integrates it into the source-bound gasket capture. Ambiguous selectors and malformed contracts fail closed; typed field checks remain separate. SQL profiles and the production conditional guard remain unchanged, with no identity activation.
