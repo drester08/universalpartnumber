@@ -13,16 +13,17 @@ PATH = ROOT / 'registry/artifacts/ntn/6205zz-20261001.html'
 
 
 class Parser(HTMLParser):
-    def __init__(self):
+    def __init__(self, illustration_article='6205ZZ'):
         super().__init__(convert_charrefs=True)
         self.rows, self.row, self.capture, self.value = [], None, None, None
         self.illustration_lines = []
+        self.illustration_article = illustration_article
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if tag == 'tr' and a.get('itemprop') == 'additionalProperty':
             self.row = {'name': [], 'values': [], 'html_line': self.getpos()[0]}
-        elif self.row is not None and tag == 'a' and a.get('data-imageasset') == '6205ZZ':
+        elif self.row is not None and tag == 'a' and a.get('data-imageasset') == self.illustration_article:
             self.row['illustration'] = True
         elif self.row is not None and tag == 'td' and a.get('itemprop') == 'name':
             self.capture = 'name'

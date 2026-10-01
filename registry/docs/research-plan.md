@@ -8,6 +8,8 @@ These are research counts, not independently approved articles or global coverag
 
 Exact-article expansion: [NSK 6204ZZ](nsk-6204ZZ-source.md) retains fifteen facts without borrowing 6205ZZ interpretations. Three absent fields and two unresolved semantic properties remain. Seek a second manufacturer 6204 shielded article and explicit closure/locating applicability; do not flatten clearance/tolerance variants into one part.
 
+Later [NTN 6204ZZ staging research](ntn-6204zz-pre-ingestion.md) captures that second exact manufacturer page. Three boundary dimensions agree with NSK, but two source-publication issues are quarantined. Register and ingest only with those conflicts preserved and exact article-bound research questions. Current source/part/queue totals exclude this staged evidence; no canonical cross-brand pair is created.
+
 Next: obtain and independently review resolutions for the two NTN publication questions using the implemented [resolution event ledger](manufacturer-source-resolutions.md), which is currently empty. Obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
 
 The [Schaeffler retrieval lead](schaeffler-retrieval-lead.md) remains outside article ingestion. Verify real content and source pages before promoting any search excerpt or HTTP-success response. `J:\Codex\UPN` preserves dated research and handoffs; it remains a partial archive.

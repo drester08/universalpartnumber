@@ -1,0 +1,445 @@
+{
+  "research_status": "quarantined_pre_ingestion",
+  "registered_source": false,
+  "manufacturer_namespace": "NTN",
+  "manufacturer_article": "6204ZZ",
+  "source_url": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6204zz",
+  "private_source_path": "registry/artifacts/ntn/6204zz-20261001.html",
+  "source_sha256": "3F2253DB6EEA5B032A410C39E2C939FBB786C7014CD0E4F8FE96E83A24F25003",
+  "retrieved_at": "2026-10-01",
+  "policy_version": "ntn-6204zz-research-0.1",
+  "native_property_count": 26,
+  "native_properties": [
+    {
+      "name": "Ordering Options",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Find a Distributor"
+        },
+        {
+          "measure": "general",
+          "text": "Contact NTN Customer Support Specialist"
+        },
+        {
+          "measure": "general",
+          "text": "Order through NTN DOL (Authorized Distributors Only)"
+        }
+      ],
+      "html_line": 637
+    },
+    {
+      "name": "Type",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Deep Groove Ball Bearing"
+        }
+      ],
+      "html_line": 661
+    },
+    {
+      "name": "Bore Type",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Round"
+        }
+      ],
+      "html_line": 674
+    },
+    {
+      "name": "Material",
+      "values": [
+        {
+          "measure": "general",
+          "text": "High Carbon Chrome Steel"
+        }
+      ],
+      "html_line": 687
+    },
+    {
+      "name": "Cage Type",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Pressed"
+        }
+      ],
+      "html_line": 700
+    },
+    {
+      "name": "Cage Material",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Steel"
+        }
+      ],
+      "html_line": 713
+    },
+    {
+      "name": "Ball Material",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Steel"
+        }
+      ],
+      "html_line": 726
+    },
+    {
+      "name": "Limiting Speed - Grease",
+      "values": [
+        {
+          "measure": "general",
+          "text": "16000 RPM"
+        }
+      ],
+      "html_line": 739
+    },
+    {
+      "name": "Precision",
+      "values": [
+        {
+          "measure": "general",
+          "text": "ISO Class 0"
+        }
+      ],
+      "html_line": 752
+    },
+    {
+      "name": "Configuration",
+      "values": [
+        {
+          "measure": "general",
+          "text": "One"
+        }
+      ],
+      "html_line": 765
+    },
+    {
+      "name": "Factor",
+      "values": [
+        {
+          "measure": "general",
+          "text": "13.2"
+        }
+      ],
+      "html_line": 778
+    },
+    {
+      "name": "Radial Internal Clearance",
+      "values": [
+        {
+          "measure": "general",
+          "text": "CN"
+        }
+      ],
+      "html_line": 791
+    },
+    {
+      "name": "Static Load Rating",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1500 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "6650 N"
+        },
+        {
+          "measure": "metric",
+          "text": "9.75 kN"
+        }
+      ],
+      "html_line": 804
+    },
+    {
+      "name": "Dynamic Load Rating",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "3190 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "14200 N"
+        },
+        {
+          "measure": "metric",
+          "text": "14.20 kN"
+        }
+      ],
+      "html_line": 817
+    },
+    {
+      "name": "Enclosure",
+      "values": [
+        {
+          "measure": "general",
+          "text": "Double Shielded"
+        }
+      ],
+      "html_line": 830
+    },
+    {
+      "name": "Weight",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.227 lb"
+        },
+        {
+          "measure": "metric",
+          "text": "0.103 kg"
+        }
+      ],
+      "html_line": 843
+    },
+    {
+      "name": "Operating Temperature Range",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "-40 to 250 \u00baF"
+        },
+        {
+          "measure": "metric",
+          "text": "-40 to 120 \u00baC"
+        }
+      ],
+      "html_line": 856
+    },
+    {
+      "name": "d",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.7874 in"
+        },
+        {
+          "measure": "metric",
+          "text": "20.000 mm"
+        }
+      ],
+      "html_line": 888
+    },
+    {
+      "name": "D",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1.8504 in"
+        },
+        {
+          "measure": "metric",
+          "text": "47.000 mm"
+        }
+      ],
+      "html_line": 901
+    },
+    {
+      "name": "B",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.5512 in"
+        },
+        {
+          "measure": "metric",
+          "text": "14.000 mm"
+        }
+      ],
+      "html_line": 914
+    },
+    {
+      "name": "r",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.0394 in"
+        },
+        {
+          "measure": "metric",
+          "text": "1.000 mm"
+        }
+      ],
+      "html_line": 927
+    },
+    {
+      "name": "r1",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.0197 in"
+        },
+        {
+          "measure": "metric",
+          "text": "0.500 mm"
+        }
+      ],
+      "html_line": 940
+    },
+    {
+      "name": "da min",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.9843 in"
+        },
+        {
+          "measure": "metric",
+          "text": "25.000 mm"
+        }
+      ],
+      "html_line": 953
+    },
+    {
+      "name": "da max",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1.1024 in"
+        },
+        {
+          "measure": "imperial",
+          "text": "1.6535 in"
+        },
+        {
+          "measure": "metric",
+          "text": "28.000 mm"
+        },
+        {
+          "measure": "metric",
+          "text": "42.000 mm"
+        }
+      ],
+      "html_line": 966
+    },
+    {
+      "name": "Da max",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "1.6535 in"
+        },
+        {
+          "measure": "metric",
+          "text": "42.000 mm"
+        }
+      ],
+      "html_line": 979
+    },
+    {
+      "name": "ras max",
+      "values": [
+        {
+          "measure": "imperial",
+          "text": "0.0394 in"
+        },
+        {
+          "measure": "metric",
+          "text": "1.000 mm"
+        }
+      ],
+      "html_line": 992
+    }
+  ],
+  "quality_findings": [
+    {
+      "issue_type": "inconsistent_static_load_metric_units",
+      "source_html_line": 804,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1500 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "6650 N"
+        },
+        {
+          "measure": "metric",
+          "text": "9.75 kN"
+        }
+      ],
+      "metric_values_converted_to_n": [
+        "6650",
+        "9750"
+      ],
+      "difference_n": "3100",
+      "corrected_value": null,
+      "rating_trusted": false
+    },
+    {
+      "issue_type": "ambiguous_da_max_values",
+      "source_html_line": 966,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1.1024 in"
+        },
+        {
+          "measure": "imperial",
+          "text": "1.6535 in"
+        },
+        {
+          "measure": "metric",
+          "text": "28.000 mm"
+        },
+        {
+          "measure": "metric",
+          "text": "42.000 mm"
+        }
+      ],
+      "corrected_value": null
+    }
+  ],
+  "boundary_context_comparison": {
+    "related_registered_part": "MP-NSK-6204ZZ",
+    "nsk_source_sha256": "6AA72C0BD671B2E0A21269F5F303D5CCB48DF0D6662419D678E57D70CAD04EA9",
+    "comparisons": [
+      {
+        "symbol": "d",
+        "ntn_source_display": "20.000 mm",
+        "nsk_source_display": "20 mm",
+        "ntn_html_line": 888,
+        "nsk_html_line": 1577,
+        "nominal_values_equal": true
+      },
+      {
+        "symbol": "D",
+        "ntn_source_display": "47.000 mm",
+        "nsk_source_display": "47 mm",
+        "ntn_html_line": 901,
+        "nsk_html_line": 1586,
+        "nominal_values_equal": true
+      },
+      {
+        "symbol": "B",
+        "ntn_source_display": "14.000 mm",
+        "nsk_source_display": "14 mm",
+        "ntn_html_line": 914,
+        "nsk_html_line": 1595,
+        "nominal_values_equal": true
+      }
+    ],
+    "canonical_pair_screen_created": false,
+    "same_item_approved": false
+  },
+  "identity_approved": false,
+  "publisher_correction_obtained": false,
+  "limitations": [
+    "This privately captured research source is not yet a registry source, part or observation.",
+    "Twenty-six rows include one commercial ordering row; no ordering offer is created.",
+    "Matching 20 x 47 x 14 mm does not establish bearing identity or substitution suitability.",
+    "Static load metric cells conflict; neither is selected as corrected truth.",
+    "Two da max metric cells remain under the same source label; Da max is a separate row.",
+    "Round bore does not establish cylindrical bore; supplied grease and locating feature remain unstated.",
+    "ISO Class 0 is not automatically normalized to NSK P0; closure is not inherited from NTN 6205ZZ.",
+    "Earlier NTN 6205ZZ findings and resolution ledger are unchanged; recurrence is not publisher correction.",
+    "Independent extraction review, source registration and governed intake remain outstanding."
+  ]
+}
