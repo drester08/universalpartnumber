@@ -2,7 +2,7 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
-`docs/nsk-6204zz-code-research.md` adds two private staged NSK PDFs, an exact 6204 catalogue row and NSK's own two-sided non-contact ZZ definition. Shield metal and supplied lubricant remain unresolved. Registered baseline counts exclude these staged captures; no new full closure mapping or cross-brand pair is added.
+`docs/nsk-6204zz-code-registration.md` registers two private NSK context captures and two unreviewed observations with explicit source-reuse review tasks. The earlier `docs/nsk-6204zz-code-research.md` and JSON remain historical staged evidence. Shield metal and supplied lubricant remain unresolved; no new specifications, full closure mapping or cross-brand pair is added.
 
 `docs/ntn-6204zz-intake.md` registers twelve unreviewed NTN 6204ZZ facts and two publication research questions. The earlier pre-ingestion report remains an immutable historical snapshot; it no longer describes current registration status. No closure/tolerance mapping or other-article catalogue clarification is inherited.
 
@@ -10,7 +10,7 @@ This directory is the evidence and data foundation for the Universal Part Number
 
 `docs/bearing-suffix-scope.md` records a cross-family suffix hazard and six regression tests proving exact-specification normalization isolation. Identical raw suffixes do not inherit another part's mapping. Source-discovery leads remain separate from ingested evidence.
 
-Current baseline (1 October 2026): 127 sources, 72 cached evidence records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 65 observations. The screen contains 24 pairs and the reviewer queue contains 452 tasks (441 ready, 11 blocked). All 25 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+Current baseline (1 October 2026): 129 sources, 74 cached evidence records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 67 observations. The screen contains 24 pairs and the reviewer queue contains 456 tasks (445 ready, 11 blocked). All 25 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
 
 `docs/nsk-6204ZZ-source.md` adds a separate exact NSK article with fifteen unreviewed facts from twenty-four native rows. Clearance variants remain separate. Closure/locating semantics and three absent identity properties remain unresolved; four new mappings are proposed only.
 

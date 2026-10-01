@@ -1,0 +1,39 @@
+{
+  "policy_version": "nsk-6204zz-code-registration-0.1",
+  "registered_new_sources": true,
+  "manufacturer_part_id": "MP-NSK-6204ZZ",
+  "records": [
+    {
+      "source_id": "SRC-NSK-APB-DGBB",
+      "artifact_id": "ART-NSK-APB-DGBB",
+      "observation_id": "OBS-NSK-6204ZZ-APB-20261001",
+      "sha256": "15E748AF493A8442A7CE3C82C243F2C82ACA5B0235F6B71B366F8CD03538CC61",
+      "reviewed_physical_pages": [
+        5,
+        10
+      ]
+    },
+    {
+      "source_id": "SRC-NSK-E1103C-PARTC",
+      "artifact_id": "ART-NSK-E1103C-PARTC",
+      "observation_id": "OBS-NSK-6204ZZ-E1103C-20261001",
+      "sha256": "3C1ACFDA536BB6A77487D1FCF6812618E31C62582FB20089659D20B7AF07A6E2",
+      "reviewed_physical_pages": [
+        4,
+        12
+      ]
+    }
+  ],
+  "historical_research_path": "registry/reports/nsk-6204zz-code-research.json",
+  "historical_research_sha256": "C5B91BA8DCE8A5553FC4465B76BD9C51D136DAD32145B94A47F522270B92F6C9",
+  "canonical_mapping_added": false,
+  "identity_approved": false,
+  "source_reuse_review": "outstanding",
+  "independent_review": "outstanding",
+  "limitations": [
+    "Custody binding is not independent extraction or applicability approval.",
+    "Historical staged report is preserved; this report describes current registration.",
+    "Shield material, supplied lubricant and exact locating construction remain unresolved.",
+    "No new article specifications, equivalence decisions or UPN allocations."
+  ]
+}

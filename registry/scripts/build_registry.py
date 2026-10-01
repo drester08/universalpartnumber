@@ -151,6 +151,8 @@ def build(output: Path) -> None:
             build_manufacturer_source_findings.build_report(connection)
             import check_ntn_6204zz_closure_mapping
             check_ntn_6204zz_closure_mapping.verify(connection)
+            import check_nsk_6204zz_code_registration
+            check_nsk_6204zz_code_registration.verify(connection)
             connection.commit()
         finally:
             connection.close()

@@ -2,11 +2,11 @@
 
 ## Current baseline — 1 October 2026
 
-There are 127 registered sources, 72 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 65 observations. The reproducible screen has 24 pairs; the reviewer queue has 452 tasks (441 ready, 11 dependency-blocked). All 25 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 129 registered sources, 74 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 67 observations. The reproducible screen has 24 pairs; the reviewer queue has 456 tasks (445 ready, 11 dependency-blocked). All 25 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
-[NSK 6204 construction research](nsk-6204zz-code-research.md) captures two staged primary-source PDFs. The exact 6204 row and single-row deep-groove code table support two-sided non-contact shielding, not yet explicit shield metal. Register the captures with scoped research evidence, and seek material construction before full canonical mapping. The catalogue's required grease designation highlights an exact supplied-lubricant gap; NS7 example grease is not assigned to 6204ZZ. Registered counts and screen remain unchanged.
+[NSK 6204 construction research](nsk-6204zz-code-research.md) captured two primary-source PDFs. The later [registration](nsk-6204zz-code-registration.md) binds both private captures to scoped unreviewed observations and explicit reuse-review gates. Historical staged snapshots remain unchanged. Independently review applicability and source reuse; seek shield material before full canonical mapping. The catalogue's required grease designation highlights an exact supplied-lubricant gap; NS7 example grease is not assigned to 6204ZZ. No new article specifications or cross-brand screen pair were added.
 
 Exact-article expansion: [NSK 6204ZZ](nsk-6204ZZ-source.md) retains fifteen facts without borrowing 6205ZZ interpretations. Three absent fields and two unresolved semantic properties remain. Seek a second manufacturer 6204 shielded article and explicit closure/locating applicability; do not flatten clearance/tolerance variants into one part.
 

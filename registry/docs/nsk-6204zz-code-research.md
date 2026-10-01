@@ -1,5 +1,7 @@
 # NSK 6204ZZ construction research — 1 October 2026
 
+Historical staging milestone. The later [context registration](nsk-6204zz-code-registration.md) supersedes registration status and counts below; the staged JSON remains unchanged.
+
 Status: staged primary-source PDFs and partial construction evidence. Neither new PDF is yet registered; no specification, canonical mapping, pair screen, correction, equivalence or UPN is added.
 
 The [NSK Americas deep-groove brochure](https://info.nskamericas.com/hubfs/DGBB/NSK_APB_Deep_Groove_Ball_Bearings.pdf) defines ZZ as non-contact shielding on both sides in its single-row deep-groove designation table. Complete physical pages 5 and 10 were visually inspected, retaining family-range and code-row boundaries. Adjacent VV/DDU seal definitions are not assigned to ZZ. Private capture: `NSK-APB-DGBB-20261001.pdf`, SHA-256 `15E748AF493A8442A7CE3C82C243F2C82ACA5B0235F6B71B366F8CD03538CC61`.
