@@ -1,0 +1,58 @@
+{
+  "policy_version": "nsk-6204zz-metal-research-0.1",
+  "manufacturer_part_id": "MP-NSK-6204ZZ",
+  "source_url": "https://www.nsk.com/content/dam/nsk-marketing/projects-completed/literature/product-brochures/deep-grooves-bbs_product-brochure/en_deep-grooves-bbs_product-brochure/preview-pdf_deep-grooves-bbs_product-brochure_en/EN_Deep%20Grooves%20BBs_Product_Brochure_low-res.pdf",
+  "local_path": "registry/artifacts/nsk/EN-DGBB-Europe-20261001.pdf",
+  "source_sha256": "516844D7485922BE5888829573F5AB67E13052B0365203C52F78AE068A37B865",
+  "page_count": 16,
+  "reviewed_physical_pages": [
+    7,
+    8,
+    9,
+    11,
+    16
+  ],
+  "extracted_evidence": {
+    "closure_rows": [
+      "Shields and Seals",
+      "Blank Open bearing",
+      "Z Single metal shield",
+      "ZZ Double metal shields",
+      "V Single non-contact seal",
+      "VV Double non-contact seals",
+      "DW Single light-contact seal",
+      "DDW Double light-contact seals",
+      "DU Single contact seal",
+      "DDU Double contact seals"
+    ],
+    "zz_figure_label": "ZZ Non-contact shield",
+    "family": "62 Metric light series",
+    "bore_code": "04 : 20 mm",
+    "illustrative_designation": "62 05 T1X ZZ NR C3 E NS7 S",
+    "publication_reference": "DGB/H/E/01.15",
+    "copyright_year": 2009
+  },
+  "registration_report_sha256": "1C51FD8B1373CCA3659C86AE88F7DD15CAE7BB146D54CB7583BAA7BA4B41D11F",
+  "closure_hypothesis": {
+    "both_sides": true,
+    "contact_form": "non_contact",
+    "material_class": "metal",
+    "metal_grade": null,
+    "canonical_code": "double_non_contact_metal_shield"
+  },
+  "ready_for_scoped_mapping_proposal": true,
+  "canonical_mapping_added": false,
+  "registered_new_source": false,
+  "identity_approved": false,
+  "independent_review": "outstanding",
+  "limitations": [
+    "Historical brochure; current supplied-article applicability requires review.",
+    "General designation table and ZZ figure support closure terminology, not exact metal grade.",
+    "Nitrile sealing-material prose is not assigned to a metal shield.",
+    "No glass-reinforced polyamide cage or low-torque grease from special designs transferred.",
+    "NS7 and the 6205 example are not supplied 6204ZZ defaults.",
+    "Blank retention wording is not promoted to exact locating construction.",
+    "No new article specifications, equivalence decision or UPN.",
+    "Source reuse and independent interpretation review outstanding."
+  ]
+}

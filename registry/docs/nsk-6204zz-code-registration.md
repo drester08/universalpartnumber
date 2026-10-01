@@ -1,5 +1,7 @@
 # NSK 6204ZZ context registration — 1 October 2026
 
+Later [metal-shield research](nsk-6204zz-metal-research.md) adds a separate historical brochure with explicit metal terminology. Material limitations below describe these two registered captures; current later research does not rewrite their evidence or registration snapshot.
+
 Two previously captured manufacturer PDFs now have registered sources, private artifacts and unreviewed observations attached to `MP-NSK-6204ZZ`. No new article specifications or canonical mappings were added.
 
 | Source | Observation | Bounded evidence |
