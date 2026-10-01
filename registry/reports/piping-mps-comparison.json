@@ -1,0 +1,1534 @@
+{
+  "policy_version": "piping-mps-nominal-comparison-0.1",
+  "dataset_id": "DATASET-USER-PIPING-20260702",
+  "dataset_sha256": "674cb646412b8f1ef538f3c6cf4e473f1f832f0b9c65b0b45aebed04e4d7e875",
+  "source_url": "https://www.miningpressure.co.za/uploads/1/2/4/2/124291661/mps_technical_manual_full.pdf",
+  "source_pdf_sha256": "FE5731D47330DAD79637F05CC44E969100B62651852E23F64DBAE147794DED4B",
+  "source_research_sha256": "819584E30A42785723627C57635902C5369D45C717D114811F54219572AFC0FE",
+  "prior_tenaris_report_sha256": "980ED9D4206EE77FD3997D55805381126B53A17897AE06A5B32C41737B568190",
+  "dataset_rows": 50,
+  "outcomes": {
+    "printed_precision_compatible": 50
+  },
+  "prior_to_current_counts": {
+    "outside_source_key_scope -> printed_precision_compatible": 12,
+    "printed_precision_compatible -> printed_precision_compatible": 34,
+    "ambiguous_source_key -> printed_precision_compatible": 4
+  },
+  "construction_conflicts": 50,
+  "rows_with_source_id_question": 1,
+  "rows_with_source_mass_question": 2,
+  "identity_approved": false,
+  "source_registered": false,
+  "dataset_corrected": false,
+  "prior_findings_resolved": false,
+  "records": [
+    {
+      "csv_logical_row": 2,
+      "key": [
+        "6",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "10.3",
+        "wall_mm": "1.727"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 11,
+          "nominal_bore": "6",
+          "od_mm_raw": "10,3",
+          "wall_mm_raw": "1,727",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 3,
+      "key": [
+        "6",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "10.3",
+        "wall_mm": "2,413"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 12,
+          "nominal_bore": "6",
+          "od_mm_raw": "10,3",
+          "wall_mm_raw": "2,413",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 4,
+      "key": [
+        "8",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "13.7",
+        "wall_mm": "2,235"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 13,
+          "nominal_bore": "8",
+          "od_mm_raw": "13,7",
+          "wall_mm_raw": "2,235",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 5,
+      "key": [
+        "8",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "13.7",
+        "wall_mm": "3,023"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 14,
+          "nominal_bore": "8",
+          "od_mm_raw": "13,7",
+          "wall_mm_raw": "3,023",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 6,
+      "key": [
+        "10",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "17,1",
+        "wall_mm": "2,311"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 15,
+          "nominal_bore": "10",
+          "od_mm_raw": "17,1",
+          "wall_mm_raw": "2,311",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 7,
+      "key": [
+        "10",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "17,1",
+        "wall_mm": "3,200"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 16,
+          "nominal_bore": "10",
+          "od_mm_raw": "17,1",
+          "wall_mm_raw": "3,200",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 8,
+      "key": [
+        "15",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "2,769"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 17,
+          "nominal_bore": "15",
+          "od_mm_raw": "21,3",
+          "wall_mm_raw": "2,769",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 9,
+      "key": [
+        "15",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "3,734"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 18,
+          "nominal_bore": "15",
+          "od_mm_raw": "21,3",
+          "wall_mm_raw": "3,734",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 10,
+      "key": [
+        "15",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "4,775"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 19,
+          "nominal_bore": "15",
+          "od_mm_raw": "21,3",
+          "wall_mm_raw": "4,775",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 11,
+      "key": [
+        "15",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "21,3",
+        "wall_mm": "7,468"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 20,
+          "nominal_bore": "15",
+          "od_mm_raw": "21,3",
+          "wall_mm_raw": "7,468",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 12,
+      "key": [
+        "20",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "2,870"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 21,
+          "nominal_bore": "20",
+          "od_mm_raw": "26,7",
+          "wall_mm_raw": "2,870",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 13,
+      "key": [
+        "20",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "3,912"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 22,
+          "nominal_bore": "20",
+          "od_mm_raw": "26,7",
+          "wall_mm_raw": "3,912",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 14,
+      "key": [
+        "20",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "5,563"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 23,
+          "nominal_bore": "20",
+          "od_mm_raw": "26,7",
+          "wall_mm_raw": "5,563",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 15,
+      "key": [
+        "20",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "26,7",
+        "wall_mm": "7,823"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 24,
+          "nominal_bore": "20",
+          "od_mm_raw": "26,7",
+          "wall_mm_raw": "7,823",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 16,
+      "key": [
+        "25",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "3,378"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 25,
+          "nominal_bore": "25",
+          "od_mm_raw": "33,4",
+          "wall_mm_raw": "3,378",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 17,
+      "key": [
+        "25",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "4,547"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 26,
+          "nominal_bore": "25",
+          "od_mm_raw": "33,4",
+          "wall_mm_raw": "4,547",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 18,
+      "key": [
+        "25",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "6,350"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 27,
+          "nominal_bore": "25",
+          "od_mm_raw": "33,4",
+          "wall_mm_raw": "6,350",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 19,
+      "key": [
+        "25",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "33,4",
+        "wall_mm": "9,093"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 28,
+          "nominal_bore": "25",
+          "od_mm_raw": "33,4",
+          "wall_mm_raw": "9,093",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 20,
+      "key": [
+        "32",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "3,556"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 29,
+          "nominal_bore": "32",
+          "od_mm_raw": "42,2",
+          "wall_mm_raw": "3,556",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 21,
+      "key": [
+        "32",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "4,851"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 30,
+          "nominal_bore": "32",
+          "od_mm_raw": "42,2",
+          "wall_mm_raw": "4,851",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 22,
+      "key": [
+        "32",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "6,350"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 31,
+          "nominal_bore": "32",
+          "od_mm_raw": "42,2",
+          "wall_mm_raw": "6,350",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 23,
+      "key": [
+        "32",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "42,2",
+        "wall_mm": "9,703"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 32,
+          "nominal_bore": "32",
+          "od_mm_raw": "42,2",
+          "wall_mm_raw": "9,703",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 24,
+      "key": [
+        "40",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "3,683"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 33,
+          "nominal_bore": "40",
+          "od_mm_raw": "48,3",
+          "wall_mm_raw": "3,683",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 25,
+      "key": [
+        "40",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "5,08"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 34,
+          "nominal_bore": "40",
+          "od_mm_raw": "48,3",
+          "wall_mm_raw": "5,08",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 26,
+      "key": [
+        "40",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "7,14"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 35,
+          "nominal_bore": "40",
+          "od_mm_raw": "48,3",
+          "wall_mm_raw": "7,14",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 27,
+      "key": [
+        "40",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "48,3",
+        "wall_mm": "10,16"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 36,
+          "nominal_bore": "40",
+          "od_mm_raw": "48,3",
+          "wall_mm_raw": "10,16",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 28,
+      "key": [
+        "50",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "3,91"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 37,
+          "nominal_bore": "50",
+          "od_mm_raw": "60,3",
+          "wall_mm_raw": "3,91",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": true,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 29,
+      "key": [
+        "50",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "5,54"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 38,
+          "nominal_bore": "50",
+          "od_mm_raw": "60,3",
+          "wall_mm_raw": "5,54",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": true,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 30,
+      "key": [
+        "50",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "8,74"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 39,
+          "nominal_bore": "50",
+          "od_mm_raw": "60,3",
+          "wall_mm_raw": "8,74",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 31,
+      "key": [
+        "50",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "60,3",
+        "wall_mm": "11,07"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 40,
+          "nominal_bore": "50",
+          "od_mm_raw": "60,3",
+          "wall_mm_raw": "11,07",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 32,
+      "key": [
+        "65",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "5,16"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 41,
+          "nominal_bore": "65",
+          "od_mm_raw": "73,0",
+          "wall_mm_raw": "5,16",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "ambiguous_source_key",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 33,
+      "key": [
+        "65",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "7,01"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 42,
+          "nominal_bore": "65",
+          "od_mm_raw": "73,0",
+          "wall_mm_raw": "7,01",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "ambiguous_source_key",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 34,
+      "key": [
+        "65",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "9,52"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 43,
+          "nominal_bore": "65",
+          "od_mm_raw": "73,0",
+          "wall_mm_raw": "9,53",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "ambiguous_source_key",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 35,
+      "key": [
+        "65",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "73,0",
+        "wall_mm": "14,02"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 44,
+          "nominal_bore": "65",
+          "od_mm_raw": "73,0",
+          "wall_mm_raw": "14,02",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "ambiguous_source_key",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 36,
+      "key": [
+        "80",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "5,49"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 45,
+          "nominal_bore": "80",
+          "od_mm_raw": "88,9",
+          "wall_mm_raw": "5,49",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 37,
+      "key": [
+        "80",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "7,62"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 46,
+          "nominal_bore": "80",
+          "od_mm_raw": "88,9",
+          "wall_mm_raw": "7,62",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 38,
+      "key": [
+        "80",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "11,13"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 47,
+          "nominal_bore": "80",
+          "od_mm_raw": "88,9",
+          "wall_mm_raw": "11,13",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": true,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 39,
+      "key": [
+        "80",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "88,9",
+        "wall_mm": "15,24"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 48,
+          "nominal_bore": "80",
+          "od_mm_raw": "88,9",
+          "wall_mm_raw": "15,24",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 40,
+      "key": [
+        "90",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "101,6",
+        "wall_mm": "5,74"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 49,
+          "nominal_bore": "90",
+          "od_mm_raw": "101,6",
+          "wall_mm_raw": "5,74",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 41,
+      "key": [
+        "90",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "101,6",
+        "wall_mm": "8,08"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 50,
+          "nominal_bore": "90",
+          "od_mm_raw": "101,6",
+          "wall_mm_raw": "8,08",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "outside_source_key_scope",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 42,
+      "key": [
+        "100",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "6,02"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 51,
+          "nominal_bore": "100",
+          "od_mm_raw": "114,3",
+          "wall_mm_raw": "6,02",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 43,
+      "key": [
+        "100",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "8,56"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 52,
+          "nominal_bore": "100",
+          "od_mm_raw": "114,3",
+          "wall_mm_raw": "8,56",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 44,
+      "key": [
+        "100",
+        "120"
+      ],
+      "raw_schedule": "120",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "11,13"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 53,
+          "nominal_bore": "100",
+          "od_mm_raw": "114,3",
+          "wall_mm_raw": "11,13",
+          "wall_designation_raw": "",
+          "schedule_raw": "120"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 45,
+      "key": [
+        "100",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "13,49"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 54,
+          "nominal_bore": "100",
+          "od_mm_raw": "114,3",
+          "wall_mm_raw": "13,49",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 46,
+      "key": [
+        "100",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "114,3",
+        "wall_mm": "17,12"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 55,
+          "nominal_bore": "100",
+          "od_mm_raw": "114,3",
+          "wall_mm_raw": "17,12",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 47,
+      "key": [
+        "125",
+        "40"
+      ],
+      "raw_schedule": "40",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "6,55"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 56,
+          "nominal_bore": "125",
+          "od_mm_raw": "141,3",
+          "wall_mm_raw": "6,55",
+          "wall_designation_raw": "(STD)",
+          "schedule_raw": "40"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 48,
+      "key": [
+        "125",
+        "80"
+      ],
+      "raw_schedule": "80",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "9,52"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 57,
+          "nominal_bore": "125",
+          "od_mm_raw": "141,3",
+          "wall_mm_raw": "9,53",
+          "wall_designation_raw": "(XS)",
+          "schedule_raw": "80"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 49,
+      "key": [
+        "125",
+        "120"
+      ],
+      "raw_schedule": "120",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "12,70"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 58,
+          "nominal_bore": "125",
+          "od_mm_raw": "141,3",
+          "wall_mm_raw": "12,70",
+          "wall_designation_raw": "",
+          "schedule_raw": "120"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 50,
+      "key": [
+        "125",
+        "160"
+      ],
+      "raw_schedule": "160",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "15,88"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 59,
+          "nominal_bore": "125",
+          "od_mm_raw": "141,3",
+          "wall_mm_raw": "15,88",
+          "wall_designation_raw": "",
+          "schedule_raw": "160"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    },
+    {
+      "csv_logical_row": 51,
+      "key": [
+        "125",
+        "XXS"
+      ],
+      "raw_schedule": "(XXS)",
+      "actual": {
+        "od_mm": "141,3",
+        "wall_mm": "19,05"
+      },
+      "outcome": "printed_precision_compatible",
+      "source_candidates": [
+        {
+          "physical_page": 12,
+          "text_line": 60,
+          "nominal_bore": "125",
+          "od_mm_raw": "141,3",
+          "wall_mm_raw": "19,05",
+          "wall_designation_raw": "(XXS)",
+          "schedule_raw": "\u2013"
+        }
+      ],
+      "prior_tenaris_outcome": "printed_precision_compatible",
+      "source_internal_diameter_question": false,
+      "source_approximate_mass_question": false,
+      "construction_raw": "Welded",
+      "specification_raw": "ASTM A106",
+      "construction_conflict": true
+    }
+  ],
+  "interpretation": "Nominal OD/wall printed-precision compatibility only. No manufacturing tolerance, actual-stock certificate, grade, construction, internal diameter, mass or interchangeability approval. Supplier/fabricator table does not identify the supplied mill. Earlier source-specific findings remain open. XXS is a wall designation, never inferred as schedule 160.",
+  "outstanding": [
+    "Independent extraction and source reuse review",
+    "Register scoped supplier evidence",
+    "Obtain actual-stock manufacturer/certificate and resolve A106 welded contradiction",
+    "Obtain publisher clarification for internal diameter and approximate mass questions"
+  ]
+}
