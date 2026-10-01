@@ -77,7 +77,7 @@ class ResolutionTests(unittest.TestCase):
         state = self.replay()
         self.assertEqual(state['resolution_state'], 'open')
         queue = self.queue()
-        self.assertEqual(len(queue), 435)
+        self.assertEqual(len(queue), 443)
         self.assertEqual(sum(i['queue_type'] == 'manufacturer_source_resolution_review' for i in queue), 1)
         self.assertIn('RW-' + self.finding['finding_id'], {i['work_item_id'] for i in queue})
 
@@ -88,13 +88,13 @@ class ResolutionTests(unittest.TestCase):
         self.assertEqual(state['publication_status'], 'unresolved')
         self.assertFalse(state['identity_approved'])
         self.assertFalse(state['physical_conflict_verified'])
-        self.assertEqual(len(self.queue()), 434)
+        self.assertEqual(len(self.queue()), 442)
         self.assertIn('RW-' + self.finding['finding_id'], {i['work_item_id'] for i in self.queue()})
 
     def test_waiver_remains_unresolved_and_reopen_restores_stable_task(self):
         self.proposal('waived'); approval = self.review()
         self.assertEqual(self.replay()['publication_status'], 'unresolved')
-        self.assertEqual(len(self.queue()), 433)
+        self.assertEqual(len(self.queue()), 441)
         self.append('reopen', {'decision_event_id': approval['event_id']}, 'fixture-reviewer')
         self.assertEqual(self.replay()['resolution_state'], 'open')
         self.assertEqual(len(self.replay()['history']), 3)
@@ -104,7 +104,7 @@ class ResolutionTests(unittest.TestCase):
         self.proposal(); self.review('reject')
         self.assertEqual(self.replay()['resolution_state'], 'open')
         self.assertEqual(len(self.replay()['history']), 2)
-        self.assertEqual(len(self.queue()), 434)
+        self.assertEqual(len(self.queue()), 442)
 
     def test_corroboration_cannot_be_publisher_correction_or_clarification(self):
         for disposition in ('publisher_corrected', 'manufacturer_clarified'):

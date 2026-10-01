@@ -1,4 +1,19 @@
 specification_id,observation_id,property_id,raw_value,normalized_text,normalized_number,unit_id,qualifier
+SPEC-NSK-6204ZZ-GEOMETRY,OBS-NSK-6204ZZ-20261001,PROP-BEARING-GEOMETRY,Single-Row Deep Groove Ball Bearings,single_row_deep_groove_ball,,,Exact article heading; unreviewed terminology
+SPEC-NSK-6204ZZ-BORE,OBS-NSK-6204ZZ-20261001,PROP-BORE-DIAMETER,d 20 mm Bore diameter,,20,UNIT-MM,Exact article numeric field; unreviewed
+SPEC-NSK-6204ZZ-OD,OBS-NSK-6204ZZ-20261001,PROP-OUTSIDE-DIAMETER,D 47 mm Outside diameter,,47,UNIT-MM,Exact article numeric field; unreviewed
+SPEC-NSK-6204ZZ-WIDTH,OBS-NSK-6204ZZ-20261001,PROP-BEARING-WIDTH,B 14 mm Width,,14,UNIT-MM,Exact article numeric field; unreviewed
+SPEC-NSK-6204ZZ-CLOSURE,OBS-NSK-6204ZZ-20261001,PROP-BEARING-CLOSURE,ZZ: Shield on both sides,,,,Sidedness only; contact form and material not canonically assigned
+SPEC-NSK-6204ZZ-LOCATING,OBS-NSK-6204ZZ-20261001,PROP-LOCATING-FEATURE,"( ): None-N, NR",,,,Exact design wording retained; construction interpretation outstanding
+SPEC-NSK-6204ZZ-CLEARANCE,OBS-NSK-6204ZZ-20261001,PROP-RADIAL-INTERNAL-CLEARANCE,CN,cn,,,Exact article property; mapping proposed not approved
+SPEC-NSK-6204ZZ-TOLERANCE,OBS-NSK-6204ZZ-20261001,PROP-BEARING-TOLERANCE-CLASS,P0,p0,,,Exact article property; mapping proposed not approved
+SPEC-NSK-6204ZZ-CAGE,OBS-NSK-6204ZZ-20261001,PROP-CAGE-CONSTRUCTION,( ): Pressed steel cage,pressed_steel,,,Exact article property; mapping proposed not approved
+SPEC-NSK-6204ZZ-DYNAMIC,OBS-NSK-6204ZZ-20261001,PROP-BASIC-DYNAMIC-LOAD-RATING,Cr 14100 N Basic dynamic load rating,,14100,UNIT-N,Manufacturer rating; standard and calculation basis unstated
+SPEC-NSK-6204ZZ-STATIC,OBS-NSK-6204ZZ-20261001,PROP-BASIC-STATIC-LOAD-RATING,C0r 6600 N Basic static load rating,,6600,UNIT-N,Manufacturer rating; standard and calculation basis unstated
+SPEC-NSK-6204ZZ-SPEED,OBS-NSK-6204ZZ-20261001,PROP-LIMITING-SPEED-GREASE,Grease 17000 min-1 Grease lubrication,,17000,UNIT-RPM,Grease lubrication speed; supplied grease not identified
+SPEC-NSK-6204ZZ-BALL-COUNT,OBS-NSK-6204ZZ-20261001,PROP-BALL-COUNT,z 8 Number of Balls,,8,UNIT-EA,Exact article numeric field; unreviewed
+SPEC-NSK-6204ZZ-BALL-DIAMETER,OBS-NSK-6204ZZ-20261001,PROP-BALL-DIAMETER,Dw 7.938 mm Ball Diameter,,7.938,UNIT-MM,Exact article numeric field; unreviewed
+SPEC-NSK-6204ZZ-MASS,OBS-NSK-6204ZZ-20261001,PROP-MASS,(approx.) 0.107 kg,,0.107,UNIT-KG,Approximate source mass; not measured article identity
 SPEC-JTEKT-6205-ZZ-GEOMETRY,OBS-JTEKT-6205-ZZ-20261001,PROP-BEARING-GEOMETRY,Deep groove ball bearings - Single-row,single_row_deep_groove_ball,,,Exact article page_text; terminology interpretation independently unreviewed
 SPEC-JTEKT-6205-ZZ-BORE,OBS-JTEKT-6205-ZZ-20261001,PROP-BORE-DIAMETER,d 25 mm,,25,UNIT-MM,Exact native d field
 SPEC-JTEKT-6205-ZZ-OD,OBS-JTEKT-6205-ZZ-20261001,PROP-OUTSIDE-DIAMETER,D 52 mm,,52,UNIT-MM,Exact native D field

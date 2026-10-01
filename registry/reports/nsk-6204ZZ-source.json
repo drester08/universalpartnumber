@@ -1,0 +1,240 @@
+{
+  "source_id": "SRC-NSK-6204ZZ",
+  "artifact_id": "ART-NSK-6204ZZ",
+  "source_sha256": "6AA72C0BD671B2E0A21269F5F303D5CCB48DF0D6662419D678E57D70CAD04EA9",
+  "manufacturer_part_id": "MP-NSK-6204ZZ",
+  "article": "6204ZZ",
+  "policy_version": "nsk-6204zz-intake-0.1",
+  "native_row_count": 24,
+  "native_rows": [
+    {
+      "html_line": 1563,
+      "cells": [
+        "",
+        "6204ZZ",
+        "",
+        ""
+      ]
+    },
+    {
+      "html_line": 1577,
+      "cells": [
+        "d",
+        "20",
+        "mm",
+        "Bore diameter"
+      ]
+    },
+    {
+      "html_line": 1586,
+      "cells": [
+        "D",
+        "47",
+        "mm",
+        "Outside diameter"
+      ]
+    },
+    {
+      "html_line": 1595,
+      "cells": [
+        "B",
+        "14",
+        "mm",
+        "Width"
+      ]
+    },
+    {
+      "html_line": 1604,
+      "cells": [
+        "r (min.)",
+        "1",
+        "mm",
+        "Chamfer dimension"
+      ]
+    },
+    {
+      "html_line": 1618,
+      "cells": [
+        "Cr",
+        "14100",
+        "N",
+        "Basic dynamic load rating"
+      ]
+    },
+    {
+      "html_line": 1627,
+      "cells": [
+        "C0r",
+        "6600",
+        "N",
+        "Basic static load rating"
+      ]
+    },
+    {
+      "html_line": 1643,
+      "cells": [
+        "Grease",
+        "17000",
+        "min-1",
+        "Grease lubrication"
+      ]
+    },
+    {
+      "html_line": 1657,
+      "cells": [
+        "da (min.)",
+        "25",
+        "mm",
+        "Diameter of shaft abutment"
+      ]
+    },
+    {
+      "html_line": 1666,
+      "cells": [
+        "da (max.)",
+        "26.5",
+        "mm",
+        "Diameter of shaft abutment"
+      ]
+    },
+    {
+      "html_line": 1675,
+      "cells": [
+        "Da (max.)",
+        "42",
+        "mm",
+        "Diameter of housing abutment"
+      ]
+    },
+    {
+      "html_line": 1684,
+      "cells": [
+        "ra (max.)",
+        "1",
+        "mm",
+        "Radius of shaft or housing fillet"
+      ]
+    },
+    {
+      "html_line": 1693,
+      "cells": [
+        "Dx (min.)",
+        "0",
+        "mm",
+        "Diameter of snap ring recess in the housing"
+      ]
+    },
+    {
+      "html_line": 1702,
+      "cells": [
+        "Cy (max.)",
+        "0",
+        "mm",
+        "Distance from outer ring side face to snap ring back face"
+      ]
+    },
+    {
+      "html_line": 1716,
+      "cells": [
+        "fo",
+        "13.1",
+        "",
+        "Factor"
+      ]
+    },
+    {
+      "html_line": 1730,
+      "cells": [
+        "z",
+        "8",
+        "",
+        "Number of Balls"
+      ]
+    },
+    {
+      "html_line": 1739,
+      "cells": [
+        "Dw",
+        "7.938",
+        "mm",
+        "Ball Diameter"
+      ]
+    },
+    {
+      "html_line": 1753,
+      "cells": [
+        "(approx.)",
+        "0.107",
+        "kg",
+        ""
+      ]
+    },
+    {
+      "html_line": 1781,
+      "cells": [
+        "Types",
+        "62 series",
+        ""
+      ]
+    },
+    {
+      "html_line": 1786,
+      "cells": [
+        "Design",
+        "( ): None-N, NR",
+        ""
+      ]
+    },
+    {
+      "html_line": 1791,
+      "cells": [
+        "Cage",
+        "( ): Pressed steel cage",
+        ""
+      ]
+    },
+    {
+      "html_line": 1796,
+      "cells": [
+        "Seals,Shields",
+        "ZZ: Shield on both sides",
+        ""
+      ]
+    },
+    {
+      "html_line": 1801,
+      "cells": [
+        "Radial Internal Clearance",
+        "CN",
+        ""
+      ]
+    },
+    {
+      "html_line": 1806,
+      "cells": [
+        "Tolerance",
+        "P0",
+        ""
+      ]
+    }
+  ],
+  "identity_approved": false,
+  "missing_required_properties": [
+    "PROP-BORE-TYPE",
+    "PROP-BEARING-MATERIAL",
+    "PROP-SUPPLIED-LUBRICANT"
+  ],
+  "unresolved_semantic_properties": [
+    "PROP-BEARING-CLOSURE",
+    "PROP-LOCATING-FEATURE"
+  ],
+  "limitations": [
+    "Exact Singapore-region product page; not 6204ZZ Series or clearance/tolerance variants.",
+    "Closure sidedness retained raw; no full non-contact metal mapping inherited from 6205ZZ.",
+    "Design wording retained exactly; no absent-suffix or zero-dimension inference of locating construction.",
+    "Approximate mass remains approximate; ratings and speed are manufacturer context, not identity approval.",
+    "Grease speed does not identify supplied grease; no bore type or bearing material inferred.",
+    "Four terminology mappings proposed only; independent extraction and reuse review outstanding.",
+    "No source correction, cross-brand merge or permanent UPN."
+  ]
+}

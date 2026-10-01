@@ -1,0 +1,17 @@
+# NSK 6204ZZ exact-article research
+
+Status: fifteen unreviewed facts, four proposed source-exact terminology mappings. No identity, equivalence, correction or UPN approval.
+
+The retained [official Singapore-region article](https://www.nsk.com/sg-en/engineering/products/bearings/ball-bearings/deep-groove-ball-bearings/single-row-deep-groove-ball-bearings/6204zz-apn.html) identifies `6204ZZ`, not `6204ZZ Series`, C2/C3/CM or P6 variants. Nine native product-property tables retain twenty-four rows with HTML locators. Exact values include 20 x 47 x 14 mm, 14,100/6,600 N basic load ratings, 17,000 min-1 grease speed, eight balls of 7.938 mm diameter and approximate mass 0.107 kg. Ratings/speed do not establish suitability or common calculation basis across brands.
+
+Exact properties state CN clearance, P0 tolerance and pressed-steel cage. Four proposed mappings cover those three and the exact single-row deep-groove heading. Raw closure is `ZZ: Shield on both sides`; raw design is `( ): None-N, NR`. Neither is given a new complete canonical interpretation. We do not inherit 6205ZZ closure or locating mappings, nor turn zero Dx/Cy dimensions into construction proof. The double-metal-shield profile is a research target, not established full membership.
+
+Three required properties are absent: bore type, bearing material and supplied lubricant. Two supplied code properties still need semantic evidence: full closure construction and locating feature. A grease lubrication speed does not identify the grease supplied inside the bearing. Regional search results use both P0 and ISO NORMAL CLASS wording; only the retained exact Singapore P0 property is ingested. No current normative crosswalk or regional publisher correction is assumed. This does not change the older 6205ZZ intake.
+
+Private original: `registry/artifacts/nsk/6204ZZ-20261001.html`, SHA-256 `6AA72C0BD671B2E0A21269F5F303D5CCB48DF0D6662419D678E57D70CAD04EA9`. Registered as `SRC-NSK-6204ZZ` / `ART-NSK-6204ZZ`; part `MP-NSK-6204ZZ`; observation `OBS-NSK-6204ZZ-20261001`. Raw HTML contains session/form fields and stays private. PDF download requires membership and was not accessed; no PDF or CAD construction was verified.
+
+`scripts/check_nsk_6204zz.py` verifies exact title/construction, nine-table scope, ordered native values, source bytes, custody, all fifteen seed values/qualifiers and exactly four proposed mappings. `reports/nsk-6204ZZ-source.json` preserves the native rows and limits. Seven tests cover snapshot, variant/heading substitution, case-sensitive symbols, values/units, revision, report promotion, approximate qualifier retention and absent-property non-inference.
+
+Baseline: 126 sources, 71 cached records, 41 manufacturer parts and 64 observations; other supplied datasets/profiles/offers unchanged. Twenty-one mappings are proposed. Twenty-four pair screens unchanged: closure remains canonically unresolved, and no second exact 6204 shielded maker is ingested. Queue adds eight tasks: three missing fields, four mapping reviews and one observation review. Independent source extraction review and reuse permission remain outstanding.
+
+Next: obtain exact closure/locating definitions and missing article properties. Seek a second manufacturer 6204 shielded article and compare only after profile-specific evidence is retained. Keep C3, CM, P6 and other variants separate even where dimensions agree.

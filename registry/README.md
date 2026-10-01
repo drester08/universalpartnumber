@@ -4,7 +4,9 @@ This directory is the evidence and data foundation for the Universal Part Number
 
 `docs/bearing-suffix-scope.md` records a cross-family suffix hazard and six regression tests proving exact-specification normalization isolation. Identical raw suffixes do not inherit another part's mapping. Source-discovery leads remain separate from ingested evidence.
 
-Current baseline (1 October 2026): 125 sources, 70 cached evidence records, four supplied datasets, five draft profiles, 40 manufacturer parts, 168 supplier offers and 63 observations. The screen contains 24 pairs and the reviewer queue contains 434 tasks (423 ready, 11 blocked). All 17 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+Current baseline (1 October 2026): 126 sources, 71 cached evidence records, four supplied datasets, five draft profiles, 41 manufacturer parts, 168 supplier offers and 64 observations. The screen contains 24 pairs and the reviewer queue contains 442 tasks (431 ready, 11 blocked). All 21 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+
+`docs/nsk-6204ZZ-source.md` adds a separate exact NSK article with fifteen unreviewed facts from twenty-four native rows. Clearance variants remain separate. Closure/locating semantics and three absent identity properties remain unresolved; four new mappings are proposed only.
 
 `docs/jtekt-shield-catalogue.md` adds bounded non-contact ZZ construction evidence and an exact catalogue row. Shield material remains unknown. Catalogue mass applies to open type, not independently to ZZ; no article defaults or approvals are added.
 
