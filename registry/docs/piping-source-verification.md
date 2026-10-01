@@ -1,5 +1,7 @@
 # Pipe source comparison — 2026-09-30
 
+Later [MPS supplier table research](mps-pipe-table-research.md) extends source discovery to smaller sizes and clear nominal-bore groups. It is staged, has its own publication discrepancies, and does not change the source-specific comparison or findings below.
+
 All 50 supplied pipe rows were compared with nominal OD/wall values on page 13 of the [official Tenaris 2026 catalogue](https://www.tenaris.com/media/tjyk5gu5/pipes-for-civil-and-industrial-installations_2026.pdf). The complete page was rendered and visually inspected. Macsteel's [two-page seamless sheet](https://macsteel.co.za/wp-content/uploads/2022/12/seamless-pipe-2021.pdf) was also visually reviewed, but contains size/schedule availability rather than numeric wall values.
 
 ## Results

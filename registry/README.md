@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/mps-pipe-table-research.md` adds a private staged supplier manual with 144 pipe-table rows, smaller nominal-size coverage and a clear 65/80 distinction. Three internal-diameter arithmetic discrepancies and one repeated approximate-mass question are retained. No supplied rows or original findings are corrected; the new capture is outside registered counts.
+
 `docs/nsk-6204zz-closure-proposal.md` registers the historical NSK brochure and a checksum-bound exact-specification closure proposal. NSK and NTN 6204ZZ now form an insufficient-evidence research pair with five required identity gaps. No equivalence or UPN is approved. Earlier `docs/nsk-6204zz-metal-research.md` and JSON remain immutable staged evidence; no metal-grade or supplied-article defaults are inferred.
 
 `docs/nsk-6204zz-code-registration.md` registers two private NSK context captures and two unreviewed observations with explicit source-reuse review tasks. The earlier `docs/nsk-6204zz-code-research.md` and JSON remain historical staged evidence. Shield metal and supplied lubricant remain unresolved; no new specifications, full closure mapping or cross-brand pair is added.
