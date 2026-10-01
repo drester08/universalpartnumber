@@ -42,8 +42,8 @@ class ManufacturerSourceTests(unittest.TestCase):
     def test_queue_has_both_stable_tasks(self):
         items = build_review_queue.build_items(self.db)
         findings = [i for i in items if i['queue_type'] == 'manufacturer_source_publication_research']
-        self.assertEqual(len(items), 442)
-        self.assertEqual({i['work_item_id'] for i in findings}, {'RW-' + f['finding_id'] for f in self.derive()})
+        self.assertEqual(len(items), 451)
+        self.assertEqual({i['work_item_id'] for i in findings}, {'RW-' + f['finding_id'] for f in checker.build_report(self.db)['findings']})
         self.assertTrue(all(i['readiness'] == 'ready' and i['priority'] == 'P2' for i in findings))
         self.assertTrue(all('SHA-256' in i['next_action'] and 'Article HTML line' in i['next_action'] for i in findings))
 
@@ -107,6 +107,21 @@ class ManufacturerSourceTests(unittest.TestCase):
         before = self.db.total_changes
         self.assertEqual(self.derive(), self.derive())
         self.assertEqual(self.db.total_changes, before)
+
+    def test_6204_questions_have_separate_identity_and_evidence(self):
+        findings = checker.derive(self.db, checker.load_report('ntn-6204zz-source.json'), None, '6204ZZ')
+        self.assertEqual(len(findings), 2)
+        self.assertTrue(all(len(f['evidence']) == 1 and f['observation_id'] == 'OBS-NTN-6204ZZ-20261001' for f in findings))
+        self.assertFalse({f['finding_id'] for f in findings} & {f['finding_id'] for f in self.derive()})
+        self.assertEqual(checker.build_report(self.db)['finding_count'], 4)
+
+    def test_6204_cannot_inherit_6205_corroboration(self):
+        with self.assertRaisesRegex(ValueError, 'cannot be inherited'):
+            checker.derive(self.db, checker.load_report('ntn-6204zz-source.json'), self.corroboration, '6204ZZ')
+
+    def test_wrong_article_report_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'scope changed'):
+            checker.derive(self.db, self.article, None, '6204ZZ')
 
 
 if __name__ == '__main__':

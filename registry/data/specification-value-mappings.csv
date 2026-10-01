@@ -1,4 +1,7 @@
 mapping_id,specification_id,property_id,controlled_value_id,mapping_basis,mapping_state,rationale,proposed_by,proposed_at,reviewer,reviewed_at,policy_version
+MAP-NTN-6204ZZ-GEOMETRY,SPEC-NTN-6204ZZ-GEOMETRY,PROP-BEARING-GEOMETRY,CV-BEARING-GEOMETRY-SR-DGBB,source_exact,proposed,Exact article deep-groove type and single-row description; independently unreviewed.,registry-research,2026-10-01,,,0.1
+MAP-NTN-6204ZZ-CLEARANCE,SPEC-NTN-6204ZZ-CLEARANCE,PROP-RADIAL-INTERNAL-CLEARANCE,CV-BEARING-CLEARANCE-CN,source_exact,proposed,Exact 6204ZZ article states CN; no inheritance from another article.,registry-research,2026-10-01,,,0.1
+MAP-NTN-6204ZZ-CAGE,SPEC-NTN-6204ZZ-CAGE,PROP-CAGE-CONSTRUCTION,CV-BEARING-CAGE-PRESSED-STEEL,source_exact,proposed,Exact article states Pressed cage and Steel cage material; no clearance variant default.,registry-research,2026-10-01,,,0.1
 MAP-NSK-6204ZZ-GEOMETRY,SPEC-NSK-6204ZZ-GEOMETRY,PROP-BEARING-GEOMETRY,CV-BEARING-GEOMETRY-SR-DGBB,source_exact,proposed,Exact article construction heading; independent review outstanding.,registry-research,2026-10-01,,,0.1
 MAP-NSK-6204ZZ-CLEARANCE,SPEC-NSK-6204ZZ-CLEARANCE,PROP-RADIAL-INTERNAL-CLEARANCE,CV-BEARING-CLEARANCE-CN,source_exact,proposed,Exact Singapore article property CN; not variant or family default.,registry-research,2026-10-01,,,0.1
 MAP-NSK-6204ZZ-TOLERANCE,SPEC-NSK-6204ZZ-TOLERANCE,PROP-BEARING-TOLERANCE-CLASS,CV-BEARING-TOLERANCE-P0,source_exact,proposed,Exact Singapore article property P0; regional ISO NORMAL CLASS wording not crosswalked.,registry-research,2026-10-01,,,0.1

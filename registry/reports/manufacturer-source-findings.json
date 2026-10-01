@@ -1,11 +1,67 @@
 {
   "policy_version": "manufacturer-source-research-0.1",
   "input_report_hashes": {
+    "ntn-6204zz-source.json": "AA2461CE23CAF12EE57C63A7860664241C167E0F145DB2AAC8AC1CE72A62EC67",
     "ntn-6205zz-source.json": "F3988876EBD7F33E071AEC3FE8A4665242A21F035C1DF8D57BA7D2C645AE8F6D",
     "ntn-shield-seal-corroboration.json": "1A50EE384B5B12F3D1098DD0390F2F0953C8D9F932AAF6F06BDF3E78904CA948"
   },
-  "finding_count": 2,
+  "finding_count": 4,
   "findings": [
+    {
+      "finding_id": "MRF-3BF5560AD59C4FB240CCBB6E",
+      "subject_key": {
+        "manufacturer_id": "ORG-NTN-AMERICAS",
+        "manufacturer_part_id": "MP-NTN-6204ZZ",
+        "source_id": "SRC-NTN-6204ZZ",
+        "source_field": "Static Load Rating",
+        "issue_type": "inconsistent_static_load_metric_units"
+      },
+      "priority": "P2",
+      "review_state": "open_research",
+      "property_id": "PROP-BASIC-STATIC-LOAD-RATING",
+      "profile_id": "PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1",
+      "observation_id": "OBS-NTN-6204ZZ-20261001",
+      "source_html_line": 804,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1500 lbf"
+        },
+        {
+          "measure": "metric",
+          "text": "6650 N"
+        },
+        {
+          "measure": "metric",
+          "text": "9.75 kN"
+        }
+      ],
+      "evidence_pointer": "/quality_findings/0",
+      "evidence": [
+        {
+          "source_id": "SRC-NTN-6204ZZ",
+          "source_url": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6204zz",
+          "artifact_id": "ART-NTN-6204ZZ",
+          "artifact_sha256": "3F2253DB6EEA5B032A410C39E2C939FBB786C7014CD0E4F8FE96E83A24F25003",
+          "report_path": "registry/reports/ntn-6204zz-source.json",
+          "report_sha256": "AA2461CE23CAF12EE57C63A7860664241C167E0F145DB2AAC8AC1CE72A62EC67"
+        }
+      ],
+      "summary": "The exact NTN 6204ZZ article publishes contradictory metric static-load cells.",
+      "next_action": "Obtain a corrected exact-article publication or explicit manufacturer clarification. Preserve 6650 N and 9.75 kN and source revisions. Do not select a rating or inherit another article rating.",
+      "policy_version": "manufacturer-source-research-0.1",
+      "publisher_correction_obtained": false,
+      "physical_conflict_verified": false,
+      "identity_approved": false,
+      "resolution": {
+        "resolution_state": "open",
+        "publication_status": "unresolved",
+        "active_proposal": null,
+        "history": [],
+        "identity_approved": false,
+        "physical_conflict_verified": false
+      }
+    },
     {
       "finding_id": "MRF-40C715BF85E80E997E233698",
       "subject_key": {
@@ -56,6 +112,65 @@
       ],
       "summary": "The exact NTN article publishes contradictory metric static-load cells; catalogue corroboration is not a publisher correction.",
       "next_action": "Obtain a corrected exact-article publication or explicit manufacturer clarification. Preserve 7850 N and 11.60 kN, rating basis and source revisions. Do not choose a rating or approve physical identity from corroboration alone.",
+      "policy_version": "manufacturer-source-research-0.1",
+      "publisher_correction_obtained": false,
+      "physical_conflict_verified": false,
+      "identity_approved": false,
+      "resolution": {
+        "resolution_state": "open",
+        "publication_status": "unresolved",
+        "active_proposal": null,
+        "history": [],
+        "identity_approved": false,
+        "physical_conflict_verified": false
+      }
+    },
+    {
+      "finding_id": "MRF-5548F579BE7A441BD4D96002",
+      "subject_key": {
+        "manufacturer_id": "ORG-NTN-AMERICAS",
+        "manufacturer_part_id": "MP-NTN-6204ZZ",
+        "source_id": "SRC-NTN-6204ZZ",
+        "source_field": "da max",
+        "issue_type": "ambiguous_da_max_values"
+      },
+      "priority": "P2",
+      "review_state": "open_research",
+      "property_id": "",
+      "profile_id": "PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1",
+      "observation_id": "OBS-NTN-6204ZZ-20261001",
+      "source_html_line": 966,
+      "retained_displays": [
+        {
+          "measure": "imperial",
+          "text": "1.1024 in"
+        },
+        {
+          "measure": "imperial",
+          "text": "1.6535 in"
+        },
+        {
+          "measure": "metric",
+          "text": "28.000 mm"
+        },
+        {
+          "measure": "metric",
+          "text": "42.000 mm"
+        }
+      ],
+      "evidence_pointer": "/quality_findings/1",
+      "evidence": [
+        {
+          "source_id": "SRC-NTN-6204ZZ",
+          "source_url": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6204zz",
+          "artifact_id": "ART-NTN-6204ZZ",
+          "artifact_sha256": "3F2253DB6EEA5B032A410C39E2C939FBB786C7014CD0E4F8FE96E83A24F25003",
+          "report_path": "registry/reports/ntn-6204zz-source.json",
+          "report_sha256": "AA2461CE23CAF12EE57C63A7860664241C167E0F145DB2AAC8AC1CE72A62EC67"
+        }
+      ],
+      "summary": "The exact NTN 6204ZZ article places multiple values under da max.",
+      "next_action": "Obtain a corrected exact-article drawing/table or explicit manufacturer clarification. Preserve all four da max cells and the separate case-sensitive Da max row. Do not inherit 6205ZZ catalogue clarification.",
       "policy_version": "manufacturer-source-research-0.1",
       "publisher_correction_obtained": false,
       "physical_conflict_verified": false,

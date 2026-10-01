@@ -2,11 +2,11 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
-`docs/ntn-6204zz-pre-ingestion.md` adds captured NTN 6204ZZ staging research with twenty-six native rows, three nominal dimension agreements with NSK and two quarantined publication issues. It is not yet registered article evidence or a same-item screen; baseline counts below exclude this staged source.
+`docs/ntn-6204zz-intake.md` registers twelve unreviewed NTN 6204ZZ facts and two publication research questions. The earlier pre-ingestion report remains an immutable historical snapshot; it no longer describes current registration status. No closure/tolerance mapping or other-article catalogue clarification is inherited.
 
 `docs/bearing-suffix-scope.md` records a cross-family suffix hazard and six regression tests proving exact-specification normalization isolation. Identical raw suffixes do not inherit another part's mapping. Source-discovery leads remain separate from ingested evidence.
 
-Current baseline (1 October 2026): 126 sources, 71 cached evidence records, four supplied datasets, five draft profiles, 41 manufacturer parts, 168 supplier offers and 64 observations. The screen contains 24 pairs and the reviewer queue contains 442 tasks (431 ready, 11 blocked). All 21 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+Current baseline (1 October 2026): 127 sources, 72 cached evidence records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 65 observations. The screen contains 24 pairs and the reviewer queue contains 451 tasks (440 ready, 11 blocked). All 24 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
 
 `docs/nsk-6204ZZ-source.md` adds a separate exact NSK article with fifteen unreviewed facts from twenty-four native rows. Clearance variants remain separate. Closure/locating semantics and three absent identity properties remain unresolved; four new mappings are proposed only.
 
@@ -16,7 +16,7 @@ Current baseline (1 October 2026): 126 sources, 71 cached evidence records, four
 
 `docs/jtekt-6205-ZZ-source.md` adds a separate JTEKT/Koyo exact article with nine unreviewed facts from fourteen retained native fields. Seven required properties remain missing and raw closure has no canonical mapping. Matching boundary dimensions do not create a cross-brand candidate or identity approval.
 
-Manufacturer publication resolution governance is implemented in `docs/manufacturer-source-resolutions.md`. An empty event ledger preserves both actual NTN issues as open. Evidence-bound independent research decisions can distinguish correction, clarification, local interpretation and waiver, and can be reopened without deleting original source facts. No real decision or identity approval has been entered.
+Manufacturer publication resolution governance is implemented in `docs/manufacturer-source-resolutions.md`. An empty event ledger preserves four actual NTN issues across two separate articles as open. Evidence-bound independent research decisions can distinguish correction, clarification, local interpretation and waiver, and can be reopened without deleting original source facts. No real decision or identity approval has been entered.
 
 Current ten-gap detail follow-up: `docs/macsteel-angle-gap-details.md` records ten matching seller detail assertions and ten linked PDFs identical to the earlier generic sheet. One content source does not become twelve independent confirmations. All ten material-context gaps remain open. Sources115/cache60records/queue403; no maker link, mass transfer, correction or UPN.
 

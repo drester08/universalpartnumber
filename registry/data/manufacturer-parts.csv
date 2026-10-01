@@ -1,4 +1,5 @@
 manufacturer_part_id,manufacturer_id,profile_id,manufacturer_part_number,normalized_part_number,manufacturer_name,lifecycle_state
+MP-NTN-6204ZZ,ORG-NTN-AMERICAS,PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,6204ZZ,6204ZZ,NTN 6204ZZ single-row double-shielded deep-groove bearing,unknown
 MP-NSK-6204ZZ,ORG-NSK,PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,6204ZZ,6204ZZ,NSK 6204ZZ single-row deep-groove ball bearing,unknown
 MP-JTEKT-6205-ZZ,ORG-JTEKT,PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,6205 ZZ,6205ZZ,Koyo single-row shielded ZZ deep groove ball bearing,unknown
 MP-NTN-6205ZZ,ORG-NTN-AMERICAS,PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1,6205ZZ,6205ZZ,NTN single-row double-shielded radial ball bearing,unknown

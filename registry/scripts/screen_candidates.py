@@ -54,7 +54,7 @@ PROFILE_RULES = {
         ),
     },
     "PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1": {
-        "algorithm_version": "bearing-dgbb-screen-0.1",
+        "algorithm_version": "bearing-dgbb-screen-0.2",
         "blocking_properties": (
             "PROP-BEARING-GEOMETRY",
             "PROP-BORE-DIAMETER",
@@ -265,6 +265,10 @@ def screen(connection: sqlite3.Connection, generated_at: str) -> list[dict[str, 
         assert isinstance(left_values, defaultdict)
         assert isinstance(right_values, defaultdict)
         profile_properties = dict(required_properties(connection, profile_id))
+        # Equal empty sets are not positive evidence for a blocking key.
+        if any(not left_values[property_id] or not right_values[property_id]
+               for property_id in blocking_properties):
+            continue
         if any(
             (
                 compare_property(

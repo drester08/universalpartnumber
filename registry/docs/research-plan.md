@@ -2,15 +2,15 @@
 
 ## Current baseline — 1 October 2026
 
-There are 126 registered sources, 71 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 41 manufacturer parts, 168 supplier offers and 64 observations. The reproducible screen has 24 pairs; the reviewer queue has 442 tasks (431 ready, 11 dependency-blocked). All 21 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 127 registered sources, 72 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 65 observations. The reproducible screen has 24 pairs; the reviewer queue has 451 tasks (440 ready, 11 dependency-blocked). All 24 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
 Exact-article expansion: [NSK 6204ZZ](nsk-6204ZZ-source.md) retains fifteen facts without borrowing 6205ZZ interpretations. Three absent fields and two unresolved semantic properties remain. Seek a second manufacturer 6204 shielded article and explicit closure/locating applicability; do not flatten clearance/tolerance variants into one part.
 
-Later [NTN 6204ZZ staging research](ntn-6204zz-pre-ingestion.md) captures that second exact manufacturer page. Three boundary dimensions agree with NSK, but two source-publication issues are quarantined. Register and ingest only with those conflicts preserved and exact article-bound research questions. Current source/part/queue totals exclude this staged evidence; no canonical cross-brand pair is created.
+Later [NTN 6204ZZ intake](ntn-6204zz-intake.md) registers that second exact manufacturer page with twelve unreviewed facts, three proposed mappings and two article-bound publication questions. Contradictory static rating and ambiguous mounting values remain outside specifications. The pre-ingestion snapshot is historical. No canonical cross-brand pair is created.
 
-Next: obtain and independently review resolutions for the two NTN publication questions using the implemented [resolution event ledger](manufacturer-source-resolutions.md), which is currently empty. Obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
+Next: obtain and independently review resolutions for the four NTN publication questions using the implemented [resolution event ledger](manufacturer-source-resolutions.md), which is currently empty. Obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
 
 The [Schaeffler retrieval lead](schaeffler-retrieval-lead.md) remains outside article ingestion. Verify real content and source pages before promoting any search excerpt or HTTP-success response. `J:\Codex\UPN` preserves dated research and handoffs; it remains a partial archive.
 
@@ -50,8 +50,8 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
-3. Resolve missing identity fields and source conflicts across the 40 pilot parts, especially splice supply, construction, geometry and exact-article bearing evidence. Do not treat catalogue corroboration as publisher correction.
-4. Extend artifact retrieval with per-publisher access rules; 69 artifact records are hash-verified locally while 17 evidence records remain remote-only or blocked. Hash integrity does not independently approve extraction fidelity or identity.
+3. Resolve missing identity fields and source conflicts across the 42 pilot parts, especially splice supply, construction, geometry and exact-article bearing evidence. Do not treat catalogue corroboration as publisher correction.
+4. Extend artifact retrieval with per-publisher access rules; 72 artifact records are hash-verified locally while 17 evidence records remain remote-only or blocked. Hash integrity does not independently approve extraction fidelity or identity.
 5. Expand manufacturers within the five draft profiles while measuring false-negative risk in the blocking keys; add new classes only with explicit identity rules and evidence scope.
 6. Work the deterministic reviewer queue, starting with P0 terminology mappings and source conflicts; keep every independent decision in the governed ledgers.
 7. Independently review the ten complete Niedax evidence profiles exposed by the queue; completeness alone must not change their status.
