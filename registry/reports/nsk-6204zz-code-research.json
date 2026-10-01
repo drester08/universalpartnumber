@@ -1,0 +1,75 @@
+{
+  "policy_version": "nsk-6204zz-staged-code-context-0.1",
+  "registered_new_sources": false,
+  "manufacturer_part_id": "MP-NSK-6204ZZ",
+  "article_source_id": "SRC-NSK-6204ZZ",
+  "article_sha256": "6AA72C0BD671B2E0A21269F5F303D5CCB48DF0D6662419D678E57D70CAD04EA9",
+  "article_report_sha256": "12E89CD3494AEFDDD02C45416D5643439D7204634478448574BDA976152E003B",
+  "sources": [
+    {
+      "publisher": "NSK Americas",
+      "url": "https://info.nskamericas.com/hubfs/DGBB/NSK_APB_Deep_Groove_Ball_Bearings.pdf",
+      "local_path": "registry/artifacts/nsk/NSK-APB-DGBB-20261001.pdf",
+      "sha256": "15E748AF493A8442A7CE3C82C243F2C82ACA5B0235F6B71B366F8CD03538CC61",
+      "pages": 12,
+      "reviewed_physical_pages": [
+        5,
+        10
+      ]
+    },
+    {
+      "publisher": "NSK Ltd.",
+      "url": "https://www.nsk.com/content/dam/nsk/common/catalogs/ctrgPdf/bearings/e1103c_partc.pdf",
+      "local_path": "registry/artifacts/nsk/E1103C-partC-20261001.pdf",
+      "sha256": "3C1ACFDA536BB6A77487D1FCF6812618E31C62582FB20089659D20B7AF07A6E2",
+      "pages": 185,
+      "reviewed_physical_pages": [
+        4,
+        12
+      ],
+      "reviewed_printed_pages": [
+        "C006-C007",
+        "C022-C023"
+      ]
+    }
+  ],
+  "extracted_evidence": {
+    "brochure_closure_rows": "blank open bearing Z non-contact shield, one side only ZZ non-contact shield, both sides V non-contact seal, one side only Closure VV non-contact seal, both sides DW light-contact seal, one side only DDW light-contact seal, both sides DU contact seal, one side only DDU contact seal, both sides",
+    "industrial_6204_row": "47 14 1 14 100 6 600 13.1 17 000 11 000 20 000 6204 ZZ VV DDU N NR 2.46 1.35 44.6 0.4 0.5 52.7 1.12 25 26.5 42 1 53.5 3.3 0.107",
+    "bore_group_label_mm": "20",
+    "grease_designation_requirement": "The grease designation is required when seals/shields are used on both sides.",
+    "text_extraction_policy": "pdfplumber dedupe_chars on industrial pages; no character-pair string rewriting"
+  },
+  "closure_research": {
+    "both_sides": true,
+    "contact_form": "non_contact",
+    "shield_material": null,
+    "canonical_mapping_added": false,
+    "basis": "NSK own single-row deep-groove designation table plus exact 6204 ZZ row"
+  },
+  "catalogue_context": {
+    "d_mm": "20",
+    "D_mm": "47",
+    "B_mm": "14",
+    "dynamic_load_n": "14100",
+    "static_load_n": "6600",
+    "grease_speed_per_minute": "17000",
+    "da_min_mm": "25",
+    "da_max_mm": "26.5",
+    "Da_max_mm": "42",
+    "mass_approx_kg": "0.107"
+  },
+  "limitations": [
+    "Two new private PDF captures are staged, not registered sources/artifacts or approved evidence.",
+    "Selected pages inspected; no claim that all 185 catalogue pages were reviewed.",
+    "Steel cage/material prose is not an explicit shield-metal definition in reviewed pages.",
+    "No NTN definition, miniature-family shield definition or other article default is transferred.",
+    "Catalogue row shares closure variants; mass and speed are scoped context, not supplied-article identity.",
+    "NS7 is a designation example, not proof of supplied 6204ZZ grease.",
+    "N/NR availability and blank designation explanations do not independently resolve exact locating construction.",
+    "Independent extraction/interpretation review and source reuse terms outstanding."
+  ],
+  "identity_approved": false,
+  "publisher_correction_obtained": false,
+  "independent_extraction_review": "outstanding"
+}

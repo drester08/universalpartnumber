@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/nsk-6204zz-code-research.md` adds two private staged NSK PDFs, an exact 6204 catalogue row and NSK's own two-sided non-contact ZZ definition. Shield metal and supplied lubricant remain unresolved. Registered baseline counts exclude these staged captures; no new full closure mapping or cross-brand pair is added.
+
 `docs/ntn-6204zz-intake.md` registers twelve unreviewed NTN 6204ZZ facts and two publication research questions. The earlier pre-ingestion report remains an immutable historical snapshot; it no longer describes current registration status. No closure/tolerance mapping or other-article catalogue clarification is inherited.
 
 `docs/ntn-6204zz-catalogue-context.md` adds bounded exact 6204 catalogue research: ZZ non-contact metal construction, a 6.65 kN static context and distinct da/Da columns. The later `docs/ntn-6204zz-closure-proposal.md` adds an exact-specification, evidence-bound proposal. Earlier intake/catalogue snapshots remain historical and unchanged; no publisher correction or independent approval has occurred.

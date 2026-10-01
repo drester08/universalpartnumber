@@ -6,6 +6,8 @@ There are 127 registered sources, 72 cached evidence records, 17 remote/blocked 
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
+[NSK 6204 construction research](nsk-6204zz-code-research.md) captures two staged primary-source PDFs. The exact 6204 row and single-row deep-groove code table support two-sided non-contact shielding, not yet explicit shield metal. Register the captures with scoped research evidence, and seek material construction before full canonical mapping. The catalogue's required grease designation highlights an exact supplied-lubricant gap; NS7 example grease is not assigned to 6204ZZ. Registered counts and screen remain unchanged.
+
 Exact-article expansion: [NSK 6204ZZ](nsk-6204ZZ-source.md) retains fifteen facts without borrowing 6205ZZ interpretations. Three absent fields and two unresolved semantic properties remain. Seek a second manufacturer 6204 shielded article and explicit closure/locating applicability; do not flatten clearance/tolerance variants into one part.
 
 Later [NTN 6204ZZ intake](ntn-6204zz-intake.md) registers that second exact manufacturer page with twelve unreviewed facts, three proposed mappings and two article-bound publication questions. Contradictory static rating and ambiguous mounting values remain outside specifications. The pre-ingestion snapshot is historical. No canonical cross-brand pair is created.
