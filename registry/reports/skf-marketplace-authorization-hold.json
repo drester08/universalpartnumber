@@ -1,0 +1,27 @@
+{
+  "policy_version": "skf-marketplace-authorization-hold-0.1",
+  "product_url": "https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6204-2z",
+  "product_capture_path": "registry/artifacts/skf/6204-2z-20261001.html",
+  "product_sha256": "931D8C2F75E3781F538FE4B8F554B82F0D58CA9B4500FFEB7D5E0B82A267588F",
+  "terms_url": "https://www.emarketplace.in.skf.com/terms-and-conditions",
+  "terms_capture_path": "registry/artifacts/skf/marketplace-terms-20261001.html",
+  "terms_sha256": "462E78AB7BA3870578052C2947F3B70F6956796ED51F6C40E5A7112CBD6D38D7",
+  "captured_date": "2026-10-01",
+  "terms_publication_date": null,
+  "restriction_locators": [
+    "6.1(k)-(l)",
+    "7.3(vi)"
+  ],
+  "issue": "Marketplace terms restrict content aggregation, systematic extraction and reutilization.",
+  "status": "authorization_hold_pending_permission_or_alternative_source",
+  "source_registered": false,
+  "article_ingested": false,
+  "structured_product_table_generated": false,
+  "reuse_permission": false,
+  "identity_approved": false,
+  "application_suitability_approved": false,
+  "production_upn_allowed": false,
+  "related_existing_source": "SRC-SKF-6205-2Z",
+  "existing_research_changed": false,
+  "next_action": "Obtain written scope-specific permission or a source with acceptable reuse rights. Independently review publisher/content provenance; do not infer clearance/tolerance or equivalence from the designation."
+}

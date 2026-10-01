@@ -6,6 +6,8 @@ There are 133 registered sources, 78 cached evidence records, 17 remote/blocked 
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
+Latest [source-use gate](source-use-publication-gate.md) records SKF marketplace restrictions and enforces source permission metadata in publication/issuance, including profiles without required rows. Obtain scoped authorization or rights-compatible alternatives before further marketplace intake. Next bind genuine permission evidence/reviews to source/artifact scope, attribution obligations and expiry/revocation. No new SKF 6204 article or facts are ingested.
+
 New [shared research applicability evaluator](research-applicability-evaluator.md) centralizes the draft gasket's ring, partition and connection branches. Structural branch resolution never establishes truth or approval. Next bind reviewed rules/selectors to SQL properties and integrate across ingestion/screening/publication/issuance; the existing fail-closed production guard remains in force.
 
 Latest [conditional applicability guard](conditional-applicability-guard.md) prevents positive screening and accepted publication while SQL conditional semantics are unresolved; issuance inherits the gate. Current negative research screens stay reproducible. Implement versioned evidence/review-bound predicates next, separating construction identity from application suitability, without bypassing conditions by blanket required-field relabelling.

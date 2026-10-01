@@ -11,6 +11,7 @@ from pathlib import Path
 
 import numeric_rules
 import conditional_requirements
+import source_use_gates
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -118,6 +119,7 @@ def main() -> int:
         ).fetchall()
         governed_numeric_rules = numeric_rules.load_rules(connection)
         conditional_parts = conditional_requirements.unresolved_parts(connection)
+        source_holds = source_use_gates.part_holds(connection)
         conditional_reviews = connection.execute(
             "SELECT mp.manufacturer_part_id, mp.manufacturer_part_number, "
             "COALESCE((SELECT decision FROM manufacturer_part_reviews r "
@@ -175,7 +177,14 @@ def main() -> int:
             missing_list.append(record["preferred_label"])
 
     conditional_errors = set()
+    source_errors = set()
     for row in conditional_reviews:
+        if row[0] in source_holds:
+            sources = '; '.join(h['source_id'] + ' (' + h['license_state'] + '/' + h['ingestion_status'] + ')'
+                                for h in source_holds[row[0]])
+            print(f'Source-use hold: manufacturer_part_id={row[0]}; sources={sources}')
+            if row[2] == 'accepted':
+                source_errors.add(row[0])
         if row[0] not in conditional_parts:
             continue
         labels = '; '.join(label for _, label in conditional_parts[row[0]])
@@ -202,17 +211,18 @@ def main() -> int:
             or int(part["unapproved_code_mappings"]) > 0
             or bool(conflict_list)
             or part_id in conditional_errors
+            or part_id in source_errors
         ):
             publication_errors += 1
 
     # A profile containing only conditional fields has no rows in the required-
     # property query above. It must still fail for an accepted part.
-    publication_errors += len(conditional_errors - parts.keys())
+    publication_errors += len((conditional_errors | source_errors) - parts.keys())
 
     if publication_errors:
         print(f"Publication gate failed: {publication_errors} accepted part record(s) fail evidence or normalization governance.")
         return 1
-    print("Publication gate passed: no accepted part has incomplete, unreviewed, conflicting, unnormalized evidence or unresolved conditional applicability.")
+    print("Publication gate passed: no accepted part has incomplete, unreviewed, conflicting, unnormalized evidence, unresolved conditional applicability or source-use holds.")
     return 0
 
 
