@@ -3,8 +3,8 @@
 This report is generated deterministically from registry seed data and checksum-bound supplier and manufacturer research reports.
 It is a work list, not a set of reviewer decisions. Regenerate it whenever source data changes.
 
-- Total work items: 451
-- Ready: 440
+- Total work items: 452
+- Ready: 441
 - Blocked by explicit dependencies: 11
 - No queue item authorizes UPN issuance.
 
@@ -12,7 +12,7 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 
 | Priority | Count |
 | --- | ---: |
-| P0 | 85 |
+| P0 | 86 |
 | P1 | 49 |
 | P2 | 308 |
 | P3 | 9 |
@@ -35,7 +35,7 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | supplier_manufacturer_identity | 136 |
 | supplier_research_material_context_gap | 10 |
 | supplier_research_published_mass_discrepancy | 4 |
-| terminology_mapping_review | 24 |
+| terminology_mapping_review | 25 |
 
 ## Priority meaning
 

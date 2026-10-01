@@ -149,6 +149,8 @@ def build(output: Path) -> None:
             # existing database. No resolution mutates source/identity rows.
             import build_manufacturer_source_findings
             build_manufacturer_source_findings.build_report(connection)
+            import check_ntn_6204zz_closure_mapping
+            check_ntn_6204zz_closure_mapping.verify(connection)
             connection.commit()
         finally:
             connection.close()

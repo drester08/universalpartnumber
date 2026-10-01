@@ -2,7 +2,7 @@
 
 ## Current baseline — 1 October 2026
 
-There are 127 registered sources, 72 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 65 observations. The reproducible screen has 24 pairs; the reviewer queue has 451 tasks (440 ready, 11 dependency-blocked). All 24 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 127 registered sources, 72 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 65 observations. The reproducible screen has 24 pairs; the reviewer queue has 452 tasks (441 ready, 11 dependency-blocked). All 25 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
@@ -10,7 +10,7 @@ Exact-article expansion: [NSK 6204ZZ](nsk-6204ZZ-source.md) retains fifteen fact
 
 Later [NTN 6204ZZ intake](ntn-6204zz-intake.md) registers that second exact manufacturer page with twelve unreviewed facts, three proposed mappings and two article-bound publication questions. Contradictory static rating and ambiguous mounting values remain outside specifications. The pre-ingestion snapshot is historical. No canonical cross-brand pair is created.
 
-[NTN 6204 catalogue research](ntn-6204zz-catalogue-context.md) now binds Table 1 ZZ construction to the exact 6204 row and double-shield scope. Review an evidence-specific closure proposal next. Catalogue 6.65 kN and separate da 28/Da 42 corroborate one interpretation without correcting the article. Approximate mass and test grease remain outside supplied-article identity.
+[NTN 6204 catalogue research](ntn-6204zz-catalogue-context.md) binds Table 1 ZZ construction to the exact 6204 row and double-shield scope. The later [closure proposal](ntn-6204zz-closure-proposal.md) is separately evidence-bound and awaits independent review. Catalogue 6.65 kN and separate da 28/Da 42 corroborate one interpretation without correcting the article. Approximate mass and test grease remain outside supplied-article identity. Seek corresponding exact NSK 6204 closure evidence and missing properties; never transfer the NTN definition cross-brand.
 
 Next: obtain and independently review resolutions for the four NTN publication questions using the implemented [resolution event ledger](manufacturer-source-resolutions.md), which is currently empty. Obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
 

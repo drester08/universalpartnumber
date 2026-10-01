@@ -1,0 +1,31 @@
+{
+  "policy_version": "ntn-6204zz-closure-proposal-0.1",
+  "mapping": {
+    "mapping_id": "MAP-NTN-6204ZZ-CLOSURE",
+    "specification_id": "SPEC-NTN-6204ZZ-CLOSURE",
+    "property_id": "PROP-BEARING-CLOSURE",
+    "controlled_value_id": "CV-BEARING-CLOSURE-DOUBLE-NONCONTACT-METAL",
+    "mapping_basis": "manufacturer_definition",
+    "mapping_state": "proposed",
+    "rationale": "NTN 3015-5/E physical pages 3 and 6; Table 1 ZZ metal non-contact construction plus exact 6204 ZZ row and double-shield footnotes. Evidence registry/reports/ntn-6204zz-catalogue-context.json SHA256 CCBC3E1C24DD59F4820D51130787222CE1E7B6A031D6E5A32A99439219931CD0. Independent review outstanding; not publisher correction.",
+    "proposed_by": "registry-research",
+    "proposed_at": "2026-10-01",
+    "reviewer": "",
+    "reviewed_at": "",
+    "policy_version": "0.1"
+  },
+  "evidence_report_path": "registry/reports/ntn-6204zz-catalogue-context.json",
+  "evidence_report_sha256": "CCBC3E1C24DD59F4820D51130787222CE1E7B6A031D6E5A32A99439219931CD0",
+  "article_sha256": "3F2253DB6EEA5B032A410C39E2C939FBB786C7014CD0E4F8FE96E83A24F25003",
+  "catalogue_sha256": "7F1357233C6089610F0E5246EB427553487A14101EB38E15E0D32BB59B405924",
+  "canonical_code": "double_non_contact_metal_shield",
+  "identity_approved": false,
+  "publisher_correction_obtained": false,
+  "independent_review": "outstanding",
+  "limitations": [
+    "Exact specification mapping only; not manufacturer-wide or suffix-wide defaults.",
+    "Raw article wording and immutable intake/catalogue snapshots remain unchanged.",
+    "Proposed terminology can support research screening, not identity issuance.",
+    "Approval or observation revisions require deliberate evidence and policy reconciliation."
+  ]
+}

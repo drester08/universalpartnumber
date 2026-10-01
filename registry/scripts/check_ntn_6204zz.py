@@ -67,6 +67,14 @@ def verify_seed_bindings(report):
     if len(rows)!=12 or actual!=expected:
         raise ValueError('NTN 6204 ingestion changed or quarantined field promoted')
     mappings=[r for r in read('specification-value-mappings.csv') if r['specification_id'] in {r['specification_id'] for r in rows}]
+    # The later proposal is governed separately; do not rewrite the historical
+    # intake snapshot or its original three direct-source interpretations.
+    import check_ntn_6204zz_closure_mapping as closure
+    later=[r for r in mappings if r['mapping_id']=='MAP-NTN-6204ZZ-CLOSURE']
+    if len(later)!=1:
+        raise ValueError('NTN 6204 later closure proposal missing or duplicated')
+    closure.verify_mapping_row(later[0])
+    mappings=[r for r in mappings if r not in later]
     allowed={'GEOMETRY':'CV-BEARING-GEOMETRY-SR-DGBB','CLEARANCE':'CV-BEARING-CLEARANCE-CN','CAGE':'CV-BEARING-CAGE-PRESSED-STEEL'}
     if len(mappings)!=3 or {r['specification_id'].removeprefix('SPEC-NTN-6204ZZ-'):r['controlled_value_id'] for r in mappings}!=allowed or any(r['mapping_state']!='proposed' or r['mapping_basis']!='source_exact' for r in mappings):
         raise ValueError('NTN 6204 mapping scope/state changed')
