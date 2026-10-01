@@ -2,6 +2,8 @@
 
 ## Current baseline — 1 October 2026
 
+New [standard relationship capture](standard-relationship-capture.md) makes four research assertion types explicit, preserves namespaces/editions/context and verifies retained source bytes. It does not validate semantic truth or reuse permission and contains no real assertions. Next obtain authorized exact evidence and independent policy review before integrating relationships into ingestion/screening; no identity alias or approval is created.
+
 New [fastener standard-transition research](fastener-standard-transition-research.md) requires exact head geometry and preserved standard/edition relations before expanding the M8 pilot. Manufacturer exchangeability is not identity; missing dynamic variant tables and search snippets must not supply article facts. Seek authorized exact drawings and independent interpretation; no global DIN-to-ISO alias or technical-table intake is approved.
 
 New [Industeel declaration hold](industeel-dop-authorization-hold.md) preserves a two-page private capture with explicit manufacturer/site and thickness boundaries. Official reuse restrictions prevent technical intake pending permitted-use review. Seek exact stock provenance and independent applicability/authenticity review; no supplied row comparison, new registered source or approval is claimed.

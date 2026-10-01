@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/standard-relationship-capture.md` introduces a source-byte-bound research validator that keeps conformance, cross-reference, successor and interchangeability assertions distinct. No real assertion is ingested, no links are inferred and no approval is granted. SQL data and production gates remain unchanged.
+
 `docs/fastener-standard-transition-research.md` records why DIN-to-ISO interchangeability cannot become a same-item alias. A private manufacturer guide supplies scoped dimensional context; exact article geometry, standards editions and permitted-use review remain required. Registered data and approvals are unchanged.
 
 `docs/industeel-dop-authorization-hold.md` preserves a privately captured plate declaration and its reuse hold. Its manufacturer/site and thickness scope cannot be transferred to supplied stock. No performance table, article, source registration or approval is added.
