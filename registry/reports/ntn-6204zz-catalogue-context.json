@@ -1,0 +1,59 @@
+{
+  "policy_version": "ntn-6204zz-catalogue-context-0.1",
+  "source_id": "SRC-NTN-SHIELD-SEAL-3015",
+  "source_sha256": "7F1357233C6089610F0E5246EB427553487A14101EB38E15E0D32BB59B405924",
+  "article_source_id": "SRC-NTN-6204ZZ",
+  "article_sha256": "3F2253DB6EEA5B032A410C39E2C939FBB786C7014CD0E4F8FE96E83A24F25003",
+  "article_report_sha256": "AA2461CE23CAF12EE57C63A7860664241C167E0F145DB2AAC8AC1CE72A62EC67",
+  "manufacturer_part_id": "MP-NTN-6204ZZ",
+  "catalogue_label": "CAT.No.3015-5/E 25.12.00 IP/IP",
+  "definition_pdf_page": 3,
+  "definition_printed_pages": "3-4",
+  "dimension_pdf_page": 6,
+  "dimension_printed_pages": "9-10",
+  "extracted_evidence": {
+    "zz_definition_column": "Non-contact shield type ZZ \u25cf Metal shield plate is affixed to the outer ring; the inner ring incorporates a V-groove and labyrinth clearance. Low Good Poor Same as open type Depends on lubricant TN Engineering about applica",
+    "6204_row_text": "47 14 1 0.5 14.2 6.65 0.505 13.2 16 000 18 000 12 000 10 000 6204 ZZ LLB LLU LLH N NR 44.6 2.46 1.35 0.4 52.7 1.12 25 28 42 53.5 3.3 1.2 1 0.5 0.106",
+    "bore_group_label_mm": "20",
+    "mass_header_text": "Mass3) kg r s Nas ax. Max. (approx.)"
+  },
+  "catalogue_context": {
+    "d_mm": "20",
+    "D_mm": "47",
+    "B_mm": "14",
+    "dynamic_load_kn": "14.2",
+    "static_load_kn": "6.65",
+    "grease_speed_per_minute": "16000",
+    "da_min_mm": "25",
+    "da_max_mm": "28",
+    "Da_max_mm": "42",
+    "mass_approx_kg": "0.106"
+  },
+  "metric_static_comparison": {
+    "catalogue_n": "6650.00",
+    "article_n_display": "6650",
+    "article_kn_display": "9.75",
+    "article_kn_converted_n": "9750",
+    "difference_n": "3100",
+    "agreement_with_first_display": true,
+    "publisher_correction": false
+  },
+  "closure_research": {
+    "supported_interpretation": "double_non_contact_metal_shield",
+    "basis": "Exact 6204 row ZZ column plus Table 1 construction and double-shield scope footnotes",
+    "mapping_added": false,
+    "independent_review": "outstanding"
+  },
+  "limitations": [
+    "Catalogue context is not an independently approved supplied article.",
+    "Neither static display is removed or promoted; existing publication tasks and their evidence remain unchanged.",
+    "Case-sensitive da max 28 and Da max 42 remain separate; original article cells are not reassigned.",
+    "Approximate 0.106 kg catalogue mass is not a replacement for article 0.103 kg.",
+    "N/NR availability does not prove exact article locating construction.",
+    "Performance-test grease applies to tested 6305/6304 samples, not supplied 6204ZZ lubricant.",
+    "No bore type, material standard, tolerance interpretation, equivalence or UPN approved."
+  ],
+  "identity_approved": false,
+  "publisher_correction_obtained": false,
+  "independent_extraction_review": "outstanding"
+}

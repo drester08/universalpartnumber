@@ -10,6 +10,8 @@ Exact-article expansion: [NSK 6204ZZ](nsk-6204ZZ-source.md) retains fifteen fact
 
 Later [NTN 6204ZZ intake](ntn-6204zz-intake.md) registers that second exact manufacturer page with twelve unreviewed facts, three proposed mappings and two article-bound publication questions. Contradictory static rating and ambiguous mounting values remain outside specifications. The pre-ingestion snapshot is historical. No canonical cross-brand pair is created.
 
+[NTN 6204 catalogue research](ntn-6204zz-catalogue-context.md) now binds Table 1 ZZ construction to the exact 6204 row and double-shield scope. Review an evidence-specific closure proposal next. Catalogue 6.65 kN and separate da 28/Da 42 corroborate one interpretation without correcting the article. Approximate mass and test grease remain outside supplied-article identity.
+
 Next: obtain and independently review resolutions for the four NTN publication questions using the implemented [resolution event ledger](manufacturer-source-resolutions.md), which is currently empty. Obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
 
 The [Schaeffler retrieval lead](schaeffler-retrieval-lead.md) remains outside article ingestion. Verify real content and source pages before promoting any search excerpt or HTTP-success response. `J:\Codex\UPN` preserves dated research and handoffs; it remains a partial archive.

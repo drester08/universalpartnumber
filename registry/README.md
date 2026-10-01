@@ -4,6 +4,8 @@ This directory is the evidence and data foundation for the Universal Part Number
 
 `docs/ntn-6204zz-intake.md` registers twelve unreviewed NTN 6204ZZ facts and two publication research questions. The earlier pre-ingestion report remains an immutable historical snapshot; it no longer describes current registration status. No closure/tolerance mapping or other-article catalogue clarification is inherited.
 
+`docs/ntn-6204zz-catalogue-context.md` adds independently bounded exact 6204 catalogue research: ZZ non-contact metal construction, a 6.65 kN static context and distinct da/Da columns. It supports a future article-specific mapping review, not a source correction or present mapping. Counts are unchanged.
+
 `docs/bearing-suffix-scope.md` records a cross-family suffix hazard and six regression tests proving exact-specification normalization isolation. Identical raw suffixes do not inherit another part's mapping. Source-discovery leads remain separate from ingested evidence.
 
 Current baseline (1 October 2026): 127 sources, 72 cached evidence records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 65 observations. The screen contains 24 pairs and the reviewer queue contains 451 tasks (440 ready, 11 blocked). All 24 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
