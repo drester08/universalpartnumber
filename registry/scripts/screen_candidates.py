@@ -129,6 +129,8 @@ def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
         # requires the explicit terminology-mapping governance gates.
         if not has_value(row['raw_value'], row['normalized_text'], row['normalized_number']):
             continue
+        if row['value_kind'] == 'number' and numeric_rules.to_base_value(row) is None:
+            continue
         if row["value_kind"] == "code" and row["canonical_code"] is None and row["normalized_text"] is None:
             continue
         values = parts[row["manufacturer_part_id"]]["values"]

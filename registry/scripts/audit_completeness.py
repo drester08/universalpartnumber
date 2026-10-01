@@ -34,6 +34,7 @@ def main() -> int:
     connection = sqlite3.connect(arguments.database)
     connection.row_factory = sqlite3.Row
     connection.create_function('has_specification_value', 3, has_value)
+    connection.create_function('has_numeric_conversion', 4, numeric_rules.conversion_ready)
     try:
         records = connection.execute(
             """
@@ -44,10 +45,17 @@ def main() -> int:
                        FROM observations AS o
                        JOIN specification_values AS sv
                          ON sv.observation_id = o.observation_id
+                       LEFT JOIN units AS candidate_unit ON candidate_unit.unit_id=sv.unit_id
                       WHERE o.manufacturer_part_id = mp.manufacturer_part_id
                         AND o.review_state NOT IN ('rejected', 'superseded')
                         AND sv.property_id = ipp.property_id
                         AND has_specification_value(sv.raw_value, sv.normalized_text, sv.normalized_number)
+                        AND (p.value_kind != 'number' OR has_numeric_conversion(
+                          sv.normalized_number, candidate_unit.quantity_kind,
+                          candidate_unit.conversion_factor, candidate_unit.conversion_offset))
+                        AND (ipp.comparison_rule != 'numeric_exact' OR candidate_unit.quantity_kind = (
+                          SELECT nr.quantity_kind FROM numeric_comparison_rules nr
+                          WHERE nr.profile_id=mp.profile_id AND nr.property_id=ipp.property_id))
                    ) THEN 1 ELSE 0 END AS property_present,
                    COALESCE((
                      SELECT mpr.decision

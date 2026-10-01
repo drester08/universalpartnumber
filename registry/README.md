@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/numeric-conversion-metadata.md` requires explicit finite conversion metadata, validates numeric quantity kinds in coverage and closes singleton-set comparison bypasses. Numeric normalization is not equivalence approval; real source data and counts are unchanged.
+
 `docs/specification-value-presence.md` closes blank-value coverage and screening gaps. Empty normalization and invalid/non-finite normalized numbers do not become usable identity evidence. Current research data and approvals remain unchanged.
 
 `docs/jtekt-permission-review.md` records newly checked official terms and un-ingested bearing leads. `drafts/jtekt-permission-request.md` is an unsent scope-specific request, not permission. No JTEKT article facts, mappings, source registrations or counts change.
