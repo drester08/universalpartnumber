@@ -1,0 +1,49 @@
+{
+  "profile_id": "DESIGN-GASKET-KAMMPROFILE-0.1",
+  "status": "draft_design_not_database_profile",
+  "domain_id": "DOM-GASKETS",
+  "scope": "Individual two-faced serrated-metal-core gaskets, parallel or convex, with explicit guide-ring and partition declarations. Excludes spiral wound, soft-cut, ring-type-joint and installed assemblies. Non-circular geometry is drawing-defined, not coerced to diameters.",
+  "source_registration": {
+    "path": "registry/reports/klinger-maxiprofile-registration.json",
+    "sha256": "A93229F058493F4787BBE00C5075E1951EA78B6A36B781254D52AA4F0CD509A2"
+  },
+  "source_research": {
+    "path": "registry/reports/klinger-maxiprofile-context.json",
+    "sha256": "B6FD9F86173A4131B1C8FDF64B5A9EE2002DDA6C74D1B1D19CD03F479876F27D"
+  },
+  "required_fields": [
+    "construction", "profile_form", "core_material", "upper_facing_material", "lower_facing_material",
+    "core_thickness", "upper_facing_thickness", "lower_facing_thickness", "overall_thickness",
+    "geometry", "serration_definition", "guide_ring", "partitions", "connection",
+    "article_evidence"
+  ],
+  "allowed_construction": "serrated_metal_core_with_two_facings",
+  "allowed_profile_forms": ["parallel", "convex"],
+  "numeric_units": ["mm", "in"],
+  "component_material_fields": ["core_material", "upper_facing_material", "lower_facing_material"],
+  "thickness_fields": ["core_thickness", "upper_facing_thickness", "lower_facing_thickness", "overall_thickness"],
+  "material_requirements": ["designation", "definition_reference"],
+  "generic_material_labels_not_complete": ["metallic", "metal", "steel", "stainless steel", "graphite", "ptfe", "nonas", "unknown", "unspecified", "not stated"],
+  "geometry_requirements": ["shape", "labelled_definition", "dimension_roles", "tolerance_definition"],
+  "guide_ring": {
+    "states": ["present", "absent"],
+    "required_when_present": ["material", "attachment", "geometry_definition", "thickness"],
+    "forbidden_when_absent": ["material", "attachment", "geometry_definition", "thickness"]
+  },
+  "partitions": {
+    "states": ["present", "absent"],
+    "required_when_present": ["layout_definition", "material", "joint_method", "profile_form", "thickness"],
+    "forbidden_when_absent": ["layout_definition", "material", "joint_method", "profile_form", "thickness"]
+  },
+  "connection": {
+    "kinds": ["standard_flange", "drawing_defined"],
+    "standard_flange_required": ["standard", "edition", "class", "nominal_size"],
+    "drawing_defined_required": ["interface_definition"]
+  },
+  "article_evidence_requirements": ["manufacturer_article_reference", "drawing_reference", "revision", "source_locator", "artifact_sha256"],
+  "not_identity_defaults": ["manufacturer family name", "LA or CA label without article applicability", "generic Metallic field", "published maximum temperature", "published pressure maximum", "colour code", "core refurbishment permission", "missing ring or partition data"],
+  "integration_outstanding": ["Independent profile and semantic review", "Database representation of conditional required fields", "Governed grade and construction mappings", "Labelled geometry and tolerance comparison rules", "Exact article source verification", "Conditional enforcement in candidate screening and issuance"],
+  "identity_approved": false,
+  "application_suitability_approved": false,
+  "production_upn_allowed": false
+}

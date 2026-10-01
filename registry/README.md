@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/kamprofile-gasket-draft.md` adds a source-bound executable capture design with conditional ring/partition rules and separate component materials/thicknesses. It is not a sixth SQL identity profile and does not activate screening or issuance. Twelve synthetic regression tests distinguish structural readiness from evidence truth and approval. Registered baseline counts are unchanged.
+
 `docs/klinger-maxiprofile-registration.md` registers the private manufacturer-family capture with reuse gates and three new review tasks. Earlier construction/geometry reports remain immutable historical snapshots. No exact gasket observations, correction, reuse permission or identity approval is added.
 
 `docs/klinger-maxiprofile-context.md` adds a private six-page manufacturer capture with separate core/facing material tables and scoped style/partition definitions. All pages were visually reviewed. The diagram does not label historical supplied tuples; refurbishment/reuse scope remains a publisher question. New evidence is staged outside registered counts, with no article approval or correction.
