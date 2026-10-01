@@ -18,6 +18,10 @@ The latter code suffix is not decoded as a7.2m length; its visible description
 says6m. Inspect both detail pages before interpreting the apparent inconsistency.
 No duplicate merge or interchangeability conclusion is permitted from these fields.
 
+Follow-up: `macsteel-cq-pair.md` records both detail pages explicitly saying6.000m.
+Suffix-based7.2m interpretation remains unsupported; separate article identity is
+still unresolved. Neither offer is merged or corrected.
+
 The earlier generic datasheet correlation still covers only the original30offers.
 It is not silently expanded to all136. Remaining source-table coverage, article
 details, manufacturer provenance, grade/route/length/tolerance meaning and licence

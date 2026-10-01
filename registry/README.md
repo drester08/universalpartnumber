@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+Current detail follow-up: `docs/macsteel-cq-pair.md` establishes that both nominally duplicated CQ50x50x5seller pages explicitly state6m. The7200suffix is not a verified length; article identity and maker remain unresolved. Two new private detail artifacts bring sources95andcached artifacts40. Queue403unchanged; no offer correction/merge or UPN.
+
 Current category expansion: `docs/macsteel-angle-catalogue.md` records136distinct seller offers across all five observed equal-angle pages, adding106without overwriting earlier30. One same-nominal-key pair remains separate and unapproved. Sources93; cached artifacts38; total supplier offers168; missing-maker tasks136; queue403. Generic PDF correlation still covers only the original30offers. Older milestone counts below are historical snapshots.
 
 Current 2026-10-01: linked angle PDFs are cached and fully visually inspected; identical bytes represent one generic section sheet, not two independent article sources. `docs/macsteel-angle-datasheet.md` documents55sparse table facts and30nominal offer candidates without identity approval. Cache33records; remote/blocked17; queue297including all30missing-maker tasks. Older milestone counts below are historical snapshots.
