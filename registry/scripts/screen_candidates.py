@@ -109,9 +109,10 @@ def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
         SELECT o.manufacturer_part_id, sv.property_id, sv.raw_value,
                sv.normalized_text, sv.normalized_number, sv.unit_id,
                u.quantity_kind, u.conversion_factor, u.conversion_offset,
-               cv.canonical_code
+               cv.canonical_code, p.value_kind
           FROM observations AS o
           JOIN specification_values AS sv ON sv.observation_id = o.observation_id
+          JOIN properties AS p ON p.property_id = sv.property_id
           LEFT JOIN units AS u ON u.unit_id = sv.unit_id
           LEFT JOIN specification_value_mappings AS svm
             ON svm.specification_id = sv.specification_id
@@ -121,6 +122,11 @@ def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
          WHERE o.review_state NOT IN ('rejected', 'superseded')
         """
     ):
+        # A raw manufacturer designation is not a semantic comparison value.
+        # Typed normalization may support research screening; approval still
+        # requires the explicit terminology-mapping governance gates.
+        if row["value_kind"] == "code" and row["canonical_code"] is None and row["normalized_text"] is None:
+            continue
         values = parts[row["manufacturer_part_id"]]["values"]
         assert isinstance(values, defaultdict)
         values[row["property_id"]].add(normalized_value(row))
@@ -326,7 +332,7 @@ def main() -> int:
     parser.add_argument("--database", type=Path, default=ROOT / "build" / "registry.sqlite")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--check", type=Path, help="Fail if this saved screening CSV differs from generated output")
-    parser.add_argument("--generated-at", default="2026-09-30")
+    parser.add_argument("--generated-at", default="2026-10-01")
     arguments = parser.parse_args()
     if not arguments.database.exists():
         print(f"Database not found: {arguments.database}. Run build_registry.py first.")

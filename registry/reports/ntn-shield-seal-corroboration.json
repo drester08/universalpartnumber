@@ -1,0 +1,41 @@
+{
+  "source_id": "SRC-NTN-SHIELD-SEAL-3015",
+  "source_sha256": "7F1357233C6089610F0E5246EB427553487A14101EB38E15E0D32BB59B405924",
+  "article_source_id": "SRC-NTN-6205ZZ",
+  "article_sha256": "9C1EE760F042A1A6AAE56E1DEC21AD35A9817F66ADBDE3B1FBA86D5FD12B3F9D",
+  "catalogue_label": "CAT.No.3015-5/E 25.12.00 IP/IP",
+  "pdf_page_count": 12,
+  "definition_pdf_page": 3,
+  "definition_printed_pages": "3-4",
+  "dimension_pdf_page": 7,
+  "dimension_printed_pages": "11-12",
+  "extracted_evidence": {
+    "definition_column_text": "Non-contact shield type ZZ \u25cf Metal shield plate is affixed to the outer ring; the inner ring incorporates a V-groove and labyrinth clearance. Low Good Poor Same as open type Depends on lubricant TN Engineering about applica",
+    "6205_row_text": "52 15 1 0.5 15.5 7.85 0.550 13.9 13 000 15 000 11 000 8 900 6205 ZZ LLB LLU LLH N NR 49.73 2.46 1.35 0.4 57.9 1.12 30 32 47 58.5 3.3 1.2 1 0.5 0.128"
+  },
+  "closure_proposal": {
+    "mapping_id": "MAP-NTN-6205ZZ-CLOSURE",
+    "state": "proposed",
+    "canonical_code": "double_non_contact_metal_shield"
+  },
+  "catalogue_6205_context": {
+    "bore_diameter_mm": "25",
+    "outside_diameter_mm": "52",
+    "width_mm": "15",
+    "static_load_rating_kn": "7.85",
+    "da_max_mm": "32",
+    "Da_max_mm": "47",
+    "mass_approx_kg": "0.128"
+  },
+  "interpretation": [
+    "ZZ construction and double-shield scope support a proposed manufacturer-specific closure mapping.",
+    "The catalogue corroborates 7850 N, but does not remove the article page 11.60 kN cell or supply a publisher correction.",
+    "The catalogue distinguishes lowercase da max 32 mm from uppercase Da max 47 mm; the article page remains malformed.",
+    "The catalogue row lists multiple closure and snap-ring variants; N and NR availability does not prove the purchased article has either feature.",
+    "Test grease belongs to 6305 and 6304 performance tests, not to supplied 6205ZZ lubricant.",
+    "Approximate catalogue mass is not assigned to the exact shielded article; grease and variant context remain unresolved."
+  ],
+  "identity_approved": false,
+  "publisher_correction_obtained": false,
+  "independent_extraction_review": "outstanding"
+}

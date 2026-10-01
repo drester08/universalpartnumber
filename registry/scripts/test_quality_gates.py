@@ -250,7 +250,7 @@ def main() -> int:
                 "(SELECT property_id FROM identity_profile_properties WHERE "
                 "profile_id = 'PROFILE-BEARING-DGBB-1R-DOUBLE-METAL-SHIELD-0.1')"
             ).fetchone()[0]
-            if tuple(mapping_summary) != (15, 0) or controlled_value_count != 11:
+            if tuple(mapping_summary) != (16, 0) or controlled_value_count != 11:
                 raise AssertionError("Bearing terminology mappings are incomplete or prematurely approved")
             dataset_summary = screening_connection.execute(
                 """
@@ -268,14 +268,14 @@ def main() -> int:
                 for queue_type in {item["queue_type"] for item in review_items}
             }
             if (
-                len(review_items) != 421
+                len(review_items) != 424
                 or queue_counts.get('supplier_research_material_context_gap') != 10
                 or queue_counts.get('supplier_research_published_mass_discrepancy') != 4
                 or queue_counts.get("supplier_manufacturer_identity") != 136
                 or queue_counts.get("artifact_retrieval") != 17
                 or queue_counts.get("dataset_finding_review") != 98
                 or queue_counts.get("reference_dataset_validation") != 4
-                or queue_counts.get("terminology_mapping_review") != 15
+                or queue_counts.get("terminology_mapping_review") != 16
                 or sum(item["readiness"] == "blocked" for item in review_items) != 11
             ):
                 raise AssertionError("Deterministic reviewer queue omitted or misclassified governed work")

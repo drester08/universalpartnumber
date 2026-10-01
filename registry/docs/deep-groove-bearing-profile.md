@@ -50,6 +50,18 @@ Adding the second manufacturer's `6205ZZ` exposed a completeness-report grouping
 
 ## Primary sources
 
+### Catalogue corroboration — 1 October 2026
+
+NTN CAT.No.3015-5/E now supplies additional manufacturer definitions. PDF page 3 (printed 3-4), Table 1, explicitly defines ZZ as non-contact shielding with a metal plate; the accompanying note establishes double shields. PDF page 7 (printed 11-12) lists 6205 with the ZZ option. A manufacturer-specific closure mapping is therefore proposed for the existing article observation. Its raw article-page text remains unchanged; the mapping is not approved. There are now sixteen proposed terminology mappings and zero approved mappings.
+
+The 6205 catalogue table corroborates a static rating of 7.85 kN and separately labels `da max` 32 mm and `Da max` 47 mm. These are additional source claims, not a publisher correction to the malformed exact-article page. Both earlier publication questions remain unresolved. The catalogue's performance-test grease applies to 6305/6304 test specimens, not the supplied 6205ZZ lubricant. The table also covers multiple closure/snap-ring variants and approximate mass; availability of N/NR variants and the tabulated 0.128 kg do not establish exact article features or mass.
+
+`check_ntn_shield_seal.py` reproduces the source hash, bounded ZZ table-column extraction, exact 6205 row and proposed-mapping custody. `ntn-shield-seal-corroboration.json` retains the evidence and scope limits. The main agent visually inspected both relevant spread pages; independent extraction review remains outstanding.
+
+The closure proposal brings two NTN comparisons through coarse screening, both `insufficient_evidence`. Unmapped coded wording without a typed normalized value is now excluded from semantic comparison rather than automatically treated as a hard conflict: NTN “ISO Class 0” is not a proven contradiction with NSK “P0”, and raw “High Carbon Chrome Steel” is not automatically a contradiction with generic bearing steel. Other established comparisons are unchanged. The current screen contains 24 pairs; the reviewer queue contains 424 tasks, including two new candidate evidence follow-ups and one closure-mapping review. Missing bore type, supplied grease, locating features and precise tolerance/material semantics still prevent identity approval.
+
+- NTN shield/seal catalogue: <https://www.ntnglobal.com/en/products/catalog/pdf/3015E.pdf>
+
 - SKF exact product page: <https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6205-2z>
 - NSK exact product page: <https://www.nsk.com/eu-en/engineering/products/bearings/ball-bearings/deep-groove-ball-bearings/single-row-deep-groove-ball-bearings/6205zz-apn.html>
 - NTN exact product page: <https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6205zz>
