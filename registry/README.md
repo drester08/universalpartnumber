@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/klinger-maxiprofile-context.md` adds a private six-page manufacturer capture with separate core/facing material tables and scoped style/partition definitions. All pages were visually reviewed. The diagram does not label historical supplied tuples; refurbishment/reuse scope remains a publisher question. New evidence is staged outside registered counts, with no article approval or correction.
+
 `docs/mps-pipe-registration.md` registers the private MPS supplier manual with unknown publication date, source-reuse gates and six new review tasks. No generic table values are promoted into manufacturer-part observations. Earlier staged reports are historical and unchanged; all construction and publication questions remain open.
 
 `docs/piping-mps-comparison.md` compares all 50 supplied piping rows with the staged MPS table. All have unique printed-precision-compatible nominal OD/wall candidates, including the earlier 12 scope gaps and four ambiguous Tenaris rows. All 50 construction contradictions remain open. Internal diameter, mass and actual-stock identity are not approved; older reports and findings remain unchanged. Registered counts are unchanged.

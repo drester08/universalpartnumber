@@ -1,0 +1,262 @@
+{
+  "policy_version": "klinger-maxiprofile-context-0.1",
+  "publisher": "KLINGER South Africa",
+  "source_url": "https://www.klinger.co.za/wp-content/uploads/2024/08/KLINGER-Maxiprofile-1.pdf",
+  "source_sha256": "0C632A50EFF0BA9BD3FBA663340B4BA0C52E1B1032BA1592078E025D452597D8",
+  "local_path": "registry/artifacts/klinger/Maxiprofile-South-Africa-20261001.pdf",
+  "document_pages": 6,
+  "visually_reviewed_physical_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "publication_date": null,
+  "source_registered": false,
+  "identity_approved": false,
+  "historical_comparison_sha256": "8B6CAA9D3B69FC81C544815D810B3828D0971E046361C4C6A352AF9B18688C9C",
+  "historical_findings_resolved": false,
+  "component_material_context": [
+    {
+      "component": "facing",
+      "material_label_raw": "Graphite",
+      "published_maximum_temperature_C_raw": "550",
+      "published_colour_raw": "Grey stripe",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "facing",
+      "material_label_raw": "PTFE",
+      "published_maximum_temperature_C_raw": "260",
+      "published_colour_raw": "White stripe",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "facing",
+      "material_label_raw": "Nonas",
+      "published_maximum_temperature_C_raw": "350",
+      "published_colour_raw": "Pink stripe",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "facing",
+      "material_label_raw": "Mica",
+      "published_maximum_temperature_C_raw": "1000",
+      "published_colour_raw": "Light Green",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Carbon Steel",
+      "published_maximum_temperature_C_raw": "500",
+      "published_colour_raw": "Silver",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "304 Stainless Steel",
+      "published_maximum_temperature_C_raw": "650",
+      "published_colour_raw": "Yellow",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "316L Stainless Steel",
+      "published_maximum_temperature_C_raw": "650",
+      "published_colour_raw": "Green",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "316 Ti Stainless Steel",
+      "published_maximum_temperature_C_raw": "650",
+      "published_colour_raw": "Light Blue",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "347 Stainless Steel",
+      "published_maximum_temperature_C_raw": "650",
+      "published_colour_raw": "Blue",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "321 Stainless Steel",
+      "published_maximum_temperature_C_raw": "650",
+      "published_colour_raw": "Turquoise",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Monel 400",
+      "published_maximum_temperature_C_raw": "600",
+      "published_colour_raw": "Orange",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Nickel 200",
+      "published_maximum_temperature_C_raw": "600",
+      "published_colour_raw": "Red",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Titanium",
+      "published_maximum_temperature_C_raw": "350",
+      "published_colour_raw": "Purple",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Hastelloy B-2",
+      "published_maximum_temperature_C_raw": "450",
+      "published_colour_raw": "Brown",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Hastelloy C-276",
+      "published_maximum_temperature_C_raw": "450",
+      "published_colour_raw": "Beige",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Inconel 600",
+      "published_maximum_temperature_C_raw": "950",
+      "published_colour_raw": "Gold",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Inconel 625",
+      "published_maximum_temperature_C_raw": "450",
+      "published_colour_raw": "Gold",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Inconel X-750",
+      "published_maximum_temperature_C_raw": "1000",
+      "published_colour_raw": "Light Grey",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    },
+    {
+      "component": "core",
+      "material_label_raw": "Incoloy 825",
+      "published_maximum_temperature_C_raw": "450",
+      "published_colour_raw": "White",
+      "physical_page": 2,
+      "temperature_is_article_rating": false,
+      "colour_is_verified_standard_conformity": false
+    }
+  ],
+  "style_context": [
+    {
+      "style": "LA1",
+      "profile": "parallel",
+      "ring_context": "outer centring ring",
+      "physical_page": 3
+    },
+    {
+      "style": "LA2",
+      "profile": "parallel",
+      "ring_context": "seal element only",
+      "physical_page": 3
+    },
+    {
+      "style": "LA3",
+      "profile": "parallel",
+      "ring_context": "outer guide ring may differ from core material",
+      "physical_page": 3
+    },
+    {
+      "style": "CA1/CA2/CA3",
+      "profile": "convex",
+      "ring_context": "corresponding LA configurations; exact article drawing required",
+      "physical_page": 3
+    }
+  ],
+  "partition_context": {
+    "physical_page": 3,
+    "construction": "profiled pass partitions tack-welded into place"
+  },
+  "diagram_scope": {
+    "physical_page": 2,
+    "components": [
+      "facing layers",
+      "serrated metal core"
+    ],
+    "supplied_tuple_component_mapping": false,
+    "note": "Local serration geometry does not label the three historical supplied dimensions."
+  },
+  "maintenance_scope_question": {
+    "core_refurbishment_page": 1,
+    "non_reuse_pages": [
+      5,
+      6
+    ],
+    "publisher_clarification_outstanding": true,
+    "reuse_permission_for_supplied_gaskets": false
+  },
+  "required_article_evidence": [
+    "exact style and parallel/convex profile",
+    "core material grade",
+    "facing material grade",
+    "guide ring material and attachment",
+    "core/facing/overall thickness",
+    "labelled drawing and dimension roles",
+    "partition geometry where present",
+    "flange standard/class/size and source revision"
+  ],
+  "limitations": [
+    "Manufacturer product-family context is not an exact supplied article.",
+    "Generic Nonas facing is not assigned to a specific KLINGERSIL grade.",
+    "Material-table maximum temperatures and general pressure figures are not universal joint ratings.",
+    "Printed colour table is not independent ASME conformity verification.",
+    "URL upload folder is not a verified publication date or current edition.",
+    "No fixed/floating ring assignment inferred from schematic appearance alone.",
+    "No historical CSV correction or component-name assignment.",
+    "Source reuse and independent extraction/applicability review remain outstanding."
+  ]
+}
