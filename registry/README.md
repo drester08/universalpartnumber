@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+Current 2026-10-01: linked angle PDFs are cached and fully visually inspected; identical bytes represent one generic section sheet, not two independent article sources. `docs/macsteel-angle-datasheet.md` documents55sparse table facts and30nominal offer candidates without identity approval. Cache33records; remote/blocked17; queue297including all30missing-maker tasks. Older milestone counts below are historical snapshots.
+
 Unknown-maker offers now have explicit deterministic review tasks: 30 supplier/manufacturer provenance tasks plus two linked angle PDF retrievals bring the queue to 299. Source register now 89; 31 cached artifacts and 19 remote/blocked records. The two PDF links return HTTP200 with application/pdf headers, but body/content verification remains outstanding. See `docs/reviewer-workflow.md`; a seller-to-manufacturer link alone never approves equivalence or issuance.
 
 Seller-article expansion: `docs/macsteel-angle-offers.md` records 30 actual Macsteel equal-angle seller SKUs from one checksummed listing snapshot. There are now 62 supplier offers and 87 registered sources, with 31 cached artifacts. Manufacturer links, price, stock, billing quantities and UPN remain unapproved for these new offers. The seller-offer checker reproduces every persisted record. Remaining pages and detail/datasheet verification are outstanding.
