@@ -1,0 +1,131 @@
+{
+  "source_id": "SRC-JTEKT-6205-ZZ",
+  "artifact_id": "ART-JTEKT-6205-ZZ",
+  "source_sha256": "900D5F9E0ECA6275769BA774B7C2326353052BD8E032C0916A865306546A5230",
+  "manufacturer_namespace": "JTEKT",
+  "brand": "Koyo",
+  "manufacturer_article": "6205 ZZ",
+  "heading": {
+    "tag": "h1",
+    "text": "6205 ZZ",
+    "html_line": 350,
+    "kind": "heading"
+  },
+  "construction_context": {
+    "tag": "p",
+    "text": "Deep groove ball bearings - Single-row - Shielded/sealed type - Shielded ZZ",
+    "html_line": 362,
+    "kind": "context"
+  },
+  "native_property_count": 14,
+  "native_properties": [
+    {
+      "name": "d",
+      "value": "25 mm",
+      "html_line": 370,
+      "ordinal": 1
+    },
+    {
+      "name": "D",
+      "value": "52 mm",
+      "html_line": 370,
+      "ordinal": 2
+    },
+    {
+      "name": "B",
+      "value": "15 mm",
+      "html_line": 370,
+      "ordinal": 3
+    },
+    {
+      "name": "r(min.)",
+      "value": "1 mm",
+      "html_line": 370,
+      "ordinal": 4
+    },
+    {
+      "name": "Basic load ratings : Cr",
+      "value": "17.5 kN",
+      "html_line": 370,
+      "ordinal": 5
+    },
+    {
+      "name": "Basic load ratings : C0r",
+      "value": "7.85 kN",
+      "html_line": 370,
+      "ordinal": 6
+    },
+    {
+      "name": "Fatigue load limit : Cu",
+      "value": "0.550 kN",
+      "html_line": 370,
+      "ordinal": 7
+    },
+    {
+      "name": "factor : f0",
+      "value": "13.9",
+      "html_line": 370,
+      "ordinal": 8
+    },
+    {
+      "name": "Limiting speeds(Grease lub.)",
+      "value": "13000 min-1",
+      "html_line": 370,
+      "ordinal": 9
+    },
+    {
+      "name": "da(min.)",
+      "value": "30 mm",
+      "html_line": 376,
+      "ordinal": 10
+    },
+    {
+      "name": "da(max.)",
+      "value": "31.5 mm",
+      "html_line": 376,
+      "ordinal": 11
+    },
+    {
+      "name": "Da(max.)",
+      "value": "47 mm",
+      "html_line": 376,
+      "ordinal": 12
+    },
+    {
+      "name": "ra(max.)",
+      "value": "1 mm",
+      "html_line": 376,
+      "ordinal": 13
+    },
+    {
+      "name": "Mass(Refer.)",
+      "value": "0.128 kg",
+      "html_line": 376,
+      "ordinal": 14
+    }
+  ],
+  "metric_boundary_dimensions_mm": {
+    "d": "25",
+    "D": "52",
+    "B": "15"
+  },
+  "mounting_symbol_values_mm": {
+    "da(min.)": "30",
+    "da(max.)": "31.5",
+    "Da(max.)": "47",
+    "ra(max.)": "1"
+  },
+  "ingestion_policy": "jtekt-exact-article-intake-0.1",
+  "identity_approved": false,
+  "limitations": [
+    "Nine facts ingested as unreviewed exact-article research; fourteen native numeric fields retained.",
+    "Shielded ZZ is retained raw; contact form, metal construction and sidedness are not canonically inferred.",
+    "Bore type, cage, clearance, tolerance, material, supplied lubricant and locating evidence are absent.",
+    "Grease limiting speed does not establish supplied grease or formulation.",
+    "Mounting dimensions and mass are source reference values, not measured article identity.",
+    "Cr/C0r calculation standards and basis are not stated on this page.",
+    "No suffix absence, CAD drawing image or product calculator supplies missing identity facts.",
+    "Independent transcription review and publisher reuse terms remain outstanding.",
+    "JTEKT values cannot correct or resolve NTN manufacturer publication findings."
+  ]
+}

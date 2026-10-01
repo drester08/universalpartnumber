@@ -1,4 +1,13 @@
 specification_id,observation_id,property_id,raw_value,normalized_text,normalized_number,unit_id,qualifier
+SPEC-JTEKT-6205-ZZ-GEOMETRY,OBS-JTEKT-6205-ZZ-20261001,PROP-BEARING-GEOMETRY,Deep groove ball bearings - Single-row,single_row_deep_groove_ball,,,Exact article page_text; terminology interpretation independently unreviewed
+SPEC-JTEKT-6205-ZZ-BORE,OBS-JTEKT-6205-ZZ-20261001,PROP-BORE-DIAMETER,d 25 mm,,25,UNIT-MM,Exact native d field
+SPEC-JTEKT-6205-ZZ-OD,OBS-JTEKT-6205-ZZ-20261001,PROP-OUTSIDE-DIAMETER,D 52 mm,,52,UNIT-MM,Exact native D field
+SPEC-JTEKT-6205-ZZ-WIDTH,OBS-JTEKT-6205-ZZ-20261001,PROP-BEARING-WIDTH,B 15 mm,,15,UNIT-MM,Exact native B field
+SPEC-JTEKT-6205-ZZ-CLOSURE,OBS-JTEKT-6205-ZZ-20261001,PROP-BEARING-CLOSURE,Shielded ZZ,,,,No canonical contact/material/sidedness mapping without manufacturer definition
+SPEC-JTEKT-6205-ZZ-DYNAMIC,OBS-JTEKT-6205-ZZ-20261001,PROP-BASIC-DYNAMIC-LOAD-RATING,Basic load ratings : Cr 17.5 kN,,17500.0,UNIT-N,Manufacturer article value; kN converted to N; standard and calculation basis unstated
+SPEC-JTEKT-6205-ZZ-STATIC,OBS-JTEKT-6205-ZZ-20261001,PROP-BASIC-STATIC-LOAD-RATING,Basic load ratings : C0r 7.85 kN,,7850.00,UNIT-N,Manufacturer article value; kN converted to N; not a correction of NTN publication
+SPEC-JTEKT-6205-ZZ-SPEED,OBS-JTEKT-6205-ZZ-20261001,PROP-LIMITING-SPEED-GREASE,Limiting speeds(Grease lub.) 13000 min-1,,13000,UNIT-RPM,Speed under grease lubrication; supplied grease formulation not established
+SPEC-JTEKT-6205-ZZ-MASS,OBS-JTEKT-6205-ZZ-20261001,PROP-MASS,Mass(Refer.) 0.128 kg,,0.128,UNIT-KG,Source reference mass; not measured supplied-item mass or identity evidence
 SPEC-NTN-6205ZZ-GEOMETRY,OBS-NTN-6205ZZ-20261001,PROP-BEARING-GEOMETRY,Deep Groove Ball Bearing; Single Row Radial Ball Bearing,single_row_deep_groove_ball,,,Source Type and article heading
 SPEC-NTN-6205ZZ-BORE,OBS-NTN-6205ZZ-20261001,PROP-BORE-DIAMETER,d 25.000 mm,,25.000,UNIT-MM,Explicit metric span in d row
 SPEC-NTN-6205ZZ-OD,OBS-NTN-6205ZZ-20261001,PROP-OUTSIDE-DIAMETER,D 52.000 mm,,52.000,UNIT-MM,Explicit metric span in D row

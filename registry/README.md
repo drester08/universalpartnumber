@@ -2,7 +2,9 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
-Current baseline (1 October 2026): 122 sources, 67 cached evidence records, four supplied datasets, five draft profiles, 39 manufacturer parts, 168 supplier offers and 62 observations. The screen contains 24 pairs and the reviewer queue contains 426 tasks (415 ready, 11 blocked). All 17 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+Current baseline (1 October 2026): 123 sources, 68 cached evidence records, four supplied datasets, five draft profiles, 40 manufacturer parts, 168 supplier offers and 63 observations. The screen contains 24 pairs and the reviewer queue contains 434 tasks (423 ready, 11 blocked). All 17 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+
+`docs/jtekt-6205-ZZ-source.md` adds a separate JTEKT/Koyo exact article with nine unreviewed facts from fourteen retained native fields. Seven required properties remain missing and raw closure has no canonical mapping. Matching boundary dimensions do not create a cross-brand candidate or identity approval.
 
 Manufacturer publication resolution governance is implemented in `docs/manufacturer-source-resolutions.md`. An empty event ledger preserves both actual NTN issues as open. Evidence-bound independent research decisions can distinguish correction, clarification, local interpretation and waiver, and can be reopened without deleting original source facts. No real decision or identity approval has been entered.
 

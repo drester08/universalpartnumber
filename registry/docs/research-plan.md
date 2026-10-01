@@ -2,13 +2,15 @@
 
 ## Current baseline — 1 October 2026
 
-There are 122 registered sources, 67 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 39 manufacturer parts, 168 supplier offers and 62 observations. The reproducible screen has 24 pairs; the reviewer queue has 426 tasks (415 ready, 11 dependency-blocked). All 17 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 123 registered sources, 68 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 40 manufacturer parts, 168 supplier offers and 63 observations. The reproducible screen has 24 pairs; the reviewer queue has 434 tasks (423 ready, 11 dependency-blocked). All 17 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
 Next: obtain and independently review resolutions for the two NTN publication questions using the implemented [resolution event ledger](manufacturer-source-resolutions.md), which is currently empty. Obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
 
 The [Schaeffler retrieval lead](schaeffler-retrieval-lead.md) remains outside article ingestion. Verify real content and source pages before promoting any search excerpt or HTTP-success response. `J:\Codex\UPN` preserves dated research and handoffs; it remains a partial archive.
+
+The [JTEKT 6205 ZZ intake](jtekt-6205-ZZ-source.md) retains exact source fields without resolving seven identity gaps or canonical closure. Seek an official JTEKT shield definition and article-specific bore/cage/clearance/tolerance/material/grease/locating evidence. Its missing closure blocks candidate generation; this known coverage limitation must not be reported as physical difference.
 
 ## Phase 1 — Authority map
 
@@ -38,8 +40,8 @@ Publish only reviewed items, evidence summaries that licensing permits, change h
 
 1. Verify redistribution terms for IEC CDD, UNECE Recommendation 20, GS1 GPC, UNSPSC, and NATO public documents.
 2. Review the draft cable-ladder identity-property profile with manufacturers, engineers, and procurement users.
-3. Resolve missing identity fields and source conflicts across the 39 pilot parts, especially splice supply, construction, geometry and exact-article bearing evidence. Do not treat catalogue corroboration as publisher correction.
-4. Extend artifact retrieval with per-publisher access rules; 67 artifact records are hash-verified locally while 17 evidence records remain remote-only or blocked. Hash integrity does not independently approve extraction fidelity or identity.
+3. Resolve missing identity fields and source conflicts across the 40 pilot parts, especially splice supply, construction, geometry and exact-article bearing evidence. Do not treat catalogue corroboration as publisher correction.
+4. Extend artifact retrieval with per-publisher access rules; 68 artifact records are hash-verified locally while 17 evidence records remain remote-only or blocked. Hash integrity does not independently approve extraction fidelity or identity.
 5. Expand manufacturers within the five draft profiles while measuring false-negative risk in the blocking keys; add new classes only with explicit identity rules and evidence scope.
 6. Work the deterministic reviewer queue, starting with P0 terminology mappings and source conflicts; keep every independent decision in the governed ledgers.
 7. Independently review the ten complete Niedax evidence profiles exposed by the queue; completeness alone must not change their status.

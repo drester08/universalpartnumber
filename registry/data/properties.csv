@@ -36,7 +36,7 @@ PROP-USABLE-CROSS-SECTION,,,Usable cross-sectional area,Manufacturer-declared us
 PROP-SIDE-RAIL-THICKNESS,,,Side rail material thickness,Declared thickness of the structural side-rail material.,number,descriptive
 PROP-RUNG-THICKNESS,,,Rung material thickness,Declared thickness of the rung material.,number,descriptive
 PROP-LOADING-DEPTH,,,Loading depth,Declared usable vertical loading depth.,number,descriptive
-PROP-MASS,,,Item mass,Declared mass of one supplied straight section.,number,descriptive
+PROP-MASS,,,Item mass,Source-declared mass of one article or supplied section; retain reference or approximate status and measurement basis qualifiers.,number,descriptive
 PROP-EXTERNAL-CLASSIFICATION,,,External classification,Classification code and label asserted by the source.,text,descriptive
 PROP-LINEAR-MASS,,,Linear mass,Declared mass per unit length of the straight section.,number,descriptive
 PROP-FASTENER-STANDARD,,,Fastener dimensional standard,Primary dimensional product standard explicitly asserted by the source.,code,defining
