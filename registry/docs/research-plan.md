@@ -18,6 +18,8 @@ Later [BS004 catalogue research](jtekt-shield-catalogue.md) supplies the ZZ non-
 
 ## Phase 1 — Authority map
 
+Cross-family suffix safety is documented in [bearing suffix scope](bearing-suffix-scope.md). The exact-specification normalization join has explicit regression coverage: identical raw `ZZ` tokens do not inherit another article's proposed mapping, even within the same maker/family. JTEKT track-roller end-washer terminology is a discovery lead, not ingested PDF evidence. The grease-life FAQ does not resolve exact shield material.
+
 Maintain the source register, verify licences, and map relevant standards, classifications, unit systems, regulatory sources, and manufacturer families. Store metadata before content.
 
 ## Phase 2 — Domain pilots

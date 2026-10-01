@@ -1,0 +1,15 @@
+# Bearing suffix scope - verified normalization boundary
+
+Status: research guidance and regression coverage, not new article facts or mappings.
+
+Primary-source discovery on 1 October 2026 found a concrete counterexample to global suffix normalization. JTEKT's needle-roller catalogue describes `ZZ` as two end washers for certain yoke-type metric track rollers (except GC types), whereas its deep-groove code guide describes fixed shields on both sides. A shared manufacturer and suffix are therefore insufficient to transfer meaning across product families. The needle-roller catalogue was accessed through web search text only: no retained PDF, independent extraction or full visual review was completed, and it is not registered as ingested article evidence.
+
+Discovery reference: https://jtekt-bearings.eu/en/support/download-section.html?download=91%3Ageneral-nrb-catalogue-english . Verify the actual B-5-6 page and its scope before any future ingestion. Do not interpret the two end washers as the existing deep-groove metal-shield controlled value.
+
+The official grease-life FAQ says its calculator concerns single-row shielded/sealed ball bearings employing steel shields or rubber seals. That statement describes calculator applicability; it does not explicitly identify every `ZZ` article's shield material. It is a lead, not sufficient evidence to complete the current JTEKT 6205 ZZ closure mapping. Reference: https://koyo.jtekt.co.jp/en/support/faq/article/002210.php . General steel-bearing material and cage-code definitions likewise do not establish shield material.
+
+Current implementation already joins mappings by exact `specification_id`, with each specification tied to its own observation and manufacturer part. It does not look up canonical values by raw token or by manufacturer-wide suffix. Six new synthetic query tests in `scripts/test_mapping_scope.py` verify exact application, same-maker/different-family isolation, different-maker isolation, same-maker/same-family non-inheritance, rejected mappings and rejected/superseded observations. Fixtures are not real parts or seed observations. No algorithm change was needed and the existing screen remains reproducible.
+
+This test boundary does not itself prove that a researcher selected the correct canonical interpretation for an individual specification. Manufacturer-definition evidence must still name applicable product family, source revision and exact article relationship, and independent review remains required before acceptance. Proposed mappings support research screens only, not identity issuance. Do not add manufacturer-wide aliases or suffix-dictionary fallback without explicit source-bound applicability and tests for excluded families.
+
+Next: retain and visually verify the track-roller counterexample when extending that product family; obtain exact JTEKT deep-groove shield-material applicability or move to another accessible primary-source family while preserving this gap. All registry counts and review decisions remain unchanged.
