@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/research-applicability-evaluator.md` adds a shared explicit-state research evaluator and integrates it into the source-bound gasket capture. Ambiguous selectors and malformed contracts fail closed; typed field checks remain separate. SQL profiles and the production conditional guard remain unchanged, with no identity activation.
+
 `docs/conditional-applicability-guard.md` closes a runtime gap: otherwise-positive screens and accepted publication cannot silently omit unresolved conditional fields. The issuance audit inherits the failure, including conditional-only profiles. This is not a finished predicate engine; current negative screens and registered counts remain unchanged.
 
 `docs/klinger-uk-registration.md` registers UK family custody with the printed 2019 issue date and pending reuse/independent-review gates. Three new tasks cover governance, component/style interpretation and seven temperature-context differences. Historical research stays immutable; no exact article observation or approval is added.

@@ -6,6 +6,7 @@ import re
 import sqlite3
 from decimal import Decimal
 from pathlib import Path
+import applicability_rules
 
 ROOT=Path(__file__).resolve().parents[1]
 DESIGN=ROOT/'profiles/kamprofile-gasket-draft-0.1.json'
@@ -29,10 +30,8 @@ def load_design():
 def capture_issues(capture, design=None):
     design=design or load_design()
     issues=[]
-    def present(value):
-        if isinstance(value,str):
-            return bool(value.strip())
-        return value is not None and value!='' and value!={} and value!=[]
+    issues.extend(applicability_rules.evaluate(capture, applicability_rules.kamprofile_contract(design))['issues'])
+    present=applicability_rules.present
     def text_fields(obj,keys,prefix):
         if isinstance(obj,dict):
             for key in keys:
@@ -101,15 +100,7 @@ def capture_issues(capture, design=None):
         if not required(value,('state',),field+'.'):
             continue
         state=value.get('state')
-        rules=design[field]
-        if state not in rules['states']:
-            issues.append(field+'.state: explicit present/absent required')
-        elif state=='absent':
-            for key in rules['forbidden_when_absent']:
-                if present(value.get(key)):
-                    issues.append(field+'.'+key+': contradicts absent state')
-        else:
-            required(value,rules['required_when_present'],field+'.')
+        if state=='present':
             text_fields(value,('attachment','geometry_definition') if field=='guide_ring' else ('layout_definition','joint_method'),field+'.')
             material(value.get('material'),field+'.material')
             dimension(value.get('thickness'),field+'.thickness')
@@ -118,10 +109,7 @@ def capture_issues(capture, design=None):
     connection=capture.get('connection')
     if required(connection,('kind',),'connection.'):
         kind=connection.get('kind')
-        if kind not in design['connection']['kinds']:
-            issues.append('connection.kind: explicit standard or drawing-defined interface required')
-        else:
-            required(connection,design['connection'][kind+'_required'],'connection.')
+        if kind in design['connection']['kinds']:
             text_fields(connection,design['connection'][kind+'_required'],'connection.')
     evidence=capture.get('article_evidence')
     if required(evidence,design['article_evidence_requirements'],'article_evidence.'):
@@ -132,9 +120,11 @@ def capture_issues(capture, design=None):
 
 
 def assess_capture(capture):
-    issues=capture_issues(capture)
+    design=load_design()
+    issues=capture_issues(capture,design)
+    applicability=applicability_rules.evaluate(capture,applicability_rules.kamprofile_contract(design))
     return dict(status='incomplete_research_structure' if issues else 'structure_ready_for_independent_review',
-                issues=issues,source_truth_verified=False,identity_approved=False,
+                issues=issues,applicability=applicability,source_truth_verified=False,identity_approved=False,
                 application_suitability_approved=False,production_upn_allowed=False)
 
 
