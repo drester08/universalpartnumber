@@ -320,6 +320,11 @@ def validate_schema(errors: list[str]) -> int:
 
 def main() -> int:
     errors: list[str] = []
+    import manufacturer_source_resolutions
+    try:
+        manufacturer_source_resolutions.load_ledger()
+    except (OSError, ValueError, TypeError) as exc:
+        errors.append(f'Manufacturer resolution ledger invalid: {exc}')
     source_count = validate_sources(errors)
     dataset_count = validate_source_datasets(errors)
     domain_count = validate_domains(errors)

@@ -6,7 +6,7 @@ There are 122 registered sources, 67 cached evidence records, 17 remote/blocked 
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
 
-Next: resolve the two NTN publication questions with evidence-backed resolution/waiver governance; obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
+Next: obtain and independently review resolutions for the two NTN publication questions using the implemented [resolution event ledger](manufacturer-source-resolutions.md), which is currently empty. Obtain exact-article bearing bore, material, grease and locating evidence; independently review proposed shield/tolerance mappings; continue ten angle material-context gaps, four mass discrepancies and 136 missing-maker tasks. Extend primary-source coverage for the 25 angle geometries absent from the selected Orange Book table; absence from one table is not proof of nonexistence.
 
 The [Schaeffler retrieval lead](schaeffler-retrieval-lead.md) remains outside article ingestion. Verify real content and source pages before promoting any search excerpt or HTTP-success response. `J:\Codex\UPN` preserves dated research and handoffs; it remains a partial archive.
 

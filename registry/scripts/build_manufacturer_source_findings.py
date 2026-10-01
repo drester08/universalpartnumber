@@ -4,6 +4,7 @@ import hashlib
 import json
 import sqlite3
 from pathlib import Path
+import manufacturer_source_resolutions
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = {
@@ -81,13 +82,19 @@ def derive(connection, article, corroboration):
 def build_report(connection):
     article, corroboration = (load_report(name) for name in INPUTS)
     findings = derive(connection, article, corroboration)
+    resolutions = manufacturer_source_resolutions.replay(connection, findings)
+    for finding in findings:
+        finding['resolution'] = resolutions[finding['finding_id']]
     return {'policy_version': 'manufacturer-source-research-0.1', 'input_report_hashes': INPUTS,
         'finding_count': len(findings), 'findings': findings, 'identity_approved': False,
+        'resolution_policy_version': manufacturer_source_resolutions.POLICY,
+        'resolution_event_count': sum(len(state['history']) for state in resolutions.values()),
         'limitations': ['Research-ready tasks, not identity-ready evidence or physical incompatibility decisions.',
             'Manufacturer links, observation acceptance and terminology mappings do not correct source publications.',
             'Report or observation revision requires deliberate reconciliation; issues are never silently dropped.',
             'This adapter binds retained reports and registry custody, not independent extraction approval.',
-            'Formal resolution and waiver records are not implemented by this intake milestone.']}
+            'Resolution history is research governance only; no source cell, specification, identity review or UPN is changed.',
+            'Reviewer identities and scope attestations require external independent review; event hashes are not signatures.']}
 
 
 if __name__ == '__main__':
@@ -101,4 +108,4 @@ if __name__ == '__main__':
         target.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     elif json.loads(target.read_text(encoding='utf-8')) != report:
         raise ValueError('Manufacturer finding snapshot stale or altered')
-    print('Two open manufacturer publication findings reproduced; no correction or identity approval.')
+    print('Manufacturer publication findings and resolution history reproduced; no automatic correction or identity approval.')

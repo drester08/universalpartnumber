@@ -135,6 +135,21 @@ def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
     items: list[dict[str, str]] = supplier_identity_items(connection)
     for finding in build_manufacturer_source_findings.build_report(connection)['findings']:
         subject = finding['subject_key']
+        resolution = finding['resolution']
+        if resolution['active_proposal']:
+            proposal_id = resolution['active_proposal']
+            add_item(items, work_item_id='RW-RESOLUTION-' + proposal_id, priority='P2',
+                     queue_type='manufacturer_source_resolution_review', readiness='ready',
+                     subject_type='manufacturer_source_resolution_proposal', subject_id=proposal_id,
+                     source_id=subject['source_id'], manufacturer_part_id=subject['manufacturer_part_id'],
+                     profile_id=finding['profile_id'], property_id=finding['property_id'],
+                     summary='Independently review publication resolution for ' + finding['finding_id'],
+                     next_action='Inspect the retained proposal, evidence and exact article/field scope. Record an independent approval or rejection with rationale and attestations; do not approve identity or modify source cells.',
+                     policy_version='manufacturer-source-resolution-0.1')
+        if resolution['resolution_state'] in {'resolved', 'waived'}:
+            # The finding and full decisions remain in the research snapshot.
+            # Reopening returns the same stable research work-item identifier.
+            continue
         evidence = '; '.join(e['report_path'] + ('#' + finding['evidence_pointer'] if index == 0 else '#/catalogue_6205_context') +
             '; SHA-256 ' + e['report_sha256'] + '; artifact ' + e['artifact_id'] + ' SHA-256 ' + e['artifact_sha256']
             for index, e in enumerate(finding['evidence']))
@@ -143,7 +158,8 @@ def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
                  subject_type='manufacturer_source_finding', subject_id=finding['finding_id'],
                  source_id=subject['source_id'], manufacturer_part_id=subject['manufacturer_part_id'],
                  profile_id=finding['profile_id'], property_id=finding['property_id'], summary=finding['summary'],
-                 next_action=finding['next_action'] + ' Evidence: ' + evidence + '. Article HTML line ' + str(finding['source_html_line']),
+                 next_action=finding['next_action'] + ' Evidence: ' + evidence + '. Article HTML line ' + str(finding['source_html_line']) +
+                     ('; local interpretation approved, publication remains unresolved' if resolution['resolution_state'] == 'interpreted' else ''),
                  policy_version=finding['policy_version'])
     for finding in build_supplier_research_findings.build_report(connection)['findings']:
         related = '; '.join(o['supplier_offer_id'] for o in finding['related_offers'])

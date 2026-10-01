@@ -145,6 +145,10 @@ def build(output: Path) -> None:
             integrity = connection.execute("PRAGMA integrity_check").fetchone()
             if not integrity or integrity[0] != "ok":
                 raise RuntimeError(f"Integrity check failed: {integrity}")
+            # Validate evidence-bound resolution history before replacing the
+            # existing database. No resolution mutates source/identity rows.
+            import build_manufacturer_source_findings
+            build_manufacturer_source_findings.build_report(connection)
             connection.commit()
         finally:
             connection.close()

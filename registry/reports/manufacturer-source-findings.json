@@ -59,7 +59,15 @@
       "policy_version": "manufacturer-source-research-0.1",
       "publisher_correction_obtained": false,
       "physical_conflict_verified": false,
-      "identity_approved": false
+      "identity_approved": false,
+      "resolution": {
+        "resolution_state": "open",
+        "publication_status": "unresolved",
+        "active_proposal": null,
+        "history": [],
+        "identity_approved": false,
+        "physical_conflict_verified": false
+      }
     },
     {
       "finding_id": "MRF-F5A2B7A23C150B49115398DF",
@@ -118,15 +126,26 @@
       "policy_version": "manufacturer-source-research-0.1",
       "publisher_correction_obtained": false,
       "physical_conflict_verified": false,
-      "identity_approved": false
+      "identity_approved": false,
+      "resolution": {
+        "resolution_state": "open",
+        "publication_status": "unresolved",
+        "active_proposal": null,
+        "history": [],
+        "identity_approved": false,
+        "physical_conflict_verified": false
+      }
     }
   ],
   "identity_approved": false,
+  "resolution_policy_version": "manufacturer-source-resolution-0.1",
+  "resolution_event_count": 0,
   "limitations": [
     "Research-ready tasks, not identity-ready evidence or physical incompatibility decisions.",
     "Manufacturer links, observation acceptance and terminology mappings do not correct source publications.",
     "Report or observation revision requires deliberate reconciliation; issues are never silently dropped.",
     "This adapter binds retained reports and registry custody, not independent extraction approval.",
-    "Formal resolution and waiver records are not implemented by this intake milestone."
+    "Resolution history is research governance only; no source cell, specification, identity review or UPN is changed.",
+    "Reviewer identities and scope attestations require external independent review; event hashes are not signatures."
   ]
 }

@@ -1,5 +1,7 @@
 # Reviewer workflow
 
+Manufacturer publication questions now use the separate resolution history described in `manufacturer-source-resolutions.md`. Proposals create independent review work without closing the original question. Only reviewed publisher correction/clarification can mark a publication resolved; local interpretation leaves it open, and waiver leaves it explicitly unresolved. Reopening restores the stable original task. Never translate a research disposition into identity approval or corrected specification values. The current ledger is empty.
+
 The reviewer queue turns unresolved registry evidence into a deterministic work list. It does not make decisions and it never issues a UPN.
 
 ## Queue inputs
