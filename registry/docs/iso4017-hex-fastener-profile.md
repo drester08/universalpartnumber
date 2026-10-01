@@ -2,6 +2,8 @@
 
 Status: draft and unverified for UPN issuance. No equivalence decision or UPN has been created.
 
+Later [standard-transition research](fastener-standard-transition-research.md) distinguishes manufacturer interchangeability claims from same-item identity. Exact head geometry and standard/edition scope must survive DIN-to-ISO cross-references, especially when expanding beyond this M8 pilot. No global standard alias or article correction is approved.
+
 ## Scope
 
 This pilot covers individual metric steel hex-head screws explicitly identified to ISO 4017 and fully threaded. It excludes partial-thread bolts, inch threads, nuts, washers, studs, thread-forming screws, prevailing-torque features, special patches, and commercial kits. Thread direction is required. Pack quantities and GTINs are recorded as supplier offers so a box identifier is not mistaken for the identity of one physical screw.
