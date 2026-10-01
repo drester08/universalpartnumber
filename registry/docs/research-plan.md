@@ -2,9 +2,11 @@
 
 ## Current baseline — 1 October 2026
 
-There are 130 registered sources, 75 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The reproducible screen has 25 pairs; the reviewer queue has 460 tasks (449 ready, 11 dependency-blocked). All 26 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
+There are 131 registered sources, 76 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The reproducible screen has 25 pairs; the reviewer queue has 466 tasks (455 ready, 11 dependency-blocked). All 26 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.
+
+The later [MPS registration](mps-pipe-registration.md) brings the original private supplier manual into source custody with tier-2 authority, unknown publication date and reuse gates. Six new tasks cover source governance, independent extraction/applicability and four publication questions. Earlier staged JSON reports remain immutable. No article observations or specifications are added. Next obtain independent review, permissible-use confirmation and actual-stock certificate/mill evidence before identity promotion.
 
 New [supplier pipe-table research](mps-pipe-table-research.md) captures an independent MPS publication with 144 rows including nominal bore 6/8/10/90 and distinct 65/80 groups. The later [supplied piping comparison](piping-mps-comparison.md) finds unique printed-precision-compatible nominal OD/wall candidates for all 50 supplied rows. All 50 construction contradictions and the older source-specific findings remain open. One matched row intersects an internal-diameter question and two intersect the approximate-mass question. Next register supplier/reuse scope and independently review extraction, then obtain actual-stock manufacturer/certificate evidence. Do not transfer internal diameter, mass or API welded route into supplied A106 identities. Registered counts unchanged.
 

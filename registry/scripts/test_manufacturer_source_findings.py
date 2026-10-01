@@ -42,7 +42,7 @@ class ManufacturerSourceTests(unittest.TestCase):
     def test_queue_has_both_stable_tasks(self):
         items = build_review_queue.build_items(self.db)
         findings = [i for i in items if i['queue_type'] == 'manufacturer_source_publication_research']
-        self.assertEqual(len(items), 460)
+        self.assertEqual(len(items), 466)
         self.assertEqual({i['work_item_id'] for i in findings}, {'RW-' + f['finding_id'] for f in checker.build_report(self.db)['findings']})
         self.assertTrue(all(i['readiness'] == 'ready' and i['priority'] == 'P2' for i in findings))
         self.assertTrue(all('SHA-256' in i['next_action'] and 'Article HTML line' in i['next_action'] for i in findings))

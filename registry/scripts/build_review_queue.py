@@ -495,6 +495,10 @@ def build_items(connection: sqlite3.Connection) -> list[dict[str, str]]:
             ),
         )
 
+    import check_mps_pipe_registration
+    for task in check_mps_pipe_registration.review_tasks(connection):
+        add_item(items, **task)
+
     for row in connection.execute(
         """
         SELECT external_identifier_id, namespace, identifier_value,

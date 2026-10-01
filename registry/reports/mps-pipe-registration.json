@@ -1,0 +1,57 @@
+{
+  "policy_version": "mps-pipe-registration-0.1",
+  "source_id": "SRC-MPS-TECHNICAL-MANUAL",
+  "artifact_id": "ART-MPS-TECHNICAL-MANUAL",
+  "registered_source": true,
+  "source_role": "supplier/fabricator, not identified stock mill",
+  "source_sha256": "FE5731D47330DAD79637F05CC44E969100B62651852E23F64DBAE147794DED4B",
+  "historical_research_sha256": "819584E30A42785723627C57635902C5369D45C717D114811F54219572AFC0FE",
+  "nominal_comparison_sha256": "30330BF06214E19A696982BC22E5D9E2F820490F7CE5114430C7E649BF489A79",
+  "reviewed_physical_pages": [
+    12,
+    13,
+    14
+  ],
+  "research_rows": 144,
+  "nominal_comparison_rows": 50,
+  "questions": [
+    {
+      "question_id": "ID-80-160",
+      "kind": "internal_diameter_publication_question",
+      "physical_page": 12,
+      "nominal_bore": "80",
+      "schedule_raw": "160",
+      "summary": "Clarify printed internal diameter for DN 80 schedule 160"
+    },
+    {
+      "question_id": "ID-400-10",
+      "kind": "internal_diameter_publication_question",
+      "physical_page": 14,
+      "nominal_bore": "400",
+      "schedule_raw": "10",
+      "summary": "Clarify printed internal diameter for DN 400 schedule 10"
+    },
+    {
+      "question_id": "ID-600-160",
+      "kind": "internal_diameter_publication_question",
+      "physical_page": 14,
+      "nominal_bore": "600",
+      "schedule_raw": "160",
+      "summary": "Clarify printed internal diameter for DN 600 schedule 160"
+    },
+    {
+      "question_id": "MASS-50",
+      "kind": "approximate_mass_publication_question",
+      "physical_page": 12,
+      "nominal_bore": "50",
+      "schedule_raw": "40/80",
+      "summary": "Clarify repeated approximate mass for DN 50 schedules 40/80"
+    }
+  ],
+  "article_observations_added": 0,
+  "identity_approved": false,
+  "source_correction_obtained": false,
+  "historical_snapshots_unchanged": true,
+  "independent_review": "outstanding",
+  "source_reuse_review": "outstanding"
+}

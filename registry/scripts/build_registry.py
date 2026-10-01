@@ -155,6 +155,8 @@ def build(output: Path) -> None:
             check_nsk_6204zz_code_registration.verify(connection)
             import check_nsk_6204zz_closure_mapping
             check_nsk_6204zz_closure_mapping.verify(connection)
+            import check_mps_pipe_registration
+            check_mps_pipe_registration.verify(connection)
             connection.commit()
         finally:
             connection.close()

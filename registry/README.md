@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/mps-pipe-registration.md` registers the private MPS supplier manual with unknown publication date, source-reuse gates and six new review tasks. No generic table values are promoted into manufacturer-part observations. Earlier staged reports are historical and unchanged; all construction and publication questions remain open.
+
 `docs/piping-mps-comparison.md` compares all 50 supplied piping rows with the staged MPS table. All have unique printed-precision-compatible nominal OD/wall candidates, including the earlier 12 scope gaps and four ambiguous Tenaris rows. All 50 construction contradictions remain open. Internal diameter, mass and actual-stock identity are not approved; older reports and findings remain unchanged. Registered counts are unchanged.
 
 `docs/mps-pipe-table-research.md` adds a private staged supplier manual with 144 pipe-table rows, smaller nominal-size coverage and a clear 65/80 distinction. Three internal-diameter arithmetic discrepancies and one repeated approximate-mass question are retained. No supplied rows or original findings are corrected; the new capture is outside registered counts.
@@ -16,7 +18,7 @@ This directory is the evidence and data foundation for the Universal Part Number
 
 `docs/bearing-suffix-scope.md` records a cross-family suffix hazard and six regression tests proving exact-specification normalization isolation. Identical raw suffixes do not inherit another part's mapping. Source-discovery leads remain separate from ingested evidence.
 
-Current baseline (1 October 2026): 130 sources, 75 cached evidence records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The screen contains 25 pairs and the reviewer queue contains 460 tasks (449 ready, 11 blocked). All 26 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; milestone counts below are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
+Current baseline (1 October 2026): 131 sources, 76 cached evidence records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The screen contains 25 pairs and the reviewer queue contains 466 tasks (455 ready, 11 blocked). All 26 terminology mappings remain proposed. See `docs/research-plan.md` for current priorities; other milestone counts and staged flags are historical. `docs/schaeffler-retrieval-lead.md` records an unverified source-discovery lead and does not add article evidence or queue tasks.
 
 `docs/nsk-6204ZZ-source.md` adds a separate exact NSK article with fifteen unreviewed facts from twenty-four native rows. Clearance variants remain separate. Closure/locating semantics and three absent identity properties remain unresolved; four new mappings are proposed only.
 
