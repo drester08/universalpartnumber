@@ -26,9 +26,15 @@ class NTNCatalogueTests(unittest.TestCase):
                 checker.extract()
 
     def test_unmapped_code_wording_is_not_a_hard_conflict(self):
-        connection = sqlite3.connect(checker.ROOT / 'registry/build/registry.sqlite')
+        connection = sqlite3.connect(':memory:')
+        source = sqlite3.connect(checker.ROOT / 'registry/build/registry.sqlite')
+        source.backup(connection)
+        source.close()
         connection.row_factory = sqlite3.Row
         try:
+            # Isolate the original no-interpretation case as the live registry
+            # gains a separately evidenced, still-proposed P0 mapping.
+            connection.execute("DELETE FROM specification_value_mappings WHERE specification_id = 'SPEC-NTN-6205ZZ-TOLERANCE'")
             parts = screen_candidates.load_parts(connection)
             ntn = parts['MP-NTN-6205ZZ']['values']
             self.assertFalse(ntn.get('PROP-BEARING-TOLERANCE-CLASS'))

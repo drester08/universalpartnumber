@@ -62,6 +62,20 @@ The closure proposal brings two NTN comparisons through coarse screening, both `
 
 - NTN shield/seal catalogue: <https://www.ntnglobal.com/en/products/catalog/pdf/3015E.pdf>
 
+### Tolerance engineering context — 1 October 2026
+
+Three additional private manufacturer PDF sections are now registered. Table 5.2 in the number-code section (PDF page 3, printed A-50/A-51) defines NTN P0 as JIS Class 0. The tolerances section (PDF page 1, printed A-54/A-55) supplies deep-groove Class 0 applicability and the manufacturer's national-standard comparison. Its mixed cells remain literal: the first JIS radial column says `Class 0, 6`, while ISO 492 says `Normal class Class 6X`. These are not silently flattened into a universal one-to-one crosswalk. Table notes qualify JIS/ABMA differences. Current normative editions were not inspected.
+
+Together these manufacturer definitions support a proposed P0 interpretation of the exact NTN article's raw `ISO Class 0` wording. The raw wording remains unchanged and the crosswalk still requires independent review. The NSK–NTN screen now matches the proposed tolerance class but remains `insufficient_evidence`; the NTN–SKF screen now records a Class 0/P0 versus Class 6/P6 tolerance conflict under proposed mappings. Neither result is an accepted physical-identity adjudication. There are seventeen proposed terminology mappings and zero approved mappings.
+
+The deep-groove section (PDF page 1, printed B-17) describes grease-prelubricated enclosed bearings and points to possible greases. That family context does not establish the exact 6205ZZ supplied formulation, so no lubricant specification was added. No cylindrical bore or locating-feature absence was inferred from omitted suffixes. Required-field presence remains 9/12 for NTN. Earlier source-publication issues remain unresolved.
+
+`check_ntn_tolerance_context.py` and `ntn-tolerance-context.json` reproduce source hashes, bounded code/paragraph extraction, structured crosswalk cells, family scope and proposed mapping custody. Relevant pages were visually inspected using the PDF skill; independent extraction approval is outstanding. Six new tests cover mixed-cell preservation, changed-source rejection, lubricant limits and the two distinct comparison outcomes. Current 24-pair screens and the 424-task queue were regenerated; one candidate follow-up was replaced by one tolerance-mapping review, not resolved through an identity approval.
+
+- Number-code section: <https://www.ntnglobal.com/en/products/catalog/pdf/2203E_a05.pdf>
+- Tolerances section: <https://www.ntnglobal.com/en/products/catalog/pdf/2203E_a06.pdf>
+- Deep-groove section: <https://www.ntnglobal.com/en/products/catalog/pdf/2203E_b02.pdf>
+
 - SKF exact product page: <https://www.emarketplace.in.skf.com/deep-groove-ball-bearing/6205-2z>
 - NSK exact product page: <https://www.nsk.com/eu-en/engineering/products/bearings/ball-bearings/deep-groove-ball-bearings/single-row-deep-groove-ball-bearings/6205zz-apn.html>
 - NTN exact product page: <https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6205zz>

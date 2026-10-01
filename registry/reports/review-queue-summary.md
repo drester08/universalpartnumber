@@ -12,8 +12,8 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 
 | Priority | Count |
 | --- | ---: |
-| P0 | 77 |
-| P1 | 50 |
+| P0 | 78 |
+| P1 | 49 |
 | P2 | 288 |
 | P3 | 9 |
 
@@ -22,7 +22,7 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | Queue | Count |
 | --- | ---: |
 | artifact_retrieval | 17 |
-| candidate_evidence_followup | 6 |
+| candidate_evidence_followup | 5 |
 | complete_part_review | 11 |
 | dataset_finding_review | 98 |
 | external_identifier_verification | 1 |
@@ -34,7 +34,7 @@ It is a work list, not a set of reviewer decisions. Regenerate it whenever sourc
 | supplier_manufacturer_identity | 136 |
 | supplier_research_material_context_gap | 10 |
 | supplier_research_published_mass_discrepancy | 4 |
-| terminology_mapping_review | 16 |
+| terminology_mapping_review | 17 |
 
 ## Priority meaning
 

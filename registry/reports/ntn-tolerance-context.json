@@ -1,0 +1,63 @@
+{
+  "sources": [
+    {
+      "source_id": "SRC-NTN-2203-CODES",
+      "sha256": "3EABA02BE96756BA448998C2B4788112705AA9700F59C939DE9990555CBE9316",
+      "page_count": 4
+    },
+    {
+      "source_id": "SRC-NTN-2203-TOLERANCES",
+      "sha256": "513E2F846BE67207A83B83C20EDBA923B52F8266DAC2D0CDA9A6800D06BE02EC",
+      "page_count": 11
+    },
+    {
+      "source_id": "SRC-NTN-2203-DGBB",
+      "sha256": "3252B19D458DB91A5E02DBDB2F6D8ABD6A0AAC22EB17DAA1119B429B672C93C3",
+      "page_count": 14
+    }
+  ],
+  "evidence": {
+    "ntn_p0_definition": "P0: JIS Class 0",
+    "comparison_normal_column_cells": {
+      "JIS B 1514-1": {
+        "normal_column": "Class 0, 6",
+        "bearing_type": "Radial bearings"
+      },
+      "ISO 492": {
+        "normal_column": "Normal class Class 6X",
+        "bearing_type": "Radial bearings"
+      },
+      "DIN 620": {
+        "normal_column": "P0",
+        "bearing_type": "All types"
+      }
+    },
+    "deep_groove_class_zero_applicability": true,
+    "manufacturer_crosswalk_scope": "Manufacturer tables only; mixed cells retained and normative editions not inspected.",
+    "abma_qualification": "Manufacturer notes slight differences in JIS versus ABMA tolerance and allowance.",
+    "lubricant_context": "Family overview describes grease-prelubricated enclosed bearings and refers to a list of possible greases; exact 6205ZZ formulation is not established."
+  },
+  "article_source_id": "SRC-NTN-6205ZZ",
+  "article_sha256": "9C1EE760F042A1A6AAE56E1DEC21AD35A9817F66ADBDE3B1FBA86D5FD12B3F9D",
+  "locators": {
+    "codes": "PDF 3 / A-50-A-51 Table 5.2",
+    "tolerances": "PDF 1 / A-54-A-55 Tables 6.1/6.2 and notes",
+    "family": "PDF 1 / B-17 Design features and characteristics"
+  },
+  "proposal": {
+    "mapping_id": "MAP-NTN-6205ZZ-TOLERANCE",
+    "raw_value_retained": "ISO Class 0",
+    "canonical_code": "p0",
+    "state": "proposed"
+  },
+  "limits": [
+    "Manufacturer wording interpretation is proposed, not an approved semantic crosswalk.",
+    "ISO uses Normal in the comparison table; the article ISO Class 0 wording is retained rather than edited.",
+    "Normal/Class 6X and Class 0/6 mixed cells are not flattened into universal one-to-one mappings.",
+    "No exact-article grease, cylindrical bore or locating-feature absence is inferred from suffix absence.",
+    "Existing article rating/mounting publication questions remain unresolved.",
+    "Independent extraction review remains outstanding."
+  ],
+  "identity_approved": false,
+  "new_specification_rows": 0
+}
