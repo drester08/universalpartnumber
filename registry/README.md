@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/specification-value-presence.md` closes blank-value coverage and screening gaps. Empty normalization and invalid/non-finite normalized numbers do not become usable identity evidence. Current research data and approvals remain unchanged.
+
 `docs/jtekt-permission-review.md` records newly checked official terms and un-ingested bearing leads. `drafts/jtekt-permission-request.md` is an unsent scope-specific request, not permission. No JTEKT article facts, mappings, source registrations or counts change.
 
 `docs/source-use-decision-chain.md` ties permission to exact captured source revisions, private grant evidence, independent attestation and validity/revocation dates. The real ledger has no decisions. Source metadata alone cannot release a publication hold; attribution remains blocked pending fulfillment. Registered counts and actual reviews are unchanged.

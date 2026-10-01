@@ -1,0 +1,13 @@
+# Specification value presence checks
+
+Coverage and screening no longer treat an empty specification row as usable evidence. The shared `scripts/specification_presence.py` check requires nonblank source text, rejects explicitly blank normalized text or numbers, and rejects malformed or non-finite normalized numbers. A blank normalized field never falls back to its raw value. Zero, negative numbers and the text `false` remain present values; their engineering validity is a separate question.
+
+`audit_completeness.py` uses the same check when counting required-property coverage and collecting numeric conflicts. `screen_candidates.py` skips unusable specification values before comparing parts. Existing code-mapping, review, conditional-applicability and source-use gates remain in force. No source facts are filled, corrected or removed, and no identity approval is created.
+
+Eight tests cover empty raw text, Unicode whitespace, explicit blank normalization, invalid/non-finite numbers, real zero/negative/false values, screen exclusion, audit missing-field reporting, rejection of a synthetically accepted part with a blank required value, and unchanged read-only screening of the real 25-pair research set. Synthetic mutations exist only in disposable databases. Presence alone does not validate property types, physical ranges, unit conversions, source truth, semantic mappings, application suitability or permission. SQL still permits incomplete rows for research; publication remains subject to its runtime audit.
+
+The SNR 6204ZZ shop route was also checked as a discovery lead on 1 October 2026. It did not return usable product content. Official shop terms at `https://eshop.ntn-snr.com/en/GCU`, version dated 3 January 2024, section 5, require prior authorization for content reuse. No shop product content was captured or extracted, and no SNR article was registered. SNR designations must not inherit existing NTN observations merely because the publisher group is related. This local access/rights dependency does not stop other research.
+
+Next continue the governed conditional-predicate work, validate typed values and conversion metadata consistently across ingestion/audits/screening, and obtain genuine primary article evidence and independent permissions/reviews. The real reuse ledger remains empty and all registered counts are unchanged.
+
+Verification on 1 October 2026: all 442 tests passed in 84.022 seconds, including eight new presence tests. Registry build/validation and the zero-allocation issuance audit passed. Existing rotated-text warnings are unrelated to these value checks. No new source capture, CSV edits or PDF extraction occurred this turn.

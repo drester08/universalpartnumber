@@ -94,6 +94,7 @@ def normalized_value(row: sqlite3.Row) -> str | numeric_rules.NumericValue:
 
 
 def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
+    from specification_presence import has_value
     parts: dict[str, dict[str, object]] = {}
     for row in connection.execute(
         "SELECT manufacturer_part_id, manufacturer_id, profile_id, manufacturer_part_number "
@@ -126,6 +127,8 @@ def load_parts(connection: sqlite3.Connection) -> dict[str, dict[str, object]]:
         # A raw manufacturer designation is not a semantic comparison value.
         # Typed normalization may support research screening; approval still
         # requires the explicit terminology-mapping governance gates.
+        if not has_value(row['raw_value'], row['normalized_text'], row['normalized_number']):
+            continue
         if row["value_kind"] == "code" and row["canonical_code"] is None and row["normalized_text"] is None:
             continue
         values = parts[row["manufacturer_part_id"]]["values"]

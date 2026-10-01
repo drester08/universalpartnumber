@@ -12,6 +12,7 @@ from pathlib import Path
 import numeric_rules
 import conditional_requirements
 import source_use_gates
+from specification_presence import has_value
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,6 +33,7 @@ def main() -> int:
 
     connection = sqlite3.connect(arguments.database)
     connection.row_factory = sqlite3.Row
+    connection.create_function('has_specification_value', 3, has_value)
     try:
         records = connection.execute(
             """
@@ -45,6 +47,7 @@ def main() -> int:
                       WHERE o.manufacturer_part_id = mp.manufacturer_part_id
                         AND o.review_state NOT IN ('rejected', 'superseded')
                         AND sv.property_id = ipp.property_id
+                        AND has_specification_value(sv.raw_value, sv.normalized_text, sv.normalized_number)
                    ) THEN 1 ELSE 0 END AS property_present,
                    COALESCE((
                      SELECT mpr.decision
@@ -114,6 +117,7 @@ def main() -> int:
                AND sv.property_id = ipp.property_id
               JOIN units AS u ON u.unit_id = sv.unit_id
              WHERE sv.normalized_number IS NOT NULL
+               AND has_specification_value(sv.raw_value, sv.normalized_text, sv.normalized_number)
           ORDER BY mp.manufacturer_part_number, ipp.sequence_number, o.observation_id
             """
         ).fetchall()
