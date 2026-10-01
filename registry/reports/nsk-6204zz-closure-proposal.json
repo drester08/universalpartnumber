@@ -1,0 +1,34 @@
+{
+  "policy_version": "nsk-6204zz-closure-proposal-0.1",
+  "mapping": {
+    "mapping_id": "MAP-NSK-6204ZZ-CLOSURE",
+    "specification_id": "SPEC-NSK-6204ZZ-CLOSURE",
+    "property_id": "PROP-BEARING-CLOSURE",
+    "controlled_value_id": "CV-BEARING-CLOSURE-DOUBLE-NONCONTACT-METAL",
+    "mapping_basis": "manufacturer_definition",
+    "mapping_state": "proposed",
+    "rationale": "NSK DGB/H/E/01.15 physical pages 7 and 9 define ZZ non-contact shielding and double metal shields in 62-series scope. Exact article and catalogue bound through registry/reports/nsk-6204zz-metal-research.json SHA256 4152E16FFEA4A47C6F24DF608D1C8764026BDBD14C3641E0FD8285C07854A058. Historical applicability and independent review outstanding; no special design defaults.",
+    "proposed_by": "registry-research",
+    "proposed_at": "2026-10-01",
+    "reviewer": "",
+    "reviewed_at": "",
+    "policy_version": "0.1"
+  },
+  "source_id": "SRC-NSK-DGBB-EU-0115",
+  "observation_id": "OBS-NSK-6204ZZ-EU-20261001",
+  "source_sha256": "516844D7485922BE5888829573F5AB67E13052B0365203C52F78AE068A37B865",
+  "evidence_report_path": "registry/reports/nsk-6204zz-metal-research.json",
+  "evidence_report_sha256": "4152E16FFEA4A47C6F24DF608D1C8764026BDBD14C3641E0FD8285C07854A058",
+  "registered_new_source": true,
+  "canonical_code": "double_non_contact_metal_shield",
+  "identity_approved": false,
+  "independent_review": "outstanding",
+  "historical_applicability_review": "outstanding",
+  "limitations": [
+    "Exact specification only; no maker-wide or suffix-wide inheritance.",
+    "Proposed terminology supports research screening, not equivalence or UPN issuance.",
+    "Historical source reuse and current applicability remain under review.",
+    "No exact metal grade, bearing material, lubricant or locating default assigned.",
+    "Raw article facts and historical evidence reports remain unchanged."
+  ]
+}

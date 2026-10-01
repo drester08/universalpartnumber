@@ -1,5 +1,7 @@
 # NSK 6204ZZ metal-shield construction research — 1 October 2026
 
+Historical staging milestone. The later [closure proposal](nsk-6204zz-closure-proposal.md) supersedes registration, mapping and screen status below; this research JSON remains unchanged.
+
 NSK's own deep-groove brochure now supplies the missing metal-shield terminology. Complete physical pages 7, 8, 9, 11 and 16 were rendered and visually inspected using the PDF skill. This is a historical manufacturer publication: reference `DGB/H/E/01.15`, copyright 2009. Search crawl dates were not treated as publication dates.
 
 Source: [NSK Europe Deep Groove Ball Bearings brochure](https://www.nsk.com/content/dam/nsk-marketing/projects-completed/literature/product-brochures/deep-grooves-bbs_product-brochure/en_deep-grooves-bbs_product-brochure/preview-pdf_deep-grooves-bbs_product-brochure_en/EN_Deep%20Grooves%20BBs_Product_Brochure_low-res.pdf). Private original: `registry/artifacts/nsk/EN-DGBB-Europe-20261001.pdf`, SHA-256 `516844D7485922BE5888829573F5AB67E13052B0365203C52F78AE068A37B865`, 16 pages. Selected pages reviewed, not the full document.

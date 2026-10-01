@@ -43,7 +43,7 @@ class NSKMetalResearchTests(unittest.TestCase):
         c.build_report()
         self.assertEqual(before, path.read_bytes())
         with sqlite3.connect(c.ROOT/'build/registry.sqlite') as db:
-            self.assertEqual(db.execute("SELECT count(*) FROM specification_value_mappings WHERE specification_id='SPEC-NSK-6204ZZ-CLOSURE'").fetchone()[0], 0)
+            self.assertEqual(db.execute("SELECT mapping_state FROM specification_value_mappings WHERE specification_id='SPEC-NSK-6204ZZ-CLOSURE'").fetchone()[0], 'proposed')
             self.assertEqual(db.execute('SELECT count(*) FROM upn_allocations').fetchone()[0], 0)
 
 

@@ -72,8 +72,11 @@ class NSKArticleTests(unittest.TestCase):
             with closing(sqlite3.connect(path)) as db:
                 db.row_factory = sqlite3.Row
                 values = screen_candidates.load_parts(db)[c.PART]['values']
-                self.assertFalse({'PROP-BEARING-CLOSURE', 'PROP-LOCATING-FEATURE', 'PROP-BORE-TYPE', 'PROP-BEARING-MATERIAL', 'PROP-SUPPLIED-LUBRICANT'} & set(values))
-                self.assertFalse(any(c.PART in (r['left_part_id'], r['right_part_id']) for r in screen_candidates.screen(db, '2026-10-01')))
+                self.assertFalse({'PROP-LOCATING-FEATURE', 'PROP-BORE-TYPE', 'PROP-BEARING-MATERIAL', 'PROP-SUPPLIED-LUBRICANT'} & set(values))
+                self.assertEqual(values['PROP-BEARING-CLOSURE'], {'double_non_contact_metal_shield'})
+                pairs = [r for r in screen_candidates.screen(db, '2026-10-01') if c.PART in (r['left_part_id'], r['right_part_id'])]
+                self.assertEqual(len(pairs), 1)
+                self.assertEqual(pairs[0]['result'], 'insufficient_evidence')
                 gaps = [t for t in build_review_queue.build_items(db) if t['manufacturer_part_id'] == c.PART and t['queue_type'] == 'required_evidence_gap']
                 self.assertEqual({t['property_id'] for t in gaps}, set(self.report['missing_required_properties']))
                 self.assertEqual(db.execute('SELECT count(*) FROM upn_allocations').fetchone()[0], 0)

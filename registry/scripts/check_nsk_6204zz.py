@@ -119,6 +119,12 @@ def verify_seed_bindings(report):
     if len(actual_rows) != 15 or actual != expected:
         raise ValueError('NSK ingestion differs from native source or qualifiers')
     maps = [r for r in read('specification-value-mappings.csv') if r['specification_id'] in {r['specification_id'] for r in actual_rows}]
+    closure = [r for r in maps if r['specification_id'] == 'SPEC-NSK-6204ZZ-CLOSURE']
+    if len(closure) != 1:
+        raise ValueError('NSK separately governed closure proposal absent or duplicated')
+    import check_nsk_6204zz_closure_mapping
+    check_nsk_6204zz_closure_mapping.verify_mapping_row(closure[0])
+    maps = [r for r in maps if r not in closure]
     allowed = {'GEOMETRY':'CV-BEARING-GEOMETRY-SR-DGBB', 'CLEARANCE':'CV-BEARING-CLEARANCE-CN', 'TOLERANCE':'CV-BEARING-TOLERANCE-P0', 'CAGE':'CV-BEARING-CAGE-PRESSED-STEEL'}
     if len(maps) != 4 or {r['specification_id'].removeprefix('SPEC-NSK-6204ZZ-'):r['controlled_value_id'] for r in maps} != allowed or any(r['mapping_state'] != 'proposed' or r['mapping_basis'] != 'source_exact' for r in maps):
         raise ValueError('NSK mapping scope/state changed or unsupported closure promoted')

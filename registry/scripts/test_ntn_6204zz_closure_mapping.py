@@ -36,6 +36,8 @@ class ClosureTests(unittest.TestCase):
     def test_exact_normalization_no_cross_brand_inheritance(self):
         parts=screen_candidates.load_parts(self.db)
         self.assertEqual(parts['MP-NTN-6204ZZ']['values']['PROP-BEARING-CLOSURE'],{'double_non_contact_metal_shield'})
+        self.db.execute("DELETE FROM specification_value_mappings WHERE mapping_id='MAP-NSK-6204ZZ-CLOSURE'")
+        parts=screen_candidates.load_parts(self.db)
         self.assertFalse(parts['MP-NSK-6204ZZ']['values'].get('PROP-BEARING-CLOSURE'))
         self.assertFalse(any('MP-NTN-6204ZZ' in (r['left_part_id'],r['right_part_id']) for r in screen_candidates.screen(self.db,'2026-10-01')))
         self.assertEqual(self.db.execute('SELECT count(*) FROM upn_allocations').fetchone()[0],0)
