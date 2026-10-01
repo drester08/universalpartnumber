@@ -2,6 +2,8 @@
 
 ## Current baseline — 1 October 2026
 
+New [Industeel declaration hold](industeel-dop-authorization-hold.md) preserves a two-page private capture with explicit manufacturer/site and thickness boundaries. Official reuse restrictions prevent technical intake pending permitted-use review. Seek exact stock provenance and independent applicability/authenticity review; no supplied row comparison, new registered source or approval is claimed.
+
 There are 133 registered sources, 78 cached evidence records, 17 remote/blocked records, four supplied datasets, five draft profiles, 42 manufacturer parts, 168 supplier offers and 68 observations. The reproducible screen has 25 pairs; the reviewer queue has 472 tasks (461 ready, 11 dependency-blocked). All 26 terminology mappings remain proposed. No production UPN or same-item equivalence approval has been issued.
 
 These are research counts, not independently approved articles or global coverage. The generated queue summary and validation outputs take precedence after seed changes. Older completed-foundation figures below are historical snapshots.

@@ -2,6 +2,8 @@
 
 This directory is the evidence and data foundation for the Universal Part Number registry. It is not yet a populated global parts database and contains no production-issued UPNs.
 
+`docs/industeel-dop-authorization-hold.md` preserves a privately captured plate declaration and its reuse hold. Its manufacturer/site and thickness scope cannot be transferred to supplied stock. No performance table, article, source registration or approval is added.
+
 `docs/numeric-evidence-gaps.md` and its reproducible read-only report preserve three unresolved splice-count normalization/custody gaps. Installation methods, counted objects and package inclusion stay separate; no unit or source checksum is invented.
 
 `docs/numeric-conversion-metadata.md` requires explicit finite conversion metadata, validates numeric quantity kinds in coverage and closes singleton-set comparison bypasses. Numeric normalization is not equivalence approval; real source data and counts are unchanged.
